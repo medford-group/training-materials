@@ -89,11 +89,16 @@ if `pwd` shows `/Users/thing` what will `ls -F ../backup` display
 * aliases can be used to create shortcuts and make new commands
 
 
-### Using ssh To Get Onto The Supercomputer
+### Using `ssh` To Get Onto The Supercomputer
 * ssh is a secure remote linux terminal
 * can be done through other programs on windows like [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * `ssh -X [username]@pace-ice.pace.gatech.edu`
 * `-X` allows visual data to be sent to your computer
+
+#### Logging Onto PACE ICE Off-Campus / Using VPN:
+- For getting access to PACE-ICE cluster while off campus, follow the "Logging On to ICE Clusters on the Command Line" instructions at: [PACE-ICE]{https://pace.gatech.edu/pace-ice-instructional-cluster-environment-education}
+- As of Sep 2023, the cluster is accessed using: `ssh yourGTusername@login-ice.pace.gatech.edu`
+- Make sure the GlobalProtect VPN is running before you access the cluster. 
 
 ## Linux Cluster Supercomputers
 * pace is a [Linux cluster supercomputer](https://en.wikipedia.org/wiki/Computer_cluster)
