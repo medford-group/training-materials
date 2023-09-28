@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>6.3. Complexity Optimization &#8212; Medford Group Graduate Training</title>
+    <title>7.3. Complexity Optimization &#8212; Medford Group Graduate Training</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -66,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/ML_1_2_Complexity_Optimization';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.4. High Dimensional Data" href="ML_1_3_High_Dimensional_Data.html" />
-    <link rel="prev" title="6.2. Non-Parametric Models" href="ML_1_1_Non-parametric_Models.html" />
+    <link rel="next" title="7.4. High Dimensional Data" href="ML_1_3_High_Dimensional_Data.html" />
+    <link rel="prev" title="7.2. Non-Parametric Models" href="ML_1_1_Non-parametric_Models.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -78,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -193,38 +203,43 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Intro_to_Density_Functional_Theory.html">4. Introduction to Density Functional Theory</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">5. Applications of Density Functional Theory</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">5.2. Adsorption energy calculation using DFT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_SPARC.html">5.3. Adsorption energy from DFT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">5.4. Exercises</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Running_Density_Functional_Theory_on_PACE.html">5. Running Density Functional Theory on PACE</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Running_QE_on_PACE.html">5.2. Running QE on PACE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Running_SPARC_on_PACE.html">5.3. Running SPARC on PACE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_basics.html">5.4. Exercises</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">6. Intro to Regression and High Dimensional Data</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">6.2. Non-Parametric Models</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.3. Complexity Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">6.4. High Dimensional Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ML_1_4_Dimensionality_Reduction.html">6.5. Dimensionality Reduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">6.6. Exercises</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">6. Applications of Density Functional Theory</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">6.2. Adsorption energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_SPARC.html">6.3. Adsorption energy from DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">6.4. Exercises</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">7. Intro to Classification and Generative Models</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="ML_2_1_Classification_Basics.html">7.2. Classification Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">7.3. Generalized Linear Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">7.4. Alternate classification methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">7.5. Clustering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ML_2_5_Generative_Models.html">7.6. Generative Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">7.7. Exercises</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">7. Intro to Regression and High Dimensional Data</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">7.2. Non-Parametric Models</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.3. Complexity Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">7.4. High Dimensional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_4_Dimensionality_Reduction.html">7.5. Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">7.6. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">8. Intro to Classification and Generative Models</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_1_Classification_Basics.html">8.2. Classification Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">8.3. Generalized Linear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">8.4. Alternate classification methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">8.5. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_5_Generative_Models.html">8.6. Generative Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">8.7. Exercises</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="Appendix.html">Appendix</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Appendix.html">Appendix</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="Literature_Searches.html">Basics of Searching and Reading Scientific Literature</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Create_DFT_Environments.html">Create DFT Environments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gas_formation_energy_calculation_in_SPARC.html">8.3. Gas formation energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gas_formation_energy_calculation_in_SPARC.html">Gas formation energy calculation using DFT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Referencing_Binding_Energies.html">Referencing Binding Energies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Intro_to_EST.html">Introduction to Electronic Structure Theory</a></li>
 </ul>
 </li>
 </ul>
@@ -335,10 +350,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -346,7 +361,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -373,14 +388,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-criteria">6.3.1. Information Criteria</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization">6.3.2. Regularization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-why-is-the-smoothness-of-a-model-related-to-the-size-of-its-parameters">6.3.2.1. Discussion: Why is the “smoothness” of a model related to the size of its parameters?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-what-happens-as-alpha-rightarrow-0-and-alpha-rightarrow-infty">6.3.2.2. Discussion: What happens as  <span class="math notranslate nohighlight">\(\alpha \rightarrow\)</span> 0 and <span class="math notranslate nohighlight">\(\alpha \rightarrow\)</span> <span class="math notranslate nohighlight">\(\infty\)</span>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-criteria">7.3.1. Information Criteria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization">7.3.2. Regularization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-why-is-the-smoothness-of-a-model-related-to-the-size-of-its-parameters">7.3.2.1. Discussion: Why is the “smoothness” of a model related to the size of its parameters?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-what-happens-as-alpha-rightarrow-0-and-alpha-rightarrow-infty">7.3.2.2. Discussion: What happens as  <span class="math notranslate nohighlight">\(\alpha \rightarrow\)</span> 0 and <span class="math notranslate nohighlight">\(\alpha \rightarrow\)</span> <span class="math notranslate nohighlight">\(\infty\)</span>?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso-regularization">6.3.3. LASSO Regularization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameter-tuning">6.3.4. Hyperparameter Tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso-regularization">7.3.3. LASSO Regularization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameter-tuning">7.3.4. Hyperparameter Tuning</a></li>
 </ul>
             </nav>
         </div>
@@ -402,7 +417,7 @@ document.write(`
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="complexity-optimization">
-<h1><span class="section-number">6.3. </span>Complexity Optimization<a class="headerlink" href="#complexity-optimization" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">7.3. </span>Complexity Optimization<a class="headerlink" href="#complexity-optimization" title="Permalink to this heading">#</a></h1>
 <p>The key to machine learning is creating models that generalize to new examples. This means we are looking for models with enough complexity to describe the behavior, but not so much complexity that it just reproduces the data points.</p>
 <a class="reference internal image-reference" href="../_images/underfitting_overfitting.png"><img alt="../_images/underfitting_overfitting.png" class="align-center" src="../_images/underfitting_overfitting.png" style="width: 800px;" /></a>
 <ul class="simple">
@@ -425,7 +440,7 @@ document.write(`
 </div></blockquote>
 <p>(see an <a class="reference external" href="https://www.johndcook.com/blog/2011/06/21/how-to-fit-an-elephant/">example here</a>)</p>
 <section id="information-criteria">
-<h2><span class="section-number">6.3.1. </span>Information Criteria<a class="headerlink" href="#information-criteria" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.3.1. </span>Information Criteria<a class="headerlink" href="#information-criteria" title="Permalink to this heading">#</a></h2>
 <p>The idea behind an “information criterion” is that it quantifies the tradeoff between the number of parameters and the model error. The most commonly used information criterion is the “Bayesian Information Criterion”, or BIC. The derivation of the BIC is beyond the scope of this course, but conceptually a lower BIC corresponds to a <em>more</em> probable model.</p>
 <p>If we assume that our error is normally distributed, the BIC can be easily computed as:</p>
 <p><span class="math notranslate nohighlight">\( BIC = n\times\ln{(\sigma^2_e)} + k\times\ln(n)\)</span></p>
@@ -562,14 +577,14 @@ document.write(`
 <p>One other challenge with information criteria is that non-parametric models have parameters that are not defined in the same way (the parameters and their values change depending on the training data). This makes it difficult (or impossible) to apply information critera with non-parametric models.</p>
 </section>
 <section id="regularization">
-<h2><span class="section-number">6.3.2. </span>Regularization<a class="headerlink" href="#regularization" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.3.2. </span>Regularization<a class="headerlink" href="#regularization" title="Permalink to this heading">#</a></h2>
 <p>Another way of penalizing complexity is by trying to penalize models that change very sharply. This is achieved by adding a penalty for parameters with very large values in the loss function. For example:</p>
 <p><span class="math notranslate nohighlight">\(L = \sum_i \epsilon_i^2 + \alpha \sqrt{\sum_j w_j^2}\)</span></p>
 <p>In this case, we introduce a new hyperparameter, <span class="math notranslate nohighlight">\(\alpha\)</span>, which controls the strength of regularization. We also choose to regularize on the square root of the sum of squared parameters, which is often called the “L2 norm” and written as:</p>
 <p><span class="math notranslate nohighlight">\(L = \sum_i \epsilon_i^2 + \alpha ||\vec{w}||_2\)</span></p>
 <p>We can also regularize in other ways, which can have advantages in some cases. We will discuss this more later, but will focus on the L2 norm for now.</p>
 <section id="discussion-why-is-the-smoothness-of-a-model-related-to-the-size-of-its-parameters">
-<h3><span class="section-number">6.3.2.1. </span>Discussion: Why is the “smoothness” of a model related to the size of its parameters?<a class="headerlink" href="#discussion-why-is-the-smoothness-of-a-model-related-to-the-size-of-its-parameters" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.3.2.1. </span>Discussion: Why is the “smoothness” of a model related to the size of its parameters?<a class="headerlink" href="#discussion-why-is-the-smoothness-of-a-model-related-to-the-size-of-its-parameters" title="Permalink to this heading">#</a></h3>
 <blockquote>
 <div><p>Take the second derivative. The larger w<span class="math notranslate nohighlight">\(_{j}\)</span>, the larger the derivative would be.</p>
 </div></blockquote>
@@ -616,7 +631,7 @@ document.write(`
 </div>
 </section>
 <section id="discussion-what-happens-as-alpha-rightarrow-0-and-alpha-rightarrow-infty">
-<h3><span class="section-number">6.3.2.2. </span>Discussion: What happens as  <span class="math notranslate nohighlight">\(\alpha \rightarrow\)</span> 0 and <span class="math notranslate nohighlight">\(\alpha \rightarrow\)</span> <span class="math notranslate nohighlight">\(\infty\)</span>?<a class="headerlink" href="#discussion-what-happens-as-alpha-rightarrow-0-and-alpha-rightarrow-infty" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.3.2.2. </span>Discussion: What happens as  <span class="math notranslate nohighlight">\(\alpha \rightarrow\)</span> 0 and <span class="math notranslate nohighlight">\(\alpha \rightarrow\)</span> <span class="math notranslate nohighlight">\(\infty\)</span>?<a class="headerlink" href="#discussion-what-happens-as-alpha-rightarrow-0-and-alpha-rightarrow-infty" title="Permalink to this heading">#</a></h3>
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\(\alpha \rightarrow\)</span> 0: no regularization<br />
 <span class="math notranslate nohighlight">\(\alpha \rightarrow \infty\)</span>: flat line</p>
@@ -700,7 +715,7 @@ The largest coefficient is 10.984.
 </section>
 </section>
 <section id="lasso-regularization">
-<h2><span class="section-number">6.3.3. </span>LASSO Regularization<a class="headerlink" href="#lasso-regularization" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.3.3. </span>LASSO Regularization<a class="headerlink" href="#lasso-regularization" title="Permalink to this heading">#</a></h2>
 <p>Ridge regression provides a good way to penalize model “smoothness”, but it doesn’t actually reduce the number of parameters. We can see that all of the coefficients are non-zero:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -797,7 +812,7 @@ The largest coefficient is 10.984.
 <p>We see that the LASSO regularization has a lot of coefficients that are equal to zero. This is equivalent to discarding these terms and finding which Gaussians should (or should not) be included.</p>
 </section>
 <section id="hyperparameter-tuning">
-<h2><span class="section-number">6.3.4. </span>Hyperparameter Tuning<a class="headerlink" href="#hyperparameter-tuning" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.3.4. </span>Hyperparameter Tuning<a class="headerlink" href="#hyperparameter-tuning" title="Permalink to this heading">#</a></h2>
 <p>The KRR and LASSO models above have 2 hyperparameters: <span class="math notranslate nohighlight">\(\gamma\)</span> <span class="math notranslate nohighlight">\(\left(=\frac{1}{2\sigma^2}\right)\)</span> and <span class="math notranslate nohighlight">\(\alpha\)</span>. So far, we have optimized <span class="math notranslate nohighlight">\(\alpha\)</span>, but the model performance (and optimal <span class="math notranslate nohighlight">\(\alpha\)</span>) will also depend on <span class="math notranslate nohighlight">\(\sigma\)</span>. You can probably see that optimizing these will get rather tedious.</p>
 <p>Fortunately, <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> has some nice built-in tools to help. The most commonly used is <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>, which is a brute-force approach that searches over a grid of hyperparameters, and uses cross-validation at each grid point to assess model performace.</p>
 <p>Here we will use GridSearchCV to find the optimum KRR model and its score (related to <span class="math notranslate nohighlight">\(R^2\)</span>):</p>
@@ -877,11 +892,10 @@ The largest coefficient is 10.984.
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="ML_1_1_Non-parametric_Models.html"
@@ -889,7 +903,7 @@ The largest coefficient is 10.984.
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6.2. </span>Non-Parametric Models</p>
+        <p class="prev-next-title"><span class="section-number">7.2. </span>Non-Parametric Models</p>
       </div>
     </a>
     <a class="right-next"
@@ -897,14 +911,11 @@ The largest coefficient is 10.984.
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6.4. </span>High Dimensional Data</p>
+        <p class="prev-next-title"><span class="section-number">7.4. </span>High Dimensional Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -919,14 +930,14 @@ The largest coefficient is 10.984.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-criteria">6.3.1. Information Criteria</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization">6.3.2. Regularization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-why-is-the-smoothness-of-a-model-related-to-the-size-of-its-parameters">6.3.2.1. Discussion: Why is the “smoothness” of a model related to the size of its parameters?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-what-happens-as-alpha-rightarrow-0-and-alpha-rightarrow-infty">6.3.2.2. Discussion: What happens as  <span class="math notranslate nohighlight">\(\alpha \rightarrow\)</span> 0 and <span class="math notranslate nohighlight">\(\alpha \rightarrow\)</span> <span class="math notranslate nohighlight">\(\infty\)</span>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-criteria">7.3.1. Information Criteria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization">7.3.2. Regularization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-why-is-the-smoothness-of-a-model-related-to-the-size-of-its-parameters">7.3.2.1. Discussion: Why is the “smoothness” of a model related to the size of its parameters?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-what-happens-as-alpha-rightarrow-0-and-alpha-rightarrow-infty">7.3.2.2. Discussion: What happens as  <span class="math notranslate nohighlight">\(\alpha \rightarrow\)</span> 0 and <span class="math notranslate nohighlight">\(\alpha \rightarrow\)</span> <span class="math notranslate nohighlight">\(\infty\)</span>?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso-regularization">6.3.3. LASSO Regularization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameter-tuning">6.3.4. Hyperparameter Tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso-regularization">7.3.3. LASSO Regularization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameter-tuning">7.3.4. Hyperparameter Tuning</a></li>
 </ul>
   </nav></div>
 
@@ -974,8 +985,8 @@ By Medford Group
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>
