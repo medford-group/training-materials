@@ -74,20 +74,7 @@ developed by graduate students in the Medford group:
     several numerical parameters. The training will cover approximately 10 weeks and is
     highly represnetative of training programs for new graduate students in this field.
 
--   Machine Learning for Catalysis (led by Lucas Timmerman): This sub-team will have two thrusts:
-    i.) developing large language models (LLM) for catalysis and ii.) creating an integrated and 
-    portable platform for training neural networks (NNs) using python based autodifferentiation
-    capabilities. Thrust i.) is more open ended and will involve fine tuning existing, open-source GPT models
-    to predict catalyst properties, active sites, synthetic pathways etc. Students will have the opportunity
-    to gain hands on experience developing LLMs, GPU programming expertise, and conceptual understanding of 
-    problems in the heterogeneous catalysis community. The second thrust will be more focused on
-    software engineering. There are several freely available autodifferentiation (or autograd) softwares
-    (pyTorch, TensorFlow, JAX) that can be utilized for developing NNs in a portable, lightweight, and 
-    highly customizable format. Students will gain hands on experience working with SOTA ML tools 
-    and algorithms, as well as extensive experience developing sicentific pacakges in Python. No prior
-    programming or catalysis experience is required to take on these projects, simply a willingness to
-    learn and be challenged. I am seeking students who are eager to learn new skills/concepts and work
-    collaboratively on "bleedng" edge science.
+-   Terminus Upgrade (led by Lucas Timmerman): This semester, my team will focus on upgrading the Medford Group computational infrastructure. The group's server, Terminus, is in desperate need of a revamp. The plan is to identify an ideal Linux based operating system to install for facilitating the group's research operations. Once finiished, the team will turn to focusing on installing and learning the Computational Catalysis Interface (CCI) developed by the Hibbits lab which will enable us to further diversify the group's computatinal resources. Finally, we will experiment with the new file storage system, CEDAR, for use in io operations across clusters. 
 
 -   DFT Modeling of Surface Reactions (led by Neung-Kyung Yu):  This project involves using Density Functional Theory (DFT) to model and investigate surface reactions. DFT is a widely-used computational approach for simulating atomistic models. The project will employ the [SPARC code](https://www.sparc-x.com/), a recent DFT package developed by Prof. Suryanarayana at Georgia Tech, designed for massive parallel calculations. In this project, we will go beyond the scope of the DFT training materials and apply DFT to study fascinating surface reactions. Prior knowledge of the topics isn't required, but an interest in computational investigation of chemical reactions is needed as the project will involve greater complexity in both DFT and chemistry. Additionally, the project will involve testing new features in SPARC and enhancing its Python API.
 
@@ -268,35 +255,35 @@ The project groups will use the course time to meet and discuss progress on proj
 Training Schedule *(all synchronous)*
 ========
 
-Week 1 (8/23): Introduction to VIP and projects (Medford)
+Week 1 (1/10): Introduction to VIP and projects (Medford)
 
-Week 2 (8/30): VIP Subteam pitches (Medford/Timmerman/Brabson/Sahoo)
+Week 2 (1/17): VIP Subteam pitches (Medford/Timmerman/Yu/Sahoo/Tian)
 
-Week 3 (9/6): Literature searches (Medford)
+Week 3 (1/24): Literature searches (Medford) - Bi-weekly Update 1
 
-Week 4 (9/13): Intro to Python and HPC (Brabson)
+Week 4 (1/31): Intro to Python and HPC (Brabson)
 
-Week 5 (9/20): Intro to ASE (Brabson)
+Week 5 (2/7): Intro to ASE (Brabson) - Bi-weekly Update 2 (Ex. 1.6.1-1.6.5)
 
-Week 6 (9/27): Intro to Density Functional Theory (Brabson)
+Week 6 (2/14): Software check (Brabson)
 
-Week 7 (10/4): Midterm Updates (pre-recorded presentations, virtual synchronous Q&A)
+Week 7 (2/21): Midterm Updates (pre-recorded presentations, virtual synchronous Q&A) - Bi-weekly Update 3 (Ex. 2.5.1 & 3.3.1-3.3.4)
 
-Week 8 (10/11): DFT calculations and applications (Brabson)
+Week 8 (2/28): Intro to Density Functional Theory (Medford/Brabson)
 
-Week 9 (10/18): Machine Learning Part I - Regression (Brabson)
+Week 9 (3/6): DFT calculations and applications (Brabson) - Bi-weekly Update 4
 
-Week 10 (10/25): Machine Learning Part II - Classification (Brabson)
+Week 10 (3/13): Machine Learning Basics (Brabson)
 
-Week 11 (11/1): Projects (Timmerman/Yu/Sahoo)
+Week 11 (3/20): Spring Break
 
-Week 12 (11/8): Projects (Timmerman/Yu/Sahoo)
+Week 12 (3/27): Projects (Timmerman/Yu/Sahoo/Tian) - Bi-weekly Update 5 (Ex. 5.4.1-5.4.3 & 6.4.1)
 
-Week 13 (11/15): Projects (Timmerman/Yu/Sahoo)
+Week 13 (4/3): Projects (Timmerman/Yu/Sahoo/Tian)
 
-Week 14 (11/22): Thanksgiving Break
+Week 14 (4/10): Projects (Timmerman/Yu/Sahoo/Tian) - Bi-weekly Update 6 (Ex. 6.4.2 & 7.3.1-7.3.3)
 
-Week 15 (11/29): Final Updates (pre-recorded presentations, virtual synchronous Q&A)
+Week 15 (4/17): Final Updates (pre-recorded presentations, virtual synchronous Q&A)
 
 Changes to Syllabus
 ===================

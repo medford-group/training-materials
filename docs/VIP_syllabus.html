@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -76,7 +76,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
 
@@ -119,12 +119,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <header>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
   
+  </header>
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -139,9 +147,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
+  
   
   
   
@@ -151,8 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Medford Group Graduate Training - Home"/>
+    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Medford Group Graduate Training - Home"/>`);</script>
   
   
 </a></div>
@@ -201,44 +211,33 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Intro_to_Density_Functional_Theory.html">4. Introduction to Density Functional Theory</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Running_Density_Functional_Theory_on_PACE.html">5. Running Density Functional Theory on PACE</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Running_QE_on_PACE.html">5.2. Running QE on PACE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Running_SPARC_on_PACE.html">5.3. Running SPARC on PACE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_basics.html">5.4. Exercises</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">5. Applications of Density Functional Theory</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">5.2. Adsorption energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_SPARC.html">5.3. Adsorption energy from DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">5.4. Exercises</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">6. Applications of Density Functional Theory</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">6.2. Adsorption energy calculation using DFT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_SPARC.html">6.3. Adsorption energy from DFT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">6.4. Exercises</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">6. Intro to Regression and High Dimensional Data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">6.2. Non-Parametric Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_2_Complexity_Optimization.html">6.3. Complexity Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">6.4. High Dimensional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_4_Dimensionality_Reduction.html">6.5. Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">6.6. Exercises</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Nuts_and_Bolts_of_DFT_Calculations.html">7. Nuts and Bolts of DFT Calculations</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Convergence_of_Computational_Parameters.html">7.2. Convergence of Computational Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Exercises_convergence.html">7.3. Exercises</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">8. Intro to Regression and High Dimensional Data</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">8.2. Non-Parametric Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ML_1_2_Complexity_Optimization.html">8.3. Complexity Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">8.4. High Dimensional Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ML_1_4_Dimensionality_Reduction.html">8.5. Dimensionality Reduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">8.6. Exercises</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">9. Intro to Classification and Generative Models</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="ML_2_1_Classification_Basics.html">9.2. Classification Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">9.3. Generalized Linear Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">9.4. Alternate classification methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">9.5. Clustering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ML_2_5_Generative_Models.html">9.6. Generative Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">9.7. Exercises</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">7. Intro to Classification and Generative Models</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_1_Classification_Basics.html">7.2. Classification Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">7.3. Generalized Linear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">7.4. Alternate classification methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">7.5. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_5_Generative_Models.html">7.6. Generative Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">7.7. Exercises</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="Appendix.html">Appendix</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Appendix.html">Appendix</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="Literature_Searches.html">Basics of Searching and Reading Scientific Literature</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Create_DFT_Environments.html">Create DFT Environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Gas_formation_energy_calculation_in_SPARC.html">Gas formation energy calculation using DFT</a></li>
@@ -351,6 +350,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -360,6 +360,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -420,7 +421,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <p>Instructor: A. J. Medford</p>
 <p>TA’s: Lucas Timmerman, Logan Brabson, Neung-Kyung Yu</p>
@@ -480,20 +481,7 @@ techniques such as neural networks. DFT software packages are well-established, 
 require the use of supercomputing resources and must be converged with respect to
 several numerical parameters. The training will cover approximately 10 weeks and is
 highly represnetative of training programs for new graduate students in this field.</p></li>
-<li><p>Machine Learning for Catalysis (led by Lucas Timmerman): This sub-team will have two thrusts:
-i.) developing large language models (LLM) for catalysis and ii.) creating an integrated and
-portable platform for training neural networks (NNs) using python based autodifferentiation
-capabilities. Thrust i.) is more open ended and will involve fine tuning existing, open-source GPT models
-to predict catalyst properties, active sites, synthetic pathways etc. Students will have the opportunity
-to gain hands on experience developing LLMs, GPU programming expertise, and conceptual understanding of
-problems in the heterogeneous catalysis community. The second thrust will be more focused on
-software engineering. There are several freely available autodifferentiation (or autograd) softwares
-(pyTorch, TensorFlow, JAX) that can be utilized for developing NNs in a portable, lightweight, and
-highly customizable format. Students will gain hands on experience working with SOTA ML tools
-and algorithms, as well as extensive experience developing sicentific pacakges in Python. No prior
-programming or catalysis experience is required to take on these projects, simply a willingness to
-learn and be challenged. I am seeking students who are eager to learn new skills/concepts and work
-collaboratively on “bleedng” edge science.</p></li>
+<li><p>Terminus Upgrade (led by Lucas Timmerman): This semester, my team will focus on upgrading the Medford Group computational infrastructure. The group’s server, Terminus, is in desperate need of a revamp. The plan is to identify an ideal Linux based operating system to install for facilitating the group’s research operations. Once finiished, the team will turn to focusing on installing and learning the Computational Catalysis Interface (CCI) developed by the Hibbits lab which will enable us to further diversify the group’s computatinal resources. Finally, we will experiment with the new file storage system, CEDAR, for use in io operations across clusters.</p></li>
 <li><p>DFT Modeling of Surface Reactions (led by Neung-Kyung Yu):  This project involves using Density Functional Theory (DFT) to model and investigate surface reactions. DFT is a widely-used computational approach for simulating atomistic models. The project will employ the <a class="reference external" href="https://www.sparc-x.com/">SPARC code</a>, a recent DFT package developed by Prof. Suryanarayana at Georgia Tech, designed for massive parallel calculations. In this project, we will go beyond the scope of the DFT training materials and apply DFT to study fascinating surface reactions. Prior knowledge of the topics isn’t required, but an interest in computational investigation of chemical reactions is needed as the project will involve greater complexity in both DFT and chemistry. Additionally, the project will involve testing new features in SPARC and enhancing its Python API.</p></li>
 <li><p>Machine Learning for Electronic Structure (led by Jagriti Sahoo): This project focuses on crafting machine learning models to establish a framework to correct the DFT energies to that calculated at a higher level of theory (any wave-function method) using electron density fingerprints. We will leverage the <a class="reference external" href="https://journals.aps.org/prmaterials/pdf/10.1103/PhysRevMaterials.3.063801">fingerprinting scheme</a> developed in previous research from our group that uses Maxwell-Cartesian Spherical Harmonics (MCSH) to project the electron density onto a basis for representation. This project involves improving the descriptor calculation scheme in SPARC, understanding and running DFT calculations to generate electronic structure data, and analyze them using supervised and unsupervised ML methods. The students will gain hands on experience in python and parallel programming in C, using supercomputing resources as well as emerging ML methods. I am looking for students who have prior experience in C programming and a curiousity in emerging ML methods in computational chemistry is strongly encouraged.</p></li>
 </ul>
@@ -644,21 +632,21 @@ The project groups will use the course time to meet and discuss progress on proj
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="training-schedule-all-synchronous">
 <h1>Training Schedule <em>(all synchronous)</em><a class="headerlink" href="#training-schedule-all-synchronous" title="Permalink to this heading">#</a></h1>
-<p>Week 1 (8/23): Introduction to VIP and projects (Medford)</p>
-<p>Week 2 (8/30): VIP Subteam pitches (Medford/Timmerman/Brabson/Sahoo)</p>
-<p>Week 3 (9/6): Literature searches (Medford)</p>
-<p>Week 4 (9/13): Intro to Python and HPC (Brabson)</p>
-<p>Week 5 (9/20): Intro to ASE (Brabson)</p>
-<p>Week 6 (9/27): Intro to Density Functional Theory (Brabson)</p>
-<p>Week 7 (10/4): Midterm Updates (pre-recorded presentations, virtual synchronous Q&amp;A)</p>
-<p>Week 8 (10/11): DFT calculations and applications (Brabson)</p>
-<p>Week 9 (10/18): Machine Learning Part I - Regression (Brabson)</p>
-<p>Week 10 (10/25): Machine Learning Part II - Classification (Brabson)</p>
-<p>Week 11 (11/1): Projects (Timmerman/Yu/Sahoo)</p>
-<p>Week 12 (11/8): Projects (Timmerman/Yu/Sahoo)</p>
-<p>Week 13 (11/15): Projects (Timmerman/Yu/Sahoo)</p>
-<p>Week 14 (11/22): Thanksgiving Break</p>
-<p>Week 15 (11/29): Final Updates (pre-recorded presentations, virtual synchronous Q&amp;A)</p>
+<p>Week 1 (1/10): Introduction to VIP and projects (Medford)</p>
+<p>Week 2 (1/17): VIP Subteam pitches (Medford/Timmerman/Yu/Sahoo/Tian)</p>
+<p>Week 3 (1/24): Literature searches (Medford) - Bi-weekly Update 1</p>
+<p>Week 4 (1/31): Intro to Python and HPC (Brabson)</p>
+<p>Week 5 (2/7): Intro to ASE (Brabson) - Bi-weekly Update 2 (Ex. 1.6.1-1.6.5)</p>
+<p>Week 6 (2/14): Software check (Brabson)</p>
+<p>Week 7 (2/21): Midterm Updates (pre-recorded presentations, virtual synchronous Q&amp;A) - Bi-weekly Update 3 (Ex. 2.5.1 &amp; 3.3.1-3.3.4)</p>
+<p>Week 8 (2/28): Intro to Density Functional Theory (Medford/Brabson)</p>
+<p>Week 9 (3/6): DFT calculations and applications (Brabson) - Bi-weekly Update 4</p>
+<p>Week 10 (3/13): Machine Learning Basics (Brabson)</p>
+<p>Week 11 (3/20): Spring Break</p>
+<p>Week 12 (3/27): Projects (Timmerman/Yu/Sahoo/Tian) - Bi-weekly Update 5 (Ex. 5.4.1-5.4.3 &amp; 6.4.1)</p>
+<p>Week 13 (4/3): Projects (Timmerman/Yu/Sahoo/Tian)</p>
+<p>Week 14 (4/10): Projects (Timmerman/Yu/Sahoo/Tian) - Bi-weekly Update 6 (Ex. 6.4.2 &amp; 7.3.1-7.3.3)</p>
+<p>Week 15 (4/17): Final Updates (pre-recorded presentations, virtual synchronous Q&amp;A)</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="changes-to-syllabus">
 <h1>Changes to Syllabus<a class="headerlink" href="#changes-to-syllabus" title="Permalink to this heading">#</a></h1>
@@ -696,7 +684,7 @@ possible.</p>
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="VIP_Info.html"
@@ -724,6 +712,7 @@ possible.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -772,6 +761,7 @@ By Medford Group
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -798,8 +788,8 @@ By Medford Group
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
 
   <footer class="bd-footer">
   </footer>
