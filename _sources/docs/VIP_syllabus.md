@@ -79,7 +79,9 @@ developed by graduate students in the Medford group:
 -   DFT Modeling of Surface Reactions (led by Neung-Kyung Yu):  This project involves using Density Functional Theory (DFT) to model and investigate surface reactions. DFT is a widely-used computational approach for simulating atomistic models. The project will employ the [SPARC code](https://www.sparc-x.com/), a recent DFT package developed by Prof. Suryanarayana at Georgia Tech, designed for massive parallel calculations. In this project, we will go beyond the scope of the DFT training materials and apply DFT to study fascinating surface reactions. Prior knowledge of the topics isn't required, but an interest in computational investigation of chemical reactions is needed as the project will involve greater complexity in both DFT and chemistry. Additionally, the project will involve testing new features in SPARC and enhancing its Python API.
 
 -   Machine Learning for Electronic Structure (led by Jagriti Sahoo): This project focuses on crafting machine learning models to establish a framework to correct the DFT energies to that calculated at a higher level of theory (any wave-function method) using electron density fingerprints. We will leverage the [fingerprinting scheme](https://journals.aps.org/prmaterials/pdf/10.1103/PhysRevMaterials.3.063801) developed in previous research from our group that uses Maxwell-Cartesian Spherical Harmonics (MCSH) to project the electron density onto a basis for representation. This project involves improving the descriptor calculation scheme in SPARC, understanding and running DFT calculations to generate electronic structure data, and analyze them using supervised and unsupervised ML methods. The students will gain hands on experience in python and parallel programming in C, using supercomputing resources as well as emerging ML methods. I am looking for students who have prior experience in C programming and a curiousity in emerging ML methods in computational chemistry is strongly encouraged.
-  
+
+-   Machine Learning for Catalyst Discovery in Waste Sludge Chemistry (led by Kaylee Tian): This project delves into the intersection of computational cheminformatics and data analytics. The project focuses on utilizing ML tools to generate surface adsorption energy predictions and data analytics to provide insights for waste sludge chemistry. In this project, the students will utilize existing machine learning models published by [The Open Catalyst Project](https://opencatalystproject.org/) to predict adsorption energy of potential chemicals present in a waste sludge. The Open Catalyst Project aims to use machine learning for approximating quantum mechanical simulations (density functional theory) and discovering new catalysts. Then using data analytics and visualization techniques, the students will draw meaningful insights on material's reactivity relations. The students will gain hands on experience in python as well as experience in data analytics. Students with prior experience in python programming will be prefered. 
+
 
 Returning VIP students who previously started work on a project may choose to continue 
 building on their existing work isntead of joining one of the above subgroups.
@@ -277,11 +279,11 @@ Week 10 (3/13): Machine Learning Basics (Brabson)
 
 Week 11 (3/20): Spring Break
 
-Week 12 (3/27): Projects (Timmerman/Yu/Sahoo/Tian) - Bi-weekly Update 5 (Ex. 5.4.1-5.4.3 & 6.4.1)
+Week 12 (3/27): Projects (Timmerman/Yu/Sahoo/Tian) - Bi-weekly Update 5 (Ex. 5.4.1-5.4.2 & 6.6.1)
 
 Week 13 (4/3): Projects (Timmerman/Yu/Sahoo/Tian)
 
-Week 14 (4/10): Projects (Timmerman/Yu/Sahoo/Tian) - Bi-weekly Update 6 (Ex. 6.4.2 & 7.3.1-7.3.3)
+Week 14 (4/10): Projects (Timmerman/Yu/Sahoo/Tian) - Bi-weekly Update 6 (Ex. 6.6.3 & 7.7.1-7.7.3)
 
 Week 15 (4/17): Final Updates (pre-recorded presentations, virtual synchronous Q&A)
 

@@ -18,3 +18,4 @@ Welcome to the VIP portion of the Medford group training materials. Here, you wi
 - 3.3 [All](linux-ex)
 - 5.4 Exercises [1](dft-1-ex) and [2](dft-2-ex)
 - 6.6 Exercises [1](ml-ex-1) and [3](ml-ex-3)
+- 7.7 Exercises 1 and 3
