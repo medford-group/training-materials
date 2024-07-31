@@ -1,20 +1,24 @@
 Instructor: A. J. Medford
 
-TA's: Lucas Timmerman, Logan Brabson, Neung-Kyung Yu
+TAs: Logan Brabson, Lucas Timmerman, Neung-Kyung Yu, Kaylee Tian, Sayan Bhowmik
 
 Email: [ajm@gatech.edu](mailto:ajm@gatech.edu)
 
+[lbrabson3@gatech.edu](mailto:lbrabson3@gatech.edu)
+
 [ltimmerman3@gatech.edu](mailto:ltimmerman3@gatech.edu)
        
-[lbrabson3@gatech.edu](mailto:lbrabson3@gatech.edu)
-       
 [nyu49@gatech.edu](mailto:nyu49@gatech.edu)
+
+[ntian30@gatech.edu](mailto:ntian30@gatech.edu)
+
+[sbhowmik9@gatech.edu](mailto:sbhowmik9@gatech.edu)
        
 Dr. Medford Office Hours: [By Appointment](https://app.acuityscheduling.com/schedule.php?owner=18040156&appointmentType=11047919)
 
 TA Office Hours: Set up via email or slack correspondence
 
-Class Hours: W 9:30-10:20am
+Class Hours: W 11:00-11:50 am
 
 Class Room: Zoom (see Canvas App)
 
@@ -66,7 +70,7 @@ engineering, chemical engineering, chemistry, physics, and materials
 science. The VIP course consists of sub-teams with research topics
 developed by graduate students in the Medford group:
 
--   Training (led by Logan Brabson): All new students must complete a training program that
+-   Training (led by Logan Brabson and Sayan Bhowmik): All new undergraduate students must complete a training program that
     involves the basics of high-performance computing, common quantum-mechanical techniques
     such as Density Function Theory (DFT), and the development and use of machine learning 
     techniques such as neural networks. DFT software packages are well-established, but 
@@ -74,11 +78,9 @@ developed by graduate students in the Medford group:
     several numerical parameters. The training will cover approximately 10 weeks and is
     highly represnetative of training programs for new graduate students in this field.
 
--   Terminus Upgrade (led by Lucas Timmerman): This semester, my team will focus on upgrading the Medford Group computational infrastructure. The group's server, Terminus, is in desperate need of a revamp. The plan is to identify an ideal Linux based operating system to install for facilitating the group's research operations. Once finiished, the team will turn to focusing on installing and learning the Computational Catalysis Interface (CCI) developed by the Hibbits lab which will enable us to further diversify the group's computatinal resources. Finally, we will experiment with the new file storage system, CEDAR, for use in io operations across clusters. 
+-   Machine Learning for Catalysis (led by Lucas Timmerman): This team will focus on developing ML tools for catalysis, with a focus on large language models (LLMs) for both catalysis and DFT workflow automation (ChatDFT). Students will develop chat bots for helping new DFT users learn the basics of DFT calculations and for helping existing users improve the reproducibility of their calculations. Familiarity with machine learning and a desire to work with LLMs will be useful. This team will also work on testing models as they are implemented and will involve some DFT work. 
 
 -   DFT Modeling of Surface Reactions (led by Neung-Kyung Yu):  This project involves using Density Functional Theory (DFT) to model and investigate surface reactions. DFT is a widely-used computational approach for simulating atomistic models. The project will employ the [SPARC code](https://www.sparc-x.com/), a recent DFT package developed by Prof. Suryanarayana at Georgia Tech, designed for massive parallel calculations. In this project, we will go beyond the scope of the DFT training materials and apply DFT to study fascinating surface reactions. Prior knowledge of the topics isn't required, but an interest in computational investigation of chemical reactions is needed as the project will involve greater complexity in both DFT and chemistry. Additionally, the project will involve testing new features in SPARC and enhancing its Python API.
-
--   Machine Learning for Electronic Structure (led by Jagriti Sahoo): This project focuses on crafting machine learning models to establish a framework to correct the DFT energies to that calculated at a higher level of theory (any wave-function method) using electron density fingerprints. We will leverage the [fingerprinting scheme](https://journals.aps.org/prmaterials/pdf/10.1103/PhysRevMaterials.3.063801) developed in previous research from our group that uses Maxwell-Cartesian Spherical Harmonics (MCSH) to project the electron density onto a basis for representation. This project involves improving the descriptor calculation scheme in SPARC, understanding and running DFT calculations to generate electronic structure data, and analyze them using supervised and unsupervised ML methods. The students will gain hands on experience in python and parallel programming in C, using supercomputing resources as well as emerging ML methods. I am looking for students who have prior experience in C programming and a curiousity in emerging ML methods in computational chemistry is strongly encouraged.
 
 -   Machine Learning for Catalyst Discovery in Waste Sludge Chemistry (led by Kaylee Tian): This project delves into the intersection of computational cheminformatics and data analytics. The project focuses on utilizing ML tools to generate surface adsorption energy predictions and data analytics to provide insights for waste sludge chemistry. In this project, the students will utilize existing machine learning models published by [The Open Catalyst Project](https://opencatalystproject.org/) to predict adsorption energy of potential chemicals present in a waste sludge. The Open Catalyst Project aims to use machine learning for approximating quantum mechanical simulations (density functional theory) and discovering new catalysts. Then using data analytics and visualization techniques, the students will draw meaningful insights on material's reactivity relations. The students will gain hands on experience in python as well as experience in data analytics. Students with prior experience in python programming will be prefered. 
 
@@ -250,42 +252,43 @@ Course Format
 -------------
 
 The course will by offered in a hybrid format. We have multiple online MS students who work in the course, so it is important to provide a mechanism for remote participation. 
-The main lecture will take place virtually, but sub-teams can meet in person and/or use hybrid meetings. For the training, group, lectures will be given live during the course time and **will not be recorded.** If you miss a lecture you are responsible for following up with other students and the TA's to catch up on what you missed.
-The project groups will use the course time to meet and discuss progress on projects.
+The main lecture will take place virtually, but sub-teams can meet in person and/or use hybrid meetings. For the training group, lectures will pre-recorded and posted to Canvas, and the course time time will serve as an opportunity for questions or help with assignments (a "flipped" classroom). The project groups will use the course time to meet and discuss progress on projects.
 
 
-Training Schedule *(all synchronous)*
+Training Schedule
 ========
 
-Week 1 (1/10): Introduction to VIP and projects (Medford)
+Week 1 (8/21): Introduction to VIP and projects (Medford/Brabson)
 
-Week 2 (1/17): VIP Subteam pitches (Medford/Timmerman/Yu/Sahoo/Tian)
+Week 2 (8/28): VIP Subteam pitches (Medford/Timmerman/Yu/Tian)
 
-Week 3 (1/24): Literature searches (Medford) - Bi-weekly Update 1
+Week 3 (9/4): Literature searches (Medford) - Bi-weekly Update 1
 
-Week 4 (1/31): Intro to Python and HPC (Brabson)
+Week 4 (9/11): Intro to Python and HPC (Brabson)
 
-Week 5 (2/7): Intro to ASE (Brabson) - Bi-weekly Update 2 (Ex. 1.6.1-1.6.5)
+Week 5 (9/18): Intro to ASE (Brabson) - Bi-weekly Update 2 (Ex. 1.6.1-1.6.5)
 
-Week 6 (2/14): Software check (Brabson)
+Week 6 (9/25): Intro to Density Function Theory I (Bhowmik)
 
-Week 7 (2/21): Midterm Updates (pre-recorded presentations, virtual synchronous Q&A) - Bi-weekly Update 3 (Ex. 2.5.1 & 3.3.1-3.3.4)
+Week 7 (10/2): Midterm Updates (pre-recorded presentations, virtual synchronous Q&A) - Bi-weekly Update 3 (Ex. 2.4.1, 2.5.1, & 3.3.1-3.3.4)
 
-Week 8 (2/28): Intro to Density Functional Theory (Medford/Brabson)
+Week 8 (10/9): Intro to Density Functional Theory II (Bhowmik)
 
-Week 9 (3/6): DFT calculations and applications (Brabson) - Bi-weekly Update 4
+Week 9 (10/16): DFT Calculations I (Bhowmik/Brabson) - Bi-weekly Update 4
 
-Week 10 (3/13): Machine Learning Basics (Brabson)
+Week 10 (10/23): DFT Calculations II (Bhowmik/Brabson)
 
-Week 11 (3/20): Spring Break
+Week 11 (10/30): Projects (Timmerman/Yu/Tian) - Bi-weekly Update 5 (Ex. 5.4.1-5.4.2)
 
-Week 12 (3/27): Projects (Timmerman/Yu/Sahoo/Tian) - Bi-weekly Update 5 (Ex. 5.4.1-5.4.2 & 6.6.1)
+Week 12 (11/6): DFT Project Workshop
 
-Week 13 (4/3): Projects (Timmerman/Yu/Sahoo/Tian)
+Week 13 (11/13): Projects (Timmerman/Yu/Tian) - Bi-weekly Update 6 (DFT Project DUE)
 
-Week 14 (4/10): Projects (Timmerman/Yu/Sahoo/Tian) - Bi-weekly Update 6 (Ex. 6.6.3 & 7.7.1-7.7.3)
+Week 14 (11/20): Final Updates (pre-recorded presentations, virtual synchronous Q&A)
 
-Week 15 (4/17): Final Updates (pre-recorded presentations, virtual synchronous Q&A)
+Week 15 (11/28): Thanksgiving Break (No Class)
+
+Week 16 (12/4): Reading Day (No Class)
 
 Changes to Syllabus
 ===================
