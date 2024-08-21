@@ -68,28 +68,9 @@ expertise from computational and physical sciences, and students from
 computer science, electrical engineering, industrial & systems
 engineering, chemical engineering, chemistry, physics, and materials
 science. The VIP course consists of sub-teams with research topics
-developed by graduate students in the Medford group:
+developed by graduate students in the Medford group. More details of 
+subteams are available in the [overview lecture].(https://medford-group.github.io/training-materials/docs/VIP_Overview.html)
 
--   Training (led by Logan Brabson and Sayan Bhowmik): All new undergraduate students must complete a training program that
-    involves the basics of high-performance computing, common quantum-mechanical techniques
-    such as Density Function Theory (DFT), and the development and use of machine learning 
-    techniques such as neural networks. DFT software packages are well-established, but 
-    require the use of supercomputing resources and must be converged with respect to
-    several numerical parameters. The training will cover approximately 10 weeks and is
-    highly represnetative of training programs for new graduate students in this field.
-
--   Machine Learning for Catalysis (led by Lucas Timmerman): This team will focus on developing ML tools for catalysis, with a focus on large language models (LLMs) for both catalysis and DFT workflow automation (ChatDFT). Students will develop chat bots for helping new DFT users learn the basics of DFT calculations and for helping existing users improve the reproducibility of their calculations. Familiarity with machine learning and a desire to work with LLMs will be useful. This team will also work on testing models as they are implemented and will involve some DFT work. 
-
--   DFT Modeling of Surface Reactions (led by Neung-Kyung Yu):  This project involves using Density Functional Theory (DFT) to model and investigate surface reactions. DFT is a widely-used computational approach for simulating atomistic models. The project will employ the [SPARC code](https://www.sparc-x.com/), a recent DFT package developed by Prof. Suryanarayana at Georgia Tech, designed for massive parallel calculations. In this project, we will go beyond the scope of the DFT training materials and apply DFT to study fascinating surface reactions. Prior knowledge of the topics isn't required, but an interest in computational investigation of chemical reactions is needed as the project will involve greater complexity in both DFT and chemistry. Additionally, the project will involve testing new features in SPARC and enhancing its Python API.
-
--   Machine Learning for Catalyst Discovery in Waste Sludge Chemistry (led by Kaylee Tian): This project delves into the intersection of computational cheminformatics and data analytics. The project focuses on utilizing ML tools to generate surface adsorption energy predictions and data analytics to provide insights for waste sludge chemistry. In this project, the students will utilize existing machine learning models published by [The Open Catalyst Project](https://opencatalystproject.org/) to predict adsorption energy of potential chemicals present in a waste sludge. The Open Catalyst Project aims to use machine learning for approximating quantum mechanical simulations (density functional theory) and discovering new catalysts. Then using data analytics and visualization techniques, the students will draw meaningful insights on material's reactivity relations. The students will gain hands on experience in python as well as experience in data analytics. Students with prior experience in python programming will be prefered. 
-
-
-Returning VIP students who previously started work on a project may choose to continue 
-building on their existing work isntead of joining one of the above subgroups.
-If you are a returning student and are interested in an "independent study" project you should
-contact Dr. Medford as soon as possible to initiate discussions on what is within scope for
-the course and what is feasible given timelines and resources.
 
 Course Logistics
 ================
@@ -103,9 +84,9 @@ submission of assignments:
     assignments and peer grading.
 
 -   Slack: The group Slack channel is the preferred method of
-    communication with instructors and graduate students. You are
-    responsible for anything that is announced in the `vip`
-    Slack channel. You can join the Slack channel via [this link]( https://join.slack.com/t/slack-ymv5720/shared_invite/zt-21v1xmbap-5FQMR2rgE0B5krwMZPFyBQ ).
+    communication with instructors and graduate students. To join the channel
+    login to the [GT Slack enterprise account](https://gatech.enterprise.slack.com/), 
+    then search for the "Big Data & Quantum Mechanics (VIP)" workspace and ask to join.
 
 Course Objectives
 =================
@@ -185,9 +166,6 @@ Personal Accomplishments
 
 Personal accomplishments will be measured by self-defined goals and will be assessed
 by each student's respective sub-team mentor. 
-Within the **first three weeks** of the semester students will work with their 
-sub-team mentor to define midterm and
-semester goals for their specific tasks within their sub-team. 
 Each goal should have a deliverable
 that can be unambiguously evaluated as complete or incomplete (computer
 code, report, figure, etc.), and each student should submit a
@@ -251,7 +229,7 @@ assigned.
 Course Format
 -------------
 
-The course will by offered in a hybrid format. We have multiple online MS students who work in the course, so it is important to provide a mechanism for remote participation. 
+The course will by offered in a primarily virtual format. We have multiple online MS students who work in the course, so it is important to provide a mechanism for remote participation. 
 The main lecture will take place virtually, but sub-teams can meet in person and/or use hybrid meetings. For the training group, lectures will pre-recorded and posted to Canvas, and the course time time will serve as an opportunity for questions or help with assignments (a "flipped" classroom). The project groups will use the course time to meet and discuss progress on projects.
 
 
@@ -289,6 +267,7 @@ Week 14 (11/20): Final Updates (pre-recorded presentations, virtual synchronous 
 Week 15 (11/28): Thanksgiving Break (No Class)
 
 Week 16 (12/4): Reading Day (No Class)
+
 
 Changes to Syllabus
 ===================

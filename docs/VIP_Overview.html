@@ -399,6 +399,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-vip-graded">How is VIP graded?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vip-is-not-like-a-regular-course">VIP is not like a regular course</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-communication">Group Communication:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overarching-project-chatdft-development">Overarching Project: ChatDFT development</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-structure-new-students">Team Structure : New Students</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-structure-returning-students-omscs-students-post-training-new-students">Team Structure: Returning Students, OMSCS Students, post Training New Students</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-teams">Sub-teams</a></li>
@@ -444,7 +445,7 @@ document.write(`
 </section>
 <section id="introductions">
 <h2>Introductions<a class="headerlink" href="#introductions" title="Permalink to this heading">#</a></h2>
-<p>We will go around the class and introduce ourselves to the everyone. When it is your turn to speak, tell everyone your <em>preferred name, major, and something <strong>boring</strong> about yourself</em>.</p>
+<p>We will go around the class and introduce ourselves to the everyone. When it is your turn to speak, tell everyone your <em>preferred name, major, and something <strong>random</strong> about yourself</em>.</p>
 </section>
 <section id="how-does-vip-work">
 <h2>How does VIP work?<a class="headerlink" href="#how-does-vip-work" title="Permalink to this heading">#</a></h2>
@@ -496,28 +497,29 @@ document.write(`
 </li>
 </ul>
 </section>
+<section id="overarching-project-chatdft-development">
+<h2>Overarching Project: ChatDFT development<a class="headerlink" href="#overarching-project-chatdft-development" title="Permalink to this heading">#</a></h2>
+<p>This semester, we are starting to work on a new large-language model (LLM) based tool that we hope will make it easier for students to learn how to do DFT calculations. This is also partially educational research, and we will send out various surveys throughout the semester. The bot, named “ChatDFT-F24” will be accessible via Slack, and is based off of ChatGPT. This semester, all projects will involve performing DFT simulations with the aid of ChatDFT to study reproducibility in DFT and how LLMs can assist in performing scientific computing tasks. Note that all converations with ChatDFT will be recorded and may be reviewed and/or used for fine-tuning or development of future versions of ChatDFT. We also appreciate any feedback you have about ChatDFT, including best practices for prompt engineering, ideas about how to improve the architecture, or various failure modes that you experience. The tool is far from perfect, and like any LLM it should not be blindly trusted!</p>
+<p>All subteams will also work with the SPARC DFT code, a recent DFT package developed by Prof. Suryanarayana at Georgia Tech, designed for massively parallel calculations. This code is very powerful, but relatively new, and thus not as familiar for LLM tools. We hope that through this project we can help tailor an LLM interface that allows new users to quickly learn to use SPARC to perform reliable calculations.</p>
+</section>
 <section id="team-structure-new-students">
 <h2>Team Structure : New Students<a class="headerlink" href="#team-structure-new-students" title="Permalink to this heading">#</a></h2>
+<p>All new undergraduate students will automatically join the training subteam:</p>
 <ul class="simple">
-<li><p>Complete training materials. Consists of introductions to computational tools, density functional theory, and machine learning concepts.</p></li>
+<li><p><strong>Training (led by Logan Brabson and Sayan Bhowmik)</strong> - All new undergraduate students must complete a training program that involves the basics of high-performance computing, common quantum-mechanical techniques such as Density Function Theory (DFT), and the development and use of machine learning techniques such as neural networks. DFT software packages are well-established, but require the use of supercomputing resources and must be converged with respect to several numerical parameters. The training will cover approximately 10 weeks and is highly represnetative of training programs for new graduate students in this field.</p></li>
 </ul>
-<p>New students will join the “Training” sub-team. You will work individually to complete all the tasks, but should meet regularly with your teammates and graduate advisor to touch base on progress, ask questions, and get help with anything you are stuck on. The training materials should be completed shortly after the midterm. After the training course, you are free to join one of the sub-teams directly, or “sample” the available teams each week, but keep in mind that the expectation is that you join just one team by the end of the semester and begin working on a specific project.</p>
 </section>
 <section id="team-structure-returning-students-omscs-students-post-training-new-students">
 <h2>Team Structure: Returning Students, OMSCS Students, post Training New Students<a class="headerlink" href="#team-structure-returning-students-omscs-students-post-training-new-students" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Returning students will join one of the “sub-teams” described below, or work on “independent study” projects.</p></li>
-<li><p>OMSCS students can decide whether to complete the training exercises or join a sub-team (or both)</p></li>
-<li><p>New students will be expected to join one of the sub-teams after the midterm</p></li>
-</ul>
+<p>Returning students will join one of the “sub-teams” described below, and OMSCS students can decide whether to complete the training exercises or join a sub-team (or both)</p>
 <section id="sub-teams">
 <h3>Sub-teams<a class="headerlink" href="#sub-teams" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>There are several sub-teams, each of which will function as a small research group advised by a graduate mentor</p>
+<li><p>There are several sub-teams, each of which will function as a small research group advised by a graduate mentor. The main tasks in each sub-team will be calculation of adsorption energies, but each team will focus on different systems and mentors may focus on different aspects (e.g. reproducibility, accuracy at different levels of theory, etc.).</p>
 <ul>
-<li><p><strong>DFT Modeling of Surface Reactions</strong> - This team will focus on the computational investigation of surface reactions using SPARC DFT code, as well as testing and improving the SPARC code suite.</p></li>
-<li><p><strong>Machine Learning for Catalysis</strong> - This team will focus on developing ML tools for catalysis, with a focus on LLMs for both catalysis and DFT workflow automation (ChatDFT).</p></li>
-<li><p><strong>Machine Learning for Catalyst Discovery in Waste Sludge Chemistry</strong> - This team will focus on utilizing ML tools to generate surface adsorption energy predictions and data analytics to provide insights for waste sludge chemistry.</p></li>
+<li><p><strong>Simulation of transition metal surfaces (led by Neung-Kyung Yu)</strong> - Transition metals are some of the most common catalysts, and adsorption on transition metals has been widely studied. However, there are still open questions about the accuracy of these models since adsorption energies are difficult to measure, and the vast literature provides lots of opportunities to study reproducibility. This team will focus on calculating some well-known adsorption energies and evaluating accuracy and reproducibility.</p></li>
+<li><p><strong>Adsorption on electrochemical oxide surfaces (led by Kaylee Tian)</strong> - Electrochemistry and electrocatalysis are promising sustainable alternatives for a wide range of processes including fuel production and waste treatment. However, calculating adsorption energies on oxides can be challenging due to complex electronic structure (magnetism, localized electrons) and the fact that many metal oxides are highly reactive and can change under reaction conditions. This team will focus on the influence of different atomic configurations of oxide surfaces and different DFT settings and initializations on the adsorption energies of intermediates related to electrocatalytric nutrient recovery from waste sludge.</p></li>
+<li><p><strong>Simulations of Nano-porous Materials (led by Lucas Timmerman)</strong> - This team will focus on electronic structure theory (EST) calculations for zeolites and metal organic frameworks. These will primarily consist of adsorption energy calculations for materials and adsorbates of interest for sustainability applications, including direct air capture and biomass conversion. Outcomes include basic proficiency in EST calculations as well as a fundamental understanding of the chemistry and physics concepts underpinning at least one of the materials listed above.</p></li>
 </ul>
 </li>
 <li><p>Students should work on self-defined individual tasks within the scope of a sub-team</p>
@@ -647,6 +649,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-vip-graded">How is VIP graded?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vip-is-not-like-a-regular-course">VIP is not like a regular course</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-communication">Group Communication:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overarching-project-chatdft-development">Overarching Project: ChatDFT development</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-structure-new-students">Team Structure : New Students</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-structure-returning-students-omscs-students-post-training-new-students">Team Structure: Returning Students, OMSCS Students, post Training New Students</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-teams">Sub-teams</a></li>
