@@ -1,0 +1,787 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Big Data &amp; Quantum Mechanics &#8212; Medford Group Graduate Training</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/VIP_Overview';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Introduction to Basic Python Tools" href="Basic_Python_Tools.html" />
+    <link rel="prev" title="Course Description" href="VIP_syllabus.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Medford Group Graduate Training
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">VIP</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="VIP_Info.html">VIP Materials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="VIP_syllabus.html">Course Description</a></li>
+
+
+
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Big Data &amp; Quantum Mechanics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Training Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Basic_Python_Tools.html">1. Introduction to Basic Python Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_Python_programming.html">1.2. Introduction to Python programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_numpy.html">1.3. Numpy -  multidimensional data arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_scipy.html">1.4. SciPy - Library of scientific algorithms for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_plotting_in_Python.html">1.5. matplotlib - Plotting in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_python.html">1.6. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Manipulating_Atoms_in_Python.html">2. Introduction to Manipulating Atoms in Python</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Building_Structures.html">2.2. Intro to Building Structures with ASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Calculators.html">2.3. Intro to ASE Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_intro.html">2.4. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_calcs.html">2.5. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Linux_HPC.html">3. Introduction to Linux and High-Performance Computing</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_linux.html">3.3. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_Density_Functional_Theory.html">4. Introduction to Density Functional Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">5. Applications of Density Functional Theory</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">5.2. Adsorption energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_SPARC.html">5.3. Adsorption energy from DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">5.4. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">6. Intro to Regression and High Dimensional Data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">6.2. Non-Parametric Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_2_Complexity_Optimization.html">6.3. Complexity Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">6.4. High Dimensional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_4_Dimensionality_Reduction.html">6.5. Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">6.6. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">7. Intro to Classification and Generative Models</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_1_Classification_Basics.html">7.2. Classification Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">7.3. Generalized Linear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">7.4. Alternate classification methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">7.5. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_5_Generative_Models.html">7.6. Generative Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">7.7. Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Appendix.html">Appendix</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Literature_Searches.html">Basics of Searching and Reading Scientific Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create_DFT_Environments.html">Create DFT Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gas_formation_energy_calculation_in_SPARC.html">Gas formation energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Referencing_Binding_Energies.html">Referencing Binding Energies</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/VIP_Overview.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Big Data & Quantum Mechanics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-medford-group-research">Overview of Medford Group research</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-prof-aj-medford">About Prof. AJ Medford</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introductions">Introductions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-vip-work">How does VIP work?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-vip-graded">How is VIP graded?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vip-is-not-like-a-regular-course">VIP is not like a regular course</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-communication">Group Communication:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-structure-new-students">Team Structure : New Students</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-structure-returning-students-omscs-students-post-training-new-students">Team Structure: Returning Students, OMSCS Students, post Training New Students</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-teams">Sub-teams</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-study-projects">Independent Study Projects</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-on-sub-teams">Details on Sub-teams</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dft-modeling-of-surface-reactions">DFT Modeling of Surface Reactions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#investigating-surface-reactions">Investigating surface reactions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizing-sparc-dft-code">Utilizing SPARC DFT code</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-for-catalysis">Machine Learning for Catalysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-gpt-models-for-catalysis">Fine-tuning GPT models for Catalysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-a-portable-and-easily-customizable-platform-for-training-nns">Developing a portable and easily customizable platform for training NNs</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-for-electronic-structure">Machine Learning for Electronic Structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-meeting-format">Standard meeting format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-schedule-and-syllabus">Lecture schedule and syllabus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-assignment">Week 1 Assignment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-installation">Software Installation:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-anaconda3">Install Anaconda3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ensure-you-can-access-a-linux-unix-prompt">Ensure you can access a linux/unix prompt</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-users">Windows users:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mac-users">Mac users:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="big-data-quantum-mechanics">
+<h1>Big Data &amp; Quantum Mechanics<a class="headerlink" href="#big-data-quantum-mechanics" title="Permalink to this heading">#</a></h1>
+<section id="overview-of-medford-group-research">
+<h2>Overview of Medford Group research<a class="headerlink" href="#overview-of-medford-group-research" title="Permalink to this heading">#</a></h2>
+<p><img alt="MedfordImg" src="../_images/medford_group_bg.png" /></p>
+</section>
+<section id="about-prof-aj-medford">
+<h2>About Prof. AJ Medford<a class="headerlink" href="#about-prof-aj-medford" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Started as a professor (and this VIP course) in Spring 2017.</p></li>
+<li><p>Experience in developing and contributing to several open-source software packages (CatMAP, ElectroLens, TAPSolver, SPARC, AMPTorch)</p></li>
+<li><p>Instructor for “Data Analytics for Chemical Engineers” and Numerical Methods.</p></li>
+<li><p>Interest in applying data science techniques to problems in quantum chemistry and physics.</p></li>
+</ul>
+</section>
+<section id="introductions">
+<h2>Introductions<a class="headerlink" href="#introductions" title="Permalink to this heading">#</a></h2>
+<p>We will go around the class and introduce ourselves to the everyone. When it is your turn to speak, tell everyone your <em>preferred name, major, and something <strong>boring</strong> about yourself</em>.</p>
+</section>
+<section id="how-does-vip-work">
+<h2>How does VIP work?<a class="headerlink" href="#how-does-vip-work" title="Permalink to this heading">#</a></h2>
+<p>The premise of VIP is teams working on projects. Much like a real-world engineering team, individual members work on different aspects of the project. Team members range from sophomores through graduate students, from first-time participants to students who have been involved for four or more semesters. Some students take the course for one credit, and others take it for two credits; naturally, the bar will be higher for those taking it for two credits.</p>
+<p><strong>Disclaimer: There have been substantial changes since Spring 22, so some inconsistencies are to be expected.</strong></p>
+</section>
+<section id="how-is-vip-graded">
+<h2>How is VIP graded?<a class="headerlink" href="#how-is-vip-graded" title="Permalink to this heading">#</a></h2>
+<p>You will receive a grade for the course based on three criteria:</p>
+<ul class="simple">
+<li><p>Documentation (33.3%): Based on biweekly updates of progress on tasks.</p></li>
+<li><p>Personal Accomplishments (33.3%): Based on how well you achieve your research goals.</p></li>
+<li><p>Teamwork and Participation (33.3%): Peer evaluations will be used to establish how well you work on a team.</p></li>
+</ul>
+<p>Grading process:</p>
+<ul class="simple">
+<li><p>Bi-weekly on Thursday: Submit “bi-weekly update” and literature review to Canvas. Complete peer grading (instructions in syllabus).</p></li>
+<li><p>Midterm: Submit personal accomplishment documentation to Canvas. Complete peer evaluations. Complete peer grading. <em>Note for returning students</em> This grade <strong>will</strong> be counted towards your final grade in the course.</p></li>
+<li><p>Final: Identical to midterm. Final grade will be a weighted average of the midterm and final submissions.</p></li>
+</ul>
+<p>The following deliverables are expected at the midterm and final evaluations. Note that the “personal accomplishment” documentation will be graded using a combination of peer grading and instructor grading, so you will also need to complete the peer grading at each point.</p>
+<ul class="simple">
+<li><p>Deliverables:</p>
+<ul>
+<li><p>Compiled bi-weekly update</p></li>
+<li><p>Personal accomplishment documentation</p></li>
+<li><p>Peer grading</p></li>
+<li><p>Peer evaluation</p></li>
+<li><p>Demonstrated completion of all assigned training materials</p></li>
+</ul>
+</li>
+</ul>
+<p>See <a class="reference internal" href="VIP_syllabus.html"><span class="doc std std-doc">syllabus</span></a> for more details.</p>
+</section>
+<section id="vip-is-not-like-a-regular-course">
+<h2>VIP is not like a regular course<a class="headerlink" href="#vip-is-not-like-a-regular-course" title="Permalink to this heading">#</a></h2>
+<p>Regular courses have a clear direction:</p>
+<p><img alt="MarioImg" src="../_images/mario.png" /></p>
+<p>VIP lets you choose your own adventure:</p>
+<p><img alt="ZeldaImg" src="../_images/zelda.jpeg" /></p>
+</section>
+<section id="group-communication">
+<h2>Group Communication:<a class="headerlink" href="#group-communication" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Slack group used for all communication, join using <a class="reference external" href="https://join.slack.com/t/slack-ymv5720/shared_invite/zt-21v1xmbap-5FQMR2rgE0B5krwMZPFyBQ">this link</a></p>
+<ul>
+<li><p>training: discussion related to training project.</p></li>
+<li><p>general: channel for general discussions with the whole group.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="team-structure-new-students">
+<h2>Team Structure : New Students<a class="headerlink" href="#team-structure-new-students" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Complete training materials. Consists of introductions to computational tools, density functional theory, and machine learning concepts.</p></li>
+</ul>
+<p>New students will join the “Training” sub-team. You will work individually to complete all the tasks, but should meet regularly with your teammates and graduate advisor to touch base on progress, ask questions, and get help with anything you are stuck on. The training materials should be completed shortly after the midterm. After this point, you will be expected to participate in the project specific sub-teams. You are free to join one of the sub-teams directly, or “sample” the available teams each week, but keep in mind that the expectation is that you join just one team by the end of the semester and begin working on a specific project.</p>
+</section>
+<section id="team-structure-returning-students-omscs-students-post-training-new-students">
+<h2>Team Structure: Returning Students, OMSCS Students, post Training New Students<a class="headerlink" href="#team-structure-returning-students-omscs-students-post-training-new-students" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Returning students will join one of the “sub-teams” described below, or work on “independent study” projects.</p></li>
+<li><p>OMSCS students can decide whether to complete the training exercises or join a sub-team (or both)</p></li>
+<li><p>New students will be expected to join one of the sub-teams after the midterm</p></li>
+</ul>
+<section id="sub-teams">
+<h3>Sub-teams<a class="headerlink" href="#sub-teams" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>There are several sub-teams, each of which will function as a small research group advised by a graduate mentor</p>
+<ul>
+<li><p><strong>DFT Modeling of Surface Reactions</strong> - This sub-team will focus on the computational investigation of surface reactions using SPARC DFT code, as well as testing and improving the SPARC code suite.</p></li>
+<li><p><strong>Machine Learning for Catalysis</strong> - This team will focus on developing ML tools for catalysis. The two main thrusts will be LLMs for catalysis and developing a lightweight, and easily customizable NNFF training package.</p></li>
+<li><p><strong>Machine Learning for Electronic Structure</strong> - This team will focus on developing ML tools for studyin electronic structure data.</p></li>
+</ul>
+</li>
+<li><p>Students should work on self-defined individual tasks within the scope of a sub-team</p>
+<ul>
+<li><p>Each student should have a clearly-defined task that they are working independently on. This task should be self-determined and within the scope of the broader goal of the sub-team based on consultations with other sub-team members and the graduate student advisor.</p></li>
+<li><p>Students may work together on a given task or direction, but should also have individual goals.</p></li>
+<li><p>Students should regularly communicate with their sub-team to (1) coordinate progress on individual tasks to work toward the larger goal of the team, (2) ask for and provide assistance to other sub-team members, and (3) seek advice from and provide updates to the sub-team graduate mentor.</p></li>
+<li><p>It is fully expected that the goals of research tasks change throughout the semester. The goals document can be updated at any time up to 2 weeks prior to the end of the semester. Students should revise goals as needed to ensure they are achievable.</p></li>
+<li><p>Note that the achievements grade is determined by your sub-team advisor. Different advisors may have different expectations and organizational standards. You should be sure to clearly communicate with your subteam advisor to be sure that you are meeting their expectations.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="independent-study-projects">
+<h3>Independent Study Projects<a class="headerlink" href="#independent-study-projects" title="Permalink to this heading">#</a></h3>
+<p>These projects are self-defined projects that are outside the scope of the main sub-teams, but are within the scope of the Medford research group. These projects should be defined through direct discussions with Prof. Medford at least one month prior to the start of the semester. The projects will generally be associated with initiating new research projects or wrapping up ongoing projects from prior semesters. Independent study projects are typically high risk and/or require significant prior experience, so they will generally be reserved for more senior and returning students. Students from previous semesters who were part of a sub-team that no longer exists may continue their work as an independent study project as well, provided they have significant momentum from the prior semester (one month prior discussion not necessary). Returning students without a clear direction from prior semesters are strongly encouraged to join one of the main subteams.</p>
+</section>
+</section>
+<section id="details-on-sub-teams">
+<h2>Details on Sub-teams<a class="headerlink" href="#details-on-sub-teams" title="Permalink to this heading">#</a></h2>
+<p>Additional details and broader context for the overarching goals of each sub-team, along with possible ideas of individual tasks, are provided below.</p>
+<section id="dft-modeling-of-surface-reactions">
+<h3>DFT Modeling of Surface Reactions<a class="headerlink" href="#dft-modeling-of-surface-reactions" title="Permalink to this heading">#</a></h3>
+<p>Density functional theory (DFT) is one of the most popular computational approaches used in various fields due to its high accuracy in simulating atomistic models. In this project, we will go beyond the scope of the training materials and apply DFT to study fascinating surface reactions. While prior knowledge of these topics is not required, an interest in the computational investigation of chemical reactions is necessary, as the project will involve greater complexity in both DFT and chemistry. DFT calculations will be conducted using SPARC code. The SPARC DFT code, developed by Prof. Suryanarayana at Georgia Tech, was designed to be used for the massive parallel calculations. Additionally, the project will encompass testing SPARC code and improving the Python API for the code.</p>
+<section id="investigating-surface-reactions">
+<h4>Investigating surface reactions<a class="headerlink" href="#investigating-surface-reactions" title="Permalink to this heading">#</a></h4>
+<p>DFT is a powerful tool for predicting what is going to happen in the system of interest. However, its reliability depends on how the calculations is done. This approach will involve:</p>
+<ul class="simple">
+<li><p>Setting up the realistic surface models, which are crucial for obtaining accurate results</p></li>
+<li><p>Predicting the surface reactions that are likely to occur under actual conditions</p></li>
+<li><p>Analyzing the calculation results using Python</p></li>
+</ul>
+</section>
+<section id="utilizing-sparc-dft-code">
+<h4>Utilizing SPARC DFT code<a class="headerlink" href="#utilizing-sparc-dft-code" title="Permalink to this heading">#</a></h4>
+<p>The SPARC code is a newly developed DFT packages, and as such, it offers opportunities for further refinement through our contribution. The tasks will include:</p>
+<ul class="simple">
+<li><p>Testing new features in SPARC</p></li>
+<li><p>Enhancing the Python API for SPARC</p></li>
+</ul>
+</section>
+</section>
+<section id="machine-learning-for-catalysis">
+<h3>Machine Learning for Catalysis<a class="headerlink" href="#machine-learning-for-catalysis" title="Permalink to this heading">#</a></h3>
+<p>Heterogenous catalysis is the staple of the modern chemical industry. However, many of the catalysts in use today were discovered decades ago. Computational tools, such as DFT, offer a promising route to rational design of novel catalysts with enhanced properties. The cost of DFT limits the search space that can be stuided computationally. Further, the methods for screening catalysts based on DFT calculations often rely on certain assumptions, including an active site(s), orientation of molecule, neglecting adsorbate-adsorbate interactions, approximations to thermal corrections etc… These limit the accuracy and applicability of DFT studies. ML methods have emerged as a promising complement to traditional DFT calculations. The SOTA models developed by Meta for predicting energies and forces can acclerate DFT screenings by as much as 2000x. These results can be used to identify promising candidate catalyst materials given the assumptions enumerated above. We hypothesize that LLMs fine-tuned on the catalysis literature and expert knowledge can be used to automate and improve the robustness of computational screening procedures by extracting knowledge from the wealth of scientific literature. This is a largely unexplored area, as LLMs have only recently been applied to solving problems in chemistry.</p>
+<section id="fine-tuning-gpt-models-for-catalysis">
+<h4>Fine-tuning GPT models for Catalysis<a class="headerlink" href="#fine-tuning-gpt-models-for-catalysis" title="Permalink to this heading">#</a></h4>
+<p>LLMs are transforming how scinece is done. We aim to harness the power of open-access models trained by Meta (or others) to solve problems in the field of catalysis. Specific tasks for students will include:</p>
+<ul class="simple">
+<li><p>Learning to interact with LLMs via APIs</p></li>
+<li><p>Developing infrastructure for fine-tuning GPTs with computational catalysis literature on PACE</p></li>
+<li><p>Construction of development environment for rapid iteration</p></li>
+</ul>
+</section>
+<section id="developing-a-portable-and-easily-customizable-platform-for-training-nns">
+<h4>Developing a portable and easily customizable platform for training NNs<a class="headerlink" href="#developing-a-portable-and-easily-customizable-platform-for-training-nns" title="Permalink to this heading">#</a></h4>
+<p>The machine learning literature evolves at a blistering rate. As a result, it is imperative to have a platform for implementing and testing SOTA methods rapidly. Existing platforms for training NNFFs tend to be clunky, involving “bleeding” edge dependencies that often break and result in headaches in installation. Further, efforts to optimize the training procedures result in code that is difficult to modify or customize. The goal here is to develop a lightweight, portable platform for training NNs on chemistry data. Specific tasks will include:</p>
+<ul class="simple">
+<li><p>Utilizing an autograd package as a base for a NN training package</p></li>
+<li><p>Developing highly modular python code with minimal dependencies and an emphasis on readability and portability</p></li>
+<li><p>Extending NN training procedure to tasks outside of traditonal force field development (i.e., exchange correlations)</p></li>
+</ul>
+</section>
+</section>
+<section id="machine-learning-for-electronic-structure">
+<h3>Machine Learning for Electronic Structure<a class="headerlink" href="#machine-learning-for-electronic-structure" title="Permalink to this heading">#</a></h3>
+<p>Machine Learning for Electronic Structure (led by Jagriti Sahoo): This project focuses on crafting machine learning models to establish a framework to correct the DFT energies to that calculated at a higher level of theory (any wave-function method) using electron density fingerprints. We will leverage the <a class="reference external" href="https://journals.aps.org/prmaterials/pdf/10.1103/PhysRevMaterials.3.063801">fingerprinting scheme</a> developed in previous research from our group that uses Maxwell-Cartesian Spherical Harmonics (MCSH) to project the electron density onto a basis for representation. This project involves improving the descriptor calculation scheme in SPARC, understanding and running DFT calculations to generate electronic structure data, and analyze them using supervised and unsupervised ML methods. The students will gain hands on experience in python and parallel programming in C, using supercomputing resources as well as emerging ML methods. I am looking for students who have prior experience in C programming and a curiousity in emerging ML methods in computational chemistry is strongly encouraged.</p>
+</section>
+</section>
+<section id="standard-meeting-format">
+<h2>Standard meeting format<a class="headerlink" href="#standard-meeting-format" title="Permalink to this heading">#</a></h2>
+<p>Subsequent meetings will follow one of three formats. We will start each meeting virtually in this Zoom room regardless of the format.</p>
+<ul class="simple">
+<li><p>Lecture meetings:  The main lecture will be used to briefly discuss logistics before breaking into sub-groups. All training students should plan on attending the training breakout session for a lecture on the topic of the week, while other subgroups will attend their own breakout rooms. Sub-groups where all (or some) of the students are on campus may elect to meet in person or in a hybrid mode based on the preference of group members.</p></li>
+<li><p>Update meetings: For midterm and final updates, each team will post a 10-15 minute update presentation to Canvas, and each student will be assigned 3 update presentations to watch and provide peer reviews before class. During the class time, all students are expected to be present, and we will go through each group to field questions and discuss their work. Any remaining time will be used for sub-group meetings.</p></li>
+<li><p>Workshops: No official lecture topic. The entire lecture will be used as unstructured time to work on projects and interact with mentors and instructors. Training students should use this as an opportunity to join the breakout room of the subteams they are most interested in joining.</p></li>
+</ul>
+<p><strong>Note:</strong> If no member of your sub-team is present for the synchronous lecture, then everyone from the group will lose 1/2 point (out of 5) from the teamwork grade. If you cannot attend please coordinate with your group and confirm with an instructor at least 24 hours ahead of time if nobody from your group will be there.</p>
+</section>
+<section id="lecture-schedule-and-syllabus">
+<h2>Lecture schedule and syllabus<a class="headerlink" href="#lecture-schedule-and-syllabus" title="Permalink to this heading">#</a></h2>
+<p>The course <a class="reference internal" href="VIP_syllabus.html"><span class="doc std std-doc">syllabus</span></a> is available within this book, and includes a list of all the lecture topics and dates.</p>
+</section>
+<section id="week-1-assignment">
+<h2>Week 1 Assignment<a class="headerlink" href="#week-1-assignment" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Join the <a class="reference external" href="https://join.slack.com/t/slack-ymv5720/shared_invite/zt-21v1xmbap-5FQMR2rgE0B5krwMZPFyBQ">Slack channel</a></p></li>
+<li><p>Start discussion for selecting your group or sub-team project</p></li>
+<li><p>Install necessary software following instructions below.</p></li>
+</ul>
+</section>
+<section id="software-installation">
+<h2>Software Installation:<a class="headerlink" href="#software-installation" title="Permalink to this heading">#</a></h2>
+<section id="install-anaconda3">
+<h3>Install Anaconda3<a class="headerlink" href="#install-anaconda3" title="Permalink to this heading">#</a></h3>
+<p>We’ll be using Python3 and Jupyter notebooks extenstively in this class. To access this easily, we’ll need to install anaconda3. To do that, go to the anaconda website below and simply follow the buttons to download and install it (ensure that you’re downloading the correct version for your operating system.)</p>
+<p><a class="reference external" href="https://www.anaconda.com/distribution/">https://www.anaconda.com/distribution/</a></p>
+</section>
+<section id="ensure-you-can-access-a-linux-unix-prompt">
+<h3>Ensure you can access a linux/unix prompt<a class="headerlink" href="#ensure-you-can-access-a-linux-unix-prompt" title="Permalink to this heading">#</a></h3>
+<section id="windows-users">
+<h4>Windows users:<a class="headerlink" href="#windows-users" title="Permalink to this heading">#</a></h4>
+<p>Please install the windows ubuntu subsystem using these instructions:</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">https://docs.microsoft.com/en-us/windows/wsl/install-win10</a></p>
+</section>
+<section id="mac-users">
+<h4>Mac users:<a class="headerlink" href="#mac-users" title="Permalink to this heading">#</a></h4>
+<p>Be sure you can open a <a class="reference external" href="https://www.youtube.com/watch?v=zw7Nd67_aFw">terminal</a></p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VIP_syllabus.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Course Description</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Basic_Python_Tools.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Introduction to Basic Python Tools</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-medford-group-research">Overview of Medford Group research</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-prof-aj-medford">About Prof. AJ Medford</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introductions">Introductions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-vip-work">How does VIP work?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-vip-graded">How is VIP graded?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vip-is-not-like-a-regular-course">VIP is not like a regular course</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-communication">Group Communication:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-structure-new-students">Team Structure : New Students</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-structure-returning-students-omscs-students-post-training-new-students">Team Structure: Returning Students, OMSCS Students, post Training New Students</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-teams">Sub-teams</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-study-projects">Independent Study Projects</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#details-on-sub-teams">Details on Sub-teams</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dft-modeling-of-surface-reactions">DFT Modeling of Surface Reactions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#investigating-surface-reactions">Investigating surface reactions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizing-sparc-dft-code">Utilizing SPARC DFT code</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-for-catalysis">Machine Learning for Catalysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-gpt-models-for-catalysis">Fine-tuning GPT models for Catalysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-a-portable-and-easily-customizable-platform-for-training-nns">Developing a portable and easily customizable platform for training NNs</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-for-electronic-structure">Machine Learning for Electronic Structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-meeting-format">Standard meeting format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-schedule-and-syllabus">Lecture schedule and syllabus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-assignment">Week 1 Assignment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-installation">Software Installation:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-anaconda3">Install Anaconda3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ensure-you-can-access-a-linux-unix-prompt">Ensure you can access a linux/unix prompt</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-users">Windows users:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mac-users">Mac users:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Medford Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

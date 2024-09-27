@@ -1,0 +1,1550 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Training NNP &#8212; Medford Group Graduate Training</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Training_Neural_Network_Potentials_with_JAX';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Medford Group Graduate Training
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">VIP</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="VIP_Info.html">VIP Materials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="VIP_syllabus.html">Course Description</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="VIP_Overview.html">Big Data &amp; Quantum Mechanics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Training Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Basic_Python_Tools.html">1. Introduction to Basic Python Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_Python_programming.html">1.2. Introduction to Python programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_numpy.html">1.3. Numpy -  multidimensional data arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_scipy.html">1.4. SciPy - Library of scientific algorithms for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_plotting_in_Python.html">1.5. matplotlib - Plotting in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_python.html">1.6. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Manipulating_Atoms_in_Python.html">2. Introduction to Manipulating Atoms in Python</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Building_Structures.html">2.2. Intro to Building Structures with ASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Calculators.html">2.3. Intro to ASE Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_intro.html">2.4. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_calcs.html">2.5. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Linux_HPC.html">3. Introduction to Linux and High-Performance Computing</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_linux.html">3.3. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_Density_Functional_Theory.html">4. Introduction to Density Functional Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">5. Applications of Density Functional Theory</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">5.2. Adsorption energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_SPARC.html">5.3. Adsorption energy from DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">5.4. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">6. Intro to Regression and High Dimensional Data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">6.2. Non-Parametric Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_2_Complexity_Optimization.html">6.3. Complexity Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">6.4. High Dimensional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_4_Dimensionality_Reduction.html">6.5. Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">6.6. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">7. Intro to Classification and Generative Models</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_1_Classification_Basics.html">7.2. Classification Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">7.3. Generalized Linear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">7.4. Alternate classification methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">7.5. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_5_Generative_Models.html">7.6. Generative Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">7.7. Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Appendix.html">Appendix</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Literature_Searches.html">Basics of Searching and Reading Scientific Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create_DFT_Environments.html">Create DFT Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gas_formation_energy_calculation_in_SPARC.html">Gas formation energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Referencing_Binding_Energies.html">Referencing Binding Energies</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/Training_Neural_Network_Potentials_with_JAX.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Training NNP</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Training NNP</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of contents</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-on-cuco-with-symmetry-functions-2nd-gen-nnff-a-name-training-bp-a">Training on CuCO with Symmetry Functions + 2nd Gen NNFF <a name="training_bp"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construct-the-training-dataset">Construct the training dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-fingerprinting-scheme">Define fingerprinting scheme</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-configuration-for-trainer-object">Define the configuration for trainer object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hit-go-and-train">Hit go and train</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-neural-network-as-an-ase-calculator-to-make-predictions">Use the neural network as an ase calculator to make predictions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-on-2d-water-dataset-with-gmp-singlenn-a-name-training-gmp-a">Training on 2D water dataset with GMP + SingleNN <a name="training_gmp"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Construct the training dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Define fingerprinting scheme</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Define the configuration for trainer object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Hit go and train</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Use the neural network as an ase calculator to make predictions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-fitted-model-to-predict-the-1d-pes-for-change-in-o-h-bond-length">Use the fitted model to predict the 1D PES for change in O-H bond length</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="training-nnp">
+<h1>Training NNP<a class="headerlink" href="#training-nnp" title="Permalink to this heading">#</a></h1>
+<p>Edited by N. Hu</p>
+<p>Medford Research Group at Georgia Tech</p>
+<p>Updated on 02/14/2022</p>
+<p>This ipython notebook of training NNFFs is based on the BDQM-VIP lecture materials and the sample scripts provided by AMPtorch (<code class="docutils literal notranslate"><span class="pre">amptorch/example/</span></code>) for both conventional Symmetry Functions as finger-printing scheme + Behler-Parrnello atomistic neural network structure (2nd Generation NN), and Gaussian Multi-Pole + SingleNN neural network structure.</p>
+<p>This paper introduces the basics and the formulation of Gaussian Multi-pole (GMP) descriptors:
+<a class="reference external" href="https://arxiv.org/abs/2102.02390?utm_source=feedburner&amp;amp;utm_medium=feed&amp;amp;utm_campaign=Feed%253A+arxiv%252FQSXk+%2528ExcitingAds%2521+cs+updates+on+arXiv.org%2529">https://arxiv.org/abs/2102.02390?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%253A+arxiv%252FQSXk+%2528ExcitingAds%2521+cs+updates+on+arXiv.org%2529</a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="table-of-contents">
+<h1>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><span class="xref myst">Training with Symmetry Function and BPNN</span></p></li>
+<li><p><span class="xref myst">Training with GMP and SingleNN</span></p></li>
+</ol>
+<section id="training-on-cuco-with-symmetry-functions-2nd-gen-nnff-a-name-training-bp-a">
+<h2>Training on CuCO with Symmetry Functions + 2nd Gen NNFF <a name="training_bp"></a><a class="headerlink" href="#training-on-cuco-with-symmetry-functions-2nd-gen-nnff-a-name-training-bp-a" title="Permalink to this heading">#</a></h2>
+<section id="construct-the-training-dataset">
+<h3>Construct the training dataset<a class="headerlink" href="#construct-the-training-dataset" title="Permalink to this heading">#</a></h3>
+<p>As an example, we calculate the potential energy and forces for CuCO chemical system with the EMT calculator implemented in ase.</p>
+<p>This step should be replaced with training datasets that have information on:</p>
+<ol class="arabic simple">
+<li><p>cell size</p></li>
+<li><p>periodic boundary conditions</p></li>
+<li><p>atomic positions</p></li>
+<li><p>potential energy</p></li>
+<li><p>forces, if doing force training</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">ase</span> <span class="kn">import</span> <span class="n">Atoms</span>
+<span class="kn">import</span> <span class="nn">ase.io</span>
+<span class="kn">from</span> <span class="nn">ase.calculators.emt</span> <span class="kn">import</span> <span class="n">EMT</span>
+<span class="kn">from</span> <span class="nn">ase.build</span> <span class="kn">import</span> <span class="n">molecule</span>
+
+
+<span class="kn">from</span> <span class="nn">amptorch.ase_utils</span> <span class="kn">import</span> <span class="n">AMPtorch</span>
+<span class="kn">from</span> <span class="nn">amptorch.trainer</span> <span class="kn">import</span> <span class="n">AtomsTrainer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get training images</span>
+
+<span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">dist</span> <span class="ow">in</span> <span class="n">distances</span><span class="p">:</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">Atoms</span><span class="p">(</span>
+        <span class="s2">&quot;CuCO&quot;</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="p">(</span><span class="o">-</span><span class="n">dist</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">0.65</span><span class="p">),</span> <span class="n">dist</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.65</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="p">(</span><span class="n">dist</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">0.65</span><span class="p">),</span> <span class="n">dist</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.65</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">image</span><span class="o">.</span><span class="n">set_cell</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+    <span class="n">image</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">pbc</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">image</span><span class="o">.</span><span class="n">set_calculator</span><span class="p">(</span><span class="n">EMT</span><span class="p">())</span>
+    <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-fingerprinting-scheme">
+<h3>Define fingerprinting scheme<a class="headerlink" href="#define-fingerprinting-scheme" title="Permalink to this heading">#</a></h3>
+<p>Here we demonstrate with the conventional Symmetry functions, <span class="math notranslate nohighlight">\(G^2\)</span> and <span class="math notranslate nohighlight">\(G^4\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define parameters for finger-printing scheme, Symmetry Function</span>
+
+<span class="n">Gs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;G2&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;etas&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">0.05</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">5.0</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
+            <span class="s2">&quot;rs_s&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;G4&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;etas&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.005</span><span class="p">],</span> <span class="s2">&quot;zetas&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">],</span> <span class="s2">&quot;gammas&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">]},</span>
+        <span class="s2">&quot;cutoff&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-the-configuration-for-trainer-object">
+<h3>Define the configuration for trainer object<a class="headerlink" href="#define-the-configuration-for-trainer-object" title="Permalink to this heading">#</a></h3>
+<p>Detailed introductions and other specifications supported in trainer object can be found here under Section Usage/Configs:
+<a class="github reference external" href="https://github.com/ulissigroup/amptorch/tree/MCSH_paper1_lmdb">ulissigroup/amptorch</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;get_forces&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;num_layers&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">&quot;num_nodes&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s2">&quot;batchnorm&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;optim&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;force_coefficient&quot;</span><span class="p">:</span> <span class="mf">0.04</span><span class="p">,</span>
+        <span class="s2">&quot;lr&quot;</span><span class="p">:</span> <span class="mf">1e-3</span><span class="p">,</span>
+        <span class="s2">&quot;batch_size&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+        <span class="s2">&quot;epochs&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;loss&quot;</span><span class="p">:</span> <span class="s2">&quot;mse&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;metric&quot;</span><span class="p">:</span> <span class="s2">&quot;mae&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;gpus&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;dataset&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;raw_data&quot;</span><span class="p">:</span> <span class="n">images</span><span class="p">,</span>
+        <span class="s2">&quot;fp_params&quot;</span><span class="p">:</span> <span class="n">Gs</span><span class="p">,</span>
+        <span class="s2">&quot;save_fps&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;scaling&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;normalize&quot;</span><span class="p">,</span> <span class="s2">&quot;range&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)},</span>
+        <span class="s2">&quot;val_split&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;debug&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;run_dir&quot;</span><span class="p">:</span> <span class="s2">&quot;./&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;seed&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;verbose&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="c1"># Weights and Biases used for logging - an account(free) is required</span>
+        <span class="s2">&quot;logger&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="hit-go-and-train">
+<h3>Hit go and train<a class="headerlink" href="#hit-go-and-train" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">set_num_threads</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">AtomsTrainer</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results saved to ./checkpoints/2022-02-14-18-48-47-test
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "51f69048bd474fe0a484117d6770aa29", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cbbd303de6a2450c97616eb5cefe7367", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7113ce5b4e0e43fda3d43823e7aaa06f", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading dataset: 100 images
+Use Xavier initialization
+Use Xavier initialization
+Use Xavier initialization
+Loading model: 1143 parameters
+Loading skorch trainer
+  epoch    train_energy_mae    train_forces_mae    train_loss    cp     dur
+-------  ------------------  ------------------  ------------  ----  ------
+      1              <span class=" -Color -Color-Cyan">0.9776</span>              <span class=" -Color -Color-Green">0.5535</span>        <span class=" -Color -Color-Magenta">1.0490</span>     +  0.0410
+      2              <span class=" -Color -Color-Cyan">0.7315</span>              <span class=" -Color -Color-Green">0.5250</span>        <span class=" -Color -Color-Magenta">0.6843</span>     +  0.0355
+      3              <span class=" -Color -Color-Cyan">0.5812</span>              0.5261        <span class=" -Color -Color-Magenta">0.4445</span>     +  0.0353
+      4              <span class=" -Color -Color-Cyan">0.5395</span>              <span class=" -Color -Color-Green">0.5208</span>        <span class=" -Color -Color-Magenta">0.3698</span>     +  0.0353
+      5              <span class=" -Color -Color-Cyan">0.5281</span>              0.5250        0.5913     +  0.0354
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;string&gt;:6: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      6              <span class=" -Color -Color-Cyan">0.5183</span>              <span class=" -Color -Color-Green">0.5130</span>        <span class=" -Color -Color-Magenta">0.3640</span>     +  0.0355
+      7              0.5247              <span class=" -Color -Color-Green">0.5123</span>        <span class=" -Color -Color-Magenta">0.3282</span>        0.0352
+      8              <span class=" -Color -Color-Cyan">0.4966</span>              0.5133        0.3748     +  0.0354
+      9              <span class=" -Color -Color-Cyan">0.4578</span>              <span class=" -Color -Color-Green">0.5022</span>        <span class=" -Color -Color-Magenta">0.3122</span>     +  0.0352
+     10              <span class=" -Color -Color-Cyan">0.4195</span>              <span class=" -Color -Color-Green">0.4864</span>        <span class=" -Color -Color-Magenta">0.2077</span>     +  0.0352
+Training completed in 0.43488168716430664s
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="use-the-neural-network-as-an-ase-calculator-to-make-predictions">
+<h3>Use the neural network as an ase calculator to make predictions<a class="headerlink" href="#use-the-neural-network-as-an-ase-calculator-to-make-predictions" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+
+<span class="c1"># assess errors</span>
+
+<span class="n">true_energies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">image</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span> <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">images</span><span class="p">])</span>
+<span class="n">pred_energies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">predictions</span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Energy MSE:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">true_energies</span> <span class="o">-</span> <span class="n">pred_energies</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Energy MAE:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">true_energies</span> <span class="o">-</span> <span class="n">pred_energies</span><span class="p">)))</span>
+
+<span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_calculator</span><span class="p">(</span><span class="n">AMPtorch</span><span class="p">(</span><span class="n">trainer</span><span class="p">))</span>
+<span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Energy MSE: 0.316875487045523
+Energy MAE: 0.4133532974220065
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.200410481656832
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="training-on-2d-water-dataset-with-gmp-singlenn-a-name-training-gmp-a">
+<h2>Training on 2D water dataset with GMP + SingleNN <a name="training_gmp"></a><a class="headerlink" href="#training-on-2d-water-dataset-with-gmp-singlenn-a-name-training-gmp-a" title="Permalink to this heading">#</a></h2>
+<section id="id1">
+<h3>Construct the training dataset<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>As an example of the training dataset, we calculate the potential energy and forces for 2-D single water potential energy surface. This dataset is calculated by Quantem Espresso (xc, PBE. kpts, (1,1,1). Planewave, 500.) One O-H bond length is fixed, and the other O-H length and the H-O-H bond angle are allowed to vary.</p>
+<p>Required information in the training datasets contains:</p>
+<ol class="arabic simple">
+<li><p>cell size</p></li>
+<li><p>periodic boundary conditions</p></li>
+<li><p>atomic positions</p></li>
+<li><p>potential energy</p></li>
+<li><p>forces, if doing force training</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get training images by reading trajectory files</span>
+
+<span class="c1"># read all images from the trajectory</span>
+<span class="n">training</span> <span class="o">=</span> <span class="n">ase</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;./data/water_2d.traj&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+
+<span class="c1"># read every 10th image from the trajectory</span>
+<span class="c1"># training = ase.io.read(&quot;./data/water_2d.traj&quot;, index=&quot;::10&quot;)</span>
+
+<span class="c1"># print the length of the image</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">training</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>400
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check the information</span>
+
+<span class="c1"># cell size</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_cell</span><span class="p">())</span>
+
+<span class="c1"># periodic boundary condition</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_pbc</span><span class="p">())</span>
+
+<span class="c1"># atomic positions</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_positions</span><span class="p">())</span>
+
+<span class="c1"># system potential energy</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">())</span>
+
+<span class="c1"># forces</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_forces</span><span class="p">())</span>
+
+<span class="c1"># ase.Atoms object</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cell([10.0, 10.0, 10.0])
+[ True  True  True]
+[[5.         4.82418565 5.2981545 ]
+ [5.         5.58742465 4.7018455 ]
+ [5.         4.41257535 4.77131852]]
+-593.6701598080588
+[[  0.          31.22263082  36.76981108]
+ [  0.           1.73799984   1.01589577]
+ [  0.         -32.96063066 -37.78570684]]
+Atoms(symbols=&#39;OH2&#39;, pbc=True, cell=[10.0, 10.0, 10.0], calculator=SinglePointCalculator(...))
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h3>Define fingerprinting scheme<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>Here we demonstrate with the GMP fingerprinting scheme. It requires the fitted pseduo-potentials of every elements. Access to the fitted pseduo-potentials:
+<a class="github reference external" href="https://github.com/ulissigroup/amptorch/tree/MCSH_paper1_lmdb/examples/GMP/valence_gaussians">ulissigroup/amptorch</a></p>
+<p>Like G2 and G4 symmetry functions, GMP uses <span class="math notranslate nohighlight">\(\sigma\)</span>’s in the radial coordinates and MCSH groups and orders in the angular coordinates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define sigmas</span>
+<span class="n">nsigmas</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">sigmas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span><span class="n">nsigmas</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sigmas</span><span class="p">)</span>
+
+<span class="c1"># define MCSH orders</span>
+<span class="n">MCSHs_index</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">MCSHs_dict</span> <span class="o">=</span> <span class="p">{</span>
+<span class="mi">0</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;sigmas&quot;</span><span class="p">:</span> <span class="n">sigmas</span><span class="p">,},</span>
+<span class="mi">1</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;sigmas&quot;</span><span class="p">:</span> <span class="n">sigmas</span><span class="p">,},</span>
+<span class="mi">2</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;sigmas&quot;</span><span class="p">:</span> <span class="n">sigmas</span><span class="p">,},</span>
+<span class="mi">3</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;sigmas&quot;</span><span class="p">:</span> <span class="n">sigmas</span><span class="p">,},</span>
+<span class="mi">4</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="s2">&quot;sigmas&quot;</span><span class="p">:</span> <span class="n">sigmas</span><span class="p">,},</span>
+<span class="mi">5</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="s2">&quot;sigmas&quot;</span><span class="p">:</span> <span class="n">sigmas</span><span class="p">,},</span>
+<span class="mi">6</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="s2">&quot;sigmas&quot;</span><span class="p">:</span> <span class="n">sigmas</span><span class="p">,},</span>
+<span class="mi">7</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="s2">&quot;sigmas&quot;</span><span class="p">:</span> <span class="n">sigmas</span><span class="p">,},</span>
+<span class="mi">8</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="s2">&quot;sigmas&quot;</span><span class="p">:</span> <span class="n">sigmas</span><span class="p">,},</span>
+<span class="mi">9</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="s2">&quot;sigmas&quot;</span><span class="p">:</span> <span class="n">sigmas</span><span class="p">,},</span>
+<span class="p">}</span>
+<span class="n">MCSHs</span> <span class="o">=</span> <span class="n">MCSHs_dict</span><span class="p">[</span><span class="n">MCSHs_index</span><span class="p">]</span> <span class="c1"># MCSHs is now just the order of MCSHs. </span>
+
+
+<span class="n">GMP</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;MCSHs&quot;</span><span class="p">:</span> <span class="n">MCSHs</span><span class="p">,</span>
+    <span class="s2">&quot;atom_gaussians&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;H&quot;</span><span class="p">:</span> <span class="s2">&quot;./valence_gaussians/H_pseudodensity_2.g&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;O&quot;</span><span class="p">:</span> <span class="s2">&quot;./valence_gaussians/O_pseudodensity_4.g&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;cutoff&quot;</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span>
+    <span class="s2">&quot;solid_harmonics&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;O&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.2 0.4 0.6 0.8 1.  1.2 1.4 1.6 1.8 2. ]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3>Define the configuration for trainer object<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>Detailed introductions and other specifications supported in trainer object can be found here under Section Usage/Configs:
+<a class="github reference external" href="https://github.com/ulissigroup/amptorch/tree/MCSH_paper1_lmdb">ulissigroup/amptorch</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;singlenn&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;get_forces&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;num_layers&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">&quot;num_nodes&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;batchnorm&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;activation&quot;</span><span class="p">:</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Tanh</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;optim&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;force_coefficient&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+        <span class="s2">&quot;lr&quot;</span><span class="p">:</span> <span class="mf">1e-3</span><span class="p">,</span>
+        <span class="s2">&quot;batch_size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+        <span class="s2">&quot;epochs&quot;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s2">&quot;loss&quot;</span><span class="p">:</span> <span class="s2">&quot;mse&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;metric&quot;</span><span class="p">:</span> <span class="s2">&quot;mae&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;dataset&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;raw_data&quot;</span><span class="p">:</span> <span class="n">training</span><span class="p">,</span>
+        <span class="s2">&quot;fp_scheme&quot;</span><span class="p">:</span> <span class="s2">&quot;gmpordernorm&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fp_params&quot;</span><span class="p">:</span> <span class="n">GMP</span><span class="p">,</span>
+        <span class="s2">&quot;elements&quot;</span><span class="p">:</span> <span class="n">elements</span><span class="p">,</span>
+        <span class="s2">&quot;save_fps&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;scaling&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;normalize&quot;</span><span class="p">,</span> <span class="s2">&quot;range&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)},</span>
+        <span class="s2">&quot;val_split&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;debug&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;run_dir&quot;</span><span class="p">:</span> <span class="s2">&quot;./&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;seed&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;verbose&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="c1"># Weights and Biases used for logging - an account(free) is required</span>
+        <span class="s2">&quot;logger&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h3>Hit go and train<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">set_num_threads</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">AtomsTrainer</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results saved to ./checkpoints/2022-02-14-18-48-51-test
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6db35635c7b8412982b498706569eab2", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ce16751aa2b14d5184c3e92c84b2290d", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a8ee943341d64b8eacc1701557a82381", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading dataset: 400 images
+Use Xavier initialization
+Loading model: 601 parameters
+Loading skorch trainer
+  epoch    train_energy_mae    train_forces_mae    train_loss    val_energy_mae    val_forces_mae    valid_loss    cp     dur
+-------  ------------------  ------------------  ------------  ----------------  ----------------  ------------  ----  ------
+      1              <span class=" -Color -Color-Cyan">0.9166</span>              <span class=" -Color -Color-Green">3.6067</span>        <span class=" -Color -Color-Magenta">0.3347</span>            <span class=" -Color -Color-Red">1.0759</span>            2.8713        <span class=" -Color -Color-Cyan">0.4352</span>     +  0.1192
+      2              <span class=" -Color -Color-Cyan">0.5748</span>              <span class=" -Color -Color-Green">3.2845</span>        <span class=" -Color -Color-Magenta">0.1749</span>            <span class=" -Color -Color-Red">0.4722</span>            2.9645        <span class=" -Color -Color-Cyan">0.1838</span>     +  0.1186
+      3              <span class=" -Color -Color-Cyan">0.4819</span>              <span class=" -Color -Color-Green">3.1487</span>        <span class=" -Color -Color-Magenta">0.1435</span>            <span class=" -Color -Color-Red">0.3749</span>            3.0119        <span class=" -Color -Color-Cyan">0.1310</span>     +  0.1183
+      4              <span class=" -Color -Color-Cyan">0.4268</span>              <span class=" -Color -Color-Green">3.0484</span>        <span class=" -Color -Color-Magenta">0.1212</span>            <span class=" -Color -Color-Red">0.3292</span>            2.8507        <span class=" -Color -Color-Cyan">0.1095</span>     +  0.1183
+      5              0.4574              <span class=" -Color -Color-Green">2.9619</span>        0.1221            <span class=" -Color -Color-Red">0.3286</span>            2.7766        <span class=" -Color -Color-Cyan">0.1025</span>     +  0.1187
+      6              0.4648              <span class=" -Color -Color-Green">2.7649</span>        0.1240            <span class=" -Color -Color-Red">0.2889</span>            2.7284        <span class=" -Color -Color-Cyan">0.0901</span>     +  0.1188
+      7              0.4483              2.7782        <span class=" -Color -Color-Magenta">0.1140</span>            0.3000            2.7083        0.0952        0.1206
+      8              <span class=" -Color -Color-Cyan">0.4126</span>              <span class=" -Color -Color-Green">2.5931</span>        <span class=" -Color -Color-Magenta">0.0946</span>            0.3138            2.8513        0.0937        0.1187
+      9              <span class=" -Color -Color-Cyan">0.3965</span>              <span class=" -Color -Color-Green">2.5699</span>        <span class=" -Color -Color-Magenta">0.0932</span>            <span class=" -Color -Color-Red">0.2876</span>            2.6931        <span class=" -Color -Color-Cyan">0.0827</span>     +  0.1190
+     10              0.4545              <span class=" -Color -Color-Green">2.5266</span>        0.1008            0.3681            2.6409        0.0937        0.1191
+     11              0.4035              2.5349        <span class=" -Color -Color-Magenta">0.0909</span>            <span class=" -Color -Color-Red">0.2769</span>            2.4722        <span class=" -Color -Color-Cyan">0.0764</span>     +  0.1185
+     12              <span class=" -Color -Color-Cyan">0.3541</span>              <span class=" -Color -Color-Green">2.4835</span>        <span class=" -Color -Color-Magenta">0.0801</span>            0.2840            2.6637        0.0824        0.1186
+     13              0.3933              <span class=" -Color -Color-Green">2.4446</span>        0.0830            0.2911            2.4129        <span class=" -Color -Color-Cyan">0.0763</span>        0.1186
+     14              0.4083              <span class=" -Color -Color-Green">2.3820</span>        0.0890            <span class=" -Color -Color-Red">0.2717</span>            2.4372        0.0778     +  0.1176
+     15              0.3653              2.4379        <span class=" -Color -Color-Magenta">0.0783</span>            <span class=" -Color -Color-Red">0.2651</span>            2.3123        <span class=" -Color -Color-Cyan">0.0712</span>     +  0.1186
+     16              <span class=" -Color -Color-Cyan">0.3446</span>              <span class=" -Color -Color-Green">2.2296</span>        <span class=" -Color -Color-Magenta">0.0671</span>            <span class=" -Color -Color-Red">0.2514</span>            2.3681        <span class=" -Color -Color-Cyan">0.0683</span>     +  0.1187
+     17              0.3463              2.3116        <span class=" -Color -Color-Magenta">0.0668</span>            0.3127            2.3053        0.0805        0.1186
+     18              <span class=" -Color -Color-Cyan">0.3048</span>              2.2741        <span class=" -Color -Color-Magenta">0.0576</span>            0.2565            2.3971        <span class=" -Color -Color-Cyan">0.0677</span>        0.1176
+     19              0.3850              <span class=" -Color -Color-Green">2.2143</span>        0.0685            0.2590            2.2416        <span class=" -Color -Color-Cyan">0.0662</span>        0.1185
+     20              0.3074              <span class=" -Color -Color-Green">2.1823</span>        0.0596            <span class=" -Color -Color-Red">0.2150</span>            2.3052        <span class=" -Color -Color-Cyan">0.0602</span>     +  0.1185
+     21              0.3284              <span class=" -Color -Color-Green">2.1531</span>        <span class=" -Color -Color-Magenta">0.0558</span>            <span class=" -Color -Color-Red">0.2061</span>            2.2051        <span class=" -Color -Color-Cyan">0.0558</span>     +  0.1177
+     22              0.3458              <span class=" -Color -Color-Green">2.1348</span>        0.0599            0.2997            2.2439        0.0717        0.1182
+     23              <span class=" -Color -Color-Cyan">0.2967</span>              <span class=" -Color -Color-Green">1.9998</span>        <span class=" -Color -Color-Magenta">0.0498</span>            <span class=" -Color -Color-Red">0.1795</span>            2.2532        0.0592     +  0.1185
+     24              0.3580              <span class=" -Color -Color-Green">1.9891</span>        0.0553            0.2544            2.3604        0.0642        0.1176
+     25              <span class=" -Color -Color-Cyan">0.2489</span>              <span class=" -Color -Color-Green">1.9221</span>        <span class=" -Color -Color-Magenta">0.0380</span>            0.1968            1.9220        <span class=" -Color -Color-Cyan">0.0457</span>        0.1173
+     26              0.2962              <span class=" -Color -Color-Green">1.8199</span>        0.0428            0.2825            2.1843        0.0617        0.1184
+     27              0.2990              <span class=" -Color -Color-Green">1.8033</span>        0.0410            0.1887            1.9435        0.0502        0.1174
+     28              0.2753              <span class=" -Color -Color-Green">1.7510</span>        <span class=" -Color -Color-Magenta">0.0368</span>            <span class=" -Color -Color-Red">0.1692</span>            2.1083        <span class=" -Color -Color-Cyan">0.0449</span>     +  0.1183
+     29              0.2613              1.7697        <span class=" -Color -Color-Magenta">0.0365</span>            0.2200            2.0161        0.0528        0.1182
+     30              0.2596              <span class=" -Color -Color-Green">1.7125</span>        <span class=" -Color -Color-Magenta">0.0354</span>            0.2203            2.1059        0.0553        0.1181
+     31              0.2783              <span class=" -Color -Color-Green">1.6646</span>        0.0358            0.1909            1.8565        <span class=" -Color -Color-Cyan">0.0418</span>        0.1184
+     32              <span class=" -Color -Color-Cyan">0.2414</span>              1.7629        <span class=" -Color -Color-Magenta">0.0331</span>            <span class=" -Color -Color-Red">0.1373</span>            1.8587        <span class=" -Color -Color-Cyan">0.0390</span>     +  0.1175
+     33              0.2468              <span class=" -Color -Color-Green">1.5570</span>        <span class=" -Color -Color-Magenta">0.0290</span>            0.1899            1.7846        0.0431        0.1175
+     34              <span class=" -Color -Color-Cyan">0.2359</span>              1.5886        0.0306            0.1814            1.6228        <span class=" -Color -Color-Cyan">0.0319</span>        0.1174
+     35              0.2765              1.6077        0.0341            0.2342            1.7899        0.0419        0.1175
+     36              0.2398              1.5575        <span class=" -Color -Color-Magenta">0.0283</span>            0.1651            1.8781        0.0392        0.1174
+     37              0.2822              1.7392        0.0406            0.2555            1.9149        0.0586        0.1175
+     38              0.2562              1.5598        0.0304            0.3649            1.8912        0.0619        0.1181
+     39              0.3189              1.6295        0.0400            0.2663            1.7968        0.0520        0.1181
+     40              0.2414              <span class=" -Color -Color-Green">1.5291</span>        <span class=" -Color -Color-Magenta">0.0263</span>            0.1850            1.7202        0.0400        0.1191
+     41              0.2548              <span class=" -Color -Color-Green">1.4544</span>        0.0277            0.1653            1.5609        <span class=" -Color -Color-Cyan">0.0307</span>        0.1191
+     42              <span class=" -Color -Color-Cyan">0.2338</span>              1.5538        <span class=" -Color -Color-Magenta">0.0261</span>            0.2569            1.6327        0.0419        0.1180
+     43              0.3237              1.5730        0.0434            0.1876            1.7730        0.0351        0.1182
+     44              <span class=" -Color -Color-Cyan">0.2190</span>              1.4909        <span class=" -Color -Color-Magenta">0.0259</span>            0.1981            1.8695        0.0416        0.1191
+     45              0.2470              <span class=" -Color -Color-Green">1.4461</span>        0.0296            0.2063            1.6211        0.0391        0.1185
+     46              0.2545              1.4647        0.0278            0.1795            2.1457        0.0542        0.1185
+     47              0.2509              <span class=" -Color -Color-Green">1.3907</span>        0.0273            0.2374            1.8997        0.0501        0.1189
+     48              <span class=" -Color -Color-Cyan">0.2098</span>              <span class=" -Color -Color-Green">1.2785</span>        <span class=" -Color -Color-Magenta">0.0204</span>            0.1729            1.7333        0.0385        0.1187
+     49              <span class=" -Color -Color-Cyan">0.1997</span>              1.2821        <span class=" -Color -Color-Magenta">0.0186</span>            0.1746            1.7228        0.0378        0.1185
+     50              0.2181              1.3120        0.0209            0.1432            1.7438        0.0396        0.1185
+     51              0.2447              1.3298        0.0251            0.1576            1.7314        0.0427        0.1185
+     52              0.2130              1.3597        0.0220            0.1423            1.7671        0.0354        0.1194
+     53              0.2057              1.2844        0.0199            0.3523            1.8464        0.0615        0.1195
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     54              0.2247              1.2996        0.0221            0.1599            1.6260        0.0320        0.1176
+     55              0.2060              1.3864        0.0232            0.1648            1.6399        0.0355        0.1175
+     56              0.2332              1.3098        0.0235            0.1491            1.6725        0.0377        0.1176
+     57              0.2238              1.3408        0.0232            <span class=" -Color -Color-Red">0.1198</span>            1.6988        0.0340     +  0.1186
+     58              0.2219              1.3041        0.0224            0.2840            1.8580        0.0477        0.1187
+     59              <span class=" -Color -Color-Cyan">0.1922</span>              <span class=" -Color -Color-Green">1.2458</span>        0.0197            0.1524            1.6290        0.0318        0.1184
+     60              0.2528              1.2925        0.0267            0.1425            1.5187        <span class=" -Color -Color-Cyan">0.0306</span>        0.1182
+     61              0.2082              1.2592        0.0226            0.1927            1.6108        0.0353        0.1200
+     62              0.2038              <span class=" -Color -Color-Green">1.1396</span>        <span class=" -Color -Color-Magenta">0.0177</span>            0.1853            1.5376        0.0356        0.1183
+     63              0.1925              1.2383        0.0187            0.1483            1.7141        0.0347        0.1185
+     64              0.1951              1.1899        0.0220            0.1452            1.6025        0.0340        0.1187
+     65              0.2262              1.2882        0.0235            0.1392            1.4542        <span class=" -Color -Color-Cyan">0.0302</span>        0.1186
+     66              <span class=" -Color -Color-Cyan">0.1878</span>              1.1722        <span class=" -Color -Color-Magenta">0.0160</span>            0.1701            1.6339        0.0340        0.1188
+     67              0.2006              1.2483        0.0186            0.2441            1.6383        0.0384        0.1195
+     68              0.1952              <span class=" -Color -Color-Green">1.1128</span>        0.0167            0.1572            1.6495        0.0355        0.1187
+     69              0.2066              1.1974        0.0205            0.2361            1.6223        0.0388        0.1183
+     70              0.1920              1.1656        0.0179            0.1501            1.4612        <span class=" -Color -Color-Cyan">0.0283</span>        0.1182
+     71              <span class=" -Color -Color-Cyan">0.1849</span>              1.1818        0.0160            <span class=" -Color -Color-Red">0.1050</span>            1.5071        0.0299     +  0.1186
+     72              0.2032              1.1515        0.0203            0.1732            1.4123        <span class=" -Color -Color-Cyan">0.0262</span>        0.1187
+     73              <span class=" -Color -Color-Cyan">0.1820</span>              1.1566        0.0176            0.1571            1.5981        0.0324        0.1187
+     74              0.2038              <span class=" -Color -Color-Green">1.0877</span>        0.0178            0.1744            1.3633        0.0293        0.1187
+     75              0.1884              1.1474        0.0170            0.1414            1.5712        0.0323        0.1186
+     76              0.1849              <span class=" -Color -Color-Green">1.0007</span>        <span class=" -Color -Color-Magenta">0.0148</span>            0.1242            1.3598        0.0266        0.1176
+     77              0.1848              1.1080        0.0185            0.1219            1.4795        0.0294        0.1183
+     78              0.1993              1.0957        0.0180            0.1529            1.4254        <span class=" -Color -Color-Cyan">0.0261</span>        0.1186
+     79              <span class=" -Color -Color-Cyan">0.1706</span>              1.0934        <span class=" -Color -Color-Magenta">0.0143</span>            0.1779            1.4566        0.0277        0.1186
+     80              0.1944              1.1454        0.0279            0.2485            1.4522        0.0383        0.1186
+     81              0.2195              1.0491        0.0196            0.2480            1.4458        0.0355        0.1186
+     82              0.2165              1.0892        0.0181            0.1600            1.6799        0.0308        0.1188
+     83              <span class=" -Color -Color-Cyan">0.1681</span>              1.1044        0.0152            0.1473            1.6765        0.0272        0.1176
+     84              <span class=" -Color -Color-Cyan">0.1559</span>              <span class=" -Color -Color-Green">0.9669</span>        <span class=" -Color -Color-Magenta">0.0111</span>            0.1443            1.5447        <span class=" -Color -Color-Cyan">0.0257</span>        0.1176
+     85              0.1598              1.0200        0.0126            <span class=" -Color -Color-Red">0.0997</span>            1.5499        0.0265     +  0.1177
+     86              0.1903              1.2092        0.0193            0.1719            1.3387        0.0275        0.1181
+     87              0.1943              1.1183        0.0164            0.1453            1.3405        <span class=" -Color -Color-Cyan">0.0215</span>        0.1214
+     88              0.1725              0.9987        0.0150            0.1819            1.3577        0.0274        0.1180
+     89              0.1696              1.0340        0.0132            0.1218            1.4168        0.0247        0.1184
+     90              0.1574              <span class=" -Color -Color-Green">0.9592</span>        0.0112            0.1952            1.5069        0.0263        0.1183
+     91              0.1819              1.0316        0.0152            0.1195            1.2756        <span class=" -Color -Color-Cyan">0.0206</span>        0.1193
+     92              0.1744              1.2031        0.0174            0.1582            1.2927        0.0234        0.1188
+     93              0.1742              1.0450        0.0134            0.1026            1.5851        0.0271        0.1187
+     94              0.1659              1.0118        0.0138            <span class=" -Color -Color-Red">0.0925</span>            1.2795        <span class=" -Color -Color-Cyan">0.0190</span>     +  0.1184
+     95              0.1794              <span class=" -Color -Color-Green">0.9443</span>        0.0126            0.1046            1.3093        0.0203        0.1184
+     96              0.1615              0.9903        0.0117            0.2493            1.2139        0.0289        0.1183
+     97              0.1640              1.0023        0.0139            0.1319            1.2085        0.0199        0.1183
+     98              0.1854              <span class=" -Color -Color-Green">0.9160</span>        0.0129            0.1611            1.2746        0.0262        0.1192
+     99              0.1993              1.0124        0.0176            0.1350            1.2990        0.0207        0.1186
+    100              0.1641              0.9786        0.0123            0.1179            1.1676        <span class=" -Color -Color-Cyan">0.0171</span>        0.1186
+    101              0.1804              1.1477        0.0170            <span class=" -Color -Color-Red">0.0877</span>            1.2252        0.0189     +  0.1187
+    102              <span class=" -Color -Color-Cyan">0.1483</span>              0.9660        <span class=" -Color -Color-Magenta">0.0107</span>            0.1288            1.2065        <span class=" -Color -Color-Cyan">0.0165</span>        0.1189
+    103              <span class=" -Color -Color-Cyan">0.1426</span>              <span class=" -Color -Color-Green">0.9126</span>        <span class=" -Color -Color-Magenta">0.0101</span>            0.1425            1.3017        0.0205        0.1178
+    104              0.1552              0.9626        0.0117            0.1023            1.2177        0.0186        0.1186
+    105              0.1565              0.9197        0.0109            0.2271            1.4304        0.0275        0.1186
+    106              0.1577              0.9519        0.0113            0.1080            1.4217        0.0254        0.1185
+    107              0.1809              0.9428        0.0142            <span class=" -Color -Color-Red">0.0833</span>            1.1636        <span class=" -Color -Color-Cyan">0.0155</span>     +  0.1186
+    108              0.1801              0.9507        0.0125            0.0964            1.2912        0.0193        0.1197
+    109              0.1591              0.9774        0.0122            0.1149            1.1820        0.0171        0.1187
+    110              <span class=" -Color -Color-Cyan">0.1349</span>              0.9597        0.0104            0.1361            1.2539        0.0192        0.1187
+    111              0.1405              <span class=" -Color -Color-Green">0.8962</span>        <span class=" -Color -Color-Magenta">0.0094</span>            <span class=" -Color -Color-Red">0.0816</span>            1.2765        0.0176     +  0.1197
+    112              0.1480              0.9738        0.0111            0.1081            1.0701        <span class=" -Color -Color-Cyan">0.0142</span>        0.1188
+    113              0.1661              0.9641        0.0125            0.2060            1.2968        0.0228        0.1188
+    114              0.1623              0.9531        0.0124            0.1184            1.1888        0.0162        0.1187
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    115              0.1359              <span class=" -Color -Color-Green">0.8503</span>        <span class=" -Color -Color-Magenta">0.0085</span>            0.1217            1.1843        0.0148        0.1186
+    116              0.1621              0.9877        0.0120            0.1662            1.1458        0.0167        0.1187
+    117              0.1623              0.8891        0.0117            0.1146            1.0696        0.0142        0.1177
+    118              0.1661              0.9480        0.0122            0.1502            1.0151        0.0171        0.1182
+    119              0.1595              0.8962        0.0189            0.1356            1.2482        0.0193        0.1181
+    120              0.1535              0.9552        0.0122            0.1923            1.0914        0.0198        0.1182
+    121              0.1450              0.8861        0.0106            0.1081            1.0266        <span class=" -Color -Color-Cyan">0.0123</span>        0.1181
+    122              0.1509              0.9165        0.0112            0.1030            1.0825        0.0144        0.1181
+    123              0.1473              0.8574        0.0101            0.1312            1.0556        0.0143        0.1176
+    124              0.1506              <span class=" -Color -Color-Green">0.8273</span>        0.0096            0.1543            1.1073        0.0158        0.1175
+    125              0.1545              0.8432        0.0099            0.1287            0.9952        <span class=" -Color -Color-Cyan">0.0117</span>        0.1184
+    126              0.1350              0.8679        0.0086            <span class=" -Color -Color-Red">0.0762</span>            1.0685        0.0127     +  0.1187
+    127              0.1528              0.9099        0.0113            0.1525            0.8785        0.0139        0.1177
+    128              0.1374              0.8302        0.0090            <span class=" -Color -Color-Red">0.0668</span>            0.9460        <span class=" -Color -Color-Cyan">0.0091</span>     +  0.1175
+    129              <span class=" -Color -Color-Cyan">0.1318</span>              <span class=" -Color -Color-Green">0.7688</span>        <span class=" -Color -Color-Magenta">0.0078</span>            0.0802            1.0244        0.0105        0.1186
+    130              0.1353              <span class=" -Color -Color-Green">0.7623</span>        0.0079            0.1567            1.0040        0.0149        0.1182
+    131              0.1527              0.8691        0.0120            0.1043            1.0609        0.0152        0.1186
+    132              0.1686              0.8479        0.0125            0.1507            0.9635        0.0139        0.1175
+    133              0.1322              0.7931        0.0080            0.0870            0.9142        0.0096        0.1176
+    134              0.1525              0.8312        0.0101            0.1635            1.0102        0.0147        0.1177
+    135              0.1330              0.7695        <span class=" -Color -Color-Magenta">0.0077</span>            0.1202            0.9829        0.0153        0.1186
+    136              <span class=" -Color -Color-Cyan">0.1226</span>              0.7906        <span class=" -Color -Color-Magenta">0.0074</span>            0.0986            0.9018        0.0106        0.1176
+    137              0.1351              0.7942        0.0080            0.1005            0.9806        0.0134        0.1183
+    138              0.1566              0.9174        0.0115            0.1952            1.1399        0.0194        0.1182
+    139              0.1416              0.8172        0.0104            0.1711            0.9990        0.0187        0.1182
+    140              0.1580              0.9496        0.0127            0.1126            0.8930        0.0123        0.1193
+    141              0.1461              0.8817        0.0097            0.1077            0.9365        0.0095        0.1192
+    142              0.1526              0.8705        0.0100            0.0999            0.9754        0.0113        0.1192
+    143              0.1338              0.7657        0.0078            0.0775            1.0579        0.0129        0.1192
+    144              0.1364              0.8011        0.0085            0.1761            0.9498        0.0180        0.1189
+    145              0.1394              0.7912        0.0095            0.1129            1.0292        0.0129        0.1177
+    146              0.1295              0.7706        <span class=" -Color -Color-Magenta">0.0073</span>            0.1053            0.8015        <span class=" -Color -Color-Cyan">0.0078</span>        0.1184
+    147              <span class=" -Color -Color-Cyan">0.1215</span>              0.8331        0.0080            0.0686            0.8843        0.0090        0.1183
+    148              0.1245              0.7949        0.0081            0.0857            0.9046        0.0101        0.1182
+    149              0.1551              0.9423        0.0206            0.1356            1.1226        0.0152        0.1184
+    150              0.1501              0.8230        0.0104            0.0754            0.9350        0.0105        0.1183
+    151              0.1393              0.7908        0.0091            0.1164            0.9746        0.0147        0.1209
+    152              0.1405              0.7792        0.0089            0.1160            1.0155        0.0143        0.1200
+    153              0.1656              0.8357        0.0124            0.1705            0.9471        0.0185        0.1188
+    154              0.1370              <span class=" -Color -Color-Green">0.7229</span>        0.0087            0.0899            0.8019        <span class=" -Color -Color-Cyan">0.0077</span>        0.1198
+    155              0.1285              0.7421        0.0075            0.1201            0.9718        0.0108        0.1178
+    156              0.1252              0.7525        0.0075            0.1541            0.7143        0.0110        0.1177
+    157              0.1236              0.7696        0.0081            0.0796            0.9163        0.0098        0.1185
+    158              0.1223              <span class=" -Color -Color-Green">0.6858</span>        <span class=" -Color -Color-Magenta">0.0065</span>            0.0921            0.8994        0.0088        0.1188
+    159              <span class=" -Color -Color-Cyan">0.1127</span>              <span class=" -Color -Color-Green">0.6739</span>        <span class=" -Color -Color-Magenta">0.0060</span>            0.0744            0.8196        <span class=" -Color -Color-Cyan">0.0068</span>        0.1198
+    160              0.1312              0.7398        0.0077            0.1457            0.7667        0.0106        0.1178
+    161              0.1396              0.7674        0.0090            0.1053            0.9475        0.0111        0.1178
+    162              0.1205              0.7363        0.0069            0.1038            0.8700        0.0093        0.1178
+    163              0.1214              0.7053        0.0071            0.0964            0.9017        0.0104        0.1187
+    164              0.1234              0.7153        0.0068            0.0888            0.8497        0.0092        0.1187
+    165              0.1399              0.7297        0.0081            0.1171            0.7997        0.0093        0.1186
+    166              0.1457              0.7341        0.0085            0.1202            0.7787        0.0084        0.1189
+    167              0.1215              0.7128        0.0070            0.1127            0.9008        0.0106        0.1188
+    168              0.1272              0.7624        0.0076            0.0846            0.8150        0.0070        0.1187
+    169              0.1224              0.7107        0.0068            0.0842            0.8130        0.0068        0.1196
+    170              0.1323              0.7400        0.0079            0.0845            0.9176        0.0103        0.1196
+    171              0.1160              0.7273        0.0076            0.0898            0.7833        0.0079        0.1178
+    172              <span class=" -Color -Color-Cyan">0.1076</span>              0.6885        <span class=" -Color -Color-Magenta">0.0056</span>            0.0981            0.7013        <span class=" -Color -Color-Cyan">0.0066</span>        0.1185
+    173              0.1246              0.7272        0.0070            0.1121            0.7430        0.0075        0.1188
+    174              0.1171              <span class=" -Color -Color-Green">0.6685</span>        0.0061            0.0724            0.8539        <span class=" -Color -Color-Cyan">0.0065</span>        0.1178
+    175              0.1230              0.7167        0.0069            0.1329            0.6367        0.0071        0.1177
+    176              0.1131              0.7260        0.0070            0.1036            0.7427        0.0073        0.1187
+    177              0.1302              0.7387        0.0075            <span class=" -Color -Color-Red">0.0620</span>            0.7615        <span class=" -Color -Color-Cyan">0.0051</span>     +  0.1188
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    178              0.1218              0.6989        0.0067            0.0987            0.8368        0.0072        0.1179
+    179              0.1247              <span class=" -Color -Color-Green">0.6560</span>        0.0073            0.0873            0.9423        0.0092        0.1188
+    180              0.1160              0.6762        0.0060            0.1081            0.8068        0.0114        0.1188
+    181              0.1199              0.7025        0.0080            0.0973            0.8420        0.0094        0.1179
+    182              <span class=" -Color -Color-Cyan">0.1038</span>              <span class=" -Color -Color-Green">0.6486</span>        <span class=" -Color -Color-Magenta">0.0052</span>            0.1067            0.9095        0.0119        0.1186
+    183              0.1378              0.7040        0.0074            0.1208            0.7002        0.0086        0.1189
+    184              0.1296              0.6818        0.0077            0.0938            0.8172        0.0080        0.1186
+    185              0.1400              0.7245        0.0085            0.1002            0.7333        0.0069        0.1187
+    186              0.1110              <span class=" -Color -Color-Green">0.6289</span>        0.0052            0.0785            0.8084        0.0073        0.1188
+    187              0.1195              0.6449        0.0062            0.1020            0.7002        0.0066        0.1178
+    188              0.1165              0.6292        0.0058            0.1047            0.7291        0.0083        0.1188
+    189              0.1135              0.6321        0.0057            0.1122            0.7895        0.0103        0.1186
+    190              0.1270              0.7463        0.0076            0.1164            0.8664        0.0114        0.1188
+    191              0.1298              0.6623        0.0074            0.1514            0.6081        0.0076        0.1205
+    192              <span class=" -Color -Color-Cyan">0.1031</span>              <span class=" -Color -Color-Green">0.6271</span>        <span class=" -Color -Color-Magenta">0.0051</span>            0.0941            0.7688        0.0098        0.1194
+    193              0.1178              0.6415        0.0057            0.1093            0.6384        0.0080        0.1192
+    194              <span class=" -Color -Color-Cyan">0.1013</span>              <span class=" -Color -Color-Green">0.6129</span>        <span class=" -Color -Color-Magenta">0.0047</span>            <span class=" -Color -Color-Red">0.0584</span>            0.6457        0.0053     +  0.1192
+    195              0.1203              0.6251        0.0059            0.0756            0.6638        <span class=" -Color -Color-Cyan">0.0049</span>        0.1190
+    196              0.1249              0.6396        0.0062            0.0782            0.7870        0.0072        0.1177
+    197              0.1190              0.6467        0.0060            0.1203            0.7249        0.0092        0.1188
+    198              0.1120              <span class=" -Color -Color-Green">0.5842</span>        0.0054            0.0757            0.6520        0.0049        0.1188
+    199              0.1111              0.5966        0.0049            0.0867            0.6933        0.0063        0.1187
+    200              0.1082              0.5888        0.0050            0.1079            0.6692        0.0076        0.1187
+    201              0.1245              0.6021        0.0058            0.1059            0.5942        0.0062        0.1187
+    202              0.1067              0.6008        0.0052            0.0604            0.6368        <span class=" -Color -Color-Cyan">0.0044</span>        0.1189
+    203              <span class=" -Color -Color-Cyan">0.0939</span>              <span class=" -Color -Color-Green">0.5695</span>        <span class=" -Color -Color-Magenta">0.0039</span>            0.0660            0.6642        0.0053        0.1189
+    204              <span class=" -Color -Color-Cyan">0.0914</span>              0.6013        0.0057            0.0681            0.7266        0.0054        0.1188
+    205              0.1388              0.6395        0.0073            0.1418            0.5713        0.0076        0.1188
+    206              0.1283              0.6371        0.0065            0.0869            0.7229        0.0065        0.1190
+    207              0.0991              0.5916        0.0051            0.0759            0.7554        0.0057        0.1177
+    208              0.1311              0.6750        0.0075            0.1399            0.6491        0.0088        0.1188
+    209              0.1160              0.6475        0.0060            0.1096            0.8154        0.0106        0.1188
+    210              0.1246              0.5956        0.0061            0.1092            0.7451        0.0085        0.1197
+    211              0.1073              0.6198        0.0052            0.0667            0.7854        0.0073        0.1197
+    212              0.1046              0.6001        0.0048            0.1356            0.6260        0.0070        0.1198
+    213              0.1121              0.6631        0.0063            0.1007            0.6021        0.0062        0.1198
+    214              0.1065              0.6323        0.0051            0.0704            0.6277        0.0048        0.1188
+    215              0.1017              0.5966        0.0046            0.0603            0.5519        <span class=" -Color -Color-Cyan">0.0033</span>        0.1191
+    216              0.1057              0.5801        0.0048            0.0759            0.5797        0.0045        0.1190
+    217              0.1174              0.6024        0.0054            0.1053            0.5444        0.0053        0.1188
+    218              0.1009              0.6050        0.0053            <span class=" -Color -Color-Red">0.0519</span>            0.6390        0.0038     +  0.1198
+    219              0.1026              <span class=" -Color -Color-Green">0.5450</span>        0.0046            0.0738            0.6451        0.0050        0.1200
+    220              0.1093              0.6916        0.0068            0.0676            0.7642        0.0068        0.1198
+    221              0.0975              0.5647        0.0045            0.0585            0.6847        0.0060        0.1177
+    222              0.0947              0.5648        0.0045            0.0791            0.6787        0.0063        0.1204
+    223              0.1044              0.6012        0.0049            0.0711            0.6444        0.0061        0.1191
+    224              0.1030              0.5934        0.0049            0.0652            0.6081        0.0048        0.1190
+    225              0.0945              0.6434        0.0050            0.0748            0.4919        <span class=" -Color -Color-Cyan">0.0029</span>        0.1189
+    226              0.0919              0.5586        0.0039            0.0679            0.6727        0.0059        0.1200
+    227              0.0933              <span class=" -Color -Color-Green">0.5449</span>        0.0040            0.0922            0.8041        0.0093        0.1188
+    228              0.1341              0.6368        0.0077            0.0779            0.7065        0.0057        0.1190
+    229              0.1030              0.5731        0.0045            0.0693            0.6032        0.0043        0.1180
+    230              0.1037              0.6097        0.0049            0.0929            0.6727        0.0073        0.1178
+    231              0.1044              0.5848        0.0049            0.1023            0.5744        0.0052        0.1189
+    232              0.1192              0.6389        0.0069            0.0999            0.6360        0.0052        0.1187
+    233              0.1006              0.6097        0.0049            0.0923            0.6384        0.0056        0.1186
+    234              0.0940              0.5722        0.0040            0.0649            0.5744        0.0043        0.1191
+    235              <span class=" -Color -Color-Cyan">0.0853</span>              0.5766        0.0039            0.0650            0.5597        0.0040        0.1190
+    236              0.0945              0.5814        0.0041            0.0650            0.5576        0.0037        0.1190
+    237              0.1105              0.5813        0.0052            <span class=" -Color -Color-Red">0.0516</span>            0.5868        0.0040     +  0.1190
+    238              0.0968              0.5931        0.0043            0.1020            0.5183        0.0046        0.1182
+    239              0.0897              <span class=" -Color -Color-Green">0.5212</span>        <span class=" -Color -Color-Magenta">0.0037</span>            0.0975            0.4986        0.0045        0.1182
+    240              0.0938              0.5534        0.0041            0.0851            0.6098        0.0051        0.1180
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    241              0.1086              0.5741        0.0049            0.0740            0.5500        0.0038        0.1195
+    242              0.0894              0.5313        0.0040            0.0712            0.5655        0.0048        0.1196
+    243              0.0925              0.5333        <span class=" -Color -Color-Magenta">0.0036</span>            0.0720            0.6282        0.0051        0.1193
+    244              0.0958              0.5255        0.0039            0.0621            0.6408        0.0050        0.1186
+    245              <span class=" -Color -Color-Cyan">0.0816</span>              0.5276        <span class=" -Color -Color-Magenta">0.0034</span>            0.0925            0.5871        0.0061        0.1188
+    246              0.1015              0.5462        0.0047            0.0907            0.4786        0.0042        0.1192
+    247              0.0986              0.5669        0.0043            0.0844            0.5655        0.0038        0.1179
+    248              0.1024              <span class=" -Color -Color-Green">0.5144</span>        0.0068            0.0794            0.6536        0.0062        0.1178
+    249              0.1145              0.6018        0.0059            0.0809            0.5447        0.0042        0.1178
+    250              0.1073              0.5440        0.0045            0.1055            0.5173        0.0050        0.1179
+    251              0.0906              0.5625        0.0042            0.1112            0.5086        0.0055        0.1188
+    252              0.1293              0.5562        0.0063            0.0711            0.7533        0.0077        0.1188
+    253              0.1030              0.5439        0.0049            0.0800            0.4422        <span class=" -Color -Color-Cyan">0.0027</span>        0.1188
+    254              0.1065              0.5291        0.0048            0.0666            0.5627        0.0042        0.1192
+    255              0.0821              <span class=" -Color -Color-Green">0.5010</span>        <span class=" -Color -Color-Magenta">0.0031</span>            0.0820            0.5943        0.0059        0.1201
+    256              0.0968              0.5351        0.0040            0.0771            0.5229        0.0040        0.1180
+    257              0.1050              0.5778        0.0050            <span class=" -Color -Color-Red">0.0493</span>            0.5619        0.0035     +  0.1187
+    258              0.1009              0.5100        0.0044            0.1040            0.6059        0.0069        0.1192
+    259              0.1065              0.5525        0.0050            0.0772            0.5842        0.0050        0.1179
+    260              0.1005              0.5324        0.0044            0.0919            0.5444        0.0044        0.1178
+    261              0.1132              0.5604        0.0053            0.0766            0.4859        0.0027        0.1196
+    262              0.1085              0.5140        0.0047            0.0735            0.5280        0.0038        0.1188
+    263              0.1185              0.6835        0.0082            0.1032            0.5635        0.0065        0.1186
+    264              0.1046              0.5816        0.0047            0.0733            0.6086        0.0043        0.1196
+    265              0.0926              0.5600        0.0038            0.0980            0.5371        0.0048        0.1196
+    266              0.0946              0.5649        0.0041            0.0519            0.5515        0.0035        0.1187
+    267              0.0953              0.5181        0.0040            0.1010            0.4882        0.0053        0.1192
+    268              0.0936              0.5588        0.0060            0.1071            0.5224        0.0051        0.1191
+    269              0.1028              0.5143        0.0045            0.0690            0.5623        0.0041        0.1190
+    270              0.1077              0.5666        0.0053            0.2167            0.6445        0.0158        0.1190
+    271              0.1051              0.5066        0.0047            0.0746            0.5421        0.0046        0.1191
+    272              <span class=" -Color -Color-Cyan">0.0781</span>              <span class=" -Color -Color-Green">0.4619</span>        <span class=" -Color -Color-Magenta">0.0028</span>            0.0550            0.5866        0.0045        0.1190
+    273              0.0894              0.5132        0.0039            0.0700            0.3993        <span class=" -Color -Color-Cyan">0.0024</span>        0.1188
+    274              0.1195              0.5919        0.0058            0.1115            0.4314        0.0051        0.1191
+    275              0.0931              0.5251        0.0041            0.0901            0.5568        0.0046        0.1199
+    276              0.1110              0.5491        0.0051            0.0649            0.4417        0.0027        0.1192
+    277              0.0896              0.5477        0.0039            0.0655            0.4739        0.0028        0.1189
+    278              0.0864              0.4855        0.0032            0.0571            0.5568        0.0042        0.1186
+    279              0.0864              0.4854        0.0033            0.0881            0.4540        0.0034        0.1186
+    280              0.0903              0.5056        0.0037            0.0914            0.5509        0.0055        0.1197
+    281              0.0927              0.5440        0.0043            0.1261            0.4381        0.0065        0.1205
+    282              0.0874              0.4728        0.0031            0.0882            0.4273        0.0034        0.1193
+    283              0.1336              0.5366        0.0075            0.0780            0.4388        0.0029        0.1191
+    284              0.1249              0.6251        0.0069            0.1080            0.4673        0.0060        0.1191
+    285              0.1043              0.5338        0.0048            0.0764            0.4844        0.0036        0.1181
+    286              0.0952              0.5002        0.0037            0.0539            0.5123        0.0036        0.1190
+    287              0.1020              0.5122        0.0045            0.0829            0.5180        0.0049        0.1191
+    288              0.1034              0.5731        0.0051            0.0901            0.4579        0.0037        0.1180
+    289              0.0977              0.5310        0.0043            0.0918            0.4889        0.0043        0.1179
+    290              0.0877              0.4997        0.0037            0.1129            0.5296        0.0052        0.1190
+    291              0.0991              0.5318        0.0044            0.0787            0.5288        0.0042        0.1191
+    292              0.0865              0.5051        0.0033            0.0946            0.4685        0.0039        0.1205
+    293              0.0984              0.5192        0.0042            0.0924            0.4257        0.0031        0.1198
+    294              0.0954              0.4874        0.0038            0.0678            0.5350        0.0042        0.1186
+    295              0.0821              <span class=" -Color -Color-Green">0.4574</span>        0.0030            0.0870            0.5621        0.0055        0.1191
+    296              0.1007              0.4666        0.0038            0.1116            0.4904        0.0052        0.1192
+    297              <span class=" -Color -Color-Cyan">0.0756</span>              0.4704        0.0029            0.0754            0.5260        0.0043        0.1180
+    298              0.1026              0.5345        0.0047            0.0859            0.6286        0.0055        0.1181
+    299              0.1002              0.4892        0.0039            0.0718            0.5447        0.0040        0.1186
+    300              0.0915              <span class=" -Color -Color-Green">0.4560</span>        0.0034            0.0720            0.5230        0.0043        0.1191
+    301              0.0924              0.5008        0.0038            0.0939            0.4065        0.0031        0.1180
+    302              0.1035              0.5205        0.0049            0.0724            0.4593        0.0032        0.1187
+    303              0.0765              0.4813        0.0028            0.0644            0.5108        0.0033        0.1191
+    304              0.0921              0.5266        0.0040            0.0493            0.5113        0.0032        0.1191
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    305              0.0846              <span class=" -Color -Color-Green">0.4532</span>        0.0028            0.0841            0.4653        0.0037        0.1203
+    306              0.0762              0.4639        <span class=" -Color -Color-Magenta">0.0027</span>            0.0566            0.5069        0.0033        0.1204
+    307              <span class=" -Color -Color-Cyan">0.0717</span>              <span class=" -Color -Color-Green">0.4288</span>        <span class=" -Color -Color-Magenta">0.0025</span>            0.0944            0.5556        0.0056        0.1180
+    308              0.0801              0.4383        0.0028            <span class=" -Color -Color-Red">0.0471</span>            0.4951        0.0029     +  0.1191
+    309              0.1036              0.4518        0.0043            0.1062            0.4879        0.0055        0.1195
+    310              0.0974              0.5010        0.0040            0.0720            0.5052        0.0038        0.1181
+    311              0.0929              0.4810        0.0038            0.0898            0.6897        0.0080        0.1182
+    312              0.0929              0.4514        0.0034            0.0648            0.5299        0.0034        0.1183
+    313              0.0734              0.4414        0.0025            0.0735            0.4951        0.0040        0.1191
+    314              0.0967              0.4665        0.0038            0.0593            0.4740        0.0033        0.1187
+    315              0.0911              0.5248        0.0041            0.1118            0.4371        0.0055        0.1197
+    316              0.0925              0.5135        0.0038            0.0793            0.5386        0.0035        0.1205
+    317              0.0900              0.5616        0.0044            <span class=" -Color -Color-Red">0.0412</span>            0.5288        0.0030     +  0.1195
+    318              0.0931              0.4941        0.0039            0.0678            0.5705        0.0041        0.1195
+    319              0.0876              0.4674        0.0042            0.0550            0.4789        0.0028        0.1203
+    320              0.1019              0.4950        0.0042            0.0670            0.4777        0.0029        0.1182
+    321              0.1000              0.4492        0.0038            0.0498            0.5242        0.0036        0.1188
+    322              0.0793              0.4296        0.0027            0.0794            0.5220        0.0035        0.1186
+    323              0.0887              0.4401        0.0032            0.0875            0.4787        0.0046        0.1188
+    324              0.0774              0.4597        0.0029            0.0922            0.4770        0.0035        0.1187
+    325              0.0850              0.4553        0.0030            0.0718            0.4517        0.0028        0.1198
+    326              0.0788              0.4651        0.0030            0.0942            0.4938        0.0039        0.1197
+    327              0.0938              0.4852        0.0037            0.0529            0.4619        0.0025        0.1192
+    328              0.0849              0.4641        0.0032            0.1637            0.5106        0.0085        0.1180
+    329              0.0850              0.4666        0.0031            0.0662            0.4870        0.0034        0.1196
+    330              0.0941              0.4701        0.0040            0.0738            0.4899        0.0033        0.1188
+    331              0.0984              0.4490        0.0035            0.0715            0.4387        0.0034        0.1192
+    332              0.1092              0.5070        0.0051            0.0655            0.5392        0.0039        0.1192
+    333              0.0927              0.4933        0.0037            <span class=" -Color -Color-Red">0.0406</span>            0.4604        <span class=" -Color -Color-Cyan">0.0023</span>     +  0.1194
+    334              0.0826              0.4714        0.0032            0.0842            0.4230        0.0035        0.1204
+    335              0.0776              0.4534        0.0027            0.0716            0.4890        0.0039        0.1202
+    336              0.0999              0.4890        0.0047            0.0771            0.4941        0.0041        0.1188
+    337              0.0759              0.4377        0.0027            0.0806            0.5137        0.0050        0.1188
+    338              0.0827              <span class=" -Color -Color-Green">0.4240</span>        0.0029            0.0820            0.4896        0.0038        0.1188
+    339              0.0797              0.4316        0.0026            0.0883            0.5940        0.0053        0.1183
+    340              0.0809              0.4396        0.0026            0.0697            0.5289        0.0042        0.1188
+    341              0.0868              0.4330        0.0031            0.1225            0.4125        0.0064        0.1207
+    342              0.0938              0.4568        0.0037            0.0748            0.5372        0.0040        0.1205
+    343              0.0827              <span class=" -Color -Color-Green">0.4165</span>        0.0028            0.0596            0.5404        0.0038        0.1204
+    344              0.0731              0.4517        0.0026            0.0575            0.5161        0.0032        0.1203
+    345              0.0858              0.4403        0.0030            0.1287            0.4211        0.0082        0.1204
+    346              0.1006              0.4858        0.0051            0.0714            0.4429        0.0027        0.1183
+    347              0.0872              0.4705        0.0034            0.0735            0.4521        0.0035        0.1188
+    348              0.0803              0.4600        0.0027            0.0715            0.5052        0.0036        0.1192
+    349              0.0906              0.4713        0.0046            0.0810            0.5487        0.0049        0.1192
+    350              0.0877              <span class=" -Color -Color-Green">0.4095</span>        0.0029            0.0855            0.5493        0.0051        0.1193
+    351              0.0897              0.4668        0.0035            0.0964            0.4713        0.0041        0.1206
+    352              <span class=" -Color -Color-Cyan">0.0688</span>              0.4231        <span class=" -Color -Color-Magenta">0.0024</span>            0.0648            0.5158        0.0042        0.1194
+    353              0.0842              0.4235        0.0037            0.0664            0.5135        0.0035        0.1195
+    354              0.0897              0.4410        0.0034            0.0619            0.4277        <span class=" -Color -Color-Cyan">0.0022</span>        0.1193
+    355              0.0694              <span class=" -Color -Color-Green">0.4062</span>        <span class=" -Color -Color-Magenta">0.0022</span>            0.1083            0.5751        0.0066        0.1199
+    356              0.0864              0.4217        0.0033            0.0452            0.5207        0.0034        0.1193
+    357              0.0777              0.4606        0.0028            0.0564            0.3778        <span class=" -Color -Color-Cyan">0.0017</span>        0.1193
+    358              0.0706              <span class=" -Color -Color-Green">0.3966</span>        <span class=" -Color -Color-Magenta">0.0022</span>            0.0460            0.4542        0.0026        0.1183
+    359              0.0798              0.4322        0.0028            0.0864            0.5060        0.0042        0.1182
+    360              0.0728              0.4144        0.0024            0.0737            0.4707        0.0038        0.1182
+    361              0.0707              0.4161        0.0024            0.0631            0.5201        0.0037        0.1182
+    362              0.0741              0.4366        0.0026            0.0746            0.5581        0.0045        0.1181
+    363              0.0751              0.4335        0.0026            0.0679            0.4621        0.0032        0.1198
+    364              0.0815              0.4346        0.0028            0.0516            0.4944        0.0033        0.1186
+    365              0.0834              0.4138        0.0030            0.0612            0.5849        0.0048        0.1188
+    366              0.0814              0.4509        0.0028            <span class=" -Color -Color-Red">0.0380</span>            0.4870        0.0033     +  0.1185
+    367              <span class=" -Color -Color-Cyan">0.0650</span>              0.4145        <span class=" -Color -Color-Magenta">0.0020</span>            0.0733            0.5027        0.0033        0.1186
+    368              0.0740              <span class=" -Color -Color-Green">0.3853</span>        0.0022            0.0922            0.5111        0.0041        0.1189
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    369              0.0835              0.4076        0.0027            0.0774            0.4522        0.0031        0.1191
+    370              0.0791              0.4210        0.0027            0.0632            0.4395        0.0023        0.1192
+    371              0.0713              0.3989        0.0023            <span class=" -Color -Color-Red">0.0348</span>            0.5196        0.0031     +  0.1195
+    372              0.0708              0.3985        0.0022            0.0532            0.5302        0.0037        0.1190
+    373              0.0959              0.4061        0.0035            0.0904            0.5035        0.0044        0.1190
+    374              0.0767              0.4303        0.0027            <span class=" -Color -Color-Red">0.0343</span>            0.4582        0.0022     +  0.1204
+    375              0.0775              0.4179        0.0027            0.0645            0.5720        0.0042        0.1193
+    376              0.0881              0.4281        0.0032            0.0458            0.5657        0.0039        0.1183
+    377              0.0781              0.3873        0.0026            0.0552            0.4629        0.0025        0.1190
+    378              0.0718              0.4103        0.0027            0.0830            0.4641        0.0043        0.1189
+    379              0.0878              0.4369        0.0033            0.0612            0.4863        0.0032        0.1194
+    380              0.0786              0.4037        0.0027            0.0538            0.5706        0.0048        0.1204
+    381              0.0948              0.4569        0.0036            0.0786            0.4806        0.0036        0.1182
+    382              0.0801              0.4364        0.0027            0.0484            0.5546        0.0039        0.1183
+    383              0.0694              0.4210        0.0024            0.0705            0.5322        0.0041        0.1196
+    384              0.0883              0.3991        0.0029            0.0593            0.6034        0.0044        0.1197
+    385              0.0889              0.4552        0.0043            0.0556            0.6138        0.0055        0.1197
+    386              0.0910              0.4379        0.0033            0.0618            0.4932        0.0031        0.1196
+    387              0.0785              0.3914        0.0024            0.0516            0.4449        0.0026        0.1195
+    388              0.0650              0.4036        0.0024            0.0533            0.4797        0.0028        0.1192
+    389              0.1032              0.4398        0.0040            0.1129            0.5097        0.0064        0.1194
+    390              0.0895              0.4056        0.0030            0.1329            0.4088        0.0059        0.1194
+    391              0.0978              0.4452        0.0042            0.0624            0.5616        0.0039        0.1184
+    392              0.0822              <span class=" -Color -Color-Green">0.3845</span>        0.0028            0.1018            0.5149        0.0038        0.1197
+    393              0.0874              0.4289        0.0033            0.0729            0.5755        0.0047        0.1198
+    394              0.0718              0.4079        0.0027            0.0727            0.5269        0.0049        0.1185
+    395              0.0958              0.4791        0.0050            0.0893            0.5234        0.0034        0.1191
+    396              0.0778              0.4393        0.0027            0.0800            0.4481        0.0029        0.1194
+    397              0.0854              0.4142        0.0033            0.0608            0.5127        0.0031        0.1183
+    398              0.0763              0.4009        0.0028            0.0653            0.4961        0.0037        0.1191
+    399              0.0902              0.3989        0.0031            0.0374            0.5084        0.0033        0.1190
+    400              0.0835              0.4088        0.0028            0.0371            0.4813        0.0025        0.1208
+    401              0.0757              0.4249        0.0026            0.0659            0.5135        0.0038        0.1196
+    402              0.0700              0.4511        0.0023            0.0831            0.4219        0.0029        0.1190
+    403              0.0817              0.4355        0.0033            0.0894            0.6038        0.0057        0.1193
+    404              0.0709              0.4209        0.0023            0.0742            0.5339        0.0034        0.1193
+    405              0.0780              0.4290        0.0028            0.0795            0.4016        0.0039        0.1195
+    406              0.0812              0.4112        0.0030            0.0747            0.4709        0.0031        0.1185
+    407              0.0692              0.3903        0.0020            0.0750            0.4942        0.0039        0.1183
+    408              0.0744              0.3864        0.0023            0.0501            0.4518        0.0025        0.1183
+    409              0.0709              <span class=" -Color -Color-Green">0.3705</span>        0.0023            0.0767            0.4977        0.0031        0.1193
+    410              0.0711              0.4016        0.0031            0.0740            0.4524        0.0029        0.1196
+    411              0.1345              0.4917        0.0063            0.0654            0.6322        0.0045        0.1191
+    412              0.0732              0.4161        0.0025            0.0652            0.5651        0.0037        0.1189
+    413              0.0718              0.3874        0.0021            0.0520            0.4374        0.0022        0.1188
+    414              0.0737              0.3990        0.0024            0.0748            0.4624        0.0032        0.1190
+    415              0.0734              0.4162        0.0027            0.0689            0.5049        0.0034        0.1193
+    416              0.0843              0.4229        0.0028            0.0627            0.4439        0.0024        0.1182
+    417              0.0758              0.3927        0.0024            0.0842            0.4910        0.0038        0.1190
+    418              0.0888              0.3933        0.0029            0.0719            0.4391        0.0032        0.1193
+    419              0.0831              0.3799        0.0026            0.0896            0.4788        0.0054        0.1196
+    420              0.0854              <span class=" -Color -Color-Green">0.3701</span>        0.0026            0.0760            0.4960        0.0030        0.1190
+    421              0.0739              0.3727        <span class=" -Color -Color-Magenta">0.0020</span>            0.0564            0.5392        0.0037        0.1194
+    422              0.0801              0.4266        0.0027            0.0607            0.5397        0.0035        0.1193
+    423              0.0752              0.3911        0.0026            0.0406            0.4770        0.0027        0.1193
+    424              0.0681              0.3819        <span class=" -Color -Color-Magenta">0.0019</span>            0.0488            0.5174        0.0029        0.1194
+    425              0.0734              0.3779        0.0025            0.0466            0.4844        0.0026        0.1204
+    426              0.0673              0.3724        0.0021            0.0476            0.4499        0.0022        0.1196
+    427              0.0737              0.3807        0.0022            0.1116            0.5214        0.0046        0.1207
+    428              0.0763              0.3858        0.0023            0.0644            0.4972        0.0036        0.1196
+    429              0.0766              <span class=" -Color -Color-Green">0.3657</span>        0.0023            0.0703            0.4747        0.0033        0.1183
+    430              0.0742              <span class=" -Color -Color-Green">0.3559</span>        0.0024            0.0481            0.4710        0.0024        0.1194
+    431              0.0769              0.3650        0.0025            0.0877            0.5152        0.0038        0.1195
+    432              0.0828              0.4030        0.0035            0.0946            0.5207        0.0051        0.1194
+    433              0.0790              0.3764        0.0024            0.0461            0.5322        0.0031        0.1183
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    434              0.0832              0.3753        0.0025            0.0659            0.5373        0.0038        0.1207
+    435              0.0730              0.3980        0.0024            0.0453            0.5193        0.0030        0.1194
+    436              0.0781              0.3591        0.0022            0.0553            0.5149        0.0038        0.1184
+    437              0.0742              0.3842        0.0023            0.0660            0.5185        0.0032        0.1195
+    438              0.0704              0.3875        0.0022            0.0536            0.5182        0.0035        0.1196
+    439              0.0718              0.3832        0.0022            0.0431            0.4709        0.0021        0.1185
+    440              0.0735              0.3743        0.0022            0.0661            0.4632        0.0029        0.1194
+    441              0.0690              <span class=" -Color -Color-Green">0.3535</span>        0.0020            0.0689            0.4888        0.0033        0.1207
+    442              0.0857              0.3785        0.0031            0.0749            0.5117        0.0036        0.1185
+    443              0.0745              0.3857        0.0023            0.1055            0.4479        0.0036        0.1184
+    444              0.0959              0.4257        0.0041            0.0519            0.5368        0.0038        0.1184
+    445              0.0882              0.3902        0.0029            0.0558            0.5306        0.0030        0.1184
+    446              0.0778              0.4377        0.0029            0.0814            0.5699        0.0055        0.1184
+    447              0.0828              0.3799        0.0026            0.0412            0.4795        0.0024        0.1196
+    448              0.0751              0.3540        0.0022            0.0681            0.4904        0.0031        0.1197
+    449              0.0658              0.3940        0.0020            0.0443            0.5502        0.0034        0.1193
+    450              0.0821              0.4040        0.0032            0.0913            0.6746        0.0067        0.1195
+    451              0.0958              0.4491        0.0040            0.0908            0.5839        0.0041        0.1184
+    452              0.0799              0.4173        0.0027            0.0858            0.4650        0.0049        0.1192
+    453              0.1179              0.4339        0.0049            0.1456            0.4926        0.0087        0.1198
+    454              0.0972              0.3831        0.0036            0.1002            0.4293        0.0069        0.1185
+    455              0.0893              0.4083        0.0037            0.0570            0.4457        0.0027        0.1184
+    456              0.0803              0.4135        0.0037            0.1386            0.5816        0.0069        0.1204
+    457              0.0845              0.4089        0.0029            0.0595            0.5902        0.0044        0.1196
+    458              0.0754              0.3803        0.0023            0.0678            0.5539        0.0054        0.1196
+    459              0.0775              0.4140        0.0024            0.0756            0.5752        0.0040        0.1198
+    460              0.1136              0.4545        0.0062            0.0752            0.6984        0.0076        0.1197
+    461              0.1251              0.4923        0.0065            0.0444            0.5982        0.0033        0.1206
+    462              0.0891              0.4314        0.0032            0.0586            0.5961        0.0062        0.1220
+    463              0.0724              0.3635        0.0021            0.0376            0.5582        0.0044        0.1199
+    464              0.0683              0.3819        0.0026            0.0539            0.5322        0.0031        0.1198
+    465              0.0991              0.4245        0.0042            0.1270            0.6244        0.0073        0.1208
+    466              0.0837              0.3940        0.0030            0.0651            0.5165        0.0040        0.1192
+    467              0.0712              0.3649        0.0022            <span class=" -Color -Color-Red">0.0337</span>            0.5544        0.0031     +  0.1196
+    468              0.0782              0.4223        0.0026            0.0360            0.5297        0.0032        0.1198
+    469              0.0744              0.3604        0.0023            0.0606            0.5276        0.0036        0.1208
+    470              0.0783              0.3766        0.0024            0.0435            0.5262        0.0038        0.1191
+    471              0.0794              0.4166        0.0025            0.0540            0.5024        0.0031        0.1195
+    472              0.0662              0.3583        <span class=" -Color -Color-Magenta">0.0019</span>            0.0627            0.5539        0.0036        0.1194
+    473              0.0745              0.4074        0.0026            0.0355            0.5457        0.0033        0.1195
+    474              0.0657              0.3591        0.0019            0.0639            0.5001        0.0033        0.1205
+    475              <span class=" -Color -Color-Cyan">0.0632</span>              0.3826        0.0022            0.0349            0.5065        0.0021        0.1195
+    476              0.0750              0.4043        0.0023            0.0625            0.3692        0.0026        0.1207
+    477              0.0654              <span class=" -Color -Color-Green">0.3502</span>        <span class=" -Color -Color-Magenta">0.0018</span>            0.0550            0.4843        0.0025        0.1210
+    478              0.0850              0.3857        0.0026            0.0584            0.4734        0.0029        0.1196
+    479              0.0870              0.3898        0.0028            0.0665            0.5486        0.0041        0.1186
+    480              0.0794              0.4011        0.0029            0.1040            0.5938        0.0071        0.1196
+    481              0.0644              0.3615        0.0019            0.0554            0.4657        0.0026        0.1195
+    482              0.0739              0.3640        0.0025            0.1254            0.4724        0.0041        0.1185
+    483              0.0735              0.3553        0.0021            0.0416            0.5389        0.0035        0.1207
+    484              0.0641              0.3772        0.0023            0.0636            0.5098        0.0030        0.1187
+    485              0.0774              0.3835        0.0025            0.0468            0.4597        0.0019        0.1199
+    486              0.0666              <span class=" -Color -Color-Green">0.3344</span>        0.0019            0.0452            0.5360        0.0029        0.1191
+    487              0.0726              0.3469        0.0021            0.0461            0.5053        0.0030        0.1195
+    488              0.0771              0.3734        0.0025            0.0949            0.4973        0.0048        0.1196
+    489              0.0786              0.3685        0.0028            0.0597            0.5401        0.0031        0.1207
+    490              0.0799              0.3489        0.0024            0.0824            0.5931        0.0051        0.1198
+    491              0.0753              0.3658        0.0023            0.0612            0.5687        0.0037        0.1199
+    492              <span class=" -Color -Color-Cyan">0.0625</span>              0.3566        0.0019            0.0541            0.5718        0.0036        0.1203
+    493              0.0738              0.3746        0.0022            0.1047            0.6097        0.0062        0.1199
+    494              0.0880              0.3679        0.0030            0.0750            0.5715        0.0049        0.1197
+    495              0.0789              0.3932        0.0025            0.0807            0.4751        0.0031        0.1193
+    496              0.0785              0.3854        0.0025            0.0889            0.4267        0.0044        0.1209
+    497              0.0861              0.3935        0.0031            0.0691            0.4795        0.0028        0.1199
+    498              0.0658              0.3460        0.0018            0.0513            0.5370        0.0034        0.1198
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    499              0.0726              0.3592        0.0021            0.0400            0.5358        0.0027        0.1209
+    500              0.0671              0.3690        0.0020            0.0528            0.5564        0.0038        0.1198
+Training completed in 69.00053215026855s
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h3>Use the neural network as an ase calculator to make predictions<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">training</span><span class="p">)</span>
+
+<span class="c1"># assess errors</span>
+
+<span class="n">true_energies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">image</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span> <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">training</span><span class="p">])</span>
+<span class="n">pred_energies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">predictions</span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Energy MSE:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">true_energies</span> <span class="o">-</span> <span class="n">pred_energies</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Energy MAE:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">true_energies</span> <span class="o">-</span> <span class="n">pred_energies</span><span class="p">)))</span>
+
+<span class="n">training</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_calculator</span><span class="p">(</span><span class="n">AMPtorch</span><span class="p">(</span><span class="n">trainer</span><span class="p">))</span>
+<span class="n">training</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Energy MSE: 0.0017036549776706506
+Energy MAE: 0.031901714312218415
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-593.7624330743726
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="use-the-fitted-model-to-predict-the-1d-pes-for-change-in-o-h-bond-length">
+<h3>Use the fitted model to predict the 1D PES for change in O-H bond length<a class="headerlink" href="#use-the-fitted-model-to-predict-the-1d-pes-for-change-in-o-h-bond-length" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up images with one changing bond length</span>
+<span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">dist</span> <span class="ow">in</span> <span class="n">distances</span><span class="p">:</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">molecule</span><span class="p">(</span><span class="s2">&quot;H2O&quot;</span><span class="p">,</span> <span class="n">vacuum</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+    <span class="n">image</span><span class="o">.</span><span class="n">set_cell</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+    <span class="n">image</span><span class="o">.</span><span class="n">set_pbc</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># change bond length</span>
+    <span class="n">image</span><span class="o">.</span><span class="n">set_distance</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
+    <span class="n">image</span><span class="o">.</span><span class="n">set_angle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">104.210</span><span class="p">)</span>
+    <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get training point</span>
+
+<span class="n">training_angle100</span> <span class="o">=</span> <span class="p">[</span><span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">training</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">_</span><span class="o">.</span><span class="n">get_angle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mf">104.210</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)]</span>
+
+<span class="n">distances_training</span> <span class="o">=</span> <span class="p">[</span><span class="n">_</span><span class="o">.</span><span class="n">get_distance</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">training_angle100</span><span class="p">]</span>
+<span class="n">energies_training</span> <span class="o">=</span> <span class="p">[</span><span class="n">_</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">training_angle100</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="n">predictions</span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;prediction&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">distances_training</span><span class="p">,</span> <span class="n">energies_training</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;training&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;O-H bond length [A]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;potential energy [eV]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2aac25c3f518&gt;
+</pre></div>
+</div>
+<img alt="../_images/758007d5e4e059dc7d372e2eff3fecbc35376ba24f4b2548001e2fc7376ed173.png" src="../_images/758007d5e4e059dc7d372e2eff3fecbc35376ba24f4b2548001e2fc7376ed173.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Training NNP</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of contents</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-on-cuco-with-symmetry-functions-2nd-gen-nnff-a-name-training-bp-a">Training on CuCO with Symmetry Functions + 2nd Gen NNFF <a name="training_bp"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construct-the-training-dataset">Construct the training dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-fingerprinting-scheme">Define fingerprinting scheme</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-configuration-for-trainer-object">Define the configuration for trainer object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hit-go-and-train">Hit go and train</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-neural-network-as-an-ase-calculator-to-make-predictions">Use the neural network as an ase calculator to make predictions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-on-2d-water-dataset-with-gmp-singlenn-a-name-training-gmp-a">Training on 2D water dataset with GMP + SingleNN <a name="training_gmp"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Construct the training dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Define fingerprinting scheme</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Define the configuration for trainer object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Hit go and train</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Use the neural network as an ase calculator to make predictions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-fitted-model-to-predict-the-1d-pes-for-change-in-o-h-bond-length">Use the fitted model to predict the 1D PES for change in O-H bond length</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Medford Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
