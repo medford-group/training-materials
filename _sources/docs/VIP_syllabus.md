@@ -128,7 +128,8 @@ using the following:
 -   D: < 2
 
 You will receive a grade at the midterm and after the end of the course.
-**Both grades will averaged to determine your final letter grade.**
+**ONLY the FINAL grade will be used to determine your letter grade.**
+*The MIDTERM grade is only advisory.*
 
 Documentation
 -------------
@@ -236,37 +237,40 @@ The main lecture will take place virtually, but sub-teams can meet in person and
 Training Schedule
 ========
 
-Week 1 (8/21): Introduction to VIP and projects (Medford/Brabson)
+Week 1 (1/8): Introduction to VIP and projects (Medford/Brabson)
 
-Week 2 (8/28): VIP Subteam pitches (Medford/Timmerman/Yu/Tian)
+Week 2 (1/15): DFT reproduction and subteam assignments (Medford/Timmerman/Yu/Tian)
 
-Week 3 (9/4): Literature searches (Medford) - Bi-weekly Update 1
+Week 3 (1/22): Literature searches (Medford) - Bi-weekly Update 1
 
-Week 4 (9/11): Intro to Python and HPC (Brabson)
+Week 4 (1/29): Intro to Python and HPC (Brabson)
 
-Week 5 (9/18): Intro to ASE (Brabson) - Bi-weekly Update 2 (Ex. 1.6.1-1.6.5)
+Week 5 (2/5): Intro to ASE (Brabson) - Bi-weekly Update 2 (Ex. 1.6.1-1.6.5)
+> Software installation check during class
 
-Week 6 (9/25): Intro to Density Function Theory I (Bhowmik)
+Week 6 (2/12): Intro to Density Functional Theory I (Bhowmik)
 
-Week 7 (10/2): Midterm Updates (pre-recorded presentations, virtual synchronous Q&A) - Bi-weekly Update 3 (Ex. 2.4.1, 2.5.1, & 3.3.1-3.3.4)
+Week 7 (2/19): Intro to Density Functional Theory II (Bhowmik) - Bi-weekly Update 3 (Ex. 2.4.1, 2.5.1, & 3.3.1-3.3.4)
+> Midterm Achievements document and Midterm Presentation due to Canvas at 11:59p ET on 2/24/25
 
-Week 8 (10/9): Intro to Density Functional Theory II (Bhowmik)
+Week 8 (2/26): Midterm Updates (pre-recorded presentations, virtual synchronous Q&A)
 
-Week 9 (10/16): DFT Calculations I (Bhowmik/Brabson) - Bi-weekly Update 4
+Week 9 (3/5): DFT Calculations I (Bhowmik/Brabson) - Bi-weekly Update 4
 
-Week 10 (10/23): DFT Calculations II (Bhowmik/Brabson)
+Week 10 (3/12): DFT Calculations II and DFT project assignment (Bhowmik/Brabson)
 
-Week 11 (10/30): Projects (Timmerman/Yu/Tian) - Bi-weekly Update 5 (Ex. 5.4.1-5.4.2)
+Week 11 (3/19): Spring Break (No Class)
 
-Week 12 (11/6): DFT Project Workshop
+Week 12 (3/26): DFT project discussion - Bi-weekly Update 5 (Ex. 6.4.1-6.4.2)
 
-Week 13 (11/13): Projects (Timmerman/Yu/Tian) - Bi-weekly Update 6 (DFT Project DUE)
+Week 13 (4/2): Projects (Timmerman/Yu/Tian/Brabson/Bhowmik)
 
-Week 14 (11/20): Final Updates (pre-recorded presentations, virtual synchronous Q&A)
+Week 14 (4/9): Projects (Timmerman/Yu/Tian/Brabson/Bhowmik) - Bi-weekly Update 6 (DFT Project DUE)
+> Final Achievements document and Final Presentation due to Canvas at 11:59p ET on 4/14/25
 
-Week 15 (11/28): Thanksgiving Break (No Class)
+Week 15 (4/16): Final Updates (pre-recorded presentations, virtual synchronous Q&A)
 
-Week 16 (12/4): Reading Day (No Class)
+Week 16 (4/23): Reading Day (No Class)
 
 
 Changes to Syllabus
