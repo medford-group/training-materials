@@ -1,3 +1,6 @@
+VIP Course Syllabus
+==================
+
 Instructor: A. J. Medford
 
 TAs: Logan Brabson, Lucas Timmerman, Neung-Kyung Yu, Kaylee Tian, Sayan Bhowmik
@@ -220,12 +223,17 @@ conducted through the VIP website and your participation in peer grading.
 Note that this can be confusing. **Peer evaluations** occur twice per
 semester through the VIP website, while **peer grading** occurs bi-weekly for
 documentation.
-The **response rate for peer grading and peer evaluations will account 
-for 40% of the teamwork and interaction grade.**, while the scores you receive
-from your teammates in the peer evaluation will account for the other 60% of
-this grade. Note that you **only need to complete peer evals for your sub-team members**,
-but **peer grading will be across different subteams** and will be explicitly
-assigned.
+The grade will consist of 3 components:
+
+- 3 points: Reviews from your teammates via **peer evaluations**. 
+- 1 point: Response rate for peer grading *and* evaluations. 
+- 1 point: Regular interactions with classmates and instructors.
+
+The peer evaluation grade will be on a 0-3 scale, with 3 indicating no significant issues,
+2 corresponding to some anomalously low scores, 1 corresponding to unprofessional conduct and low scores.
+The point for response rate for peer grading and evaluations will be awarded if the peer evaluations are completed and all peer grading is completed. A half point will be awarded if more than one peer grading is missed or evaluations are not completed. No points will be awarded if fewer than half of the peer grading/evaluation tasks are completed.
+The point for regular interactions will be determined by your graduate mentor. A full point reflects regular attendance of the lecture meeting and/or regular conversations and updates on Slack. A half point corresponds to missing approximately half of the lecture meetings and little to no participation on Slack. Zero points will be awarded if you are attending fewer than half the classes and not participating on Slack.
+
 
 Course Format
 -------------
