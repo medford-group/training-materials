@@ -1,0 +1,1400 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>7.6. Generative Models &#8212; Medford Group Graduate Training</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/ML_2_5_Generative_Models';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.7. Exercises" href="Exercises_ML_basics_Pt2.html" />
+    <link rel="prev" title="7.5. Clustering" href="ML_2_4_Clustering.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Medford Group Graduate Training
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">VIP</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="VIP_Info.html">VIP Materials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="VIP_syllabus.html">Course Description</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="VIP_Overview.html">Big Data &amp; Quantum Mechanics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Training Materials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Basic_Python_Tools.html">1. Introduction to Basic Python Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_Python_programming.html">1.2. Introduction to Python programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_numpy.html">1.3. Numpy -  multidimensional data arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_scipy.html">1.4. SciPy - Library of scientific algorithms for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_plotting_in_Python.html">1.5. matplotlib - Plotting in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_python.html">1.6. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Manipulating_Atoms_in_Python.html">2. Introduction to Manipulating Atoms in Python</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Building_Structures.html">2.2. Intro to Building Structures with ASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Calculators.html">2.3. Intro to ASE Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_intro.html">2.4. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_calcs.html">2.5. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Linux_HPC.html">3. Introduction to Linux and High-Performance Computing</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_linux.html">3.3. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_Density_Functional_Theory.html">4. Introduction to Density Functional Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">5. Applications of Density Functional Theory</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">5.2. Adsorption energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_SPARC.html">5.3. Adsorption energy from DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">5.4. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">6. Intro to Regression and High Dimensional Data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">6.2. Non-Parametric Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_2_Complexity_Optimization.html">6.3. Complexity Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">6.4. High Dimensional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_4_Dimensionality_Reduction.html">6.5. Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">6.6. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">7. Intro to Classification and Generative Models</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ML_2_1_Classification_Basics.html">7.2. Classification Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">7.3. Generalized Linear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">7.4. Alternate classification methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">7.5. Clustering</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.6. Generative Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">7.7. Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Appendix.html">Appendix</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Literature_Searches.html">Basics of Searching and Reading Scientific Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create_DFT_Environments.html">Create DFT Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gas_formation_energy_calculation_in_SPARC.html">Gas formation energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Referencing_Binding_Energies.html">Referencing Binding Energies</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/ML_2_5_Generative_Models.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Generative Models</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-model-overview">7.6.1. Generative Model Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">7.6.2. Normal Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-mixture-models">7.6.3. Gaussian Mixture Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-information-criterion">7.6.3.1. Bayesian Information Criterion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-models-in-high-dimensions">7.6.4. Generative Models in High Dimensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-create-a-gmm-that-can-generate-new-examples-of-the-digit-6">7.6.4.1. Example: Create a GMM that can generate new examples of the digit 6</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-density-estimation">7.6.5. Kernel Density Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kde-vs-histograms">7.6.5.1. KDE vs. Histograms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kde-in-high-dimensions">7.6.5.2. KDE in high dimensions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-so-naive-bayes">7.6.6. Not-so-naïve Bayes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-posterior-probaility-for-label-0">7.6.6.1. Calculate the posterior probaility for <code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">=</span> <span class="pre">0</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-not-so-naive-bayes-model">7.6.6.2. Build a not-so-naïve Bayes model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-gaussian-naive-bayes">7.6.6.3. Simple Gaussian Naïve Bayes</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;../settings/plot_style.mplstyle&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">clrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;#003057&#39;</span><span class="p">,</span> <span class="s1">&#39;#EAAA00&#39;</span><span class="p">,</span> <span class="s1">&#39;#4B8B9B&#39;</span><span class="p">,</span> <span class="s1">&#39;#B3A369&#39;</span><span class="p">,</span> <span class="s1">&#39;#377117&#39;</span><span class="p">,</span> <span class="s1">&#39;#1879DB&#39;</span><span class="p">,</span> <span class="s1">&#39;#8E8B76&#39;</span><span class="p">,</span> <span class="s1">&#39;#F5D580&#39;</span><span class="p">,</span> <span class="s1">&#39;#002233&#39;</span><span class="p">,</span> <span class="s1">&#39;#808080&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="generative-models">
+<h1><span class="section-number">7.6. </span>Generative Models<a class="headerlink" href="#generative-models" title="Permalink to this heading">#</a></h1>
+<p>Generative models describe the probability distribution of the underlying data. They can be used to explore datasets in many different ways, and are <strong>unsupervised</strong> since they do not require labels for the output data.</p>
+<section id="generative-model-overview">
+<h2><span class="section-number">7.6.1. </span>Generative Model Overview<a class="headerlink" href="#generative-model-overview" title="Permalink to this heading">#</a></h2>
+<p>Generative models provide an estimate of the probability of finding data at a particular point in feature space. Written mathematically:</p>
+<p><span class="math notranslate nohighlight">\(P(data|features)\)</span></p>
+<p>These models can then be used to generate synthetic data that mimics the input data by sampling the probability distribution.</p>
+<p>Some uses of generative models:</p>
+<ul class="simple">
+<li><p>augment sparse/imbalanced datasets</p></li>
+<li><p>refine supervised models</p></li>
+<li><p>visualize data distributions</p></li>
+</ul>
+</section>
+<section id="normal-distribution">
+<h2><span class="section-number">7.6.2. </span>Normal Distribution<a class="headerlink" href="#normal-distribution" title="Permalink to this heading">#</a></h2>
+<p>The 1-dimensional normal distribution is the simplest case of a generative model. We have worked with the Gaussian distribution a lot, but here we will import a different implementation from the <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> package:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">variance</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">variance</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">mu</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">gauss</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">gauss</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Normal Distribution&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/211d997d4c4d9ca15a7196c3d05c75b97e56a4b3079e654abdd174084daee7aa.png" src="../_images/211d997d4c4d9ca15a7196c3d05c75b97e56a4b3079e654abdd174084daee7aa.png" />
+</div>
+</div>
+<p>We are now extracting the <code class="docutils literal notranslate"><span class="pre">pdf</span></code>, or “probability density function” from the <code class="docutils literal notranslate"><span class="pre">norm</span></code> package rather than writing it out explicitly. However, this is exactly the same Gaussian distribution we have seen many times.</p>
+<p>We can now use the <code class="docutils literal notranslate"><span class="pre">norm</span></code> function to generate new samples from this distribution:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_new</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_new</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">X_new</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;New Samples&#39;</span><span class="p">,</span> <span class="s1">&#39;Normal Distribution&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100000,)
+</pre></div>
+</div>
+<img alt="../_images/d72b9f5af0dc239114eedc94a9ea0a03a00eb2a35faf58f112b1c6e1320e0b20.png" src="../_images/d72b9f5af0dc239114eedc94a9ea0a03a00eb2a35faf58f112b1c6e1320e0b20.png" />
+</div>
+</div>
+<p>This is a “generative” model because we can generate new data points once we know the parameters of the distribution. In practice, we will see that generative models are almost always composed of combinations of different Gaussian distributions, so the same basic machinery (sampling a normal distribution) can be used even for more complex models.</p>
+<p>Let’s take a look at the Dow dataset and see if we can create a generative model for one of the features.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;data/impurity_dataset-training.xlsx&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">is_real_and_finite</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isreal</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+<span class="n">all_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span><span class="o">.</span><span class="n">values</span> <span class="c1">#drop the first column (date)</span>
+<span class="n">numeric_map</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">is_real_and_finite</span><span class="p">)</span>
+<span class="n">real_rows</span> <span class="o">=</span> <span class="n">numeric_map</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">values</span> <span class="c1">#True if all values in a row are real numbers</span>
+<span class="n">X_dow</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">all_data</span><span class="p">[</span><span class="n">real_rows</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">5</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;float&#39;</span><span class="p">)</span> <span class="c1">#drop the last 5 cols that are not inputs</span>
+<span class="n">y_dow</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">all_data</span><span class="p">[</span><span class="n">real_rows</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;float&#39;</span><span class="p">)</span>
+<span class="n">y_dow</span> <span class="o">=</span> <span class="n">y_dow</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_dow</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_dow</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10297, 40) (10297, 1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can select one of the features and check the histogram:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">x_1d</span> <span class="o">=</span> <span class="n">X_dow</span><span class="p">[:,</span> <span class="n">feature</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x_1d</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">7</span><span class="p">]))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6f8a467484f155c850e9774b8adb363e8d400614afc3b508be263920576cf307.png" src="../_images/6f8a467484f155c850e9774b8adb363e8d400614afc3b508be263920576cf307.png" />
+</div>
+</div>
+<p>Now we can easily create a generative model by assuming this data is Gaussian. We just need to compute the mean and standard deviation, then we can create new synthetic data points and compare:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span> <span class="o">=</span> <span class="n">x_1d</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">x_1d</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+<span class="n">x_synthetic</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x_1d</span><span class="p">,</span><span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x_synthetic</span><span class="p">,</span><span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Simple Generative Model&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Actual Data&#39;</span><span class="p">,</span> <span class="s1">&#39;Synthetic Data&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ce897526d64f9d83d8f72ec54c3fa8fedc7a22147fdbe19c5b86e693e1b9c679.png" src="../_images/ce897526d64f9d83d8f72ec54c3fa8fedc7a22147fdbe19c5b86e693e1b9c679.png" />
+</div>
+</div>
+<p>We can see that the distributions are similar, but don’t exactly match. This is because the original data was not really normally distributed. This is also only a single feature, but the actual dataset has 40 features, so we really aren’t generating a new datapoint.</p>
+</section>
+<section id="gaussian-mixture-models">
+<h2><span class="section-number">7.6.3. </span>Gaussian Mixture Models<a class="headerlink" href="#gaussian-mixture-models" title="Permalink to this heading">#</a></h2>
+<p>We can move beyond 1-dimensional normal distributions using GMM’s. Let’s take a look at the distribution of 2 features at once:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_A</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">feature_B</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">X_2d</span> <span class="o">=</span> <span class="n">X_dow</span><span class="p">[:,</span> <span class="p">[</span><span class="n">feature_A</span><span class="p">,</span> <span class="n">feature_B</span><span class="p">]]</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_2d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_2d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">7</span><span class="p">]))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">5</span><span class="p">]));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/699d6b7ecaed08afc281df96393ad8e0f18ce3714db2f9865598947ef03b8ad2.png" src="../_images/699d6b7ecaed08afc281df96393ad8e0f18ce3714db2f9865598947ef03b8ad2.png" />
+</div>
+</div>
+<p>We can see that this is very far from being a Gaussian distribution. However, we can still model it with a GMM.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.mixture</span> <span class="kn">import</span> <span class="n">GaussianMixture</span>
+
+<span class="n">N_clusters</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">gmm</span> <span class="o">=</span> <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">N_clusters</span><span class="p">,</span> <span class="n">covariance_type</span> <span class="o">=</span> <span class="s1">&#39;full&#39;</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">gmm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_2d</span><span class="p">)</span>
+<span class="n">y_2d</span> <span class="o">=</span> <span class="n">gmm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_2d</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_2d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_2d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">y_2d</span><span class="p">])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">7</span><span class="p">]))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">5</span><span class="p">]));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6834de1d87d175e1017f5178c2c1e3e9a72da1e2d9a4700d1e0f8572da3bb56f.png" src="../_images/6834de1d87d175e1017f5178c2c1e3e9a72da1e2d9a4700d1e0f8572da3bb56f.png" />
+</div>
+</div>
+<p>We can see that the model has now identified 2 different clusters. However, we can also think of this as one single probability distribution. To visualize this we will use some helper functions modified from the <a class="reference external" href="https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.12-Gaussian-Mixtures.ipynb">Python Data Science Handbook</a>. You do <em>not</em> need to understand how these work, just realize they allow us to plot the GMM distribution in 2d.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Ellipse</span>
+
+<span class="k">def</span> <span class="nf">draw_ellipse</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">covariance</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Draw an ellipse with a given position and covariance&quot;&quot;&quot;</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span> <span class="ow">or</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    
+    <span class="c1"># Convert covariance to principal axes</span>
+    <span class="k">if</span> <span class="n">covariance</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">U</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">Vt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">covariance</span><span class="p">)</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">U</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+        <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">covariance</span><span class="p">)</span>
+    
+    <span class="c1"># Draw the Ellipse</span>
+    <span class="k">for</span> <span class="n">nsig</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">Ellipse</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">nsig</span> <span class="o">*</span> <span class="n">width</span><span class="p">,</span> <span class="n">nsig</span> <span class="o">*</span> <span class="n">height</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+        
+<span class="k">def</span> <span class="nf">plot_gmm</span><span class="p">(</span><span class="n">gmm</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">gmm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">label</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">labels</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+    
+    <span class="n">w_factor</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="k">for</span> <span class="n">pos</span><span class="p">,</span> <span class="n">covar</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">gmm</span><span class="o">.</span><span class="n">means_</span><span class="p">,</span> <span class="n">gmm</span><span class="o">.</span><span class="n">covariances_</span><span class="p">,</span> <span class="n">gmm</span><span class="o">.</span><span class="n">weights_</span><span class="p">):</span>
+        <span class="n">draw_ellipse</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">covar</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">w_factor</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plot_gmm</span><span class="p">(</span><span class="n">gmm</span><span class="p">,</span> <span class="n">X_2d</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">7</span><span class="p">]))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">5</span><span class="p">]));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/052dfa550ad4e042d1dd49705053205ef517e533485ece7cebc35bfd716c23c4.png" src="../_images/052dfa550ad4e042d1dd49705053205ef517e533485ece7cebc35bfd716c23c4.png" />
+</div>
+</div>
+<p>We see that with 2 Gaussians the distribution does not seem to match the data well. However, if we keep increasing the number of Gaussians the agreement will get much better:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_clusters</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">gmm</span> <span class="o">=</span> <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">N_clusters</span><span class="p">,</span> <span class="n">covariance_type</span> <span class="o">=</span> <span class="s1">&#39;full&#39;</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_gmm</span><span class="p">(</span><span class="n">gmm</span><span class="p">,</span> <span class="n">X_2d</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">7</span><span class="p">]))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">5</span><span class="p">]));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f9b33245934560867c001bc00102e9564fbf06699c6a91825d115202352b0be6.png" src="../_images/f9b33245934560867c001bc00102e9564fbf06699c6a91825d115202352b0be6.png" />
+</div>
+</div>
+<p>The GMM model has a built-in feature that makes it easy to draw new samples. Let’s create a synthetic dataset and compare it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_new</span><span class="p">,</span> <span class="n">y_new</span> <span class="o">=</span> <span class="n">gmm</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_2d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_2d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Original Data&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_new</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_new</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Synthetic Data&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">7</span><span class="p">]))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">5</span><span class="p">]))</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">7</span><span class="p">]));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/95076998a8ec195460df701ba546588498caeb978eb0873cfe543808d37a83a5.png" src="../_images/95076998a8ec195460df701ba546588498caeb978eb0873cfe543808d37a83a5.png" />
+</div>
+</div>
+<p>They still aren’t perfect, but the main features are clearly present. However, we could keep adding more Gaussians, and it isn’t clear how many are too many.</p>
+<section id="bayesian-information-criterion">
+<h3><span class="section-number">7.6.3.1. </span>Bayesian Information Criterion<a class="headerlink" href="#bayesian-information-criterion" title="Permalink to this heading">#</a></h3>
+<p>To determine the right number of Gaussians we can revisit the concept of the Bayesian Information Criterion. The formula is a little complex for GMM’s, but fortunately it is built in. We can evaulate the BIC as a function of the number of clusters.</p>
+<p>In this case the formula for the BIC is:</p>
+<p>The Bayesian information criterion (BIC) is defined as:</p>
+<p><span class="math notranslate nohighlight">\(BIC = \ln{(n)}*k - 2*\ln{(\hat{L})}\)</span></p>
+<p>where <span class="math notranslate nohighlight">\((\hat{L})\)</span> is the probability that the data drawn from the GMM comes from the same distribution as the underlying data. This is complex to calculate, and luckily it is already implemented in the <code class="docutils literal notranslate"><span class="pre">bic</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_components</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">)[::</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="n">BICs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">n_components</span><span class="p">:</span>
+    <span class="n">gmm_n</span> <span class="o">=</span>  <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">covariance_type</span> <span class="o">=</span> <span class="s1">&#39;full&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_2d</span><span class="p">)</span>
+    <span class="n">bic</span> <span class="o">=</span> <span class="n">gmm_n</span><span class="o">.</span><span class="n">bic</span><span class="p">(</span><span class="n">X_2d</span><span class="p">)</span>
+    <span class="n">BICs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bic</span><span class="p">)</span>
+    
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_components</span><span class="p">,</span> <span class="n">BICs</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;# of Components&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">18</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;BIC&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">n_components</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7bc7de7b7032cc2311e417304db5c2a92c67665de7d9f0efedeab3b1a5378f78.png" src="../_images/7bc7de7b7032cc2311e417304db5c2a92c67665de7d9f0efedeab3b1a5378f78.png" />
+</div>
+</div>
+<p>We see that the BIC is minimum around 20 components, so our 20-cluster model is the best approximation we can get with GMMs.</p>
+</section>
+</section>
+<section id="generative-models-in-high-dimensions">
+<h2><span class="section-number">7.6.4. </span>Generative Models in High Dimensions<a class="headerlink" href="#generative-models-in-high-dimensions" title="Permalink to this heading">#</a></h2>
+<p>One issue with GMM’s is that they do not scale well with the number of dimensions. This is particularly true if the full covariance matrix is optimized, since the covariance matrix has a number of parameters that scales with ~<span class="math notranslate nohighlight">\(\frac{1}{2}N_d^2\)</span> where <span class="math notranslate nohighlight">\(N_d\)</span> is the number of dimensions. Sometimes the “blessing of dimensionality” also helps, since data looks more like Gaussians as the number of dimensions increases, but this is not something we can count on.</p>
+<p>One strategy to deal with this is to combine a GMM model with an invertible dimensionality reduction approach. For this example we will return to the MNIST dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
+
+<span class="n">digits</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Digits data shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Digits output shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">X_mnist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="n">y_mnist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Digits data shape: (1797, 64)
+Digits output shape: (1797,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>As before, we will use the <code class="docutils literal notranslate"><span class="pre">show_image</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_image</span><span class="p">(</span><span class="n">digit_data</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">digit_data</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;binary&#39;</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, let’s try to find the optimal GMM for the high-dimensional space:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_components</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="n">BICs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">models</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">n_components</span><span class="p">:</span>
+    <span class="n">gmm_n</span> <span class="o">=</span>  <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">covariance_type</span> <span class="o">=</span> <span class="s1">&#39;full&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">)</span>
+    <span class="n">bic</span> <span class="o">=</span> <span class="n">gmm_n</span><span class="o">.</span><span class="n">bic</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">)</span>
+    <span class="n">BICs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bic</span><span class="p">)</span>
+    <span class="n">models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gmm_n</span><span class="p">)</span>
+    
+        
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_components</span><span class="p">,</span> <span class="n">BICs</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;# of Components&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">18</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;BIC&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">n_components</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2abd3321e8a3165b49889f7211afd6e9c7d56b4248065d7afcdc6ae07c428c04.png" src="../_images/2abd3321e8a3165b49889f7211afd6e9c7d56b4248065d7afcdc6ae07c428c04.png" />
+</div>
+</div>
+<p>We see that the optimal seems to be below 10. This is a bit surprising, since we know there are 10 digits in the dataset. Let’s try to create some new digits with the best model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gmm_best</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">example</span> <span class="o">=</span> <span class="n">gmm_best</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5f2836604cb00bb5579cfb918edad8e6a2118283c3f3492eefb5034071f37f0a.png" src="../_images/5f2836604cb00bb5579cfb918edad8e6a2118283c3f3492eefb5034071f37f0a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example</span> <span class="o">=</span> <span class="n">gmm_best</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b1885e58dad1b45a08599df5d2a6baf66c2a12058aa2bc702a12953ed470dc1d.png" src="../_images/b1885e58dad1b45a08599df5d2a6baf66c2a12058aa2bc702a12953ed470dc1d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example</span> <span class="o">=</span> <span class="n">gmm_best</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/22ddd576cd35dfd83a99d50ba2cb5b6fd6a460f3f298ad019f2bdb5306b54030.png" src="../_images/22ddd576cd35dfd83a99d50ba2cb5b6fd6a460f3f298ad019f2bdb5306b54030.png" />
+</div>
+</div>
+<p>The output of these blocks will change every time, but we see that there is some resemblance to digits. We can reduce the number of parameters by using <code class="docutils literal notranslate"><span class="pre">spherical</span></code> or <code class="docutils literal notranslate"><span class="pre">tied</span></code> Gaussian distributions instead:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_components</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)[::</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="n">BICs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">models</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">n_components</span><span class="p">:</span>
+    <span class="n">gmm_n</span> <span class="o">=</span>  <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">covariance_type</span> <span class="o">=</span> <span class="s1">&#39;spherical&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">)</span>
+    <span class="n">bic</span> <span class="o">=</span> <span class="n">gmm_n</span><span class="o">.</span><span class="n">bic</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">)</span>
+    <span class="n">BICs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bic</span><span class="p">)</span>
+    <span class="n">models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gmm_n</span><span class="p">)</span>
+    
+        
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_components</span><span class="p">,</span> <span class="n">BICs</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;# of Components&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">12</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;BIC&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">n_components</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;covariance_type = spherical&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/aac29a1b2e74f2fc2b8be04cbe3e2e37024e3c0897beea220e0c5c8e014c628c.png" src="../_images/aac29a1b2e74f2fc2b8be04cbe3e2e37024e3c0897beea220e0c5c8e014c628c.png" />
+</div>
+</div>
+<p>We see that we now need many more Gaussians. This makes sense, because each one has far fewer parameters. Let’s look at some example digits:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_idx</span> <span class="o">=</span> <span class="n">BICs</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">BICs</span><span class="p">))</span>
+<span class="n">gmm_best</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="n">min_idx</span><span class="p">]</span>
+<span class="n">example</span> <span class="o">=</span> <span class="n">gmm_best</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e59c48b42bfaf91672450f61c4e284470a727a8c052b0c9404e0606a68ac9b51.png" src="../_images/e59c48b42bfaf91672450f61c4e284470a727a8c052b0c9404e0606a68ac9b51.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example</span> <span class="o">=</span> <span class="n">gmm_best</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/00c01ef6ef6396e21cbbed4823024aa38b2a9158f06dd5518ba14b90fa1d594c.png" src="../_images/00c01ef6ef6396e21cbbed4823024aa38b2a9158f06dd5518ba14b90fa1d594c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example</span> <span class="o">=</span> <span class="n">gmm_best</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/daeeafd69188306f656a0531b94ca7cbfabeb505fadc43827a89b7714b13afdb.png" src="../_images/daeeafd69188306f656a0531b94ca7cbfabeb505fadc43827a89b7714b13afdb.png" />
+</div>
+</div>
+<p>In general, these look worse! We could have predicted this by comparing the BIC’s between the two approaches. Finally, let’s combine the GMM with PCA:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">pca_model</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">pca_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">)</span>
+<span class="n">X_k</span> <span class="o">=</span> <span class="n">pca_model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">)</span>
+
+<span class="n">n_GMM</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="n">BICs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">models</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">n_GMM</span><span class="p">:</span>
+    <span class="n">gmm_n</span> <span class="o">=</span>  <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">covariance_type</span> <span class="o">=</span> <span class="s1">&#39;full&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_k</span><span class="p">)</span>
+    <span class="n">bic</span> <span class="o">=</span> <span class="n">gmm_n</span><span class="o">.</span><span class="n">bic</span><span class="p">(</span><span class="n">X_k</span><span class="p">)</span>
+    <span class="n">BICs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bic</span><span class="p">)</span>
+    <span class="n">models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gmm_n</span><span class="p">)</span>
+    
+            
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_GMM</span><span class="p">,</span> <span class="n">BICs</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;# of Components&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">18</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;BIC&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">n_GMM</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;GMM after PCA&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f85624fa1a2dec529227e55236f0d94af1371b42e05d6c5f324cac5a00738e64.png" src="../_images/f85624fa1a2dec529227e55236f0d94af1371b42e05d6c5f324cac5a00738e64.png" />
+</div>
+</div>
+<p>Now we can draw from the low-dimensional distribution and use the inverse transform to go back to the high-dimensional space:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_idx</span> <span class="o">=</span> <span class="n">BICs</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">BICs</span><span class="p">))</span>
+<span class="n">gmm_best</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="n">min_idx</span><span class="p">]</span>
+<span class="n">example_lowD</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">gmm_best</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+
+<span class="n">example_lowD</span> <span class="o">=</span> <span class="n">example_lowD</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">example</span> <span class="o">=</span> <span class="n">pca_model</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">example_lowD</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/163ee0ceff5e97151772bdc9ebd6d273db8dc91119ef0042c2422fe8406899c2.png" src="../_images/163ee0ceff5e97151772bdc9ebd6d273db8dc91119ef0042c2422fe8406899c2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_lowD</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">gmm_best</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+
+<span class="n">example_lowD</span> <span class="o">=</span> <span class="n">example_lowD</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">example</span> <span class="o">=</span> <span class="n">pca_model</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">example_lowD</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/cb8155b645a3c48c84cb068ea895b42fba4cd3dc440ecc0f356ec02e3e9f5074.png" src="../_images/cb8155b645a3c48c84cb068ea895b42fba4cd3dc440ecc0f356ec02e3e9f5074.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_lowD</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">gmm_best</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+
+<span class="n">example_lowD</span> <span class="o">=</span> <span class="n">example_lowD</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">example</span> <span class="o">=</span> <span class="n">pca_model</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">example_lowD</span><span class="p">)</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8f3b45e16d32188e755433d9342365016167489c50599eaf9b7ff4a9229fc90d.png" src="../_images/8f3b45e16d32188e755433d9342365016167489c50599eaf9b7ff4a9229fc90d.png" />
+</div>
+</div>
+<p>In general these seem to be comparable to the samples generated from creating a GMM on the full distribution, but the model is more efficient because it is sampling from a lower-dimensional space. In practice, if you are working with data with dimensions &gt;100 it will likely be necessary to combine dimensional reduction and GMM’s to create a generative model.</p>
+<section id="example-create-a-gmm-that-can-generate-new-examples-of-the-digit-6">
+<h3><span class="section-number">7.6.4.1. </span>Example: Create a GMM that can generate new examples of the digit 6<a class="headerlink" href="#example-create-a-gmm-that-can-generate-new-examples-of-the-digit-6" title="Permalink to this heading">#</a></h3>
+<p>Follow the same procedures above, but only use input data from the digit 6. You can use the <code class="docutils literal notranslate"><span class="pre">y_mnist</span></code> variable to quickly select this subset (<code class="docutils literal notranslate"><span class="pre">y_mnist</span> <span class="pre">==</span> <span class="pre">6</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_mnist_6</span> <span class="o">=</span> <span class="n">X_mnist</span><span class="p">[</span><span class="n">y_mnist</span> <span class="o">==</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="c1"># Let&#39;s just use an arbitrary model</span>
+<span class="n">gmm_n</span> <span class="o">=</span>  <span class="n">GaussianMixture</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">covariance_type</span> <span class="o">=</span> <span class="s1">&#39;spherical&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_mnist_6</span><span class="p">)</span>
+<span class="n">example</span> <span class="o">=</span> <span class="n">gmm_n</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8491c98b1726d9a8932c0925969e7d36030444b425b4c5c92b15c6a8a8e74261.png" src="../_images/8491c98b1726d9a8932c0925969e7d36030444b425b4c5c92b15c6a8a8e74261.png" />
+</div>
+</div>
+<p>This pretty looks like 6! Note that the model is not optimized in terms of the number of Gaussians.</p>
+</section>
+</section>
+<section id="kernel-density-estimation">
+<h2><span class="section-number">7.6.5. </span>Kernel Density Estimation<a class="headerlink" href="#kernel-density-estimation" title="Permalink to this heading">#</a></h2>
+<p>In Gaussian mixture models we represent data with a combination of Gaussians. As we increase the number of Gaussians the distribution gets closer to the original data, but the ability to “generalize” to new data decreases.</p>
+<p>Kernel density estimation (KDE) takes Gaussian mixtures to their logical extreme by representing the distribution with the same number of Gaussians as data points. This enables it to represent arbitrarily complex distributions relatively well. You can think of it as interpolation for probability distributions.</p>
+<section id="kde-vs-histograms">
+<h3><span class="section-number">7.6.5.1. </span>KDE vs. Histograms<a class="headerlink" href="#kde-vs-histograms" title="Permalink to this heading">#</a></h3>
+<p>One issue with histograms is that they can be very sensitive to how the bins are selected. KDE models offer an alternative to histograms that do not require bins, but do require a “bandwidth” (the width of the Gaussians used to represent the distribution). Let’s revisit the example of the distribution from the feature from the Dow dataset and compare a histogram to the KDE model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KernelDensity</span>
+
+<span class="c1"># instantiate and fit the KDE model</span>
+<span class="n">x_1d</span> <span class="o">=</span> <span class="n">x_1d</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">kde</span> <span class="o">=</span> <span class="n">KernelDensity</span><span class="p">(</span><span class="n">bandwidth</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">)</span>
+<span class="n">kde</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_1d</span><span class="p">)</span>
+
+<span class="c1">#create a continuous x variable</span>
+<span class="n">x_continuous</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x_1d</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x_1d</span><span class="p">),</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># score_samples returns the log of the probability density</span>
+<span class="n">logprob</span> <span class="o">=</span> <span class="n">kde</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">x_continuous</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_continuous</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">logprob</span><span class="p">),</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x_1d</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P(X)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histogram vs. KDE&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;KDE&#39;</span><span class="p">,</span> <span class="s1">&#39;Histogram&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/446cf1a94cf44c7609686a7e9bb9c3cded7d464302e067e300209026184f17f3.png" src="../_images/446cf1a94cf44c7609686a7e9bb9c3cded7d464302e067e300209026184f17f3.png" />
+</div>
+</div>
+<p>Similar to GMM’s, we can use a KDE distribution to create new samples:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_synthetic</span> <span class="o">=</span> <span class="n">kde</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">X_synthetic</span> <span class="o">=</span> <span class="n">X_synthetic</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">kde</span> <span class="o">=</span> <span class="n">KernelDensity</span><span class="p">(</span><span class="n">bandwidth</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">)</span>
+<span class="n">kde</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_synthetic</span><span class="p">)</span>
+
+<span class="c1"># score_samples returns the log of the probability density</span>
+<span class="n">logprob_synthetic</span> <span class="o">=</span> <span class="n">kde</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">x_continuous</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_continuous</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">logprob_synthetic</span><span class="p">),</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_continuous</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">logprob</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P(X)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Synthetic Data&#39;</span><span class="p">,</span> <span class="s1">&#39;Original Data&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bbe52e6cf8a68170f4940c08eb5c915c29917fa663375273411e7fac4ab390ff.png" src="../_images/bbe52e6cf8a68170f4940c08eb5c915c29917fa663375273411e7fac4ab390ff.png" />
+</div>
+</div>
+<p>We see that the samples we draw now follow an almost identical distribution!</p>
+</section>
+<section id="kde-in-high-dimensions">
+<h3><span class="section-number">7.6.5.2. </span>KDE in high dimensions<a class="headerlink" href="#kde-in-high-dimensions" title="Permalink to this heading">#</a></h3>
+<p>Since KDE uses kernels, it generally scales realtively well to high dimensions. We can use it directly on the MNIST dataset to try to generate new samples:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kde_images</span> <span class="o">=</span> <span class="n">KernelDensity</span><span class="p">(</span><span class="n">bandwidth</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">)</span>
+<span class="n">kde_images</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">)</span>
+<span class="n">example</span> <span class="o">=</span> <span class="n">kde_images</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/18f317e45dab79b6a86550af46154e0e4893a222e3cd15fb6e772747c9271c00.png" src="../_images/18f317e45dab79b6a86550af46154e0e4893a222e3cd15fb6e772747c9271c00.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example</span> <span class="o">=</span> <span class="n">kde_images</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/836674aef270d3fd15d9c7c69f6673b221b65ee161c9b999b61717f041f7f3d9.png" src="../_images/836674aef270d3fd15d9c7c69f6673b221b65ee161c9b999b61717f041f7f3d9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example</span> <span class="o">=</span> <span class="n">kde_images</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/487ff6dea3cb36b505b441bf568d43d924fe099412ed4c97897520efc70a9fe5.png" src="../_images/487ff6dea3cb36b505b441bf568d43d924fe099412ed4c97897520efc70a9fe5.png" />
+</div>
+</div>
+<p>We see that these are very reasonable examples of hand-written digits, but they were generated by the computer! This concept can create very complex synthetic data. Perhaps the best example is faces of people who do not actually exist, as available from <a class="reference external" href="https://www.thispersondoesnotexist.com/">https://www.thispersondoesnotexist.com/</a>. These are generated by much more sophisticated deep neural networks generative models, but the principle is the same.</p>
+</section>
+</section>
+<section id="not-so-naive-bayes">
+<h2><span class="section-number">7.6.6. </span>Not-so-naïve Bayes<a class="headerlink" href="#not-so-naive-bayes" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="calculate-the-posterior-probaility-for-label-0">
+<h3><span class="section-number">7.6.6.1. </span>Calculate the posterior probaility for <code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">=</span> <span class="pre">0</span></code><a class="headerlink" href="#calculate-the-posterior-probaility-for-label-0" title="Permalink to this heading">#</a></h3>
+<p>Just a simple example of how to calculate the posterior probability for a single label.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">label</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X_mnist</span><span class="p">[</span><span class="n">y_mnist</span> <span class="o">==</span> <span class="n">label</span><span class="p">]</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">KernelDensity</span><span class="p">(</span><span class="n">bandwidth</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-208.48758285, -220.39043884, -218.35226166])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.85097378e-91, 1.93040551e-96, 1.48189573e-95])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proba_0</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">X_mnist</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">post_proba</span> <span class="o">=</span> <span class="n">proba_0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">post_proba</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.82400297e-92 1.91214347e-97 1.46787669e-96]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="build-a-not-so-naive-bayes-model">
+<h3><span class="section-number">7.6.6.2. </span>Build a not-so-naïve Bayes model<a class="headerlink" href="#build-a-not-so-naive-bayes-model" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">not_so_naive</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+    <span class="c1"># iterate through label 0 to 9</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">y_train</span> <span class="o">==</span> <span class="n">y</span><span class="p">]</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        
+        <span class="n">proba_y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="n">likelihood</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+        <span class="n">post_proba</span> <span class="o">=</span> <span class="n">proba_y</span> <span class="o">*</span> <span class="n">likelihood</span>
+        
+        <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">prediction</span> <span class="o">=</span> <span class="n">post_proba</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">prediction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">post_proba</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+            
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">KernelDensity</span><span class="p">(</span><span class="n">bandwidth</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">)</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">,</span> <span class="n">y_mnist</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">not_so_naive</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">prediction</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9907407407407407
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,),</span> <span class="n">prediction</span><span class="p">)</span>
+<span class="n">df_cm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">columns</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_cm</span><span class="p">,</span> <span class="n">annot</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/dd0449daa8942a04b73cb1973517b1c68a942d00a120718b642cb7a5d16ebf16.png" src="../_images/dd0449daa8942a04b73cb1973517b1c68a942d00a120718b642cb7a5d16ebf16.png" />
+</div>
+</div>
+</section>
+<section id="simple-gaussian-naive-bayes">
+<h3><span class="section-number">7.6.6.3. </span>Simple Gaussian Naïve Bayes<a class="headerlink" href="#simple-gaussian-naive-bayes" title="Permalink to this heading">#</a></h3>
+<p>Let’s compare the results with a simple Gaussian Naïve Bayes classifier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NB</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">yhat</span> <span class="o">=</span> <span class="n">NB</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NB</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8314814814814815
+</pre></div>
+</div>
+</div>
+</div>
+<p>The accuracy is lower than the not-so-naïve version!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span>
+<span class="n">df_cm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">columns</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_cm</span><span class="p">,</span> <span class="n">annot</span> <span class="o">=</span> <span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9fb544bbae7885bfc455b09e35d89a599813cb3c9ca18d580939c5dc985d4438.png" src="../_images/9fb544bbae7885bfc455b09e35d89a599813cb3c9ca18d580939c5dc985d4438.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ML_2_4_Clustering.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">7.5. </span>Clustering</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Exercises_ML_basics_Pt2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7.7. </span>Exercises</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-model-overview">7.6.1. Generative Model Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">7.6.2. Normal Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-mixture-models">7.6.3. Gaussian Mixture Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-information-criterion">7.6.3.1. Bayesian Information Criterion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-models-in-high-dimensions">7.6.4. Generative Models in High Dimensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-create-a-gmm-that-can-generate-new-examples-of-the-digit-6">7.6.4.1. Example: Create a GMM that can generate new examples of the digit 6</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-density-estimation">7.6.5. Kernel Density Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kde-vs-histograms">7.6.5.1. KDE vs. Histograms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kde-in-high-dimensions">7.6.5.2. KDE in high dimensions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-so-naive-bayes">7.6.6. Not-so-naïve Bayes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-posterior-probaility-for-label-0">7.6.6.1. Calculate the posterior probaility for <code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">=</span> <span class="pre">0</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-not-so-naive-bayes-model">7.6.6.2. Build a not-so-naïve Bayes model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-gaussian-naive-bayes">7.6.6.3. Simple Gaussian Naïve Bayes</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Medford Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+# Intro to Regression and High Dimensional Data
+
+## Introduction
+
+This section comprises the first of 2 that will focus on topics in data science and machine learning. This is by no means exhaustive as the fields of data science and ML are rapidly evolving. However, we will introduce some of the basic concepts and tools that are relevant to our research group. We will focus on regression and high dimensional data. We will introduce the concepts of overfitting and underfitting, and we will introduce some of the tools that we use to analyze and visualize high dimensional data. We will also introduce the concept of cross validation which is a critical tool for evaluating the performance of ML models. These two sections should orient new students to the language of data science and machine learning and provide a foundation for future work in these areas.
