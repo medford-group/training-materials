@@ -3,23 +3,19 @@ VIP Course Syllabus
 
 Instructor: A. J. Medford
 
-TAs: Logan Brabson, Lucas Timmerman, Neung-Kyung Yu, Kaylee Tian, Sayan Bhowmik
+TAs: Sayan Bhowmik, Logan Brabson, Lucas Timmerman, Neung-Kyung Yu
 
 Email: [ajm@gatech.edu](mailto:ajm@gatech.edu)
+
+[sbhowmik9@gatech.edu](mailto:sbhowmik9@gatech.edu)
 
 [lbrabson3@gatech.edu](mailto:lbrabson3@gatech.edu)
 
 [ltimmerman3@gatech.edu](mailto:ltimmerman3@gatech.edu)
        
 [nyu49@gatech.edu](mailto:nyu49@gatech.edu)
-
-[ntian30@gatech.edu](mailto:ntian30@gatech.edu)
-
-[sbhowmik9@gatech.edu](mailto:sbhowmik9@gatech.edu)
        
-Dr. Medford Office Hours: [By Appointment](https://app.acuityscheduling.com/schedule.php?owner=18040156&appointmentType=11047919)
-
-TA Office Hours: Set up via email or slack correspondence
+Office Hours: By Appointment (via email or Slack)
 
 Class Hours: W 11:00-11:50 am
 
