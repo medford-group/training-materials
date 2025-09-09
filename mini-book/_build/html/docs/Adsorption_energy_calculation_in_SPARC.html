@@ -1,0 +1,899 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6.3. Adsorption energy from DFT &#8212; Medford Group Graduate Training</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Adsorption_energy_calculation_in_SPARC';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.4. Exercises" href="Exercises_DFT_applications.html" />
+    <link rel="prev" title="6.2. Adsorption energy calculation using DFT" href="Adsorption_energy_calculation_in_QE.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Medford Group Graduate Training - Home"/>
+    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Medford Group Graduate Training - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Medford Group Graduate Training
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">VIP</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="VIP_Info.html">VIP Materials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VIP_syllabus.html">VIP Course Syllabus</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="VIP_Overview.html">Big Data &amp; Quantum Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VIP_Ads_energy_project.html">DFT adsorption energy reproducibility project</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Training Materials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Basic_Python_Tools.html">1. Introduction to Basic Python Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_Python_programming.html">1.2. Introduction to Python programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_numpy.html">1.3. Numpy -  multidimensional data arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_scipy.html">1.4. SciPy - Library of scientific algorithms for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_plotting_in_Python.html">1.5. matplotlib - Plotting in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_python.html">1.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Manipulating_Atoms_in_Python.html">2. Introduction to Manipulating Atoms in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Building_Structures.html">2.2. Intro to Building Structures with ASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Calculators.html">2.3. Intro to ASE Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_intro.html">2.4. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_calcs.html">2.5. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Linux_HPC.html">3. Introduction to Linux and High-Performance Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_linux.html">3.3. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_Density_Functional_Theory.html">4. Introduction to Density Functional Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Running_Density_Functional_Theory_on_PACE.html">5. Running Density Functional Theory on PACE</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Running_QE_on_PACE.html">5.2. Running QE on PACE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Running_SPARC_on_PACE.html">5.3. Running a simple DFT calculation on PACE Supercomputer Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_basics.html">5.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">6. Applications of Density Functional Theory</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">6.2. Adsorption energy calculation using DFT</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.3. Adsorption energy from DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">6.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">7. Intro to Regression and High Dimensional Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">7.2. Non-Parametric Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_2_Complexity_Optimization.html">7.3. Complexity Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">7.4. High Dimensional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_4_Dimensionality_Reduction.html">7.5. Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">7.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">8. Intro to Classification and Generative Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_1_Classification_Basics.html">8.2. Classification Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">8.3. Generalized Linear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">8.4. Alternate classification methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">8.5. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_5_Generative_Models.html">8.6. Generative Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">8.7. Exercises</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Appendix.html">Appendix</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Literature_Searches.html">Basics of Searching and Reading Scientific Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create_DFT_Environments.html">Create DFT Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gas_formation_energy_calculation_in_SPARC.html">Gas formation energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Referencing_Binding_Energies.html">Referencing Binding Energies</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/Adsorption_energy_calculation_in_SPARC.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Adsorption energy from DFT</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adsorption-energy">6.3.1. Adsorption Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-adsorption-energy-in-sparc">6.3.2. Calculating Adsorption Energy in SPARC</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="adsorption-energy-from-dft">
+<span id="ads-sparc"></span><h1><span class="section-number">6.3. </span>Adsorption energy from DFT<a class="headerlink" href="#adsorption-energy-from-dft" title="Link to this heading">#</a></h1>
+<section id="adsorption-energy">
+<h2><span class="section-number">6.3.1. </span>Adsorption Energy<a class="headerlink" href="#adsorption-energy" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Adsorption energy refers to the change of energy when an adsorbate is attached to the surface of an adsorbent.</p></li>
+<li><p>Adsorption energy, <span class="math notranslate nohighlight">\({\Delta}E_{a}\)</span>, can be obtained by calculating the difference between the energy of the adsorbed surface and the sum of the energy for each structure composing the adsorbed surface:
+<br> <span class="math notranslate nohighlight">\({\Delta}E_{a} =  E_{ads,slab} -  E_{slab} - E_{ads}\)</span></p></li>
+</ul>
+</section>
+<section id="calculating-adsorption-energy-in-sparc">
+<h2><span class="section-number">6.3.2. </span>Calculating Adsorption Energy in SPARC<a class="headerlink" href="#calculating-adsorption-energy-in-sparc" title="Link to this heading">#</a></h2>
+<p>Consider O<sub>2</sub> adsorption on Platinum (Pt) surface with constrained atom positions. For this situation, we will first build the Atoms object for Platinum slab and adsorb an oxygen molecule to the slab.</p>
+<p><strong>Building atoms</strong></p>
+<ul class="simple">
+<li><p>In the following script, a Pt slab is created. The bottom two layers of Pt (in z-direction) are fixed. The exact position to divide the atoms is determined by visualizing the ‘input.traj’ file with ase gui command. By clicking on the atoms in the pop-out window, the exact position within a cell will be displayed. After applying the constraint to the system, visualizing ‘input.traj’ file with ase gui command, you should be able to see the bottom two layers of Pt atoms have a cross on them, indicating that they are fixed. Another way to check or to manipulate the constraint is by ‘POSCAR’, where it lists the positions and constraints of all atoms in the system.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.build</span><span class="w"> </span><span class="kn">import</span> <span class="n">bulk</span><span class="p">,</span> <span class="n">molecule</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="n">add_adsorbate</span><span class="p">,</span> <span class="n">fcc111</span><span class="p">,</span> <span class="n">fcc100</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.constraints</span><span class="w"> </span><span class="kn">import</span> <span class="n">FixAtoms</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span>
+
+<span class="c1">#building Platinum slab</span>
+
+<span class="n">bulk</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s1">&#39;Pt&#39;</span><span class="p">)</span>
+<span class="n">miller_indices</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">layers</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">slab</span> <span class="o">=</span> <span class="n">surface</span> <span class="p">(</span><span class="n">bulk</span> <span class="p">,</span> <span class="n">indices</span> <span class="o">=</span> <span class="n">miller_indices</span> <span class="p">,</span> <span class="n">layers</span> <span class="o">=</span> <span class="n">layers</span> <span class="p">,</span> <span class="n">vacuum</span> <span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">slab</span> <span class="o">=</span> <span class="n">slab</span><span class="o">.</span><span class="n">repeat</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">FixAtoms</span> <span class="p">(</span> <span class="n">indices</span> <span class="o">=</span> <span class="p">[</span> <span class="n">atom</span><span class="o">.</span><span class="n">index</span> <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">slab</span> <span class="k">if</span> <span class="n">atom</span><span class="o">.</span><span class="n">position</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span><span class="mi">14</span> <span class="p">])</span> <span class="c1">#constrained atoms (fixing the bottom 2 layers)</span>
+<span class="n">slab</span><span class="o">.</span><span class="n">set_constraint</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">slab</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;slab.traj&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>There is another way to generate surfaces.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.visualize.plot</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_atoms</span>
+
+<span class="n">slab_fcc111</span> <span class="o">=</span> <span class="n">fcc111</span><span class="p">(</span><span class="s1">&#39;Pt&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">vacuum</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">slab</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;120x,0y,0z&#39;</span><span class="p">))</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">slab_fcc111</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;120x,0y,0z&#39;</span><span class="p">))</span>
+
+<span class="n">slab</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;POSCAR_1&#39;</span><span class="p">)</span>
+<span class="n">slab_fcc111</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;POSCAR_2&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">slab</span><span class="o">.</span><span class="n">get_all_distances</span><span class="p">(</span><span class="n">mic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">==</span> <span class="n">slab_fcc111</span><span class="o">.</span><span class="n">get_all_distances</span><span class="p">(</span><span class="n">mic</span><span class="o">=</span><span class="kc">True</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Two surfaces are identical.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Two surfaces are identical.
+</pre></div>
+</div>
+<img alt="../_images/de60cc333b0ff480908290b472353d58df78a160f09db0f2b368438a6a38ab2e.png" src="../_images/de60cc333b0ff480908290b472353d58df78a160f09db0f2b368438a6a38ab2e.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Build an O<sub>2</sub> molecule with ase library.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.build</span><span class="w"> </span><span class="kn">import</span> <span class="n">molecule</span><span class="p">,</span> <span class="n">bulk</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">shutil</span><span class="w"> </span><span class="kn">import</span> <span class="n">copy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1">#building oxygen molecule</span>
+
+<span class="n">atoms</span> <span class="o">=</span> <span class="n">molecule</span><span class="p">(</span><span class="s1">&#39;O2&#39;</span><span class="p">)</span>
+<span class="n">max_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">get_positions</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">atoms</span><span class="o">.</span><span class="n">set_cell</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span> <span class="o">+</span> <span class="n">max_pos</span><span class="p">)</span>
+<span class="n">atoms</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
+
+<span class="n">atoms</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;O2.traj&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Attach the O<sub>2</sub> to the Pt slab using ase.build.add_adsorbate().</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.build</span><span class="w"> </span><span class="kn">import</span> <span class="n">bulk</span><span class="p">,</span> <span class="n">molecule</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="n">add_adsorbate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.constraints</span><span class="w"> </span><span class="kn">import</span> <span class="n">FixAtoms</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span>
+
+<span class="n">slab</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;slab.traj&#39;</span><span class="p">)</span>
+<span class="n">adsorbate</span> <span class="o">=</span> <span class="n">molecule</span><span class="p">(</span><span class="s1">&#39;O2&#39;</span><span class="p">)</span>
+<span class="n">add_adsorbate</span><span class="p">(</span><span class="n">slab</span><span class="p">,</span> <span class="n">adsorbate</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.386</span><span class="p">,</span> <span class="mf">0.800</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">FixAtoms</span> <span class="p">(</span> <span class="n">indices</span> <span class="o">=</span> <span class="p">[</span> <span class="n">atom</span><span class="o">.</span><span class="n">index</span> <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">slab</span> <span class="k">if</span> <span class="n">atom</span><span class="o">.</span><span class="n">position</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span><span class="mi">14</span> <span class="p">])</span> <span class="c1">#constrained atoms (fixing the bottom 2 layers)</span>
+<span class="n">slab</span><span class="o">.</span><span class="n">set_constraint</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">slab</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;slab_ads.traj&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>DFT calculation</strong></p>
+<ul class="simple">
+<li><p>In the following script, we define a SPARC calculator object and attach it to an ase.Atoms object so that ase knows how to get the data. After defining the calculator, a DFT calculation can be run. The potential energy can be obtained by the method: get_potential_energy(). The potential energy result can be stored in a text file e.g. ‘energy.txt’.</p></li>
+<li><p>Details on how to submit these calculations can be seen in Lecture ‘Running_SPARC_on_PACE’.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Clean slab calculation</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">BFGSLineSearch</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.units</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bohr</span><span class="p">,</span><span class="n">Hartree</span><span class="p">,</span><span class="n">mol</span><span class="p">,</span><span class="n">kcal</span><span class="p">,</span><span class="n">kJ</span><span class="p">,</span><span class="n">eV</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sparc</span><span class="w"> </span><span class="kn">import</span> <span class="n">SPARC</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;slab.traj&#39;</span><span class="p">)</span>
+
+<span class="c1"># Setting up calculator.</span>
+<span class="c1"># Here, we set relatively low values for KPOINT_GRID and ECUT, and did not apply spin-polarization</span>
+<span class="c1"># so that we can finish the calculations faster. This can lead to unreasonable energy values.</span>
+ 
+<span class="n">parameters</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+                <span class="n">EXCHANGE_CORRELATION</span> <span class="o">=</span> <span class="s1">&#39;GGA_PBE&#39;</span><span class="p">,</span>
+                <span class="n">D3_FLAG</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>   <span class="c1">#Grimme D3 dispersion correction</span>
+                <span class="n">SPIN_TYP</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>   <span class="c1">#non spin-polarized calculation</span>
+                <span class="n">KPOINT_GRID</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>  <span class="c1">#slab needs only 1 kpt in z-direction </span>
+                <span class="n">ECUT</span><span class="o">=</span><span class="mi">500</span><span class="o">/</span><span class="n">Hartree</span><span class="p">,</span>   <span class="c1">#set ECUT (Hartree) or h (Angstrom)</span>
+                <span class="c1">#h = 0.15,</span>
+                <span class="n">TOL_SCF</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+                <span class="n">RELAX_FLAG</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>   <span class="c1">#Do structural relaxation (only atomic positions)</span>
+                <span class="n">TOL_RELAX</span> <span class="o">=</span> <span class="mf">1.00E-03</span><span class="p">,</span>  <span class="c1">#convergence criteria (maximum force) (Ha/Bohr)</span>
+                <span class="n">PRINT_FORCES</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">PRINT_RELAXOUT</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;directory&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;slab&#39;</span>
+
+<span class="n">calc</span> <span class="o">=</span> <span class="n">SPARC</span><span class="p">(</span><span class="n">atoms</span> <span class="o">=</span> <span class="n">image</span><span class="p">,</span> <span class="o">**</span><span class="n">parameters</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">set_calculator</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+
+<span class="n">eng</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span>
+
+<span class="n">image</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;converged_slab.traj&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;slab_energy.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">eng</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  0
+Step  1
+Step  2
+Step  3
+Step  4
+Step  5
+{0: array([False, False, False]), 1: array([False, False, False]), 2: array([ True,  True,  True])}
+[0, 1, 2] [0, 1, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>O<sub>2</sub> on the Pt slab</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">BFGSLineSearch</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.units</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bohr</span><span class="p">,</span><span class="n">Hartree</span><span class="p">,</span><span class="n">mol</span><span class="p">,</span><span class="n">kcal</span><span class="p">,</span><span class="n">kJ</span><span class="p">,</span><span class="n">eV</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sparc</span><span class="w"> </span><span class="kn">import</span> <span class="n">SPARC</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;slab_ads.traj&#39;</span><span class="p">)</span>
+
+<span class="c1"># setup calculator</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+                <span class="n">EXCHANGE_CORRELATION</span> <span class="o">=</span> <span class="s1">&#39;GGA_PBE&#39;</span><span class="p">,</span>
+                <span class="n">D3_FLAG</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>   <span class="c1">#Grimme D3 dispersion correction</span>
+                <span class="n">SPIN_TYP</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>   <span class="c1">#non spin-polarized calculation</span>
+                <span class="n">KPOINT_GRID</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>  <span class="c1">#slab needs only 1 kpt in z-direction </span>
+                <span class="n">ECUT</span><span class="o">=</span><span class="mi">500</span><span class="o">/</span><span class="n">Hartree</span><span class="p">,</span>   <span class="c1">#set ECUT (Hartree) or h (Angstrom)</span>
+                <span class="c1">#h = 0.15,</span>
+                <span class="n">TOL_SCF</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+                <span class="n">RELAX_FLAG</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>   <span class="c1">#Do structural relaxation (only atomic positions)</span>
+                <span class="n">TOL_RELAX</span> <span class="o">=</span> <span class="mf">1.00E-03</span><span class="p">,</span>  <span class="c1">#convergence criteria (maximum force) (Ha/Bohr)</span>
+                <span class="n">PRINT_FORCES</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">PRINT_RELAXOUT</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;directory&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;slab_ads&#39;</span>
+
+<span class="n">calc</span> <span class="o">=</span> <span class="n">SPARC</span><span class="p">(</span><span class="n">atoms</span> <span class="o">=</span> <span class="n">image</span><span class="p">,</span> <span class="o">**</span><span class="n">parameters</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">set_calculator</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+
+<span class="n">eng</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span>
+
+<span class="n">image</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;converged_slab_ads.traj&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;slab_ads_energy.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">eng</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  0
+Step  1
+Step  2
+Step  3
+Step  4
+Step  5
+Step  6
+Step  7
+Step  8
+Step  9
+Step  10
+Step  11
+Step  12
+Step  13
+Step  14
+Step  15
+Step  16
+Step  17
+Step  18
+Step  19
+Step  20
+Step  21
+Step  22
+Step  23
+Step  24
+Step  25
+Step  26
+Step  27
+Step  28
+Step  29
+Step  30
+Step  31
+Step  32
+Step  33
+Step  34
+Step  35
+Step  36
+Step  37
+Step  38
+Step  39
+Step  40
+Step  41
+Step  42
+Step  43
+Step  44
+Step  45
+Step  46
+Step  47
+Step  48
+Step  49
+{0: array([ True,  True,  True]), 1: array([ True,  True,  True]), 2: array([False, False, False]), 3: array([False, False, False]), 4: array([ True,  True,  True])}
+[2, 3, 4, 0, 1] [3, 4, 0, 1, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>O<sub>2</sub> gas reference energy calculation</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">BFGSLineSearch</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.units</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bohr</span><span class="p">,</span><span class="n">Hartree</span><span class="p">,</span><span class="n">mol</span><span class="p">,</span><span class="n">kcal</span><span class="p">,</span><span class="n">kJ</span><span class="p">,</span><span class="n">eV</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sparc</span><span class="w"> </span><span class="kn">import</span> <span class="n">SPARC</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;O2.traj&#39;</span><span class="p">)</span>
+
+<span class="c1"># setup calculator</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+                <span class="n">EXCHANGE_CORRELATION</span> <span class="o">=</span> <span class="s1">&#39;GGA_PBE&#39;</span><span class="p">,</span>
+                <span class="n">D3_FLAG</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>   <span class="c1">#Grimme D3 dispersion correction</span>
+                <span class="n">SPIN_TYP</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>   <span class="c1">#non spin-polarized calculation</span>
+                <span class="n">KPOINT_GRID</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>  <span class="c1">#molecule needs single kpt !</span>
+                <span class="n">ECUT</span><span class="o">=</span><span class="mi">500</span><span class="o">/</span><span class="n">Hartree</span><span class="p">,</span>   <span class="c1">#set ECUT (Hartree) or h (Angstrom)</span>
+                <span class="c1">#h = 0.15,</span>
+                <span class="n">TOL_SCF</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+                <span class="n">RELAX_FLAG</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>   <span class="c1">#Do structural relaxation (only atomic positions)</span>
+                <span class="n">TOL_RELAX</span> <span class="o">=</span> <span class="mf">1.00E-03</span><span class="p">,</span>  <span class="c1">#convergence criteria (maximum force) (Ha/Bohr)</span>
+                <span class="n">PRINT_FORCES</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">PRINT_RELAXOUT</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;directory&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;O2&#39;</span>
+
+<span class="n">calc</span> <span class="o">=</span> <span class="n">SPARC</span><span class="p">(</span><span class="n">atoms</span> <span class="o">=</span> <span class="n">image</span><span class="p">,</span> <span class="o">**</span><span class="n">parameters</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">set_calculator</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+
+<span class="n">eng</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span>
+
+<span class="n">image</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;converged_O2.traj&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;O2_energy.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">eng</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  0
+Step  1
+Step  2
+Step  3
+{}
+[0, 1] [0, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Analysis of adsorption energies</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">readFile</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">content</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_energy</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">energy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">readFile</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">energy</span>
+
+<span class="n">E_slab</span> <span class="o">=</span> <span class="n">read_energy</span><span class="p">(</span><span class="s1">&#39;slab_energy.txt&#39;</span><span class="p">)</span>
+<span class="n">E_slab_ads</span> <span class="o">=</span> <span class="n">read_energy</span><span class="p">(</span><span class="s1">&#39;slab_ads_energy.txt&#39;</span><span class="p">)</span>
+<span class="n">E_O2</span> <span class="o">=</span> <span class="n">read_energy</span><span class="p">(</span><span class="s1">&#39;O2_energy.txt&#39;</span><span class="p">)</span>
+
+<span class="c1"># E_adsorption is the adsorption energy</span>
+<span class="n">E_adsorption</span> <span class="o">=</span> <span class="n">E_slab_ads</span> <span class="o">-</span> <span class="n">E_slab</span> <span class="o">-</span> <span class="n">E_O2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The adsorption energy of O2 on Pt slab is </span><span class="si">{0:1.3f}</span><span class="s1"> eV&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">E_adsorption</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The adsorption energy of O2 on Pt slab is -0.831 eV
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "my-new-env"
+        },
+        kernelOptions: {
+            name: "my-new-env",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'my-new-env'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Adsorption_energy_calculation_in_QE.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6.2. </span>Adsorption energy calculation using DFT</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Exercises_DFT_applications.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6.4. </span>Exercises</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adsorption-energy">6.3.1. Adsorption Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-adsorption-energy-in-sparc">6.3.2. Calculating Adsorption Energy in SPARC</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Medford Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

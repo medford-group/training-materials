@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DFT adsorption energy reproducibility project &#8212; Medford Group Graduate Training</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/VIP_Ads_energy_project';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Introduction to Basic Python Tools" href="Basic_Python_Tools.html" />
+    <link rel="prev" title="Big Data &amp; Quantum Mechanics" href="VIP_Overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Medford Group Graduate Training - Home"/>
+    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Medford Group Graduate Training - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Medford Group Graduate Training
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">VIP</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="VIP_Info.html">VIP Materials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="VIP_syllabus.html">VIP Course Syllabus</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="VIP_Overview.html">Big Data &amp; Quantum Mechanics</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">DFT adsorption energy reproducibility project</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Training Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Basic_Python_Tools.html">1. Introduction to Basic Python Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_Python_programming.html">1.2. Introduction to Python programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_numpy.html">1.3. Numpy -  multidimensional data arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_scipy.html">1.4. SciPy - Library of scientific algorithms for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_plotting_in_Python.html">1.5. matplotlib - Plotting in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_python.html">1.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Manipulating_Atoms_in_Python.html">2. Introduction to Manipulating Atoms in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Building_Structures.html">2.2. Intro to Building Structures with ASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Calculators.html">2.3. Intro to ASE Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_intro.html">2.4. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_calcs.html">2.5. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Linux_HPC.html">3. Introduction to Linux and High-Performance Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_linux.html">3.3. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_Density_Functional_Theory.html">4. Introduction to Density Functional Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Running_Density_Functional_Theory_on_PACE.html">5. Running Density Functional Theory on PACE</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Running_QE_on_PACE.html">5.2. Running QE on PACE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Running_SPARC_on_PACE.html">5.3. Running a simple DFT calculation on PACE Supercomputer Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_basics.html">5.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">6. Applications of Density Functional Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">6.2. Adsorption energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_SPARC.html">6.3. Adsorption energy from DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">6.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">7. Intro to Regression and High Dimensional Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">7.2. Non-Parametric Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_2_Complexity_Optimization.html">7.3. Complexity Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">7.4. High Dimensional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_4_Dimensionality_Reduction.html">7.5. Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">7.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">8. Intro to Classification and Generative Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_1_Classification_Basics.html">8.2. Classification Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">8.3. Generalized Linear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">8.4. Alternate classification methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">8.5. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_5_Generative_Models.html">8.6. Generative Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">8.7. Exercises</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Appendix.html">Appendix</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Literature_Searches.html">Basics of Searching and Reading Scientific Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create_DFT_Environments.html">Create DFT Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gas_formation_energy_calculation_in_SPARC.html">Gas formation energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Referencing_Binding_Energies.html">Referencing Binding Energies</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/VIP_Ads_energy_project.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>DFT adsorption energy reproducibility project</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-1-reproduce-at-least-three-adsorption-energies-from-the-literature-using-the-sparc-code">Phase 1: Reproduce at least three adsorption energies from the literature using the SPARC code.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-2-using-ai-to-enhance-reproducibility">Phase 2: Using AI to enhance reproducibility.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-workflow-for-phase-i">Suggested Workflow for Phase I:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-questions-for-phase-ii">Research Questions for Phase II:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dft-adsorption-energy-reproducibility-project">
+<h1>DFT adsorption energy reproducibility project<a class="headerlink" href="#dft-adsorption-energy-reproducibility-project" title="Link to this heading">#</a></h1>
+<p>This project will explore a crucial, but often neglected, aspect of DFT research: reproducibility of results. There are a few papers on this topic (e.g.  <a class="reference external" href="https://www.science.org/doi/10.1126/science.aad3000">https://www.science.org/doi/10.1126/science.aad3000</a>) but none that focus specifically on adsorption energies. Since adsorption energies are “derived quantities” – that is, they are not direct outputs of a single DFT calculation – they can be more challenging to reproduce. Our hypothesis is that by combining large-language models with natural language instructions, we can identify how to more robustly communicate instructions about how to reproduce DFT calculations, and provide specific insight into which “prompt engineering” strategies and LLM structures that are most effective for the task. Your project will help test this hypothesis by using LLMs to reproduce at least 3 adsorption energies found in the literature.</p>
+<section id="grading">
+<h2>Grading:<a class="headerlink" href="#grading" title="Link to this heading">#</a></h2>
+<p>The details of the project are outlined below. The project should be <strong>completed individually</strong> although you are welcome to work with others or seek feedback from graduate mentors along the way. However, you should not reproduce any of the same adsorption energies as your classmates.</p>
+<p>The project will count toward the “Achievements” grade, and will be graded based on the following:</p>
+<p><strong>Midterm:</strong></p>
+<ul class="simple">
+<li><p>5: Three adsorption energies reproduced to within 0.1 eV accuracy using the SPARC code.</p></li>
+<li><p>4: Two adsorption energies reproduced to within 0.1 eV accuracy using the SPARC code.</p></li>
+<li><p>3: One adsorption energy reproduced to within 0.1 eV accuracy using the SPARC code.</p></li>
+<li><p>2: No adsorption energy successfully reproduced, but significant effort made.</p></li>
+<li><p>1: No adsorption energy successfully reproduced, but some effort made.</p></li>
+<li><p>0: No effort made.</p></li>
+</ul>
+<p><strong>Final:</strong></p>
+<ul class="simple">
+<li><p>5: A set of LLM prompts that can be used with ChatDFT (or any other LLM of your choosing) to automatically set up input scripts for an adsorption energy calculation, demonstrated on at least one of the 3 examples.</p></li>
+<li><p>4: Discussion of a clearly defined research question or hypothesis, including evidence from your experience working with LLMs to reproduce adsorption energies. Some example research questions are provided below.</p></li>
+<li><p>3: Three adsorption energies reproduced to within 0.1 eV accuracy using the SPARC code, and general commentary on how this was achieved.</p></li>
+<li><p>2: Two adsorption energies reproduced to within 0.1 eV accuracy using the SPARC code, and general commentary on how this was achieved.</p></li>
+<li><p>1: One adsorption energies reproduced to within 0.1 eV accuracy using the SPARC code, and general commentary on how this was achieved.</p></li>
+<li><p>0: No adsorption energies successfully reproduced. Note that the accuracy threshold assumes that there are no major reproducibility issues with the examples you selected. In cases where significant reproducibility issues are discovered, then it is only necessary to show that your own adsorption energy calculations are converged to a numerical accuracy of 0.05 eV.</p></li>
+</ul>
+</section>
+<section id="description">
+<h2>Description:<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
+<section id="phase-1-reproduce-at-least-three-adsorption-energies-from-the-literature-using-the-sparc-code">
+<h3>Phase 1: Reproduce at least three adsorption energies from the literature using the SPARC code.<a class="headerlink" href="#phase-1-reproduce-at-least-three-adsorption-energies-from-the-literature-using-the-sparc-code" title="Link to this heading">#</a></h3>
+<p>This involves identifying three published adsorption energies from one or multiple papers of your choosing. Selecting different papers will be more challenging, but you will also learn more in the process. You should then use all information provided in the “Methods” and “Supplementary Material” (or other) sections of the publication to attempt to reproduce the adsorption energy using the SPARC DFT code. It is expected that the “numerical error” associated with this should be below 0.1 eV as long as there are no issues with the published results. More details are provided below.</p>
+</section>
+<section id="phase-2-using-ai-to-enhance-reproducibility">
+<h3>Phase 2: Using AI to enhance reproducibility.<a class="headerlink" href="#phase-2-using-ai-to-enhance-reproducibility" title="Link to this heading">#</a></h3>
+<p>In this phase, you will revisit the process of reproducing adsorption energy calculations and attempt to “formalize” it into a clear set of natural language prompts or instructions that can be used to have an AI model reliably reproduce the results. For the purpose of this project you only need to focus on reproducibility with the SPARC code, but as an additional challenge you can consider what would need to be modified to make it general to other codes.</p>
+<p>We recommend first exploring the “ChatDFT” model for this process, but note that you are welcome to explore other alternatives that you have access to. If this process is successful, we are particularly interested in how it could be translated to a smaller LLM that could be run as a stand-alone inference model on a standard CPU. For those interested in LLM development, this may be an interesting question to pursue. Examples of other possible research questions are provided below.</p>
+</section>
+</section>
+<section id="suggested-workflow-for-phase-i">
+<h2>Suggested Workflow for Phase I:<a class="headerlink" href="#suggested-workflow-for-phase-i" title="Link to this heading">#</a></h2>
+<p>A specific workflow of how to reproduce an adsorption energy is given below. You can consult ChatDFT or other LLMs along the way to help make these tasks more specific, and of course you can always ask an instructor if you aren’t sure. You should make notes of any particular pain points along the way, which will be helpful in Phase II.</p>
+<ol class="arabic simple">
+<li><p>Identify adsorption energies in the literature. Find a paper that reports 3 or more adsorption energies, or find 3 papers with one adsorption energy each. In your biweekly update, include the citation(s) for the paper(s), the surface and adsorbate you will calculate (e.g. CO* on Pt(111)) , and the value you will seek to reproduce.</p></li>
+<li><p>For each adsorption energy, identify the parameters that control the <em>physical accuracy</em> of the calculation. This includes the exchange-correlation (XC) functional used and the positions of the atoms involved (including slab thickness, how many atoms are fixed/relaxed, etc.). You can assume that these do not change, although if you want to be very rigorous the lattice constant may need to be adjusted since it can vary slightly due to numerical error. The XC functional should be stated in the methods section, but you may need to look harder to find the atomic positions and other detailed assumptions. In some cases, these may not even be explicitly provided, in which case it will be necessary to re-construct the slab model by optimizing the bulk structure and “cutting” the slab. Report these details in your biweekly update.</p></li>
+<li><p>For each adsorption energy, identify the reported settings that control the <em>numerical accuracy</em> of the calculation. This includes the planewave cutoff or mesh spacing, the k-point density (number of k-points times the unit cell dimension), and  the convergence tolerances. In some cases, these details may not be reported. In others, they may differ from the exact settings available in SPARC. In these cases, discuss with a graduate student to make a decision about the “baseline” numerical settings to use. Report these details in your biweekly update.</p></li>
+<li><p>Use the baseline numerical settings to compute the adsorption energies in SPARC. This should require ~3-5 individual DFT calculations per adsorpton energy: the bare slab, the slab+adsorbate complex, and the gas-phase molecule or gas-phase “references”. If the “reference” is not the adsorbate molecule, then you will need to calculate the reference molecules in the gas phase. This can be very tricky, and there is a <a class="reference external" href="https://pubs.rsc.org/en/content/articlehtml/2025/cs/d4cs00768a">detailed review paper here</a>, or you can just ask an instructor to help you during class. In most cases, the “baseline” numerical settings should yield results within ~0.1 eV of the reported value.</p></li>
+<li><p>If the values do not match to within 0.1 eV, perform troubleshooting to identify the problem. If the difference is larger than 1 eV, then something is very wrong. The most common culprit is the wrong “reference state” (typical errors are ~1-3 eV) or inconsistent numerical settings between slab/slab+ads/gas calculations (typical errors are ~1-10 eV or larger). If the difference is ~0.5 eV, then you should perform numerical convergence testing to ensure that your results are well-converged. This involves increasing the planewave cutoff/mesh spacing and k-point density to ensure that the result is well-converged.</p></li>
+<li><p>(Optional) Attempt to improve the results by increasing the numerical accuracy of your calculation. The 0.1 eV tolerance is quite loose, and in general it should be possible to converge adsorption energies to within 0.03 - 0.05 eV, assuming both calculations are well-converged. You can increase the numerical settings of your calculation to determine it’s numerical accuracy, and see if the agreement with literature gets better or worse as numerical errors are decreased.</p></li>
+</ol>
+</section>
+<section id="research-questions-for-phase-ii">
+<h2>Research Questions for Phase II:<a class="headerlink" href="#research-questions-for-phase-ii" title="Link to this heading">#</a></h2>
+<p>Phase II of the project involves original research, so there is not a standardized workflow to follow. The general goal is to establish a systematic way of writing instructions for calculating adsorption energies that ensures or improves reproducibility. The instructions above are a very rough starting point, but need to be supplemented with specific information about the system to reproduce (e.g. the information gathered in steps 1-3), and need to be revised to ensure that LLMs can reproduce them.</p>
+<p>Some specific research questions to consider:</p>
+<ol class="arabic simple">
+<li><p>What is the most difficult step to convey in natural language? How would reproducibility be improved if natural language is supplemented with specific data structures (e.g. .xyz files).</p></li>
+<li><p>What information is missing from existing literature reports that make it difficult  to reproduce? Is it possible to write a “Methods” section that can be used along with some standard prompts to reproduce an adsorption energy?</p></li>
+<li><p>Based on your experience, how would you revise the workflow for Phase I above to be easier to use? For example, you could provide specific prompts that LLMs were able to use to complete the tasks.</p></li>
+<li><p>How does the size/complexity of the LLM used influence it’s ability to help with reproducing the adsorption energies? Is it necessary to use an online model, or would it be possible to run an LLM locally that can reliably use a well-engineered set of prompts to calculate adsorption energies based on standard inputs?</p></li>
+<li><p>What aspects of your experience with the LLM are specific to the SPARC code? How would the approach differ if you tried to use a different DFT code such as Quantum Espresso?</p></li>
+</ol>
+<p>You should select or come up with a research question after the midterm and write it in your biweekly updates. Each update should then revise the question and/or provide evidence to help answer it.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VIP_Overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Big Data &amp; Quantum Mechanics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Basic_Python_Tools.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Introduction to Basic Python Tools</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-1-reproduce-at-least-three-adsorption-energies-from-the-literature-using-the-sparc-code">Phase 1: Reproduce at least three adsorption energies from the literature using the SPARC code.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-2-using-ai-to-enhance-reproducibility">Phase 2: Using AI to enhance reproducibility.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-workflow-for-phase-i">Suggested Workflow for Phase I:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-questions-for-phase-ii">Research Questions for Phase II:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Medford Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

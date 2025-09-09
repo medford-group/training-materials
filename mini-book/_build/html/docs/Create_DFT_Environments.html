@@ -1,0 +1,871 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Create DFT Environments &#8212; Medford Group Graduate Training</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Create_DFT_Environments';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Gas formation energy calculation using DFT" href="Gas_formation_energy_calculation_in_SPARC.html" />
+    <link rel="prev" title="Basics of Searching and Reading Scientific Literature" href="Literature_Searches.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Medford Group Graduate Training - Home"/>
+    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Medford Group Graduate Training - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Medford Group Graduate Training
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">VIP</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="VIP_Info.html">VIP Materials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VIP_syllabus.html">VIP Course Syllabus</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="VIP_Overview.html">Big Data &amp; Quantum Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VIP_Ads_energy_project.html">DFT adsorption energy reproducibility project</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Training Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Basic_Python_Tools.html">1. Introduction to Basic Python Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_Python_programming.html">1.2. Introduction to Python programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_numpy.html">1.3. Numpy -  multidimensional data arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_scipy.html">1.4. SciPy - Library of scientific algorithms for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_plotting_in_Python.html">1.5. matplotlib - Plotting in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_python.html">1.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Manipulating_Atoms_in_Python.html">2. Introduction to Manipulating Atoms in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Building_Structures.html">2.2. Intro to Building Structures with ASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Calculators.html">2.3. Intro to ASE Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_intro.html">2.4. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_calcs.html">2.5. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Linux_HPC.html">3. Introduction to Linux and High-Performance Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_linux.html">3.3. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_Density_Functional_Theory.html">4. Introduction to Density Functional Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Running_Density_Functional_Theory_on_PACE.html">5. Running Density Functional Theory on PACE</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Running_QE_on_PACE.html">5.2. Running QE on PACE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Running_SPARC_on_PACE.html">5.3. Running a simple DFT calculation on PACE Supercomputer Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_basics.html">5.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">6. Applications of Density Functional Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">6.2. Adsorption energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_SPARC.html">6.3. Adsorption energy from DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">6.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">7. Intro to Regression and High Dimensional Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">7.2. Non-Parametric Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_2_Complexity_Optimization.html">7.3. Complexity Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">7.4. High Dimensional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_4_Dimensionality_Reduction.html">7.5. Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">7.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">8. Intro to Classification and Generative Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_1_Classification_Basics.html">8.2. Classification Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">8.3. Generalized Linear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">8.4. Alternate classification methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">8.5. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_5_Generative_Models.html">8.6. Generative Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">8.7. Exercises</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Appendix.html">Appendix</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Literature_Searches.html">Basics of Searching and Reading Scientific Literature</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Create DFT Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gas_formation_energy_calculation_in_SPARC.html">Gas formation energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Referencing_Binding_Energies.html">Referencing Binding Energies</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/Create_DFT_Environments.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Create DFT Environments</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-espresso-7-0-environment-setup">QUANTUM ESPRESSO 7.0+ Environment Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#knowledge-requirements">Knowledge Requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#walk-through">Walk-through</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calculation">Example Calculation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lrt-compile">LRT Compile</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="create-dft-environments">
+<h1>Create DFT Environments<a class="headerlink" href="#create-dft-environments" title="Link to this heading">#</a></h1>
+<section id="quantum-espresso-7-0-environment-setup">
+<h2>QUANTUM ESPRESSO 7.0+ Environment Setup<a class="headerlink" href="#quantum-espresso-7-0-environment-setup" title="Link to this heading">#</a></h2>
+<p><em>on PACE</em></p>
+<p><em>by Gabriel S. Gusmão (Mar, 2022)</em></p>
+<p><a class="reference external" href="mailto:gusmaogabriels&#37;&#52;&#48;gmail&#46;com">gusmaogabriels<span>&#64;</span>gmail<span>&#46;</span>com</a>/<a class="reference external" href="mailto:gusmaogabriels&#37;&#52;&#48;gatech&#46;edu">gusmaogabriels<span>&#64;</span>gatech<span>&#46;</span>edu</a></p>
+<section id="knowledge-requirements">
+<h3>Knowledge Requirements<a class="headerlink" href="#knowledge-requirements" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fortran Compilers / MPI / Git / PBS (SLURM/TORQ)</p></li>
+</ul>
+<p>To setup you Quantum Espresso (QE) environment you will need the (i) standard <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/">Atomic Simulation Environment - ASE</a> package, (ii) <a class="reference external" href="https://github.com/gusmaogabriels/ase-espresso">ase-espresso</a> with modified classes for QE that enables interactions with live QE sessions through i-PI socket, and, naturally, (iii) <a class="reference external" href="https://github.com/QEF/q-e/releases">Quantum Espresso</a> itself.</p>
+</section>
+<section id="walk-through">
+<h3>Walk-through<a class="headerlink" href="#walk-through" title="Link to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Assume `ROOT_DIR` is some shared path to which all users have access. The following file structure is arbitrary, but the environment file should make reference to the correct ones.
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Clone QUANTUM ESPRESSO into <code class="docutils literal notranslate"><span class="pre">$ROOT_DIR/builds/espresso/7.0/</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:QEF/q-e.git</span> <span class="pre">$ROOT_DIR/builds/espresso/7.0</span></code></p></li>
+<li><p>Compile QUANTUM ESPRESSO with the appropriate flags and loaded modules running, e.g., <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">ggusmao_build.ssh</span></code> from <code class="docutils literal notranslate"><span class="pre">$ROOT_DIR/builds/espresso/7.0</span></code>.</p></li>
+</ol>
+<ul>
+<li><p><em>ggusmao_build.sh</em> (Create this file in QE’s root folder)</p>
+<hr class="docutils" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>module purge
+module load intel/19.0.5 mvapich2/2.3.2 gcc-compatibility/8.3.0 #netlib-scalapack/2.1.0-mva2 #anaconda3
+
+export CC=icc
+export CXX=icpc
+export FC=mpif90
+export F77=ifort
+export F90=ifort
+export MPIVERSION=mvapich2/2.3.2
+export COMPILERVERSION=intel/19.0.5
+
+make veryclean;
+
+./configure --prefix=$(pwd) --with-scalapack=intel BEEF_LIBS=&quot;-L$LIBBEEF/src -lbeef&quot; --enable-parallel=yes SCALAPACK_LIBS=&quot;$MKLROOT/lib/intel64/libmkl_scalapack_lp64.a -lmkl_blacs_intelmpi_lp64&quot; BLAS_LIBS=&quot;-lmkl_gf_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread&quot; LAPACK_LIBS=&quot;-lmkl_lapack95_lp64 -lmkl_scalapack_lp64&quot; CC=icc FCL=&quot;mpif90 -mkl=sequential -lstdc++&quot;  FFLAGS=&quot;-assume byterecl -w&quot; FLAGS=&quot;-O2&quot; CFLAGS=&quot;-O3&quot; FREE=&quot;-free -names lowercase&quot; OBJECTS=&quot;fftmpiw.o fftmpi_map.o fft3dlib.o fftw3d.o&quot;; make all -j12; make install
+</pre></div>
+</div>
+</li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li><p>Clone ASE into <code class="docutils literal notranslate"><span class="pre">$ROOT_DIR/gits/dev/ase-latest/</span></code>, e.g., <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;gitlab.com:ase/ase.git</span> <span class="pre">$ROOT_DIR/gits/dev/ase-latest/</span></code>.</p></li>
+<li><p>Clone ase-espresso into <code class="docutils literal notranslate"><span class="pre">$ROOT_DIR/gits/dev/ggusmao-espresso</span></code>, e.g., <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:gusmaogabriels/ase-espresso.git</span> <span class="pre">ROOT_DIR/gits/dev/ggusmao-espresso</span></code>.</p></li>
+<li><p>Create a module to handle pseudopotentials in <code class="docutils literal notranslate"><span class="pre">$ROOT_DIR/data/pseudos_module/pseudos.env</span></code></p></li>
+</ol>
+<ul>
+<li><p><em><a class="reference external" href="http://getpseudo.py">getpseudo.py</a></em> (This script scrapes for pseudopotential files within the current directory)</p>
+<hr class="docutils" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">getpseudo</span><span class="p">(</span><span class="n">pseudo</span><span class="p">):</span>
+    <span class="n">pseudos_dir</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MEDFORD_SHARE&#39;</span><span class="p">],</span><span class="s1">&#39;data/pseudos_module&#39;</span><span class="p">))</span>
+    <span class="n">curdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">pseudos_dir</span><span class="p">)</span>
+    <span class="n">pseudo_path</span> <span class="o">=</span> <span class="n">pseudo</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span><span class="s1">&#39;/&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+    <span class="n">paths</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">dirpath</span><span class="p">,</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.upf&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.psp8&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.pot&#39;</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dirpath</span><span class="p">))))</span> <span class="ow">and</span> <span class="n">dirpath</span><span class="o">!=</span><span class="s1">&#39;esp_pseudos&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">pseudo_path</span> <span class="o">==</span> <span class="n">dirpath</span><span class="p">[</span><span class="mi">2</span><span class="p">:]:</span>
+                <span class="n">pseudo_path</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">pseudos_dir</span><span class="p">,</span><span class="n">pseudo_path</span><span class="p">))</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">curdir</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">pseudo_path</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">paths</span> <span class="o">+=</span> <span class="p">[</span><span class="n">dirpath</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span><span class="s1">&#39;#&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">)]</span>
+
+    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">curdir</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pseudo</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="k">raise</span><span class="p">(</span><span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;PSEUDO_NOT_FOUND</span><span class="se">\n\n\t</span><span class="si">{}</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pseudo</span><span class="p">)</span><span class="o">+</span>
+                     <span class="s1">&#39;Failed!</span><span class="se">\n\n</span><span class="s1">Available pseudo potentials:</span><span class="se">\n\n</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">))))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">paths</span>
+</pre></div>
+</div>
+</li>
+<hr class="docutils" />
+<li><p><em><a class="reference external" href="http://setpseudo.py">setpseudo.py</a></em> (This script defintes the pseudopotential path in the current environment)</p>
+<hr class="docutils" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">pseudo</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">pseudos_dir</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;ROOT_DIR&#39;</span><span class="p">],</span><span class="s1">&#39;data/pseudos_module&#39;</span><span class="p">))</span>
+<span class="n">curdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">pseudos_dir</span><span class="p">)</span>
+<span class="n">pseudo_path</span> <span class="o">=</span> <span class="n">pseudo</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span><span class="s1">&#39;/&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+<span class="n">paths</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">dirpath</span><span class="p">,</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.upf&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.psp8&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.pot&#39;</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dirpath</span><span class="p">))))</span> <span class="ow">and</span> <span class="n">dirpath</span><span class="o">!=</span><span class="s1">&#39;esp_pseudos&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">pseudo_path</span> <span class="o">==</span> <span class="n">dirpath</span><span class="p">[</span><span class="mi">2</span><span class="p">:]:</span>
+            <span class="n">pseudo_path</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">pseudos_dir</span><span class="p">,</span><span class="n">pseudo_path</span><span class="p">))</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pseudo_path</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">curdir</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;PSP directory successfully set: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pseudo_path</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">paths</span> <span class="o">+=</span> <span class="p">[</span><span class="n">dirpath</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span><span class="s1">&#39;#&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">)]</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">curdir</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">pseudo</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="k">raise</span><span class="p">(</span><span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;PSEUDO_NOT_FOUND</span><span class="se">\n\n\t</span><span class="si">{}</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pseudo</span><span class="p">)</span><span class="o">+</span>
+                 <span class="s1">&#39;Failed!</span><span class="se">\n\n</span><span class="s1">Available pseudo potentials:</span><span class="se">\n\n</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">))))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Available pseudo potentials:</span><span class="se">\n\n</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">)))</span>
+
+</pre></div>
+</div>
+</li>
+<hr class="docutils" />
+<li><p><em>pseudos.env</em> (This script loads the python scripts as bash functions)</p>
+<hr class="docutils" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function setpseudos()
+{
+    export ESP_PSP_PATH=$(python &lt;current_path&gt;/setpseudo.py &quot;$1&quot;)
+    export SPARC_PSP_PATH=$(echo $ESP_PSP_PATH)
+}
+
+</pre></div>
+</div>
+</li>
+</ul>
+<hr class="docutils" />
+<p>Running <code class="docutils literal notranslate"><span class="pre">setpseudos</span></code> after sourcing <code class="docutils literal notranslate"><span class="pre">pseudos.env</span></code> gives a list of available pseudo-potentials. You can download pseudopotentials from standard libraries, e.g., pseudojodo, SSSP, etc.</p>
+<ol class="arabic simple" start="6">
+<li><p>Create an environment file to load all paths into the current session</p></li>
+</ol>
+<ul>
+<li><p><em>quantum_espresso-7.0</em> (This is your environment file that need be sourced before you run any code)</p>
+<hr class="docutils" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#Load PACE-wide modules
+
+module purge
+module load intel/19.0.5 mvapich2/2.3.2 gcc-compatibility/8.3.0 anaconda3 
+
+pip install py-hostlist --user 
+
+cd ~
+export HOME=$(pwd)
+cd -
+export ROOT_DIR=&lt;ROOT_DIRECTORY_PATH&gt;
+source $ROOT_DIR/data/pseudos_module/pseudos.env
+setpseudos espresso_esp#pseudos#old # &lt;- you can redefine your PPS path accordingly
+export SCRATCH=$HOME/scratch  
+
+#get our group base environment
+
+#Set up program-specific paths
+export PYTHONPATH=$ROOT_DIR/gits/dev/ase-latest/:$PYTHONPATH
+export PYTHONPATH=$ROOT_DIR/gits/dev/ggusmao-espresso:$PYTHONPATH
+export PYTHONPATH=$ROOT_DIR/gits/dev/spglib:$PYTHONPATH # OPTIONAL
+export PYTHONPATH=$ROOT_DIR/data/pseudos_module:$PYTHONPATH
+export DATA=$HOME/data
+
+#group specific commands
+export PATH=$ROOT_DIR/INSTALL/bin:$PATH
+#get quantum espresso
+export PATH=$ROOT_DIR/builds/espresso/7.0/bin:$PATH
+#get ase_latest
+export PATH=$ROOT_DIR/gits/dev/ase-latest/bin:$PATH
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="example-calculation">
+<h3>Example Calculation<a class="headerlink" href="#example-calculation" title="Link to this heading">#</a></h3>
+<p><em>on PACE</em></p>
+<ul class="simple">
+<li><p><em><a class="reference external" href="http://run.sh">run.sh</a></em> (bash script to run simulation on PACE HIVE)</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>---
+```
+#!/bin/bash
+#PBS -l nodes=1:ppn=8
+#PBS -l pmem=3GB
+#PBS -l walltime=12:00:00
+#PBS -A GT-amedford6
+#PBS -q hive
+#PBS -N optimizer
+#PBS -o stdout
+#PBS -e stderr
+
+cd $PBS_O_WORKDIR
+source ~/.bashrc
+module load anaconda3
+source /storage/coda1/p-amedford6/0/shared/rich_project_chbe-medford/medford-share/envs/espresso-6.7MaX-beef-ipi
+python calc.py
+```
+---
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em><a class="reference external" href="http://calc.py">calc.py</a></em> (example run experiment)</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>---
+```
+from ase import Atom, Atoms
+from ase.optimize import BFGSLineSearch as BFGS
+from ase.build import molecule
+from espresso import iEspresso as Espresso
+import numpy as np
+# from ase.io import write
+
+import time
+
+t0 = time.time()
+images = []
+image = molecule(&#39;H2O&#39;,vacuum=10.)
+image.set_cell([10, 10, 10])
+image.set_pbc([1,1,1])
+image.center()
+
+#Use QE as a single-point calculator (just SCF)
+calc = Espresso(atoms=image,
+                pw=500.0,
+                xc=&#39;PBE&#39;)
+
+# retrieve Energy, force, stress
+image.rattle(0.0001)
+print(&#39;1st calculation with PBE&#39;)
+print(&#39;Energy = {}&#39;.format(image.get_potential_energy()))
+print(&#39;Force = {}&#39;.format(image.get_forces()))
+print(&#39;Stress = {}&#39;.format(image.get_stress()))
+
+t1 = time.time()
+
+print(&#39;Time = {} sec&#39;.format(t1-t0))
+
+print(&#39;-&#39;*20)
+
+# Run optimization
+dyn = BFGS(image,logfile=&#39;opt_pbe.log&#39;, trajectory=&#39;h2o_pbe_optimization.traj&#39;)
+dyn.run(fmax=0.005)
+
+image.calc.close()
+
+# Attach BEEF-vdw calculator
+t2 = time.time()
+calc = Espresso(atoms=image,
+                pw=350.0,
+                xc=&#39;BEEF-vdw&#39;)
+
+# retrieve Energy, force, stress after optimization
+print(&#39;2nd calculation&#39;)
+print(&#39;Energy = {}&#39;.format(image.get_potential_energy()))
+print(&#39;Force = {}&#39;.format(image.get_forces()))
+print(&#39;Stress = {}&#39;.format(image.get_stress()))
+E_ensemble = image.get_ensemble_energies()
+print(&#39;Ensemble energies = {} +/- {}&#39;.format(E_ensemble.mean(), E_ensemble.std()))
+print(&#39;Time = {} sec&#39;.format(time.time()-t2))
+
+# Optimization
+dyn = BFGS(image,logfile=&#39;opt_beef.log&#39;,trajectory=&#39;h2o_beef_optimization.traj&#39;)
+dyn.run(fmax=0.005)
+image.calc.close()
+# write(&#39;water.extxyz&#39;, images)
+print(&#39;Totol time = {} sec&#39;.format(time.time()-t0))
+```
+---
+</pre></div>
+</div>
+</section>
+</section>
+<section id="lrt-compile">
+<h2>LRT Compile<a class="headerlink" href="#lrt-compile" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Begin by downloading *.zip files for QE and libxc. Using QE_7.0 and libxc_6.0.0</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wget</span> <span class="pre">https://gitlab.com/libxc/libxc/-/archive/6.0.0/libxc-6.0.0.zip</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wget</span> <span class="pre">https://gitlab.com/QEF/q-e/-/archive/qe-7.0/q-e-qe-7.0.zip</span></code></p></li>
+<li><p>It appears that <a class="reference external" href="https://github.com/vossjo/libbeef">libbeef</a> is automatically included in QE 6.6 or later.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Compile libxc</p></li>
+</ol>
+<ul>
+<li><p>Begin an interactive job</p></li>
+<li><p><em>LRT_build.sh</em> (Create this file in libxc’s root folder)</p>
+<hr class="docutils" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">purge</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">intel</span><span class="o">/</span><span class="mf">20.0.4</span> <span class="n">mvapich2</span><span class="o">/</span><span class="mf">2.3.6</span>
+
+<span class="n">autoreconf</span> <span class="o">-</span><span class="n">i</span>
+
+<span class="o">./</span><span class="n">configure</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=</span><span class="n">PATH</span><span class="o">/</span><span class="n">TO</span><span class="o">/</span><span class="n">LIBXC</span>
+<span class="n">make</span> <span class="o">-&lt;</span><span class="n">N</span> <span class="n">processors</span><span class="o">&gt;</span>
+<span class="n">make</span> <span class="n">check</span>
+<span class="n">make</span> <span class="n">install</span>      
+</pre></div>
+</div>
+</li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li><p>Compile QE</p></li>
+</ol>
+<ul>
+<li><p>Either begin or continue interactive job</p></li>
+<li><p><em>LRT_build.sh</em> (Create this file in QE’s root folder)</p>
+<hr class="docutils" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">purge</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">intel</span><span class="o">/</span><span class="mf">20.0.4</span> <span class="n">mvapich2</span><span class="o">/</span><span class="mf">2.3.6</span>
+
+<span class="o">./</span><span class="n">configure</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">shared</span><span class="o">=</span><span class="n">yes</span> <span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">scalapack</span><span class="o">=</span><span class="n">intel</span> <span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">libxc</span> <span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">libxc</span><span class="o">-</span><span class="n">prefix</span><span class="o">=/</span><span class="n">PATH</span><span class="o">/</span><span class="n">TO</span><span class="o">/</span><span class="n">LIBXC</span>
+<span class="n">make</span> <span class="nb">all</span> <span class="o">-</span><span class="n">j</span><span class="o">&lt;</span><span class="n">N</span> <span class="n">processors</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<hr class="docutils" />
+<p>End</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dft"
+        },
+        kernelOptions: {
+            name: "dft",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dft'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Literature_Searches.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Basics of Searching and Reading Scientific Literature</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Gas_formation_energy_calculation_in_SPARC.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Gas formation energy calculation using DFT</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-espresso-7-0-environment-setup">QUANTUM ESPRESSO 7.0+ Environment Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#knowledge-requirements">Knowledge Requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#walk-through">Walk-through</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calculation">Example Calculation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lrt-compile">LRT Compile</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Medford Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

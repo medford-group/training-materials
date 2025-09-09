@@ -1,0 +1,640 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4. Introduction to Density Functional Theory &#8212; Medford Group Graduate Training</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Intro_to_Density_Functional_Theory';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Running Density Functional Theory on PACE" href="Running_Density_Functional_Theory_on_PACE.html" />
+    <link rel="prev" title="3.4. Exercises" href="Exercises_linux.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Medford Group Graduate Training - Home"/>
+    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Medford Group Graduate Training - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Medford Group Graduate Training
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">VIP</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="VIP_Info.html">VIP Materials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VIP_syllabus.html">VIP Course Syllabus</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="VIP_Overview.html">Big Data &amp; Quantum Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VIP_Ads_energy_project.html">DFT adsorption energy reproducibility project</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Training Materials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Basic_Python_Tools.html">1. Introduction to Basic Python Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_Python_programming.html">1.3. Introduction to Python programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_numpy.html">1.4. Numpy -  multidimensional data arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_scipy.html">1.5. SciPy - Library of scientific algorithms for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_plotting_in_Python.html">1.6. matplotlib - Plotting in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_python.html">1.7. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Manipulating_Atoms_in_Python.html">2. Introduction to Manipulating Atoms in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Building_Structures.html">2.3. Intro to Building Structures with ASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Calculators.html">2.4. Intro to ASE Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_intro.html">2.5. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_calcs.html">2.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Linux_HPC.html">3. Introduction to Linux and High-Performance Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_linux.html">3.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Introduction to Density Functional Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Running_Density_Functional_Theory_on_PACE.html">5. Running Density Functional Theory on PACE</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Running_QE_on_PACE.html">5.3. Running QE on PACE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Running_SPARC_on_PACE.html">5.4. Running a simple DFT calculation on PACE Supercomputer Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_basics.html">5.5. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">6. Applications of Density Functional Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">6.2. Adsorption energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_SPARC.html">6.3. Adsorption energy from DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">6.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">7. Intro to Regression and High Dimensional Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">7.2. Non-Parametric Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_2_Complexity_Optimization.html">7.3. Complexity Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">7.4. High Dimensional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_4_Dimensionality_Reduction.html">7.5. Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">7.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">8. Intro to Classification and Generative Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_1_Classification_Basics.html">8.2. Classification Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">8.3. Generalized Linear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">8.4. Alternate classification methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">8.5. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_5_Generative_Models.html">8.6. Generative Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">8.7. Exercises</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Appendix.html">Appendix</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Literature_Searches.html">Basics of Searching and Reading Scientific Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create_DFT_Environments.html">Create DFT Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gas_formation_energy_calculation_in_SPARC.html">Gas formation energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Referencing_Binding_Energies.html">Referencing Binding Energies</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/Intro_to_Density_Functional_Theory.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Density Functional Theory</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lectures">4.1. Lectures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exchange-correlation-functionals">4.2. Exchange correlation functionals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-reading-on-exchange-correlation-functionals">4.2.1. Recommended reading on exchange correlation functionals:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudopotentials">4.3. Pseudopotentials</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-reading-on-pseudopotentials">4.3.1. Recommended reading on pseudopotentials:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spin-polarization-and-magnetism">4.4. Spin polarization and magnetism</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">4.5. Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-density-functional-theory">
+<span id="intro-dft"></span><h1><span class="section-number">4. </span>Introduction to Density Functional Theory<a class="headerlink" href="#introduction-to-density-functional-theory" title="Link to this heading">#</a></h1>
+<p>In this lesson, we will learn about Density Functional Theory (DFT). This will provide a starting point for students to perform DFT calculations. The goal of this lesson is to introduce new users to DFT and potential difficulties in these calculations. The topics covered in this lesson and future lessons will follow <a class="reference external" href="http://kitchingroup.cheme.cmu.edu/dft-book/dft.pdf">Dr. Kitchin’s book on DFT</a>.</p>
+<section id="lectures">
+<h2><span class="section-number">4.1. </span>Lectures<a class="headerlink" href="#lectures" title="Link to this heading">#</a></h2>
+<p>Here are the pre-recorded lectures covering more details:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://mediaspace.gatech.edu/media/Electronic_Structure_Theory-Lec1_Motivation/1_dfykpi63">Motivation</a></p></li>
+<li><p><a class="reference external" href="https://mediaspace.gatech.edu/media/Electronic_Structure_Theory-Lec2_Wave_Particle_Duality/1_q1yhtpo2">Wave Particle Duality</a></p></li>
+<li><p><a class="reference external" href="https://mediaspace.gatech.edu/media/Electronic_Structure_Theory-Lec3_Electron_Motion__TISE/1_382h3e6x">Electron Motion and Time Independent Schrodinger Equation</a></p></li>
+<li><p><a class="reference external" href="https://mediaspace.gatech.edu/media/Electronic_Structure_theory-Lec4_Many_body_Ham_BO_apprx/1_73jzuflp">Many Body Hamiltonian and Born-Oppenheimer Approximation</a></p></li>
+<li><p><a class="reference external" href="https://mediaspace.gatech.edu/media/Electronic_Structure_Theory-Lec5_Orbitals/1_rzdvfa3a">Orbitals</a></p></li>
+<li><p><a class="reference external" href="https://mediaspace.gatech.edu/media/Electronic_Structure_Theory-Lec6_Slater_det_Elect_dens/1_ytji6zoj">Slater Determinant and Electron Density</a></p></li>
+<li><p><a class="reference external" href="https://mediaspace.gatech.edu/media/Electronic_Structure_Theory-Lec7_HK_Theorems/1_ljykh74h">Hohenberg-Kohn Theorems</a></p></li>
+<li><p><a class="reference external" href="https://mediaspace.gatech.edu/media/Electronic_Structure_Theory-Lec8_Eff_Ham_OFDFT/1_vy0ivdsd">Effective Hamiltonian and Orbital-Free DFT</a></p></li>
+<li><p><a class="reference external" href="https://mediaspace.gatech.edu/media/Electronic_Structure_Theory-Lec9_DFT/1_vp2n2osv">DFT</a></p></li>
+<li><p><a class="reference external" href="https://mediaspace.gatech.edu/media/Electronic_Structure_Theory-Lec10_DFT_for_Molecules/1_vf7tnsn2">DFT for Molecules</a></p></li>
+<li><p><a class="reference external" href="https://mediaspace.gatech.edu/media/Electronic_Structure_Theory-Lec11_DFT_for_Periodic_Solids/1_zi6yb1vv">DFT for Periodic Solids</a></p></li>
+<li><p><a class="reference external" href="https://mediaspace.gatech.edu/media/Electronic_Structure_Theory-Lec12_DFT_Basis_Sets/1_vh94yqj9">DFT Basis Sets</a></p></li>
+<li><p><a class="reference external" href="https://mediaspace.gatech.edu/media/Electronic_Structure_Theory-Lec13_Pseudopotentials/1_09o2uzqy">Pseudopotentials</a></p></li>
+<li><p><a class="reference external" href="https://mediaspace.gatech.edu/media/Electronic_Structure_Theory-Lec14_Accuracy__Beyond/1_n2mlx2i1">Accuracy and Beyond</a></p></li>
+</ol>
+<p>It was shown by Hohenberg and Kohn that ground state total energy of a system of interacting systems is a unique functional of electron density. A functional returns a number when given a function. The variational principle introduced by Hohenberg and Kohn involves a set of 3N-dimensional trial wave functions.</p>
+<p>Kohn and Sham showed that the problem of many interacting electrons in an external potential can be mapped to a set of noninteracting electrons in an effective external potential and this led to the development of self-consistent, single particle equations known as Kohn-Sham (KS) equations:</p>
+<p><span class="math notranslate nohighlight">\((\frac{1}{2}\triangledown^2 + v_{eff}(r) - \epsilon_j) \phi_j(r) = 0\)</span>    <em>(Equation 1)</em></p>
+<p><span class="math notranslate nohighlight">\(v_{eff}(r) = v(r) + \int \frac{n(r^{'})}{\mid r - r^{'} \mid}dr^{'} + v_{xc}(r)\)</span>       <em>(Equation 2)</em></p>
+<p>In the Kohn-Sham equations, <span class="math notranslate nohighlight">\(v(r)\)</span> is the external potential and <span class="math notranslate nohighlight">\(v_{xc}\)</span> is the exchange-correlation potential that depend on entire density function. We need to know the density to define the effective potential and solve Eq. 1. <span class="math notranslate nohighlight">\(\phi_j(r)\)</span> is the <span class="math notranslate nohighlight">\(j^{th}\)</span> KS orbital of energy <span class="math notranslate nohighlight">\(\epsilon_j\)</span>.</p>
+<p>The ground state density can be written as:</p>
+<p><span class="math notranslate nohighlight">\(n(r) = \sum_{j=1}^{N} \mid \phi_j(r)\mid^{2}\)</span>     <em>(Equation 3)</em></p>
+<p>An initial guess of <span class="math notranslate nohighlight">\(\phi_j(r)\)</span> is used to approximate ground state electron density. This initial guess is used in equation 2. This equation is solved for <span class="math notranslate nohighlight">\(\phi_j(r)\)</span> iteratively till the solutions for <span class="math notranslate nohighlight">\(\phi_j(r)\)</span> are <strong>self-consistent</strong>. The final ground state energy is given by:</p>
+<p><span class="math notranslate nohighlight">\(E = \sum_{j}{}\epsilon + E_{xc}[n(r)] - \int v_{xc}(r)n(r)dr - \frac{1}{2} \int\frac{n(r)n(r^{'})}{\mid r - r^{'}\mid} dr^{'}r\)</span>     <em>(Equation 4)</em></p>
+<p><span class="math notranslate nohighlight">\(E_{xc}[n(r)]\)</span> is the exchange-correlation energy functional. The exact form of exchange-correlation energy is not known and numerous strategies exist to approximate this functional for different types of system. We will not get into the theory of exchange-correlation functional and how to solve the KS-DFT equations in this lesson.</p>
+</section>
+<section id="exchange-correlation-functionals">
+<h2><span class="section-number">4.2. </span>Exchange correlation functionals<a class="headerlink" href="#exchange-correlation-functionals" title="Link to this heading">#</a></h2>
+<p>While reading DFT literature and performing these calculations, you will come across the term exchange correlation functional. The two common types of exchange correlation functionals used are local density approximation (LDA) and generalized gradient approximation (GGA). The model space for approximations is captured by Perdew’s popular analogy of <strong>Jacob’s ladder</strong> which follows the trend of approximation being more accurate with more nonlocal information about electronic environment. It is not necessary for these improvements to be systematic. Common types of exchange correlation functionals include:</p>
+<ul class="simple">
+<li><p>LDA - accurate for delocalized systems such as metals</p></li>
+</ul>
+<p>Defined for an electron in uniform electron fas of density <em>n</em> and is exact for a uniform electron gas.</p>
+<ul class="simple">
+<li><p>GGA-PBE - accurate for molecular systems</p></li>
+</ul>
+<p>Includes corrections for gradients in electron density. The types of GGA functionals are: PBE, RPBE, revPBE etc.</p>
+<ul class="simple">
+<li><p>meta-GGA - improve upon GGA</p></li>
+</ul>
+<p>Include information about kinetic energy density</p>
+<ul class="simple">
+<li><p>Hybrid functionals</p></li>
+</ul>
+<p>These functionals add more semilocal information by including a component of fully nonlocal exact exchange. The hybrid functionals include: B3LYP, PBE0, HSE06 etc.</p>
+<section id="recommended-reading-on-exchange-correlation-functionals">
+<h3><span class="section-number">4.2.1. </span>Recommended reading on exchange correlation functionals:<a class="headerlink" href="#recommended-reading-on-exchange-correlation-functionals" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Chapter 2 (Section 2.2) , Modeling materials using density functional theory by John R. Kitchin</p></li>
+</ul>
+</section>
+</section>
+<section id="pseudopotentials">
+<h2><span class="section-number">4.3. </span>Pseudopotentials<a class="headerlink" href="#pseudopotentials" title="Link to this heading">#</a></h2>
+<p>The atomic potential due to core electrons are computationally expensive to deal with as they are highly localized. Also, the contribution of core electrons to bonding is negligible as compared to the valence electrons. To perform DFT calculations, we need to have pseudopotentials which replace the atomic potential due to core electrons. These pseudopotentials have the same effect on valence electrons as the potential due to core electrons. There are two kinds of pseudopotentials, norm-conserving and Vanderbilt ultrasoft pseudopotentials.</p>
+<section id="recommended-reading-on-pseudopotentials">
+<h3><span class="section-number">4.3.1. </span>Recommended reading on pseudopotentials:<a class="headerlink" href="#recommended-reading-on-pseudopotentials" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Chapter 2 (Section 2.4) , Modeling materials using density functional theory by John R. Kitchin</p></li>
+</ul>
+</section>
+</section>
+<section id="spin-polarization-and-magnetism">
+<h2><span class="section-number">4.4. </span>Spin polarization and magnetism<a class="headerlink" href="#spin-polarization-and-magnetism" title="Link to this heading">#</a></h2>
+<p>For systems that have a spin, we need to turn on spin polarization for DFT calculations. For example, systems constituting of iron, cobalt, nickel are magnetic and will have more electrons with “spin up” than “spin down” or vice versa. Spin polarization should be considered for the systems that have unpaired electrons.</p>
+<p>Important note: For an oxygen molecule, there exists two spin configurations, the singlet state with no unpaired electrons and the triplet state with two unpaired electrons. The oxygen triplet state has lower energy and is considered as the ground state for an oxygen atom.</p>
+<p>Spin polarization needs to be turned on explicitly while defining the DFT calculation and the atoms should be assigned an initial magnetic moment at the beginning. The solution will be sensitive to the initial guess of magnetic moment.</p>
+</section>
+<section id="summary">
+<h2><span class="section-number">4.5. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this lesson, we introduced density functional theory (DFT) and some essential components of DFT.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Exercises_linux.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3.4. </span>Exercises</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Running_Density_Functional_Theory_on_PACE.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Running Density Functional Theory on PACE</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lectures">4.1. Lectures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exchange-correlation-functionals">4.2. Exchange correlation functionals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-reading-on-exchange-correlation-functionals">4.2.1. Recommended reading on exchange correlation functionals:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudopotentials">4.3. Pseudopotentials</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-reading-on-pseudopotentials">4.3.1. Recommended reading on pseudopotentials:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spin-polarization-and-magnetism">4.4. Spin polarization and magnetism</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">4.5. Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Medford Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

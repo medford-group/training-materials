@@ -1,0 +1,1237 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>7.5. Dimensionality Reduction &#8212; Medford Group Graduate Training</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/ML_1_4_Dimensionality_Reduction';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.6. Exercises" href="Exercises_ML_basics_Pt1.html" />
+    <link rel="prev" title="7.4. High Dimensional Data" href="ML_1_3_High_Dimensional_Data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Medford Group Graduate Training - Home"/>
+    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Medford Group Graduate Training - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Medford Group Graduate Training
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">VIP</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="VIP_Info.html">VIP Materials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VIP_syllabus.html">VIP Course Syllabus</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="VIP_Overview.html">Big Data &amp; Quantum Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VIP_Ads_energy_project.html">DFT adsorption energy reproducibility project</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Training Materials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Basic_Python_Tools.html">1. Introduction to Basic Python Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_Python_programming.html">1.2. Introduction to Python programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_numpy.html">1.3. Numpy -  multidimensional data arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_scipy.html">1.4. SciPy - Library of scientific algorithms for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_plotting_in_Python.html">1.5. matplotlib - Plotting in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_python.html">1.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Manipulating_Atoms_in_Python.html">2. Introduction to Manipulating Atoms in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Building_Structures.html">2.2. Intro to Building Structures with ASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Calculators.html">2.3. Intro to ASE Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_intro.html">2.4. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_calcs.html">2.5. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Linux_HPC.html">3. Introduction to Linux and High-Performance Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_linux.html">3.3. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_Density_Functional_Theory.html">4. Introduction to Density Functional Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Running_Density_Functional_Theory_on_PACE.html">5. Running Density Functional Theory on PACE</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Running_QE_on_PACE.html">5.2. Running QE on PACE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Running_SPARC_on_PACE.html">5.3. Running a simple DFT calculation on PACE Supercomputer Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_basics.html">5.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">6. Applications of Density Functional Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">6.2. Adsorption energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_SPARC.html">6.3. Adsorption energy from DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">6.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">7. Intro to Regression and High Dimensional Data</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">7.2. Non-Parametric Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_2_Complexity_Optimization.html">7.3. Complexity Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">7.4. High Dimensional Data</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.5. Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">7.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">8. Intro to Classification and Generative Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_1_Classification_Basics.html">8.2. Classification Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">8.3. Generalized Linear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">8.4. Alternate classification methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">8.5. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_5_Generative_Models.html">8.6. Generative Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">8.7. Exercises</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Appendix.html">Appendix</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Literature_Searches.html">Basics of Searching and Reading Scientific Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create_DFT_Environments.html">Create DFT Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gas_formation_energy_calculation_in_SPARC.html">Gas formation energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Referencing_Binding_Energies.html">Referencing Binding Energies</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/ML_1_4_Dimensionality_Reduction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dimensionality Reduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-dimensionality-reduction">7.5.1. Overview of Dimensionality Reduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-uses-of-dimensionality-reduction">7.5.1.1. Practical uses of dimensionality reduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-for-dimensionality-reduction">7.5.1.2. Considerations for dimensionality reduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assessing-performance-of-dimensionality-reduction-models">7.5.1.3. Assessing performance of dimensionality reduction models</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">7.5.1.3.1. Variance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distance">7.5.1.3.2. Distance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">7.5.1.3.3. Visualization</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#model-performance">7.5.1.3.4. Model performance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">7.5.2. Principal Component Analysis (PCA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-how-is-this-different-from-the-correlation-matrix-why-are-there-blocks-in-matrix">7.5.2.1. Discussion: How is this different from the correlation matrix? Why are there “blocks” in matrix?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-find-the-rank-of-the-covariance-matrix">7.5.2.2. Example: Find the rank of the covariance matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-find-the-average-10-dimensional-vector-for-an-8">7.5.2.3. Example: Find the “average” 10-dimensional vector for an “8”</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-pca">7.5.3. Kernel PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-pca-variants">7.5.3.1. Other PCA variants</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-dimensional-reduction-approaches">7.5.4. Other dimensional reduction approaches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manifold-learning">7.5.4.1. Manifold learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autoencoding">7.5.4.2. Autoencoding</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;../settings/plot_style.mplstyle&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">clrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;#003057&#39;</span><span class="p">,</span> <span class="s1">&#39;#EAAA00&#39;</span><span class="p">,</span> <span class="s1">&#39;#4B8B9B&#39;</span><span class="p">,</span> <span class="s1">&#39;#B3A369&#39;</span><span class="p">,</span> <span class="s1">&#39;#377117&#39;</span><span class="p">,</span> <span class="s1">&#39;#1879DB&#39;</span><span class="p">,</span> <span class="s1">&#39;#8E8B76&#39;</span><span class="p">,</span> <span class="s1">&#39;#F5D580&#39;</span><span class="p">,</span> <span class="s1">&#39;#002233&#39;</span><span class="p">,</span> <span class="s1">&#39;#808080&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="dimensionality-reduction">
+<span id="dim-red"></span><h1><span class="section-number">7.5. </span>Dimensionality Reduction<a class="headerlink" href="#dimensionality-reduction" title="Link to this heading">#</a></h1>
+<p>Working with high dimensional data is challenging, and one common strategy is to try to reduce the amount of dimensions. This is called “dimensionality reduction” or “dimensional reduction”.</p>
+<section id="overview-of-dimensionality-reduction">
+<h2><span class="section-number">7.5.1. </span>Overview of Dimensionality Reduction<a class="headerlink" href="#overview-of-dimensionality-reduction" title="Link to this heading">#</a></h2>
+<section id="practical-uses-of-dimensionality-reduction">
+<h3><span class="section-number">7.5.1.1. </span>Practical uses of dimensionality reduction<a class="headerlink" href="#practical-uses-of-dimensionality-reduction" title="Link to this heading">#</a></h3>
+<p>There are a number of practical uses for dimensionality reduction algorithms:</p>
+<ul class="simple">
+<li><p>compression of data</p></li>
+<li><p>denoising of data</p></li>
+<li><p>interpretation of data</p></li>
+<li><p>improving model efficiency or performance</p></li>
+</ul>
+<p>We will focus primarily on the ways that dimensionality reduction can aid in interpretation and improving model efficiency and performance, but the algorithms used for other applications are the same or similar.</p>
+</section>
+<section id="considerations-for-dimensionality-reduction">
+<h3><span class="section-number">7.5.1.2. </span>Considerations for dimensionality reduction<a class="headerlink" href="#considerations-for-dimensionality-reduction" title="Link to this heading">#</a></h3>
+<p>There are many different kinds of dimensionality reduction approaches, and when selecting between them there are a few things to consider. The relative importance of these factors will depend on the nature of the dataset and the goal of the analysis.</p>
+<ul class="simple">
+<li><p>Matrix rank - how many independent dimensions are there?</p></li>
+<li><p>Linearity of the low-dimensional subspace - are patterns linear or non-linear?</p></li>
+<li><p>Projection - can a new high-dimensional point be projected onto the low-dimensional map?</p></li>
+<li><p>Inversion - can a new low-dimensional point be projected back into high-dimensional space?</p></li>
+<li><p>Supervised vs. unsupervised - are the training labels used to determine the reduced dimensions?</p></li>
+</ul>
+</section>
+<section id="assessing-performance-of-dimensionality-reduction-models">
+<h3><span class="section-number">7.5.1.3. </span>Assessing performance of dimensionality reduction models<a class="headerlink" href="#assessing-performance-of-dimensionality-reduction-models" title="Link to this heading">#</a></h3>
+<p>It can be challenging to assess the performance of dimensional reduction models, especially when unsupervised. Nonetheless there are a few approaches that can be used. Selecting the right approach will depend on the problem, but using a variety of assessment criteria is always a good idea if possible.</p>
+<section id="variance">
+<h4><span class="section-number">7.5.1.3.1. </span>Variance<a class="headerlink" href="#variance" title="Link to this heading">#</a></h4>
+<p>One common idea in dimensional reduction is to assess the “retained variance” of the low-dimensional data. This is common in techniques such as PCA.</p>
+</section>
+<section id="distance">
+<h4><span class="section-number">7.5.1.3.2. </span>Distance<a class="headerlink" href="#distance" title="Link to this heading">#</a></h4>
+<p>The “stress” function compares the distance between points <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> in a low-dimensional space to the distance in the full-dimensional space:</p>
+<p><span class="math notranslate nohighlight">\( S(\vec{x}_{0}, \vec{x}_1, \vec{x}_2, ... \vec{x}_n) =  \left( \frac{\sum_{i=0}^n \sum_{i&lt;j}(d_{ij} - ||x_i - x_j||)^2}{\sum_{i=0}^n \sum_{i&lt;j} d_{ij}^2} \right)^{1/2} \)</span></p>
+<p>where <span class="math notranslate nohighlight">\(d_{ij}\)</span> is the distance in the high-dimensional space and <span class="math notranslate nohighlight">\(\vec{x}\)</span> is the vector in the low-dimensional space.</p>
+<p>A conceptually similar way to express this is:</p>
+<p><span class="math notranslate nohighlight">\(\sum_i \sum_j || d(\vec{x}_i, \vec{x}_j) - d(P(\vec{x}_i), P(\vec{x}_j))||\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(d(\vec{x}_i, \vec{x}_j)\)</span> is the distance between <span class="math notranslate nohighlight">\(\vec{x}_i\)</span> and <span class="math notranslate nohighlight">\(\vec{x}_j\)</span> in the high-dimensional space, and <span class="math notranslate nohighlight">\(P(\vec{x}_j)\)</span> is the reduced-dimension vector.</p>
+<p>Some approaches seek to minimize these distances directly (e.g. multi-dimensional scaling), but it can also be used as an accuracy metric. We can implement this using a few helper functions. You don’t need to worry about the details of this function, but can look up the documentation to see the connection.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial.distance</span><span class="w"> </span><span class="kn">import</span> <span class="n">pdist</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">stress</span><span class="p">(</span><span class="n">X_reduced</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="n">D_red</span> <span class="o">=</span> <span class="n">pdist</span><span class="p">(</span><span class="n">X_reduced</span><span class="p">)</span>
+    <span class="n">D_tot</span> <span class="o">=</span> <span class="n">pdist</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">numerator</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">D_tot</span> <span class="o">-</span> <span class="n">D_red</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">denom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">D_tot</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">numerator</span> <span class="o">/</span> <span class="n">denom</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualization">
+<h4><span class="section-number">7.5.1.3.3. </span>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">#</a></h4>
+<p>Where possible, visualizing the data in the low-dimensional space and looking for patterns is a very powerful approach. However this becomes challenging if the low-dimensional space is <span class="math notranslate nohighlight">\(&gt;\)</span>3 dimensions.</p>
+</section>
+<section id="model-performance">
+<h4><span class="section-number">7.5.1.3.4. </span>Model performance<a class="headerlink" href="#model-performance" title="Link to this heading">#</a></h4>
+<p>If you have labels for the data one good approach is to construct a supervised model from both the low- and high-dimensional spaces and evaluating the accuracy of both. If the accuracy does not decrease then the key patterns are retained in the low-dimensional representation. This is also a pragmatic approach since one main use of dimensional reduction is to construct more efficient supervised models.</p>
+</section>
+</section>
+</section>
+<section id="principal-component-analysis-pca">
+<h2><span class="section-number">7.5.2. </span>Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Link to this heading">#</a></h2>
+<p>PCA should already be familiar, but we will take a closer look in this lesson. As a quick refresher the principal component analysis is obtained via the eigenvalues of the covariance matrix. First, let’s take a look at the MNIST data since we haven’t worked with it yet. First we need to re-import it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_digits</span>
+
+<span class="n">digits</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Digits data shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Digits output shape: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">X_mnist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="n">y_mnist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Digits data shape: (1797, 64)
+Digits output shape: (1797,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">X_mnist</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ddb29f92262013855aa31f849257a7692e337cafced2e7de0110edbd8a612a53.png" src="../_images/ddb29f92262013855aa31f849257a7692e337cafced2e7de0110edbd8a612a53.png" />
+</div>
+</div>
+<section id="discussion-how-is-this-different-from-the-correlation-matrix-why-are-there-blocks-in-matrix">
+<h3><span class="section-number">7.5.2.1. </span>Discussion: How is this different from the correlation matrix? Why are there “blocks” in matrix?<a class="headerlink" href="#discussion-how-is-this-different-from-the-correlation-matrix-why-are-there-blocks-in-matrix" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p>The covariance matrix takes account of the correlation as well as the units. For the MNIST dataset, the unit is not an issue since all pixels have the same unit, which is a pixel intensity ranging from 0 to 16.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Blocks mean the correlation to their neighbors, and you can see that the blocks are mostly 8x8 matrix. This indicates that this 64x64 covariance matrix came from 8x8 image.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eig_vals</span><span class="p">,</span> <span class="n">eig_vecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="n">eig_vecs</span> <span class="o">=</span> <span class="n">eig_vecs</span><span class="o">.</span><span class="n">T</span> <span class="c1">#&lt;- note that the eigenvectors are the *columns* by default</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These eigenvalues and eigenvectors are the same as the “principal component values” and “principal component vectors”. Technically, we need to also sort the vectors by the size of the eigenvalues (since the eigenvalues reperesent the variance in each direction).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">eig_vals</span><span class="p">)</span> <span class="c1">#this gives us the list of indices from smallest to largest</span>
+<span class="n">sorted_idxs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sorted_idxs</span><span class="p">)</span>
+<span class="n">sorted_idxs</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span> <span class="c1">#this goes from largest to smallest</span>
+<span class="n">eig_vals</span> <span class="o">=</span> <span class="n">eig_vals</span><span class="p">[</span><span class="n">sorted_idxs</span><span class="p">]</span> <span class="c1">#re-sort values</span>
+<span class="n">eig_vecs</span> <span class="o">=</span> <span class="n">eig_vecs</span><span class="p">[</span><span class="n">sorted_idxs</span><span class="p">,</span> <span class="p">:]</span> <span class="c1">#re-sort vectors</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now The vectors are sorted from most variance (largest eigenvalue) to least. We can actually visualize the principal component vectors as images, similar to how we can view any entry in the MNIST dataset as an image:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show_image</span><span class="p">(</span><span class="n">digit_data</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">digit_data</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">colormap</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">colormap</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    
+<span class="n">show_image</span><span class="p">(</span><span class="n">eig_vecs</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/129beafdc0e6d0606ab0f76af98ae73cdc61fa67400fe3620f250b1850dae5a8.png" src="../_images/129beafdc0e6d0606ab0f76af98ae73cdc61fa67400fe3620f250b1850dae5a8.png" />
+</div>
+</div>
+<p>We can see that this is clearly not random, but has some patterns associated with digits. This is the vector along which there is the most variance.</p>
+</section>
+<section id="example-find-the-rank-of-the-covariance-matrix">
+<h3><span class="section-number">7.5.2.2. </span>Example: Find the rank of the covariance matrix<a class="headerlink" href="#example-find-the-rank-of-the-covariance-matrix" title="Link to this heading">#</a></h3>
+<p>Hint: Remember the definition of rank in term of eigenvalues.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Rank of the covariance matrix: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">C</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eig_vals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rank of the covariance matrix: 61
+[1.79006930e+02 1.63717747e+02 1.41788439e+02 1.01100375e+02
+ 6.95131656e+01 5.91085249e+01 5.18845391e+01 4.40151067e+01
+ 4.03109953e+01 3.70117984e+01 2.85190412e+01 2.73211698e+01
+ 2.19014881e+01 2.13243565e+01 1.76367222e+01 1.69468639e+01
+ 1.58513899e+01 1.50044602e+01 1.22344732e+01 1.08868593e+01
+ 1.06935663e+01 9.58259779e+00 9.22640260e+00 8.69036872e+00
+ 8.36561190e+00 7.16577961e+00 6.91973881e+00 6.19295508e+00
+ 5.88499123e+00 5.15586690e+00 4.49129656e+00 4.24687799e+00
+ 4.04743883e+00 3.94340334e+00 3.70647245e+00 3.53165306e+00
+ 3.08457409e+00 2.73780002e+00 2.67210896e+00 2.54170563e+00
+ 2.28298744e+00 1.90724229e+00 1.81716569e+00 1.68996439e+00
+ 1.40197220e+00 1.29221888e+00 1.15893419e+00 9.31220008e-01
+ 6.69850594e-01 4.86065217e-01 2.52350432e-01 9.91527944e-02
+ 6.31307848e-02 6.07377581e-02 3.96662297e-02 1.49505636e-02
+ 8.47307261e-03 3.62365957e-03 1.27705113e-03 6.61270906e-04
+ 4.12223305e-04 0.00000000e+00 0.00000000e+00 0.00000000e+00]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that so far we have not reduced the dimensionality at all. We simply found an orthonormal set of vectors that are aligned with the data and rotated the data along these new “axes”. For dimensional reduction, we can think of PCA from the perspective of an objective function. The objective function for PCA is:</p>
+<p><span class="math notranslate nohighlight">\(||\underline{\underline{X}} - \underline{\underline{A}}||_F\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(||\underline{\underline{M}}||_F = \sum_i \sum_j M_{ij}^2\)</span> is the “Frobenius norm” and <span class="math notranslate nohighlight">\(\underline{\underline{A}}\)</span> is a “low rank” approximation of <span class="math notranslate nohighlight">\(\underline{\underline{X}}\)</span>.</p>
+<p>Obviously if this objective function is simply minimized for all the elements of <span class="math notranslate nohighlight">\(\underline{\underline{A}}\)</span> it will give us <span class="math notranslate nohighlight">\(\underline{\underline{X}}\)</span>, which is rather trivial. The key is that we apply a constraint on the rank:</p>
+<p><span class="math notranslate nohighlight">\(\min_{\underline{\underline{A}}} ||\underline{\underline{X}} - \underline{\underline{A}}||_F\)</span> subject to <span class="math notranslate nohighlight">\(rank(\underline{\underline{A}}) \leq k\)</span></p>
+<p>In other words we are looking for the closest rank-<span class="math notranslate nohighlight">\(k\)</span> matrix to the original matrix <span class="math notranslate nohighlight">\(\underline{\underline{X}}\)</span>.</p>
+<p>Note: We will not derive the connection between this minimization problem and the covariance matrix eigenvalues here, but details are available in Hastie &amp; Tibshirani Sec. 14.5.</p>
+<p>In practice, we can find the low-rank approximation by only keeping the highest <span class="math notranslate nohighlight">\(k\)</span> eigenvalues/vectors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">projector</span> <span class="o">=</span> <span class="n">eig_vecs</span><span class="p">[:</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">T</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">projector</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_mnist</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">X_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">,</span><span class="n">projector</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_k</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(64, 20)
+(1797, 64)
+(1797, 20)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that the new dataset has the same number of points (1797) but now only has 20 features. We can assess the quality of the reduced-dimensional dataset by comparing the amount of variance, remembering that the total variance is the sum of the variance along each principal component vector:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Retained variance: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">eig_vals</span><span class="p">[:</span><span class="n">k</span><span class="p">])</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">eig_vals</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Retained variance: 0.8943031165985261
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also create a “scree plot” that shows the amount of retained variance as a function of number of componenets:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">eig_vals</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">eig_vals</span><span class="p">)</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">eig_vals</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Principal Components&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Retained Variance Ratio&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Scree Plot&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b6106579dd24772649220bca0fab5cb375a621f9903c2e6096e912dfa0b77dab.png" src="../_images/b6106579dd24772649220bca0fab5cb375a621f9903c2e6096e912dfa0b77dab.png" />
+</div>
+</div>
+<p>We can also assess the “stress” for the reduced dimension matrix as a function of number of dimensions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stresses</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">projector</span> <span class="o">=</span> <span class="n">eig_vecs</span><span class="p">[:</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">X_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">,</span><span class="n">projector</span><span class="p">)</span>
+    <span class="n">stresses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stress</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">,</span> <span class="n">X_k</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="n">stresses</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Principal Components&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Stress&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2a134afa25531cbc5246bdf865ff82cc150089024358f5ceb9208b05e202d4d2.png" src="../_images/2a134afa25531cbc5246bdf865ff82cc150089024358f5ceb9208b05e202d4d2.png" />
+</div>
+</div>
+<p>We can also project onto 2 dimensions and visualize the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">projector</span> <span class="o">=</span> <span class="n">eig_vecs</span><span class="p">[:</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">T</span>
+<span class="n">X_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">,</span> <span class="n">projector</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_k</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_k</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">y_mnist</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;PC 1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;PC 2&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/876bdbfb5eaaf74de702533d9b56e2a442f7171cc0c4060700948141b94cebcc.png" src="../_images/876bdbfb5eaaf74de702533d9b56e2a442f7171cc0c4060700948141b94cebcc.png" />
+</div>
+</div>
+<p>Each different color in this plot represents a different digit identity. We can add some labels to make it easier to interpret:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_labels</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">):</span>
+    <span class="n">xpos</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">label</span><span class="p">),</span> <span class="n">xy</span> <span class="o">=</span> <span class="p">[</span><span class="n">xpos</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">],</span> <span class="n">xycoords</span> <span class="o">=</span> <span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+        <span class="n">xpos</span> <span class="o">+=</span> <span class="mf">0.07</span>
+
+<span class="n">add_labels</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bbd42600c4a21f31c372b09b4a116cb15ccdb30ecf2ab44d7e03826f6879158a.png" src="../_images/bbd42600c4a21f31c372b09b4a116cb15ccdb30ecf2ab44d7e03826f6879158a.png" />
+</div>
+</div>
+<p>Remember that PCA is <em>unsupervised</em>, so even though we are visualizing the labels here we did not use them to find the principal components. Another interesting feature of PCA is that it is <em>invertible</em>. We can select a point in the low-dimensional space and project it back to the high-dimensional space:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_reconstructed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">projector</span><span class="p">,</span> <span class="n">X_k</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">X_reconstructed</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1797, 64)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_image</span><span class="p">(</span><span class="n">X_reconstructed</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/387fc560fd2f6a9cdf95a37bd677981388dae36d72bb61752a6078653a9fb246.png" src="../_images/387fc560fd2f6a9cdf95a37bd677981388dae36d72bb61752a6078653a9fb246.png" />
+</div>
+</div>
+<p>We can see how this changes as we increase the amount of dimensions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">projector</span> <span class="o">=</span> <span class="n">eig_vecs</span><span class="p">[:</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">T</span>
+<span class="n">X_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">,</span> <span class="n">projector</span><span class="p">)</span>
+<span class="n">X_reconstructed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">projector</span><span class="p">,</span> <span class="n">X_k</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">X_reconstructed</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Original Image&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Reconstructed Image&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/80fd97282b71b051ec3b304366b652c5ea564f4d1b9b1959928b63ee2303c5a4.png" src="../_images/80fd97282b71b051ec3b304366b652c5ea564f4d1b9b1959928b63ee2303c5a4.png" />
+</div>
+</div>
+<p>This is an example of how dimensionality reduction could be used for image compression or de-noising. If we only store the low-rank approximation it will require less memory. Similarly, the reconstructed version may actually have less noise, since the noise will typically be random (and therefore it will be dropped in the reconstruction).</p>
+<p>Finally, we can come up with new points that aren’t even in the original dataset. For example, we can come up with an “average” of a given digit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digit_idxs</span> <span class="o">=</span> <span class="n">y_mnist</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">X_lowD_digit</span> <span class="o">=</span> <span class="n">X_k</span><span class="p">[</span><span class="n">digit_idxs</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_lowD_digit</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">X_reconstructed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">projector</span><span class="p">,</span> <span class="n">X_lowD_digit</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">X_reconstructed</span> <span class="o">=</span> <span class="n">X_reconstructed</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">X_reconstructed</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Average of 0&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10,)
+</pre></div>
+</div>
+<img alt="../_images/719b5e0931eca7999f1b0cae7715d8ca41e9869565e6e509ae09e45c72a457e7.png" src="../_images/719b5e0931eca7999f1b0cae7715d8ca41e9869565e6e509ae09e45c72a457e7.png" />
+</div>
+</div>
+<p>This is an “average” example of a 0 based on the 10-dimensional representation of the digits.</p>
+</section>
+<section id="example-find-the-average-10-dimensional-vector-for-an-8">
+<h3><span class="section-number">7.5.2.3. </span>Example: Find the “average” 10-dimensional vector for an “8”<a class="headerlink" href="#example-find-the-average-10-dimensional-vector-for-an-8" title="Link to this heading">#</a></h3>
+<p>Use PCA to project the data onto 10 dimensions, then select the points labeled as 8 and take the average.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digit_idxs</span> <span class="o">=</span> <span class="n">y_mnist</span> <span class="o">==</span> <span class="mi">8</span>
+<span class="n">X_lowD_8</span> <span class="o">=</span> <span class="n">X_k</span><span class="p">[</span><span class="n">digit_idxs</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_lowD_digit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ -2.28714734 -19.4125737    2.12896496   5.33976559   9.93898522
+ -23.36268307  -8.83730922  10.23672289   7.4251487  -33.22891825]
+</pre></div>
+</div>
+</div>
+</div>
+<p>From here on we will rely on the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> PCA implementation to reduce the amount of code needed and speed things up:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">pca_model</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">pca_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">)</span>
+<span class="n">X_k</span> <span class="o">=</span> <span class="n">pca_model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">)</span>
+<span class="n">X_reconstructed</span> <span class="o">=</span> <span class="n">pca_model</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">X_k</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">X_reconstructed</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2a1ae7d647a0f75cebd536903df6180cbca31f95e9bab1089bb296a3f67004cd.png" src="../_images/2a1ae7d647a0f75cebd536903df6180cbca31f95e9bab1089bb296a3f67004cd.png" />
+</div>
+</div>
+<p>We can extract the same outputs from <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> model, but they have different names as usual. For example, we can find the explained variance ratio:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">evr</span> <span class="o">=</span> <span class="n">pca_model</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">evr</span><span class="p">)),</span> <span class="n">evr</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">evr</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">evr</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Principal Components&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Explained Variance&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8aee89caec38440f849e33a537c8a8764a16044596f3ec65d6c987385968fb16.png" src="../_images/8aee89caec38440f849e33a537c8a8764a16044596f3ec65d6c987385968fb16.png" />
+</div>
+</div>
+<p>As usual, you can find the other outputs and methods in <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">the documentation</a>.</p>
+<p>In conclusion, PCA is one of the most widely used techniques in dimensional reduction because it is:</p>
+<ul class="simple">
+<li><p>Unsupervised - We did not use the labels to determine the statistics</p></li>
+<li><p>Projectable - It is easy to project a new data point into the reduced dimensional space</p></li>
+<li><p>Invertible - It is easy to move from the low-dimensional space to the high dimensional space</p></li>
+</ul>
+<p>However, its weakness is that it is linear in the original space. It does not do well with non-linear patterns.</p>
+</section>
+</section>
+<section id="kernel-pca">
+<h2><span class="section-number">7.5.3. </span>Kernel PCA<a class="headerlink" href="#kernel-pca" title="Link to this heading">#</a></h2>
+<p>The solution to non-linearity in PCA is a familiar one: using a “kernel” to perform PCA in an even-higher dimensional space that captures non-linearities. The concept here is that rather than using the covariance matrix the eigenvalues of a “kernel matrix” are used:</p>
+<p><span class="math notranslate nohighlight">\(K_{ij} = \kappa(\vec{x}_i, \vec{x}_j)\)</span> where <span class="math notranslate nohighlight">\(\kappa\)</span> is a kernel function such as the radial basis function:</p>
+<p><span class="math notranslate nohighlight">\(\kappa_{rbf}(\vec{x}_i, \vec{x}_j) = \exp(-\gamma ||\vec{x}_i - \vec{x}_j||^2)\)</span></p>
+<p>We will not go into the details, but instead show an example of how it works with the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> implementation. We will revisit our “moons” dataset to see how it works:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_moons</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">KernelPCA</span><span class="p">,</span> <span class="n">PCA</span>
+
+<span class="n">X_m</span><span class="p">,</span> <span class="n">y_m</span> <span class="o">=</span> <span class="n">make_moons</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">noise</span> <span class="o">=</span> <span class="mf">0.04</span><span class="p">)</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">lPCA</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">kPCA</span> <span class="o">=</span> <span class="n">KernelPCA</span><span class="p">(</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">k</span><span class="p">,</span> <span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">fit_inverse_transform</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="n">lPCA</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_m</span><span class="p">)</span>
+<span class="n">X_PCA</span> <span class="o">=</span> <span class="n">lPCA</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_m</span><span class="p">)</span>
+
+<span class="n">kPCA</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_m</span><span class="p">)</span>
+<span class="n">X_kPCA</span> <span class="o">=</span> <span class="n">kPCA</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_m</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_m</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_m</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">y_m</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Moons&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$X_0$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$X_1$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_PCA</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_PCA</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">y_m</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PCA&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;PC 1&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;PC 2&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_kPCA</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_kPCA</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">y_m</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;kPCA ($\gamma=$</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gamma</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;PC 1&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;PC 2&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4869046361c141b57421395f2e5c4ce0317599742acc56c59a47cfe1f7b45f55.png" src="../_images/4869046361c141b57421395f2e5c4ce0317599742acc56c59a47cfe1f7b45f55.png" />
+</div>
+</div>
+<p>We can see that while PCA fails to separate the two datasets, kernel PCA is successful! However, we had to choose a hyperparameter (<span class="math notranslate nohighlight">\(\gamma\)</span>).</p>
+<p>Kernel PCA is also invertible:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_PCA_reconstruct</span> <span class="o">=</span> <span class="n">lPCA</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">X_PCA</span><span class="p">)</span>
+<span class="n">X_kPCA_reconstruct</span> <span class="o">=</span> <span class="n">kPCA</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">X_kPCA</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_m</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_m</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">y_m</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Moons&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_PCA_reconstruct</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_PCA_reconstruct</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">y_m</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PCA Reconstruction&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_kPCA_reconstruct</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_kPCA_reconstruct</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">y_m</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;kPCA Reconstruction&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/dcf28a033ddd472f5dbb126642c22b35a776203efbada02e00245d1d8caebf74.png" src="../_images/dcf28a033ddd472f5dbb126642c22b35a776203efbada02e00245d1d8caebf74.png" />
+</div>
+</div>
+<section id="other-pca-variants">
+<h3><span class="section-number">7.5.3.1. </span>Other PCA variants<a class="headerlink" href="#other-pca-variants" title="Link to this heading">#</a></h3>
+<p>PCA is one of the most powerful dimensional reduction techniques and has many other variants. We will not go into the details, but a few worth mentioning are:</p>
+<ul class="simple">
+<li><p>Robust PCA - good for cases where there is sparse data and/or large errors/outliers</p></li>
+<li><p>Partial least squares - supervised regression-based PCA that maximizes covariance between input and output</p></li>
+<li><p>Linear discriminant analysis - supervised classification-based PCA that maximizes inter-class variance</p></li>
+</ul>
+<p>We will revisit partial least squares and linear discriminant analysis later.</p>
+</section>
+</section>
+<section id="other-dimensional-reduction-approaches">
+<h2><span class="section-number">7.5.4. </span>Other dimensional reduction approaches<a class="headerlink" href="#other-dimensional-reduction-approaches" title="Link to this heading">#</a></h2>
+<p>There are many other techniques that can be applied for dimensional reduction. Here we will briefly introduce two concepts: manifold learning and autoencoding.</p>
+<section id="manifold-learning">
+<h3><span class="section-number">7.5.4.1. </span>Manifold learning<a class="headerlink" href="#manifold-learning" title="Link to this heading">#</a></h3>
+<p>Manifold learning approaches utilize distance metrics between points to define their similarity, and then seek to minimize the difference between distance metrics in the high- and low-dimensional spaces. The advantage of distance metrics over variance is that the local structure of data (distances between points) can be more easily exploited. This makes manifold learning techniques much better suited for highly non-linear datasets.</p>
+<p>One prototype manifold learning technique is multi-dimensional scaling. The principle is that the “stress” metric which we introduced earlier is directly minimized. The stress is given by:</p>
+<p><span class="math notranslate nohighlight">\(S(\vec{x}_{0}, \vec{x}_1, \vec{x}_2, ... \vec{x}_n) =  \left(\frac{\sum_{i=0}^n \sum_{i &lt; j}(d_{ij} - ||x_i - x_j||)^2}{\sum_{i=0}^n \sum_{i &lt; j} d_{ij}^2}\right)^{1/2}\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(d_{ij}\)</span> is the distance in the high-dimensional space and <span class="math notranslate nohighlight">\(\vec{x}\)</span> is the vector in the low-dimensional space. A typical choice is to use the Euclidean distance to compute <span class="math notranslate nohighlight">\(d_{ij}\)</span>, but there are variants of MDS that use other distance metrics. For example “non-metric” MDS uses distances based on ordering between different points, so that the relative ordering of distances is favored over the numerical value of distances.</p>
+<p>The optimization problem is rather challenging, so we will just use the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> implementation to see how MDS works for the hand-written digits:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.manifold</span><span class="w"> </span><span class="kn">import</span> <span class="n">MDS</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">mds</span> <span class="o">=</span> <span class="n">MDS</span><span class="p">(</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">k</span><span class="p">,</span> <span class="n">n_init</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="c1">#&lt;- note that we need to give some max_iteration and initial guess parameters since this is iterative</span>
+<span class="n">X_mds</span> <span class="o">=</span> <span class="n">mds</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">)</span> <span class="c1">#&lt;- note that there is no transform method. What does this mean?</span>
+
+
+<span class="n">pca_model</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">X_k</span> <span class="o">=</span> <span class="n">pca_model</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_mds</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_mds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">y_mnist</span><span class="p">])</span>
+<span class="n">add_labels</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;MDS&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_k</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_k</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">y_mnist</span><span class="p">])</span>
+<span class="n">add_labels</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PCA&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Stress MDS: &#39;</span><span class="p">,</span> <span class="n">stress</span><span class="p">(</span><span class="n">X_mds</span><span class="p">,</span> <span class="n">X_mnist</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Stress PCA: &#39;</span><span class="p">,</span> <span class="n">stress</span><span class="p">(</span><span class="n">X_k</span><span class="p">,</span> <span class="n">X_mnist</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Stress MDS:  0.3476710001843273
+Stress PCA:  0.5405344832395483
+</pre></div>
+</div>
+<img alt="../_images/b9caff43470544ceebd00b471cc90184770510b6cde5007667e5f786363e31bb.png" src="../_images/b9caff43470544ceebd00b471cc90184770510b6cde5007667e5f786363e31bb.png" />
+</div>
+</div>
+<p>There are clearly some clusters, but the separation is not much better than PCA. Adding more iterations or initial configurations may improve things.</p>
+<p>Another popular manifold-based method is tSNE, or t-distribution stochastic neighbor embedding. This uses a probabilistic similarity metric based on the t-distribution, which makes it somewhat better suited to retain both local and global structure. The details of this are well beyond this course, but we can see how it performs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.manifold</span><span class="w"> </span><span class="kn">import</span> <span class="n">TSNE</span>
+
+<span class="n">tsne</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">perplexity</span> <span class="o">=</span> <span class="mf">30.0</span><span class="p">,</span> 
+            <span class="n">early_exaggeration</span> <span class="o">=</span> <span class="mf">12.0</span><span class="p">,</span> 
+            <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">200.0</span><span class="p">,</span> 
+            <span class="n">n_iter</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+            <span class="n">init</span> <span class="o">=</span> <span class="s1">&#39;random&#39;</span><span class="p">,</span>
+            <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;exact&#39;</span><span class="p">)</span>
+
+<span class="n">X_tsne</span> <span class="o">=</span> <span class="n">tsne</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_mnist</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_tsne</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_tsne</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">y_mnist</span><span class="p">])</span>
+<span class="n">add_labels</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Stress: &#39;</span><span class="p">,</span> <span class="n">stress</span><span class="p">(</span><span class="n">X_tsne</span><span class="p">,</span> <span class="n">X_mnist</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Stress:  0.7890299639828614
+</pre></div>
+</div>
+<img alt="../_images/060edf6c92278656ef8090c77e742e694bcda03e57be15f84ac64377fca72097.png" src="../_images/060edf6c92278656ef8090c77e742e694bcda03e57be15f84ac64377fca72097.png" />
+</div>
+</div>
+<p>There is slightly better separation than MDS and PCA, but still considerable overlap. There are also many additional hyper-parameters that don’t have clear meaning (e.g. “perplexity”), and the outcome will depend on the initial guesses and the algorithms used. While tSNE can be powerful, it also typically requires substantial effort.</p>
+<p>Some other common manifold-based techniques include:</p>
+<ul class="simple">
+<li><p>Isomap</p></li>
+<li><p>Locally linear embedding (LLE)</p></li>
+<li><p>Spectral embedding</p></li>
+<li><p>Local tangent space alignment (LTSA)</p></li>
+</ul>
+<p>A comparison:</p>
+<p>Manifold techniques can give powerful insight into the high-dimensional structure of data; however, most suffer from several key disadvantages:</p>
+<ul class="simple">
+<li><p>Not projectable - the low dimensional representation only applies to the training points.</p></li>
+<li><p>Not invertible - no way to move back to high-dimensional space</p></li>
+<li><p>Slow - manifold techniques use distance matrices and hence tend to scale as <span class="math notranslate nohighlight">\(N^2\)</span></p></li>
+</ul>
+<p>For these reasons manifold techniques are best for providing insight into the structure of the data, but usually need to be combined with other dimensional reduction approaches for model construction.</p>
+</section>
+<section id="autoencoding">
+<h3><span class="section-number">7.5.4.2. </span>Autoencoding<a class="headerlink" href="#autoencoding" title="Link to this heading">#</a></h3>
+<p><img alt="autoencoder" src="../_images/autoencoder.png" /></p>
+<p>The final approach we will discuss is “autoencoding”, which is the use of neural networks for dimensional reduction. This is a relatively new approach without any implementation in scikit-learn, but it is conceptually different from others so it is included here.</p>
+<p>The idea is that you train a neural network with the same data as inputs and outputs, but use an intermediate hidden layer (or layers) with dimensionality smaller than the original data. This forces the data through a “bottleneck” where it is represented in a low-dimensional form.</p>
+<p>This has numerous advantages:</p>
+<ul class="simple">
+<li><p>projectable and invertible - the link between the high/low dimensional representation is defined by the neural net</p></li>
+<li><p>fast and scalable - neural networks are computationally efficient</p></li>
+<li><p>non-linear and unsupervised - the autoencoder learns the non-linear manifold without needing labels</p></li>
+</ul>
+<p>However, the typical cautions of neural networks apply:</p>
+<ul class="simple">
+<li><p>extremely large training datasets needed</p></li>
+<li><p>architecture and hyperparameters need to be tuned/selected</p></li>
+<li><p>no intuitive link between low- and high-dimensional representations</p></li>
+</ul>
+<p>This is a field of research on its own, but worth being aware of nonetheless.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ML_1_3_High_Dimensional_Data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">7.4. </span>High Dimensional Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Exercises_ML_basics_Pt1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7.6. </span>Exercises</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-dimensionality-reduction">7.5.1. Overview of Dimensionality Reduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-uses-of-dimensionality-reduction">7.5.1.1. Practical uses of dimensionality reduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-for-dimensionality-reduction">7.5.1.2. Considerations for dimensionality reduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assessing-performance-of-dimensionality-reduction-models">7.5.1.3. Assessing performance of dimensionality reduction models</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">7.5.1.3.1. Variance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distance">7.5.1.3.2. Distance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">7.5.1.3.3. Visualization</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#model-performance">7.5.1.3.4. Model performance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">7.5.2. Principal Component Analysis (PCA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-how-is-this-different-from-the-correlation-matrix-why-are-there-blocks-in-matrix">7.5.2.1. Discussion: How is this different from the correlation matrix? Why are there “blocks” in matrix?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-find-the-rank-of-the-covariance-matrix">7.5.2.2. Example: Find the rank of the covariance matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-find-the-average-10-dimensional-vector-for-an-8">7.5.2.3. Example: Find the “average” 10-dimensional vector for an “8”</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-pca">7.5.3. Kernel PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-pca-variants">7.5.3.1. Other PCA variants</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-dimensional-reduction-approaches">7.5.4. Other dimensional reduction approaches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manifold-learning">7.5.4.1. Manifold learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autoencoding">7.5.4.2. Autoencoding</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Medford Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
