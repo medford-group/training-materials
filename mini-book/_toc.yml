@@ -9,8 +9,11 @@ parts:
       - file: docs/VIP_Overview
       - file: docs/VIP_Ads_energy_project
   - caption: Training Materials
-    numbered: true
+    #numbered: true
     chapters:
+    - file: docs/Intro_to_Linux_HPC
+      sections:
+      - file: docs/Exercises_linux
     - file: docs/Basic_Python_Tools
       sections:
       - file: docs/Introduction_to_Python_programming
@@ -24,10 +27,6 @@ parts:
       - file: docs/Intro_to_ASE_Calculators
       - file: docs/Exercises_ASE_intro
       - file: docs/Exercises_ASE_calcs
-    - file: docs/Intro_to_Linux_HPC
-      sections:
-      - file: docs/Exercises_linux
-    - file: docs/Intro_to_Density_Functional_Theory
     - file: docs/Running_Density_Functional_Theory_on_PACE
       sections:
       - file: docs/Running_QE_on_PACE
@@ -38,7 +37,8 @@ parts:
       - file: docs/Adsorption_energy_calculation_in_QE
       - file: docs/Adsorption_energy_calculation_in_SPARC
       - file: docs/Exercises_DFT_applications
-    - file: Nuts_and_Bolts_of_DFT_Calculations
+    - file: docs/Intro_to_Density_Functional_Theory
+    - file: docs/Nuts_and_Bolts_of_DFT_Calculations
       sections:
       - file: docs/Convergence_of_Computational_Parameters
       - file: docs/Exercises_convergence

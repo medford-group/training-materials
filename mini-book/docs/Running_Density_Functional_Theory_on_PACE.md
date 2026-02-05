@@ -7,9 +7,9 @@ This section will introduce you to the basics of running density functional theo
 ## Lectures
 
 The lectures specifically cover using SPARC on PACE using the SPARC-X-API (https://sparc-x.github.io/SPARC-X-API/)
-1. [Lecture 1](https://mediaspace.gatech.edu/media/RunningDFT_L01/1_rrdqc1z9)
-2. [Lecture 2](https://mediaspace.gatech.edu/media/RunningDFT_L02/1_734pbtod)
-3. [Lecture 3](https://mediaspace.gatech.edu/media/RunningDFT_L03/1_m0qaizlj)
-4. [Lecture 4](https://mediaspace.gatech.edu/media/RunningDFT_L04/1_ycpigt8e)
-5. [Lecture 5](https://mediaspace.gatech.edu/media/RunningDFT_L05/1_weur9bwl)
-6. [Lecture 6](https://mediaspace.gatech.edu/media/RunningDFT_L06/1_9fsctzui)
+PACE.1 [Lecture 1](https://mediaspace.gatech.edu/media/RunningDFT_L01/1_rrdqc1z9)
+PACE.2 [Lecture 2](https://mediaspace.gatech.edu/media/RunningDFT_L02/1_734pbtod)
+PACE.3 [Lecture 3](https://mediaspace.gatech.edu/media/RunningDFT_L03/1_m0qaizlj)
+PACE.4 [Lecture 4](https://mediaspace.gatech.edu/media/RunningDFT_L04/1_ycpigt8e)
+PACE.5 [Lecture 5](https://mediaspace.gatech.edu/media/RunningDFT_L05/1_weur9bwl)
+PACE.6 [Lecture 6](https://mediaspace.gatech.edu/media/RunningDFT_L06/1_9fsctzui)
