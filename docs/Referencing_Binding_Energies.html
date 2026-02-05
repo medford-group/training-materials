@@ -1,0 +1,1740 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Referencing Binding Energies &#8212; Medford Group Graduate Training</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Referencing_Binding_Energies';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Gas formation energy calculation using DFT" href="Gas_formation_energy_calculation_in_SPARC.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Medford Group Graduate Training - Home"/>
+    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Medford Group Graduate Training - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Medford Group Graduate Training
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">VIP</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="VIP_Info.html">VIP Materials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VIP_syllabus.html">VIP Course Syllabus</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="VIP_Overview.html">Big Data &amp; Quantum Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VIP_Ads_energy_project.html">DFT adsorption energy reproducibility project</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Training Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Basic_Python_Tools.html">1. Introduction to Basic Python Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_Python_programming.html">1.3. Introduction to Python programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_numpy.html">1.4. Numpy -  multidimensional data arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_scipy.html">1.5. SciPy - Library of scientific algorithms for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_plotting_in_Python.html">1.6. matplotlib - Plotting in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_python.html">1.7. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Manipulating_Atoms_in_Python.html">2. Introduction to Manipulating Atoms in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Building_Structures.html">2.3. Intro to Building Structures with ASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Calculators.html">2.4. Intro to ASE Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_intro.html">2.5. Exercises - Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_calcs.html">2.6. Exercises - Calculators</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Linux_HPC.html">3. Introduction to Linux and High-Performance Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_linux.html">3.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_Density_Functional_Theory.html">4. Introduction to Density Functional Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Running_Density_Functional_Theory_on_PACE.html">5. Running Density Functional Theory on PACE</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Running_QE_on_PACE.html">5.3. Running QE on PACE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Running_SPARC_on_PACE.html">5.4. Running a simple DFT calculation on PACE Supercomputer Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_basics.html">5.5. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">6. Applications of Density Functional Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">6.2. Adsorption energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_SPARC.html">6.3. Adsorption energy from DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">6.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">7. Intro to Regression and High Dimensional Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">7.2. Non-Parametric Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_2_Complexity_Optimization.html">7.3. Complexity Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">7.4. High Dimensional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_4_Dimensionality_Reduction.html">7.5. Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">7.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">8. Intro to Classification and Generative Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_1_Classification_Basics.html">8.2. Classification Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">8.3. Generalized Linear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">8.4. Alternate classification methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">8.5. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_5_Generative_Models.html">8.6. Generative Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">8.7. Exercises</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Appendix.html">Appendix</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Literature_Searches.html">Basics of Searching and Reading Scientific Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create_DFT_Environments.html">Create DFT Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gas_formation_energy_calculation_in_SPARC.html">Gas formation energy calculation using DFT</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Referencing Binding Energies</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/Referencing_Binding_Energies.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Referencing Binding Energies</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding-energy">Binding Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-microkinetic-model-for-co-co-2-hydrogenation-to-methanol-water-gas-shift-by-dr-grabow-dagger">Case Study microkinetic model for CO/CO<span class="math notranslate nohighlight">\(_2\)</span> hydrogenation to methanol + water-gas shift by Dr. Grabow<span class="math notranslate nohighlight">\(^\dagger\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elementary-reaction-30-chemical-species">42 elementary-reaction, 30 chemical-species</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding-energies-from-raw-dft-energies">Binding Energies from Raw DFT Energies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-elemental-matrix">Atomic/elemental matrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding-energies-from-reaction-energies">Binding Energies from Reaction Energies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stoichiometr-y-ic-matrix">Stoichiometr(y/ic) matrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-grabow-s-vs-dft-energies">Comparing Grabow’s vs. DFT energies</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="referencing-binding-energies">
+<h1>Referencing Binding Energies<a class="headerlink" href="#referencing-binding-energies" title="Link to this heading">#</a></h1>
+<p><em>by Gabriel S. Gusmão (Aug, 2021)</em></p>
+<p><a class="reference external" href="mailto:gusmaogabriels&#37;&#52;&#48;gmail&#46;com">gusmaogabriels<span>&#64;</span>gmail<span>&#46;</span>com</a>/<a class="reference external" href="mailto:gusmaogabriels&#37;&#52;&#48;gatech&#46;edu">gusmaogabriels<span>&#64;</span>gatech<span>&#46;</span>edu</a></p>
+<section id="binding-energy">
+<h2>Binding Energy<a class="headerlink" href="#binding-energy" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Energy associated with a chemical state given reference energy states, i.e. <em><strong>it is not an absolute quantit. It is a function of reference energies</strong></em>.</p></li>
+<li><p>Binding energies can be computed from raw-DFT energies or referenced from known reaction energies for a given chemical system.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="o">%</span><span class="k">config</span> Completer.use_jedi = False
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="case-study-microkinetic-model-for-co-co-2-hydrogenation-to-methanol-water-gas-shift-by-dr-grabow-dagger">
+<h2>Case Study microkinetic model for CO/CO<span class="math notranslate nohighlight">\(_2\)</span> hydrogenation to methanol + water-gas shift by Dr. Grabow<span class="math notranslate nohighlight">\(^\dagger\)</span><a class="headerlink" href="#case-study-microkinetic-model-for-co-co-2-hydrogenation-to-methanol-water-gas-shift-by-dr-grabow-dagger" title="Link to this heading">#</a></h2>
+<section id="elementary-reaction-30-chemical-species">
+<h3>42 elementary-reaction, 30 chemical-species<a class="headerlink" href="#elementary-reaction-30-chemical-species" title="Link to this heading">#</a></h3>
+<p><img alt="image.png" src="docs/attachment:86c2dd0c-8769-42bc-8f0b-aaa3686405cf.png" /></p>
+<p><span class="math notranslate nohighlight">\(^\dagger\)</span> Grabow, L. C. &amp; Mavrikakis, M. Mechanism of Methanol Synthesis on 
+Cu through CO2 and CO Hydrogenation. ACS Catal. 1, 365–384 (2011).</p>
+<p>Followig, the raw data from Dr. Grabow’s paper is loaded, where <code class="docutils literal notranslate"><span class="pre">dE</span></code> are reaction energies in <span class="math notranslate nohighlight">\(eV\)</span>, and a separate (hydrogen reservoir) site is added for atomic hydrogen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;./data/grabow/raw_data.json&#39;</span><span class="p">);</span>
+<span class="n">raw_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rxn</th>
+      <th>dE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>CO2_g + *_s -&gt; CO2*_s</td>
+      <td>-0.08</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>H2_g + 2*_h -&gt; 2H*_h</td>
+      <td>-0.29</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CO_g + *_s -&gt; CO*_s</td>
+      <td>-0.86</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>H2O_g + *_s -&gt; H2O*_s</td>
+      <td>-0.21</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>HCOOH_g + *_s -&gt; HCOOH*_s</td>
+      <td>-0.22</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>CH2O_g + *_s -&gt; CH2O*_s</td>
+      <td>-0.04</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>CH3OH_g + *_s -&gt; CH3OH*_s</td>
+      <td>-0.28</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>HCOOCH3_g + *_s -&gt; HCOOCH3*_s</td>
+      <td>-0.10</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>CO2*_s + *_s -&gt; CO*_s + O*_s</td>
+      <td>1.12</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>COOH*_s + *_s -&gt; CO*_s + OH*_s</td>
+      <td>-0.14</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>COOH*_s + *_s + *_h -&gt; CO2*_s + H*_h + *_s</td>
+      <td>-0.55</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>CO2*_s + H2O*_s + *_s -&gt; COOH*_s + OH*_s + *_s</td>
+      <td>0.76</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>HCOOH*_s + *_h -&gt; COOH*_s + H*_h</td>
+      <td>0.59</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>H2O*_s + *_h -&gt; OH*_s + H*_h</td>
+      <td>0.21</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>OH*_s + *_h -&gt; O*_s + H*_h</td>
+      <td>0.72</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2OH*_s -&gt; H2O*_s + O*_s</td>
+      <td>0.51</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>HCOO*_s + *_h -&gt; CO2*_s + H*_h</td>
+      <td>0.25</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>H2CO2*_s + *_h -&gt; HCOO*_s + H*_h</td>
+      <td>-0.87</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>HCOOH*_s + *_h -&gt; HCOO*_s + H*_h</td>
+      <td>-0.23</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>CH3O2*_s + *_h -&gt; HCOOH*_s + H*_h</td>
+      <td>-0.10</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>CH3O2*_s + *_h -&gt; H2CO2*_s + H*_h</td>
+      <td>0.54</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>H2CO2*_s + *_s -&gt; CH2O*_s + O*_s</td>
+      <td>0.91</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>CH3O2*_s + *_s -&gt; CH2O*_s + OH*_s</td>
+      <td>0.74</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>CH3O*_s + *_h -&gt; CH2O*_s + H*_h</td>
+      <td>1.02</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>CH3OH*_s + *_h -&gt; CH3O*_s + H*_h</td>
+      <td>0.23</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>HCO*_s + *_h -&gt; CO*_s + H*_h</td>
+      <td>-0.78</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>COH*_s + *_h -&gt; CO*_s + H*_h</td>
+      <td>-1.15</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>HCOO*_s + *_s -&gt; HCO*_s + O*_s</td>
+      <td>2.18</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>HCOH*_s + *_h -&gt; HCO*_s + H*_h</td>
+      <td>-0.09</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>CH2O*_s + *_h -&gt; HCO*_s + H*_h</td>
+      <td>0.40</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>CH2OH*_s + *_h -&gt; CH2O*_s + H*_h</td>
+      <td>0.06</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>CH2OH*_s + *_h -&gt; HCOH*_s + H*_h</td>
+      <td>0.55</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>CH3OH*_s + *_h -&gt; CH2OH*_s + H*_h</td>
+      <td>1.19</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>HCOOH*_s + *_s -&gt; HCO*_s + OH*_s</td>
+      <td>1.24</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>HCOOH*_s + *_s -&gt; HCOH*_s + O*_s</td>
+      <td>2.04</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>CH3O2*_s + *_s -&gt; CH2OH*_s + O*_s</td>
+      <td>1.39</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>CO3*_s + *_s -&gt; CO2*_s + O*_s</td>
+      <td>-0.11</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>HCO3*_s + *_h -&gt; CO3*_s + H*_h</td>
+      <td>1.21</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>CH3O*_s + HCOO*_s -&gt; HCOOCH3*_s + O*_s</td>
+      <td>0.99</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>H2COOCH3*_s + *_s -&gt; CH3O*_s + CH2O*_s</td>
+      <td>0.78</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>H2COOCH3*_s + *_h -&gt; HCOOCH3*_s + H*_h +</td>
+      <td>-0.01</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>HCOOCH3*_s + *_s -&gt; 2CH2O*_s</td>
+      <td>1.81</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="binding-energies-from-raw-dft-energies">
+<h2>Binding Energies from Raw DFT Energies<a class="headerlink" href="#binding-energies-from-raw-dft-energies" title="Link to this heading">#</a></h2>
+<section id="atomic-elemental-matrix">
+<h3>Atomic/elemental matrix<a class="headerlink" href="#atomic-elemental-matrix" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The atomic matrix consists of the number of chemical elements of a specific type for each chemical species; therefore, it is a <span class="math notranslate nohighlight">\( n_{species}\times n_{elements}\)</span> matrix. Species here can be considered as states, since they encompass both gas-phase and bound chemical species.</p></li>
+<li><p>Active sites are considered as pseudo-elements in the system</p></li>
+</ul>
+<p>Below, we load a preprocessed atomic matrix for Dr. Grabow’s paper, <code class="docutils literal notranslate"><span class="pre">Ma</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ma_</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;./data/grabow/atomic_matrix.json&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Ma_</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">500</span><span class="p">))</span>
+<span class="n">Ma</span> <span class="o">=</span> <span class="n">Ma_</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>*_h</th>
+      <th>*_s</th>
+      <th>C</th>
+      <th>H</th>
+      <th>O</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>*_h</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CH2O*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>CH2OH*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>CH2O_g</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>CH3O*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>CH3O2*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>CH3OH*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>CH3OH_g</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>CO*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>CO2*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>CO2_g</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>CO3*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>COH*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>COOH*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>CO_g</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>H*_h</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>H2CO2*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>H2COOCH3*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>H2O*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>H2O_g</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>H2_g</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>HCO*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>HCO3*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>HCOH*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>HCOO*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>HCOOCH3*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>HCOOCH3_g</th>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>HCOOH*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>HCOOH_g</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>O*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>OH*_s</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>And folowing GGA-level (PBE) energies for each individial state are loaded for different metallic surfaces.</p>
+<p>We are going to use Cu(111) as case study here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E_raw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;./data/grabow/raw_dft.json&#39;</span><span class="p">)</span>
+<span class="n">E_raw</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Cu(211)</th>
+      <th>Cu(111)</th>
+      <th>Pd(211)</th>
+      <th>Pt(211)</th>
+      <th>Rh(211)</th>
+      <th>Ag(211)</th>
+      <th>Au(211)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>*_h</th>
+      <td>-197764.135245</td>
+      <td>-197765.085060</td>
+      <td>-123999.125283</td>
+      <td>-103185.773434</td>
+      <td>-106234.599516</td>
+      <td>-140714.147663</td>
+      <td>-134520.546438</td>
+    </tr>
+    <tr>
+      <th>*_s</th>
+      <td>-197764.135245</td>
+      <td>-197765.085060</td>
+      <td>-123999.125283</td>
+      <td>-103185.773434</td>
+      <td>-106234.599516</td>
+      <td>-140714.147663</td>
+      <td>-134520.546438</td>
+    </tr>
+    <tr>
+      <th>CH2O*_s</th>
+      <td>-198613.265305</td>
+      <td>-198613.816588</td>
+      <td>-124848.330119</td>
+      <td>-104034.866635</td>
+      <td>-107083.793192</td>
+      <td>-141562.980995</td>
+      <td>-135369.376106</td>
+    </tr>
+    <tr>
+      <th>CH2OH*_s</th>
+      <td>-198629.463463</td>
+      <td>-198629.895913</td>
+      <td>-124864.792637</td>
+      <td>-104051.846973</td>
+      <td>-107100.679487</td>
+      <td>-141578.898364</td>
+      <td>-135385.740832</td>
+    </tr>
+    <tr>
+      <th>CH2O_g</th>
+      <td>-848.688366</td>
+      <td>-848.688366</td>
+      <td>-848.688366</td>
+      <td>-848.688366</td>
+      <td>-848.688366</td>
+      <td>-848.688366</td>
+      <td>-848.688366</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The number of degrees-of-freedom in this system equals the number of chemical elements, including the active sites, for which reference values must be defined.</p>
+<p>To compute formation energies, we therefore need to define reference species. In this case we choose <span class="math notranslate nohighlight">\(CO_{(g)}\)</span>, <span class="math notranslate nohighlight">\(H{_2}_{(g)}\)</span> and <span class="math notranslate nohighlight">\(H_2O_{(g)}\)</span>. Notice that all chemical elements (<span class="math notranslate nohighlight">\(C\)</span>, <span class="math notranslate nohighlight">\(O\)</span>, and <span class="math notranslate nohighlight">\(H\)</span>) must be included in the set of reference chemical species. We following build the extended matrix <span class="math notranslate nohighlight">\(M_{ext}=[M_a, I]\)</span>, where <span class="math notranslate nohighlight">\(I\)</span> is the identity matrix <span class="math notranslate nohighlight">\(n_{species}\times n_{species}\)</span>, and drop the columns in <span class="math notranslate nohighlight">\(I\)</span> associated with the defined chemical species. We finally obtain a full-rank and invertible matrix that can be used to solve for the dummy references <span class="math notranslate nohighlight">\(C\)</span>, <span class="math notranslate nohighlight">\(O\)</span> and <span class="math notranslate nohighlight">\(H\)</span>, as follows.</p>
+<div class="math notranslate nohighlight">
+\[M_{ext}\times\Delta E_{f}=E_{DFT}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ref_sps</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CO_g&#39;</span><span class="p">,</span><span class="s1">&#39;CO2_g&#39;</span><span class="p">,</span><span class="s1">&#39;H2_g&#39;</span><span class="p">,</span><span class="s1">&#39;*_s&#39;</span><span class="p">,</span><span class="s1">&#39;*_h&#39;</span><span class="p">]</span>         <span class="c1"># define reference species</span>
+<span class="n">Eref</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span><span class="p">])</span>                  <span class="c1"># reference species energies</span>
+<span class="n">mref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">([</span><span class="n">_</span> <span class="ow">in</span> <span class="n">ref_sps</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">Ma_</span><span class="o">.</span><span class="n">index</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># find positions of reference species</span>
+<span class="n">mcols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ma</span><span class="p">)))</span><span class="o">-</span><span class="nb">set</span><span class="p">(</span><span class="n">mref</span><span class="p">)))</span> <span class="c1"># all other species</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Solving the linear system</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dEf_a</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ma_</span><span class="p">))</span>                             <span class="c1"># allocate space for formation energies</span>
+<span class="n">Mext</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">Ma</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">Ma</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])[:,</span><span class="n">mcols</span><span class="p">]))</span>   <span class="c1"># extended matrix only non-refrence species</span>
+<span class="n">Es</span>     <span class="o">=</span> <span class="n">E_raw</span><span class="p">[</span><span class="s1">&#39;Cu(111)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>                        <span class="c1"># raw DFT energies vector</span>
+<span class="n">dEf_a</span><span class="p">[</span><span class="n">mcols</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Mext</span><span class="p">,</span><span class="n">Es</span><span class="p">)[</span><span class="nb">len</span><span class="p">(</span><span class="n">ref_sps</span><span class="p">):]</span>  <span class="c1"># linear system</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Formation energies</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">E_raw</span><span class="p">[</span><span class="s1">&#39;Cu(111)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">dEf_a</span><span class="p">),</span><span class="n">index</span><span class="o">=</span><span class="n">Ma_</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>\
+             <span class="n">columns</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="s1">&#39;Cu(111)&#39;</span><span class="p">,</span><span class="s1">&#39;DFT&#39;</span><span class="p">),(</span><span class="s1">&#39;Cu(111)&#39;</span><span class="p">,</span><span class="s1">&#39;Ef&#39;</span><span class="p">)]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Cu(111)</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>DFT</th>
+      <th>Ef</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>*_h</th>
+      <td>-197765.085060</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>*_s</th>
+      <td>-197765.085060</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>CH2O*_s</th>
+      <td>-198613.816588</td>
+      <td>-0.605626</td>
+    </tr>
+    <tr>
+      <th>CH2OH*_s</th>
+      <td>-198629.895913</td>
+      <td>-0.823442</td>
+    </tr>
+    <tr>
+      <th>CH2O_g</th>
+      <td>-848.688366</td>
+      <td>-0.562464</td>
+    </tr>
+    <tr>
+      <th>CH3O*_s</th>
+      <td>-198630.805365</td>
+      <td>-1.732895</td>
+    </tr>
+    <tr>
+      <th>CH3O2*_s</th>
+      <td>-199197.450711</td>
+      <td>-0.304541</td>
+    </tr>
+    <tr>
+      <th>CH3OH*_s</th>
+      <td>-198646.958871</td>
+      <td>-2.024892</td>
+    </tr>
+    <tr>
+      <th>CH3OH_g</th>
+      <td>-881.686666</td>
+      <td>-1.837747</td>
+    </tr>
+    <tr>
+      <th>CO*_s</th>
+      <td>-198582.258153</td>
+      <td>-0.770208</td>
+    </tr>
+    <tr>
+      <th>CO2*_s</th>
+      <td>-199149.583594</td>
+      <td>-0.021949</td>
+    </tr>
+    <tr>
+      <th>CO2_g</th>
+      <td>-1384.476584</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>CO3*_s</th>
+      <td>-199715.612772</td>
+      <td>2.022571</td>
+    </tr>
+    <tr>
+      <th>COH*_s</th>
+      <td>-198597.111176</td>
+      <td>0.238278</td>
+    </tr>
+    <tr>
+      <th>COOH*_s</th>
+      <td>-199165.053933</td>
+      <td>0.369220</td>
+    </tr>
+    <tr>
+      <th>CO_g</th>
+      <td>-816.402885</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>H*_h</th>
+      <td>-197781.131496</td>
+      <td>-0.184928</td>
+    </tr>
+    <tr>
+      <th>H2CO2*_s</th>
+      <td>-199180.952833</td>
+      <td>0.331829</td>
+    </tr>
+    <tr>
+      <th>H2COOCH3*_s</th>
+      <td>-199480.172844</td>
+      <td>-2.974471</td>
+    </tr>
+    <tr>
+      <th>H2O*_s</th>
+      <td>-198364.322075</td>
+      <td>0.559701</td>
+    </tr>
+    <tr>
+      <th>H2O_g</th>
+      <td>-599.047721</td>
+      <td>0.748995</td>
+    </tr>
+    <tr>
+      <th>H2_g</th>
+      <td>-31.723017</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>HCO*_s</th>
+      <td>-198597.497763</td>
+      <td>-0.148309</td>
+    </tr>
+    <tr>
+      <th>HCO3*_s</th>
+      <td>-199732.874257</td>
+      <td>0.622596</td>
+    </tr>
+    <tr>
+      <th>HCOH*_s</th>
+      <td>-198613.355603</td>
+      <td>-0.144641</td>
+    </tr>
+    <tr>
+      <th>HCOO*_s</th>
+      <td>-199165.814737</td>
+      <td>-0.391584</td>
+    </tr>
+    <tr>
+      <th>HCOOCH3*_s</th>
+      <td>-199464.223855</td>
+      <td>-2.886991</td>
+    </tr>
+    <tr>
+      <th>HCOOCH3_g</th>
+      <td>-1699.054584</td>
+      <td>-2.802780</td>
+    </tr>
+    <tr>
+      <th>HCOOH*_s</th>
+      <td>-199181.606326</td>
+      <td>-0.321665</td>
+    </tr>
+    <tr>
+      <th>HCOOH_g</th>
+      <td>-1416.294467</td>
+      <td>-0.094866</td>
+    </tr>
+    <tr>
+      <th>O*_s</th>
+      <td>-198331.439796</td>
+      <td>1.718963</td>
+    </tr>
+    <tr>
+      <th>OH*_s</th>
+      <td>-198348.124986</td>
+      <td>0.895282</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="binding-energies-from-reaction-energies">
+<h2>Binding Energies from Reaction Energies<a class="headerlink" href="#binding-energies-from-reaction-energies" title="Link to this heading">#</a></h2>
+<section id="stoichiometr-y-ic-matrix">
+<h3>Stoichiometr(y/ic) matrix<a class="headerlink" href="#stoichiometr-y-ic-matrix" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The stoichiometry matrix, <span class="math notranslate nohighlight">\(M\)</span>, represents a graph encompassing the stoichiometry of each chemical species in every elementary step in which it is involved.</p></li>
+<li><p>The dimensions of the stoichiometry matrix is <span class="math notranslate nohighlight">\(n_{reactions}\times n_{species}\)</span> in a particular chemical system.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M_</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;./data/grabow/stoich_matrix.json&#39;</span><span class="p">)</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">M_</span><span class="o">.</span><span class="n">values</span>
+<span class="n">M_</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>             
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>*_h</th>
+      <th>*_s</th>
+      <th>CH2O*_s</th>
+      <th>CH2OH*_s</th>
+      <th>CH2O_g</th>
+      <th>CH3O*_s</th>
+      <th>CH3O2*_s</th>
+      <th>CH3OH*_s</th>
+      <th>CH3OH_g</th>
+      <th>CO*_s</th>
+      <th>...</th>
+      <th>HCO*_s</th>
+      <th>HCO3*_s</th>
+      <th>HCOH*_s</th>
+      <th>HCOO*_s</th>
+      <th>HCOOCH3*_s</th>
+      <th>HCOOCH3_g</th>
+      <th>HCOOH*_s</th>
+      <th>HCOOH_g</th>
+      <th>O*_s</th>
+      <th>OH*_s</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CO2_g + *_s -&gt; CO2*_s</th>
+      <td>0</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>H2_g + 2*_h -&gt; 2H*_h</th>
+      <td>-2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CO_g + *_s -&gt; CO*_s</th>
+      <td>0</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>H2O_g + *_s -&gt; H2O*_s</th>
+      <td>0</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>HCOOH_g + *_s -&gt; HCOOH*_s</th>
+      <td>0</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 32 columns</p>
+</div></div></div>
+</div>
+<p>Reaction energies are reference-freem and they can be estimated directly from raw DFT energies by the simple matrix-vector multipliciation between the stoichiometry matrix and the DFT energies vector.
+$<span class="math notranslate nohighlight">\(M\times E_{DFT}=\Delta E_{r}\)</span>$
+Here, we still use the Cu(111) GGA-level (PBE) energies as in the previous section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dEr</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Es</span><span class="p">)</span> <span class="c1"># reaction energies</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the computed reaction energies, formation energies can be defined thrown the Moore-Penrose pseudo inverse of the stoichiometry matrix, <span class="math notranslate nohighlight">\(M^+\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ E_{f}=M^+\times\Delta E_{rxn}\]</div>
+<p>However, instead of computing the Moore-Penrose matrix inversion directly, we can first perform the singular-value decomposition of <span class="math notranslate nohighlight">\(M\)</span> to confirm that the number of zero singular values equals the number of degrees of freedom in the chemical system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">Vt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s1">&#39;.-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Singular Value #&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Singular Value&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4ed08ad431f573ee619c0c731e70984368b9204c3b2a7fd377223776d1b2161b.png" src="../_images/4ed08ad431f573ee619c0c731e70984368b9204c3b2a7fd377223776d1b2161b.png" />
+</div>
+</div>
+<p>That means we have 5 singular-values, as expected. Therefore, if split M into columns that refer to non-reference species, <span class="math notranslate nohighlight">\(M_{sp}\)</span> and those that refer to reference species, <span class="math notranslate nohighlight">\(M_{ref}\)</span>, we end up with an invertible matrix.
+$<span class="math notranslate nohighlight">\( E_{f}=M_{sp}^{+}\times\left(\Delta E_{r}-M_{ref}\times E_{ref}\right)\)</span>$
+Which, in this parameterized version, allows for a direct relationship between formation energies and reference energies values.</p>
+<p>Using this representation to solve for formation energies given the same reference species as in the previous section, we have.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dEf</span>        <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ma_</span><span class="p">))</span>                                          <span class="c1"># allocate space for formation energies</span>
+<span class="n">dEf</span><span class="p">[</span><span class="n">mcols</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">M</span><span class="p">[:,</span><span class="n">mcols</span><span class="p">])</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">dEr</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">M</span><span class="p">[:,</span><span class="n">mref</span><span class="p">],</span><span class="n">Eref</span><span class="p">))</span>  <span class="c1"># solving linear system through SVD</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And below we can see that the formation energies computed by either methods are the same.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dEf</span><span class="p">,</span><span class="n">dEf_a</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$\Delta E_</span><span class="si">{f}</span><span class="s1">$ from $\Delta E_</span><span class="si">{rxn}</span><span class="s1">$&#39;</span><span class="p">);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$\Delta E_</span><span class="si">{f}</span><span class="s1">$ from $\Delta E_</span><span class="si">{DFT}</span><span class="s1">$&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$\Delta E_</span><span class="si">{f}</span><span class="s1">$ from $\Delta E_</span><span class="si">{rxn}</span><span class="s1">$ (Grabow)&#39;</span><span class="p">);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">3.75</span><span class="p">,</span><span class="mf">2.5</span><span class="p">],[</span><span class="o">-</span><span class="mf">3.75</span><span class="p">,</span><span class="mf">2.5</span><span class="p">],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_xbound</span><span class="p">([</span><span class="o">-</span><span class="mf">3.75</span><span class="p">,</span><span class="mf">2.5</span><span class="p">]);</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_ybound</span><span class="p">([</span><span class="o">-</span><span class="mf">3.75</span><span class="p">,</span><span class="mf">2.5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b30342aeb31e5f38da3f5d3a5abb79d8783de7a87138137bf0558fe70eb92bd3.png" src="../_images/b30342aeb31e5f38da3f5d3a5abb79d8783de7a87138137bf0558fe70eb92bd3.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="comparing-grabow-s-vs-dft-energies">
+<h2>Comparing Grabow’s vs. DFT energies<a class="headerlink" href="#comparing-grabow-s-vs-dft-energies" title="Link to this heading">#</a></h2>
+<p>Now we can use the same rereferencing scheme, starting from reaction energies on Grabow’s paper data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dEr_grbw</span> <span class="o">=</span> <span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;dE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="c1"># Grabow&#39;s reaction energies</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dEf_grbw</span>        <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ma_</span><span class="p">))</span>                                          <span class="c1"># allocate space for formation energies</span>
+<span class="n">dEf_grbw</span><span class="p">[</span><span class="n">mcols</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">M</span><span class="p">[:,</span><span class="n">mcols</span><span class="p">])</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">dEr_grbw</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">M</span><span class="p">[:,</span><span class="n">mref</span><span class="p">],</span><span class="n">Eref</span><span class="p">))</span>  <span class="c1"># solving linear system through SVD</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dEf</span><span class="p">,</span><span class="n">dEf_grbw</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$\Delta E_</span><span class="si">{f}</span><span class="s1">$ from $\Delta E_</span><span class="si">{rxn}</span><span class="s1">$ (Grabow)&#39;</span><span class="p">);</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">3.75</span><span class="p">,</span><span class="mf">2.5</span><span class="p">],[</span><span class="o">-</span><span class="mf">3.75</span><span class="p">,</span><span class="mf">2.5</span><span class="p">],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_xbound</span><span class="p">([</span><span class="o">-</span><span class="mf">3.75</span><span class="p">,</span><span class="mf">2.5</span><span class="p">]);</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_ybound</span><span class="p">([</span><span class="o">-</span><span class="mf">3.75</span><span class="p">,</span><span class="mf">2.5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$\Delta E_</span><span class="si">{f}</span><span class="s1">$ from $\Delta E_</span><span class="si">{rxn}</span><span class="s1">$ (own work)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7857336ebbf809726bf6e8d37d100c2ae2fdd05206f7fc9faf1095c2a482de7c.png" src="../_images/7857336ebbf809726bf6e8d37d100c2ae2fdd05206f7fc9faf1095c2a482de7c.png" />
+</div>
+</div>
+<p>There is large variation for larger moleculecules, lower end in formation energies, which refer to methyl-formate, longer chain molecules. Such discrepancies might be either due to wrong final geometries, not accounting for long-range interaction (vdW) or even due to corrections that might have been applied by Grabow and were not included in this analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dEf</span><span class="o">-</span><span class="n">dEf_grbw</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$\Delta\Delta E_</span><span class="si">{f}</span><span class="s1">$ from $\Delta E_</span><span class="si">{rxn}</span><span class="s1">$ (own-Grabow)&#39;</span><span class="p">);</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a444e209a88b915299888fe40357158998f3bc48c73e08ad1dda8844917d0995.png" src="../_images/a444e209a88b915299888fe40357158998f3bc48c73e08ad1dda8844917d0995.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dft"
+        },
+        kernelOptions: {
+            name: "dft",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dft'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Gas_formation_energy_calculation_in_SPARC.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Gas formation energy calculation using DFT</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding-energy">Binding Energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-microkinetic-model-for-co-co-2-hydrogenation-to-methanol-water-gas-shift-by-dr-grabow-dagger">Case Study microkinetic model for CO/CO<span class="math notranslate nohighlight">\(_2\)</span> hydrogenation to methanol + water-gas shift by Dr. Grabow<span class="math notranslate nohighlight">\(^\dagger\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elementary-reaction-30-chemical-species">42 elementary-reaction, 30 chemical-species</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding-energies-from-raw-dft-energies">Binding Energies from Raw DFT Energies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-elemental-matrix">Atomic/elemental matrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding-energies-from-reaction-energies">Binding Energies from Reaction Energies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stoichiometr-y-ic-matrix">Stoichiometr(y/ic) matrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-grabow-s-vs-dft-energies">Comparing Grabow’s vs. DFT energies</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Medford Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

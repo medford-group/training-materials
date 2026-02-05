@@ -1,0 +1,5 @@
+# Applications of Density Functional Theory
+
+## Introduction
+
+This section will introduce you to some of the applications of density functional theory (DFT). We will focus on the applications that are most relevant to our research group, namely geometry optimizations (also termed relaxations) and adsorption energy calculations. We will also introduce some of the tools that we use to analyze the results of these calculations, namely the sparc-dft-api and the Atomic Simulation Environment (ASE). By the end of this section, you should feel comfortable setting up and running a DFT calculation on PACE, and you should be able to analyze the results of the calculation. You should understand some of the basic input parameters and details of the DFT calculations as well as the basics of adsroption energy calculations. These concepts are critical to the study of heterogeneous catalysis. 

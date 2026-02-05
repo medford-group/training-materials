@@ -1,0 +1,1181 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>8.2. Classification Overview &#8212; Medford Group Graduate Training</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/ML_2_1_Classification_Basics';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.3. Generalized Linear Models" href="ML_2_2_Generalized_Linear_Models.html" />
+    <link rel="prev" title="8. Intro to Classification and Generative Models" href="Intro_to_Classification_and_Generative_Models.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Medford Group Graduate Training - Home"/>
+    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Medford Group Graduate Training - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Medford Group Graduate Training
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">VIP</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="VIP_Info.html">VIP Materials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VIP_syllabus.html">VIP Course Syllabus</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="VIP_Overview.html">Big Data &amp; Quantum Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VIP_Ads_energy_project.html">DFT adsorption energy reproducibility project</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Training Materials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Basic_Python_Tools.html">1. Introduction to Basic Python Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_Python_programming.html">1.3. Introduction to Python programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_numpy.html">1.4. Numpy -  multidimensional data arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_scipy.html">1.5. SciPy - Library of scientific algorithms for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_plotting_in_Python.html">1.6. matplotlib - Plotting in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_python.html">1.7. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Manipulating_Atoms_in_Python.html">2. Introduction to Manipulating Atoms in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Building_Structures.html">2.3. Intro to Building Structures with ASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Calculators.html">2.4. Intro to ASE Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_intro.html">2.5. Exercises - Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_calcs.html">2.6. Exercises - Calculators</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Linux_HPC.html">3. Introduction to Linux and High-Performance Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_linux.html">3.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_Density_Functional_Theory.html">4. Introduction to Density Functional Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Running_Density_Functional_Theory_on_PACE.html">5. Running Density Functional Theory on PACE</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Running_QE_on_PACE.html">5.3. Running QE on PACE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Running_SPARC_on_PACE.html">5.4. Running a simple DFT calculation on PACE Supercomputer Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_basics.html">5.5. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">6. Applications of Density Functional Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">6.2. Adsorption energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_SPARC.html">6.3. Adsorption energy from DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">6.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">7. Intro to Regression and High Dimensional Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">7.2. Non-Parametric Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_2_Complexity_Optimization.html">7.3. Complexity Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">7.4. High Dimensional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_4_Dimensionality_Reduction.html">7.5. Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">7.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">8. Intro to Classification and Generative Models</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.2. Classification Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">8.3. Generalized Linear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">8.4. Alternate classification methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">8.5. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_5_Generative_Models.html">8.6. Generative Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">8.7. Exercises</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Appendix.html">Appendix</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Literature_Searches.html">Basics of Searching and Reading Scientific Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create_DFT_Environments.html">Create DFT Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gas_formation_energy_calculation_in_SPARC.html">Gas formation energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Referencing_Binding_Energies.html">Referencing Binding Energies</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/ML_2_1_Classification_Basics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Classification Overview</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-statement-and-datasets">8.2.1. Problem statement and datasets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toy-datasets">8.2.1.1. Toy datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-classification-datasets">8.2.1.2. Types Classification Datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-which-of-the-datasets-are">8.2.1.3. Discussion: Which of the datasets are:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-types-of-classification-models">8.2.1.4. General types of classification models</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discriminative-models">8.2.1.4.1. Discriminative models:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-models">8.2.1.4.2. Generative models</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-metrics-and-model-validation">8.2.2. Accuracy metrics and model validation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#false-positives-and-false-negatives">8.2.2.1. False positives and false negatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-consider-a-chemical-process-where-your-model-is-predicting-whether-or-not-a-reactor-is-near-runaway-conditions-what-are-the-implications-of-a-false-positive-or-negative">8.2.2.2. Discussion: Consider a chemical process where your model is predicting whether or not a reactor is near runaway conditions. What are the implications of a false positive or negative?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-precision-recall-and-f1-scores">8.2.2.3. Accuracy, Precision, Recall, and F1 scores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receiver-operating-characteristic-roc-curves">8.2.2.4. Receiver Operating Characteristic (ROC) curves</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrices">8.2.2.5. Confusion matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-and-resampling">8.2.2.6. Cross-validation and Resampling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-class-classification">8.2.3. Multi-class classification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-a-loss-function-for-discrimination">8.2.4. Deriving a loss function for discrimination</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-derive-the-slope-and-intercept-of-the-line-that-discriminates-between-the-two-classes">8.2.4.1. Example: Derive the slope and intercept of the line that discriminates between the two classes.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#counting-loss-function">8.2.4.2. Counting loss function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-what-are-some-differences-between-these-two-loss-functions">8.2.4.3. Discussion: What are some differences between these two loss functions?</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;../settings/plot_style.mplstyle&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">clrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;#003057&#39;</span><span class="p">,</span> <span class="s1">&#39;#EAAA00&#39;</span><span class="p">,</span> <span class="s1">&#39;#4B8B9B&#39;</span><span class="p">,</span> <span class="s1">&#39;#B3A369&#39;</span><span class="p">,</span> <span class="s1">&#39;#377117&#39;</span><span class="p">,</span> <span class="s1">&#39;#1879DB&#39;</span><span class="p">,</span> <span class="s1">&#39;#8E8B76&#39;</span><span class="p">,</span> <span class="s1">&#39;#F5D580&#39;</span><span class="p">,</span> <span class="s1">&#39;#002233&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="classification-overview">
+<h1><span class="section-number">8.2. </span>Classification Overview<a class="headerlink" href="#classification-overview" title="Link to this heading">#</a></h1>
+<section id="problem-statement-and-datasets">
+<h2><span class="section-number">8.2.1. </span>Problem statement and datasets<a class="headerlink" href="#problem-statement-and-datasets" title="Link to this heading">#</a></h2>
+<p>A model that maps continuous or discrete inputs to a discrete (ordinal, categorical, or integer) output space. In this course we will focus primarily on problems with continuous inputs.</p>
+<section id="toy-datasets">
+<h3><span class="section-number">8.2.1.1. </span>Toy datasets<a class="headerlink" href="#toy-datasets" title="Link to this heading">#</a></h3>
+<p>Since this problem type is significantly different than what we have seen before, we will introduce a few new datasets in this module. First, we will consider some “toy” datasets that can be generated using <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets.samples_generator</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blobs</span><span class="p">,</span> <span class="n">make_moons</span><span class="p">,</span> <span class="n">make_circles</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#make sure the same random samples are generated each time</span>
+
+<span class="n">noisiness</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">X_blob</span><span class="p">,</span> <span class="n">y_blob</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">noisiness</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">X_mc</span><span class="p">,</span> <span class="n">y_mc</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="n">noisiness</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">X_circles</span><span class="p">,</span> <span class="n">y_circles</span> <span class="o">=</span> <span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.1</span><span class="o">*</span><span class="n">noisiness</span><span class="p">)</span>
+
+<span class="n">X_moons</span><span class="p">,</span> <span class="n">y_moons</span> <span class="o">=</span> <span class="n">make_moons</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.1</span><span class="o">*</span><span class="n">noisiness</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">all_datasets</span> <span class="o">=</span> <span class="p">[[</span><span class="n">X_blob</span><span class="p">,</span> <span class="n">y_blob</span><span class="p">],</span> <span class="p">[</span><span class="n">X_mc</span><span class="p">,</span> <span class="n">y_mc</span><span class="p">],</span> <span class="p">[</span><span class="n">X_circles</span><span class="p">,</span> <span class="n">y_circles</span><span class="p">],</span> <span class="p">[</span><span class="n">X_moons</span><span class="p">,</span> <span class="n">y_moons</span><span class="p">]]</span>
+<span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2-class blobs dataset&#39;</span><span class="p">,</span> <span class="s1">&#39;3-class blobs dataset&#39;</span><span class="p">,</span> <span class="s1">&#39;circles dataset&#39;</span><span class="p">,</span> <span class="s1">&#39;moons dataset&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">Xy_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_datasets</span><span class="p">):</span>
+    <span class="n">Xi</span><span class="p">,</span> <span class="n">yi</span> <span class="o">=</span> <span class="n">Xy_i</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xi</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">Xi</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">yi</span><span class="p">])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_0$&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/SihoonChoi/opt/anaconda3/lib/python3.7/site-packages/sklearn/utils/deprecation.py:143: FutureWarning: The sklearn.datasets.samples_generator module is  deprecated in version 0.22 and will be removed in version 0.24. The corresponding classes / functions should instead be imported from sklearn.datasets. Anything that cannot be imported from sklearn.datasets is now part of the private API.
+  warnings.warn(message, FutureWarning)
+</pre></div>
+</div>
+<img alt="../_images/05869ec2e8c007ebbe31c3a7313c270914bd137e77e0a601975edbe94c7bf214.png" src="../_images/05869ec2e8c007ebbe31c3a7313c270914bd137e77e0a601975edbe94c7bf214.png" />
+</div>
+</div>
+<p>A few things to note:</p>
+<ul class="simple">
+<li><p>The “random seed” is set to 1, so these will be the same every time.</p></li>
+<li><p>There is a “noisiness” variable that allows us to easily add more noise to these datasets.</p></li>
+<li><p>The outputs, y, are approximately evenly divided between [0, 1] for 2-class datasets, or [0, 1, 2] for the 3 class dataset.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_blob</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3b6ddb80c12c8526df1aaba4ebeb7d2c686c8c723229460968f6a9f7d3c7187f.png" src="../_images/3b6ddb80c12c8526df1aaba4ebeb7d2c686c8c723229460968f6a9f7d3c7187f.png" />
+</div>
+</div>
+</section>
+<section id="types-classification-datasets">
+<h3><span class="section-number">8.2.1.2. </span>Types Classification Datasets<a class="headerlink" href="#types-classification-datasets" title="Link to this heading">#</a></h3>
+<p>There are a few different things to consider when examining a classification dataset:</p>
+<ul class="simple">
+<li><p><strong>Linearly separable</strong>: A problem where it is possible to exactly separate the classes with a straight line (or plane) in the feature space.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/linearly_separable.png"><img alt="../_images/linearly_separable.png" class="align-center" src="../_images/linearly_separable.png" style="width: 400px;" />
+</a>
+<ul class="simple">
+<li><p><strong>Binary vs. Multi-class</strong>: A binary classification problem has only 2 classes, while a multi-class problem has more than 2 classes.</p></li>
+</ul>
+<p>There are two approaches to dealing with multi-class problems:</p>
+<ol class="arabic simple">
+<li><p>Convert multi-class problems to binary problems using a series of “one vs. the rest” binary classifiers</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/OvA.png"><img alt="../_images/OvA.png" class="align-center" src="../_images/OvA.png" style="width: 400px;" />
+</a>
+<ol class="arabic simple" start="2">
+<li><p>Consider the multi-class nature of the problem when deriving the method (e.g. kNN) or determining the cost function (e.g. logistic regression)</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/multiclass_cost.png"><img alt="../_images/multiclass_cost.png" class="align-center" src="../_images/multiclass_cost.png" style="width: 400px;" />
+</a>
+<p>In the end, the difference between these approaches tend to be relatively minor, although the training procedures can be quite different. One vs. the rest is more efficient for parallel training, while multi-class objective functions are more efficient in serial.</p>
+<ul class="simple">
+<li><p><strong>Balanced vs. Imbalanced</strong>: A balanced problem has roughly equal numbers of examples in all classes, while an imbalanced problem has an (typically significantly) higher number of examples of some classes. Strategies for overcoming class imbalance will be briefly discussed in subsequent lectures.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">X_blob1</span><span class="p">,</span> <span class="n">y_blob1</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">centers</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">cluster_std</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">noisiness</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">X_blob2</span><span class="p">,</span> <span class="n">y_blob2</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">centers</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">cluster_std</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">noisiness</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">X_circles1</span><span class="p">,</span> <span class="n">y_circles1</span> <span class="o">=</span> <span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">factor</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">noise</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">noisiness</span><span class="p">)</span>
+
+<span class="n">all_datasets</span> <span class="o">=</span> <span class="p">[[</span><span class="n">X_blob1</span><span class="p">,</span> <span class="n">y_blob1</span><span class="p">],</span> <span class="p">[</span><span class="n">X_circles1</span><span class="p">,</span> <span class="n">y_circles1</span><span class="p">],</span> <span class="p">[</span><span class="n">X_blob2</span><span class="p">,</span> <span class="n">y_blob2</span><span class="p">]]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">Xy_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_datasets</span><span class="p">):</span>
+    <span class="n">Xi</span><span class="p">,</span> <span class="n">yi</span> <span class="o">=</span> <span class="n">Xy_i</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xi</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">Xi</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">yi</span><span class="p">])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_0$&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">)</span>
+    
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Linearly Separable&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Non-linearly Separable&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Inseparable&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b4340d4e3ccfca2351d42d44cef6fade63683e136943ca6c8acca8c047331567.png" src="../_images/b4340d4e3ccfca2351d42d44cef6fade63683e136943ca6c8acca8c047331567.png" />
+</div>
+</div>
+</section>
+<section id="discussion-which-of-the-datasets-are">
+<h3><span class="section-number">8.2.1.3. </span>Discussion: Which of the datasets are:<a class="headerlink" href="#discussion-which-of-the-datasets-are" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Linearly separable?</p></li>
+</ul>
+<blockquote>
+<div><p>blobs dataset</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Non-linearly separable?</p></li>
+</ul>
+<blockquote>
+<div><p>moons dataset, circles dataset</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Balanced?</p></li>
+</ul>
+<blockquote>
+<div><p>all datasets are balanced</p>
+</div></blockquote>
+</section>
+<section id="general-types-of-classification-models">
+<h3><span class="section-number">8.2.1.4. </span>General types of classification models<a class="headerlink" href="#general-types-of-classification-models" title="Link to this heading">#</a></h3>
+<p>There are two distinct types of classification models: discriminative and generative. We will focus on discriminative models, but will also discuss and see examples of generative models.</p>
+<section id="discriminative-models">
+<h4><span class="section-number">8.2.1.4.1. </span>Discriminative models:<a class="headerlink" href="#discriminative-models" title="Link to this heading">#</a></h4>
+<p>These models are most similar to regression. Rather than learning a line\model that best represents the data we want to learn a line\model that best separates (discriminates) between different classes. For a binary classifier we can write this as:</p>
+<p><span class="math notranslate nohighlight">\(f(\vec{x}) &gt; p\)</span> if class 1</p>
+<p><span class="math notranslate nohighlight">\(f(\vec{x}) &lt; p\)</span> if class 2</p>
+<p>where <span class="math notranslate nohighlight">\(p\)</span> is some constant threshold that separates the classes.</p>
+<p>Another way to think of this is that we will establish a function that estimates the probability of a point belonging to a particular class, given its features:</p>
+<p><span class="math notranslate nohighlight">\(P(y_i|\vec{x}) = f(\vec{x})\)</span></p>
+<p>Then the classes can be discretized by establishing probability cutoffs. Conceptually, discriminative models separate classes by identifying <strong>differences</strong> between classes, and directly solve the problem of estimating class probability.</p>
+</section>
+<section id="generative-models">
+<h4><span class="section-number">8.2.1.4.2. </span>Generative models<a class="headerlink" href="#generative-models" title="Link to this heading">#</a></h4>
+<p>Generative models are somewhat less intuitive, but can be very powerful. In a generative model the goal is to solve the “inverse problem” of predicting the probability of features given a class label output. Conceptually, you can think of this as identifying <strong>similarities</strong> between points within a given class. Mathematically:</p>
+<p><span class="math notranslate nohighlight">\(P(\vec{x}|y_i) = f(\vec{x})\)</span></p>
+<p>This is counter-intuitive, but the model can then be used in conjunction with Bayes’ rule to indirectly solve the classification problem. Bayes rule is:</p>
+<p><span class="math notranslate nohighlight">\(P(A|B) = \frac{P(B|A) P(A)}{P(B)} \rightarrow P(y_i|\vec{x}) = \frac{P(\vec{x}|y_i) P(y_i)}{P(\vec{x})}\)</span></p>
+<p>The <span class="math notranslate nohighlight">\(P(y_i)\)</span> term is available from the data (number of times each class appears) and the <span class="math notranslate nohighlight">\(P(\vec{x})\)</span> term is a constant so it can be dropped when computing relative probabilities.</p>
+<p>Generative models are more difficult to understand, but they have a key advantage: new synthetic data can be generated by using the function <span class="math notranslate nohighlight">\(P(\vec{x}|y_i)\)</span>. This opens the possibility of iterative training schemes that systematically improve the estimate of <span class="math notranslate nohighlight">\(P(\vec{x}|y_i)\)</span> (e.g. Generative Artificial Neural Networks) and can also aid in diagnosing problems in models.</p>
+<a class="reference internal image-reference" href="../_images/discriminative_vs_generative.png"><img alt="../_images/discriminative_vs_generative.png" class="align-center" src="../_images/discriminative_vs_generative.png" style="width: 800px;" />
+</a>
+</section>
+</section>
+</section>
+<section id="accuracy-metrics-and-model-validation">
+<h2><span class="section-number">8.2.2. </span>Accuracy metrics and model validation<a class="headerlink" href="#accuracy-metrics-and-model-validation" title="Link to this heading">#</a></h2>
+<p>Assessing the accuracy of a classification model requires different metrics from regression. We will explore a few here.</p>
+<section id="false-positives-and-false-negatives">
+<h3><span class="section-number">8.2.2.1. </span>False positives and false negatives<a class="headerlink" href="#false-positives-and-false-negatives" title="Link to this heading">#</a></h3>
+<p>Since the output of a classification problem is discrete, we can have different types of errors. In particular, there are 2 types of errors for any 2-class problem:</p>
+<ul class="simple">
+<li><p>False positives (Type I error): A point is classified as 1 but should be 0.</p></li>
+<li><p>False negatives (Type II error): A point is classified as 0 but should be 1.</p></li>
+</ul>
+<p>Note that in most problems we will work with the definition of 0 and 1 is arbitrary, so these types can be arbitrarily switched. However, they are still distinctly different kinds of failures of the model, and in some cases it can make a big difference.</p>
+</section>
+<section id="discussion-consider-a-chemical-process-where-your-model-is-predicting-whether-or-not-a-reactor-is-near-runaway-conditions-what-are-the-implications-of-a-false-positive-or-negative">
+<h3><span class="section-number">8.2.2.2. </span>Discussion: Consider a chemical process where your model is predicting whether or not a reactor is near runaway conditions. What are the implications of a false positive or negative?<a class="headerlink" href="#discussion-consider-a-chemical-process-where-your-model-is-predicting-whether-or-not-a-reactor-is-near-runaway-conditions-what-are-the-implications-of-a-false-positive-or-negative" title="Link to this heading">#</a></h3>
+</section>
+<section id="accuracy-precision-recall-and-f1-scores">
+<h3><span class="section-number">8.2.2.3. </span>Accuracy, Precision, Recall, and F1 scores<a class="headerlink" href="#accuracy-precision-recall-and-f1-scores" title="Link to this heading">#</a></h3>
+<p>The accuracy, precision, and recall are 3 common metrics for evaluating 2-class models:</p>
+<ul class="simple">
+<li><p>Accuracy = (number correct)/(total) = (TP + TN)/(TP + TN + FP + FN)</p></li>
+<li><p>Precision = TP/(TP + FP)</p></li>
+<li><p>Recall = TP/(TP + FN)</p></li>
+</ul>
+<p>An additional metric, the F1 score, is sometimes used to summarize precision and recall:</p>
+<ul class="simple">
+<li><p>F1 = <span class="math notranslate nohighlight">\(\frac{2 Precision \times Recall}{Precision + Recall}\)</span></p></li>
+</ul>
+<p>This is the “harmonic mean” of precision and recall and ranges from 0 for a model with 0 precision or recall to 1 for a model with perfec precision and recall.</p>
+<a class="reference internal image-reference" href="../_images/precision_recall.png"><img alt="../_images/precision_recall.png" class="align-center" src="../_images/precision_recall.png" style="width: 500px;" />
+</a>
+<p>We can implement this with a simple Python function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">acc_prec_recall</span><span class="p">(</span><span class="n">y_model</span><span class="p">,</span> <span class="n">y_actual</span><span class="p">):</span>
+    <span class="n">TP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">y_model</span> <span class="o">==</span> <span class="n">y_actual</span><span class="p">,</span> <span class="n">y_model</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">TN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">y_model</span> <span class="o">==</span> <span class="n">y_actual</span><span class="p">,</span> <span class="n">y_model</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">FP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">y_model</span> <span class="o">!=</span> <span class="n">y_actual</span><span class="p">,</span> <span class="n">y_model</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">FN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">y_model</span> <span class="o">!=</span> <span class="n">y_actual</span><span class="p">,</span> <span class="n">y_model</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">TP</span> <span class="o">+</span> <span class="n">TN</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">TP</span> <span class="o">+</span> <span class="n">TN</span> <span class="o">+</span> <span class="n">FP</span> <span class="o">+</span> <span class="n">FN</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">TP</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">prec</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">recall</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">prec</span> <span class="o">=</span> <span class="n">TP</span> <span class="o">/</span> <span class="p">(</span><span class="n">TP</span> <span class="o">+</span> <span class="n">FP</span><span class="p">)</span>
+        <span class="n">recall</span> <span class="o">=</span> <span class="n">TP</span> <span class="o">/</span> <span class="p">(</span><span class="n">TP</span> <span class="o">+</span> <span class="n">FN</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">acc</span><span class="p">,</span> <span class="n">prec</span><span class="p">,</span> <span class="n">recall</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These metrics depend strongly on the class imbalance! Let’s take one of our toy datasets and create a truly bad classifier that always guesses that the class is 0. Then, we can see how the accuracy, precision, and recall of this classifier change as the imbalance shifts:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_include</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="c1">#only include N_include examples of class 1</span>
+<span class="n">y_imbalanced</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">Ni</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">yi</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y_moons</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">yi</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">Ni</span> <span class="o">&lt;</span> <span class="n">N_include</span><span class="p">:</span>
+        <span class="n">y_imbalanced</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yi</span><span class="p">)</span>
+        <span class="n">Ni</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">yi</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">y_imbalanced</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yi</span><span class="p">)</span>
+
+<span class="n">y_imbalanced</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_imbalanced</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_imbalanced</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Class&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c78a2fdf713a081f367aa3a941622a14b1bb0786b00f18454a4ef81aee3dd75a.png" src="../_images/c78a2fdf713a081f367aa3a941622a14b1bb0786b00f18454a4ef81aee3dd75a.png" />
+</div>
+</div>
+<p>Now we can calculate the accuracy, precision, and recall when our classifier simply guesses that every point is 0:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_guess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_imbalanced</span><span class="p">))</span>
+
+<span class="n">acc_prec_recall</span><span class="p">(</span><span class="n">y_guess</span><span class="p">,</span> <span class="n">y_imbalanced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.7692307692307693, 0, 0)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="receiver-operating-characteristic-roc-curves">
+<h3><span class="section-number">8.2.2.4. </span>Receiver Operating Characteristic (ROC) curves<a class="headerlink" href="#receiver-operating-characteristic-roc-curves" title="Link to this heading">#</a></h3>
+<p>The “receiver operating characteristic”, or ROC curve, is useful for models where a threshold is used to tune the rate of false positives and false negatives. The area under the curve can be used as a metric for how well the model performs.</p>
+<a class="reference internal image-reference" href="../_images/ROC_curve.jpg"><img alt="../_images/ROC_curve.jpg" class="align-center" src="../_images/ROC_curve.jpg" style="width: 300px;" />
+</a>
+<p>We will discuss this metric more once the meaning of a “threshold” has been described.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">roc_curve</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">SGDClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+
+<span class="n">svc</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">()</span>
+<span class="n">sgd</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">()</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+
+<span class="n">sgd</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_blob2</span><span class="p">,</span> <span class="n">y_blob2</span><span class="p">)</span>
+<span class="n">y_sgd</span> <span class="o">=</span> <span class="n">sgd</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_blob2</span><span class="p">)</span>
+
+<span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_blob2</span><span class="p">,</span> <span class="n">y_blob2</span><span class="p">)</span>
+<span class="n">y_rf</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_blob2</span><span class="p">)</span>
+
+<span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y_blob2</span><span class="p">,</span> <span class="n">y_rf</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">fpr</span><span class="p">,</span> <span class="s1">&#39;#C0C0C0&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;False Positive Rate&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;ROC AUC&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f7af1dedc5ff2fce47dd3658d013b5832ae85a430d23be8a20afe7b509773ebe.png" src="../_images/f7af1dedc5ff2fce47dd3658d013b5832ae85a430d23be8a20afe7b509773ebe.png" />
+</div>
+</div>
+</section>
+<section id="confusion-matrices">
+<h3><span class="section-number">8.2.2.5. </span>Confusion matrices<a class="headerlink" href="#confusion-matrices" title="Link to this heading">#</a></h3>
+<p>False positives and false negatives only apply to binary problems. The “confusion matrix” is a multi-class generalization of the concept, and can help identify which classes are “confusing” the algorithm.</p>
+<a class="reference internal image-reference" href="../_images/confusion_matrix.png"><img alt="../_images/confusion_matrix.png" class="align-center" src="../_images/confusion_matrix.png" style="width: 500px;" />
+</a>
+<p>In a confusion matrix the diagonal elements correspond to true positives and true negatives, while the off-diagonal elements correspond to false postives and false negatives, with false positives above the diagonal and false negatives below (or vice versa, depending on label definitions).</p>
+</section>
+<section id="cross-validation-and-resampling">
+<h3><span class="section-number">8.2.2.6. </span>Cross-validation and Resampling<a class="headerlink" href="#cross-validation-and-resampling" title="Link to this heading">#</a></h3>
+<p>Similar to the case of regression, cross-validation is an important tool for classification models. The general idea is the same: We hide some of the data from the model when we train it, then we test the model on the hidden data.</p>
+<p>However, there are a few wrinkles in classification that arise in the case of class imbalance. When constructing test/train sets, it is important to ensure that all classes are represented in a manner consistent with the overall set. This can be a major challenge if the classes are highly imbalanced. The best approach is to balance classes prior to cross validation. There are a few strategies for doing this:</p>
+<ol class="arabic simple">
+<li><p>Re-balancing the cost function to penalize mis-classification of the under-represented class more. This works well, but requires that you know the relative importance of the 2 classes, and requires modifying the inner working of the algorithms. It also suffers from some of the same disadvantages as over-sampling.</p></li>
+<li><p>Undersampling: discarding information from over-represented class. This is inefficient since not all information is used.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/class_imbalance.png"><img alt="../_images/class_imbalance.png" class="align-center" src="../_images/class_imbalance.png" style="width: 500px;" />
+</a>
+<ol class="arabic simple" start="3">
+<li><p>Oversampling: add repeates of the under-represented class (very similar to re-balancing the cost function). This can lead to over-fitting of the decision boundary to the few examples of the under-represented class.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/oversampling.png"><img alt="../_images/oversampling.png" class="align-center" src="../_images/oversampling.png" style="width: 500px;" />
+</a>
+<ol class="arabic simple" start="4">
+<li><p>Resampling: Re-sample from the under-represented class, but add some noise. This is a robust solution, but requires some knowledge of the distribution of the under-represented data (e.g. generative models) or special techniques (e.g. SMOTE).</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/smote.png"><img alt="../_images/smote.png" class="align-center" src="../_images/smote.png" style="width: 500px;" />
+</a>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_imbalanced</span><span class="p">[</span><span class="n">y_imbalanced</span> <span class="o">==</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_imbalanced</span><span class="p">[</span><span class="n">y_imbalanced</span> <span class="o">==</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Class&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/183a7cc7cdf860ebb48ebc8db90a44afcf0d3ebda9766fafc00ff438e59ae8a9.png" src="../_images/183a7cc7cdf860ebb48ebc8db90a44afcf0d3ebda9766fafc00ff438e59ae8a9.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="multi-class-classification">
+<h2><span class="section-number">8.2.3. </span>Multi-class classification<a class="headerlink" href="#multi-class-classification" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">X_blob1</span><span class="p">,</span> <span class="n">y_blob1</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">centers</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">cluster_std</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">noisiness</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">248</span><span class="p">)</span>
+<span class="n">X_blob3</span><span class="p">,</span> <span class="n">y_blob3</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">centers</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">cluster_std</span> <span class="o">=</span> <span class="mf">.6</span> <span class="o">*</span> <span class="n">noisiness</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_datasets</span> <span class="o">=</span> <span class="p">[[</span><span class="n">X_blob1</span><span class="p">,</span> <span class="n">y_blob1</span><span class="p">],</span> <span class="p">[</span><span class="n">X_blob3</span><span class="p">,</span> <span class="n">y_blob3</span><span class="p">]]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">Xy_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_datasets</span><span class="p">):</span>
+    <span class="n">Xi</span><span class="p">,</span> <span class="n">yi</span> <span class="o">=</span> <span class="n">Xy_i</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xi</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">Xi</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">yi</span><span class="p">])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_0$&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">)</span>
+    
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Binary&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Multi-class&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ee060bce83ef9aec551e9484b7e6d05658b8ba933ceccf5248680109d14be388.png" src="../_images/ee060bce83ef9aec551e9484b7e6d05658b8ba933ceccf5248680109d14be388.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_mc</span><span class="p">,</span> <span class="n">y_mc</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">centers</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">cluster_std</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">noisiness</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">decision_function_shape</span> <span class="o">=</span> <span class="s1">&#39;ovr&#39;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_mc</span><span class="p">,</span> <span class="n">y_mc</span><span class="p">)</span>
+<span class="n">y_mc_hat</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_mc</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_mc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_mc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">y_mc</span><span class="p">])</span>
+
+<span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">X_mc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X_mc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">X_mc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X_mc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+
+<span class="n">Z</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_mc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_mc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">y_mc_hat</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Original Data&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Prediction&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2defc9100125a0a5c8c37257901ee05a9316d3e6e740719adab5c770e6bdb354.png" src="../_images/2defc9100125a0a5c8c37257901ee05a9316d3e6e740719adab5c770e6bdb354.png" />
+</div>
+</div>
+</section>
+<section id="deriving-a-loss-function-for-discrimination">
+<h2><span class="section-number">8.2.4. </span>Deriving a loss function for discrimination<a class="headerlink" href="#deriving-a-loss-function-for-discrimination" title="Link to this heading">#</a></h2>
+<p>So far we have not actually discussed how to create a classification model. We will start by investigating discriminative models, since these are most similar to regression. The difference is that instead of regressing a line that fits the input data, we are regressing a line that discriminates between the two classes. This requires a new loss function. We can derive one such loss function by considering the following mathematical definition of a classification model.</p>
+<p>We will start by considering a discrimination problem:</p>
+<p><span class="math notranslate nohighlight">\(f(\vec{x}) &gt; p\)</span> if class 1</p>
+<p><span class="math notranslate nohighlight">\(f(\vec{x}) &lt; p\)</span> if class 2</p>
+<p>and let <span class="math notranslate nohighlight">\(f(\vec{x}) = \bar{\bar{X}}\vec{w}\)</span>, where <span class="math notranslate nohighlight">\(\bar{\bar{X}} = [\vec{x}, \vec{1}]\)</span> similar to linear regression.</p>
+<p>We can use <span class="math notranslate nohighlight">\(y\)</span> as the output variable and arbitrarily assign “class 1” to 1 and “class 2” to -1, such that <span class="math notranslate nohighlight">\(p = 0\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\bar{\bar{X}}\vec{w} &gt; 0\)</span> if <span class="math notranslate nohighlight">\(y_i=1\)</span> (class 1)</p>
+<p><span class="math notranslate nohighlight">\(\bar{\bar{X}}\vec{w} &lt; 0\)</span> if <span class="math notranslate nohighlight">\(y_i=-1\)</span> (class 2)</p>
+<p>Let’s take a look at this in code with some toy data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_intercept</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">intercept</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">X_intercept</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">intercept</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X_intercept</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">linear_classifier</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+    <span class="n">X_intercept</span> <span class="o">=</span> <span class="n">add_intercept</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_intercept</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">X_blob</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y_blob</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y_blob</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1">#convert to -1, 1</span>
+
+<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">linear_classifier</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">y_blob</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">prediction</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1">#plot line</span>
+<span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">w</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">w</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">m</span><span class="o">*</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Original Data&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Prediction&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6dd4b7bc42fe3773b96682a941e23e1a9e60830d6b9172653d97541948f8b7bc.png" src="../_images/6dd4b7bc42fe3773b96682a941e23e1a9e60830d6b9172653d97541948f8b7bc.png" />
+</div>
+</div>
+<section id="example-derive-the-slope-and-intercept-of-the-line-that-discriminates-between-the-two-classes">
+<h3><span class="section-number">8.2.4.1. </span>Example: Derive the slope and intercept of the line that discriminates between the two classes.<a class="headerlink" href="#example-derive-the-slope-and-intercept-of-the-line-that-discriminates-between-the-two-classes" title="Link to this heading">#</a></h3>
+<p>Consider a model of the form:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\bar{\bar{X}}\vec{w} &gt; 0\)</span> if <span class="math notranslate nohighlight">\(y_i=1\)</span> (class 1)</p>
+</div></blockquote>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\bar{\bar{X}}\vec{w} &lt; 0\)</span> if <span class="math notranslate nohighlight">\(y_i=-1\)</span> (class 2)</p>
+</div></blockquote>
+<blockquote>
+<div><p>where <span class="math notranslate nohighlight">\(\bar{\bar{X}} = [\vec{x_0}, \vec{x_1}, \vec{1}]\)</span> and <span class="math notranslate nohighlight">\(\vec{w} = [w_0, w_1, w_2]\)</span>.</p>
+</div></blockquote>
+<p>Then, the equation will be</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(x_0w_0 + x_1w_1 + w_2 = 0\)</span></p>
+</div></blockquote>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(x_1 = -\frac{w_0}{w_1}x_0 - \frac{w_2}{w_1}\)</span></p>
+</div></blockquote>
+<p>The slope will be <span class="math notranslate nohighlight">\(-\frac{w_0}{w_1}\)</span> and the intercept will be <span class="math notranslate nohighlight">\(-\frac{w_2}{w_1}\)</span>.</p>
+<p>This looks a lot like linear regression, but we still need an <strong>objective function</strong>. This is where things get tricky. Based on the definition of <span class="math notranslate nohighlight">\(\pm\)</span>1 for classes, and the algebraic rules for inequalities, we can multiply by <span class="math notranslate nohighlight">\(y_i\)</span> and re-write this as a single line:</p>
+<p><span class="math notranslate nohighlight">\(-y_i \bar{\bar{X}}\vec{w} &lt; 0\)</span></p>
+<p>Convince yourself that this is true!</p>
+<p>Now we can turn this into an equality by taking the maximum:</p>
+<p><span class="math notranslate nohighlight">\(max(0, -y_i \bar{\bar{X}}\vec{w}) = 0\)</span></p>
+<p>Now we are getting close. If a point <span class="math notranslate nohighlight">\(y_i\)</span> is mis-classified then this will give a positive value, but if it is correctly classified it will return zero. Therefore we can get a cost for the entire dataset by summing the function over all data points:</p>
+<p><span class="math notranslate nohighlight">\(g(\vec{w}) = \sum_i max(0, -y_i \bar{\bar{X}}\vec{w})\)</span></p>
+<p>and we can find the optimal <span class="math notranslate nohighlight">\(\vec{w}\)</span> by minimizing <span class="math notranslate nohighlight">\(g\)</span> with respect to <span class="math notranslate nohighlight">\(\vec{w}\)</span></p>
+<p>This is the “max cost” function, often commonly referred to as the “perceptron” model. We can implement this loss function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">max_cost</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">X_intercept</span> <span class="o">=</span> <span class="n">add_intercept</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">Xb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_intercept</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">y</span><span class="o">*</span><span class="n">Xb</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">max_cost</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.75103040564972
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="counting-loss-function">
+<h3><span class="section-number">8.2.4.2. </span>Counting loss function<a class="headerlink" href="#counting-loss-function" title="Link to this heading">#</a></h3>
+<p>We can also modify the loss function so that we count the number of points that are incorrect by taking the “sign” before summing over the points:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">n_wrong</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">X_intercept</span> <span class="o">=</span> <span class="n">add_intercept</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">Xb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_intercept</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="o">*</span><span class="n">Xb</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">n_wrong</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>In principle, we can also minimize this directly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">minimize</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">n_wrong</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+
+<span class="n">w_count</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n_wrong</span><span class="p">(</span><span class="n">w_count</span><span class="p">))</span>
+
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">linear_classifier</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w_count</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[(</span><span class="n">y</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">clrs</span><span class="p">[</span><span class="n">prediction</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1">#plot line</span>
+<span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">w_count</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">w_count</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="n">w_count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">w_count</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">m</span><span class="o">*</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+<img alt="../_images/551226b9449235db2b7c5a8acc3f5c99974e5cebae8e8b5462c022970a30a335.png" src="../_images/551226b9449235db2b7c5a8acc3f5c99974e5cebae8e8b5462c022970a30a335.png" />
+</div>
+</div>
+<p>The problem is that the “sign” function is not differentiable! This makes it a bad loss function. In general, we expect that minimizing the loss functions should also minimize the number of incorrect points, but this isn’t always the case.</p>
+</section>
+<section id="discussion-what-are-some-differences-between-these-two-loss-functions">
+<h3><span class="section-number">8.2.4.3. </span>Discussion: What are some differences between these two loss functions?<a class="headerlink" href="#discussion-what-are-some-differences-between-these-two-loss-functions" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p>The max cost function tells how far the input is from the discrimination line, while the counting loss function only tells the number of misclassification.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Intro_to_Classification_and_Generative_Models.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Intro to Classification and Generative Models</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ML_2_2_Generalized_Linear_Models.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">8.3. </span>Generalized Linear Models</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-statement-and-datasets">8.2.1. Problem statement and datasets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toy-datasets">8.2.1.1. Toy datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-classification-datasets">8.2.1.2. Types Classification Datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-which-of-the-datasets-are">8.2.1.3. Discussion: Which of the datasets are:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-types-of-classification-models">8.2.1.4. General types of classification models</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discriminative-models">8.2.1.4.1. Discriminative models:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-models">8.2.1.4.2. Generative models</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-metrics-and-model-validation">8.2.2. Accuracy metrics and model validation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#false-positives-and-false-negatives">8.2.2.1. False positives and false negatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-consider-a-chemical-process-where-your-model-is-predicting-whether-or-not-a-reactor-is-near-runaway-conditions-what-are-the-implications-of-a-false-positive-or-negative">8.2.2.2. Discussion: Consider a chemical process where your model is predicting whether or not a reactor is near runaway conditions. What are the implications of a false positive or negative?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-precision-recall-and-f1-scores">8.2.2.3. Accuracy, Precision, Recall, and F1 scores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receiver-operating-characteristic-roc-curves">8.2.2.4. Receiver Operating Characteristic (ROC) curves</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrices">8.2.2.5. Confusion matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-and-resampling">8.2.2.6. Cross-validation and Resampling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-class-classification">8.2.3. Multi-class classification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-a-loss-function-for-discrimination">8.2.4. Deriving a loss function for discrimination</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-derive-the-slope-and-intercept-of-the-line-that-discriminates-between-the-two-classes">8.2.4.1. Example: Derive the slope and intercept of the line that discriminates between the two classes.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#counting-loss-function">8.2.4.2. Counting loss function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-what-are-some-differences-between-these-two-loss-functions">8.2.4.3. Discussion: What are some differences between these two loss functions?</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Medford Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

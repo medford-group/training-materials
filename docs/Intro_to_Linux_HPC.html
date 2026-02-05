@@ -1,0 +1,701 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. Introduction to Linux and High-Performance Computing &#8212; Medford Group Graduate Training</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Intro_to_Linux_HPC';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.4. Exercises" href="Exercises_linux.html" />
+    <link rel="prev" title="2.6. Exercises - Calculators" href="Exercises_ASE_calcs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Medford Group Graduate Training - Home"/>
+    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Medford Group Graduate Training - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Medford Group Graduate Training
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">VIP</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="VIP_Info.html">VIP Materials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VIP_syllabus.html">VIP Course Syllabus</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="VIP_Overview.html">Big Data &amp; Quantum Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VIP_Ads_energy_project.html">DFT adsorption energy reproducibility project</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Training Materials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Basic_Python_Tools.html">1. Introduction to Basic Python Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_Python_programming.html">1.3. Introduction to Python programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_numpy.html">1.4. Numpy -  multidimensional data arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_scipy.html">1.5. SciPy - Library of scientific algorithms for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_plotting_in_Python.html">1.6. matplotlib - Plotting in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_python.html">1.7. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Manipulating_Atoms_in_Python.html">2. Introduction to Manipulating Atoms in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Building_Structures.html">2.3. Intro to Building Structures with ASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Calculators.html">2.4. Intro to ASE Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_intro.html">2.5. Exercises - Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_calcs.html">2.6. Exercises - Calculators</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3. Introduction to Linux and High-Performance Computing</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_linux.html">3.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_Density_Functional_Theory.html">4. Introduction to Density Functional Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Running_Density_Functional_Theory_on_PACE.html">5. Running Density Functional Theory on PACE</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Running_QE_on_PACE.html">5.3. Running QE on PACE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Running_SPARC_on_PACE.html">5.4. Running a simple DFT calculation on PACE Supercomputer Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_basics.html">5.5. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">6. Applications of Density Functional Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">6.2. Adsorption energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_SPARC.html">6.3. Adsorption energy from DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">6.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">7. Intro to Regression and High Dimensional Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">7.2. Non-Parametric Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_2_Complexity_Optimization.html">7.3. Complexity Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">7.4. High Dimensional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_4_Dimensionality_Reduction.html">7.5. Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">7.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">8. Intro to Classification and Generative Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_1_Classification_Basics.html">8.2. Classification Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">8.3. Generalized Linear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">8.4. Alternate classification methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">8.5. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_5_Generative_Models.html">8.6. Generative Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">8.7. Exercises</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Appendix.html">Appendix</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Literature_Searches.html">Basics of Searching and Reading Scientific Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create_DFT_Environments.html">Create DFT Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gas_formation_energy_calculation_in_SPARC.html">Gas formation energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Referencing_Binding_Energies.html">Referencing Binding Energies</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/Intro_to_Linux_HPC.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Linux and High-Performance Computing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lectures">3.1. Lectures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linux-terminal">3.2. The Linux Terminal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-through-file-structures">3.2.1. Moving Through File Structures</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ls-command">3.2.1.1. The ls Command</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cd-command">3.2.1.2. The cd Command</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-problem">3.2.1.3. Quick Problem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#making-files-and-directories">3.2.1.4. Making Files and Directories</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-files">3.2.1.5. Removing Files</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#running-code">3.2.1.6. Running Code</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts-environments-and-aliases">3.2.2. Scripts, Environments, and Aliases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ssh-to-get-onto-the-supercomputer">3.2.3. Using ssh To Get Onto The Supercomputer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-cluster-supercomputers">3.3. Linux Cluster Supercomputers</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-linux-and-high-performance-computing">
+<span id="linux-hpc"></span><h1><span class="section-number">3. </span>Introduction to Linux and High-Performance Computing<a class="headerlink" href="#introduction-to-linux-and-high-performance-computing" title="Link to this heading">#</a></h1>
+<p>An OS is a resource manager that is used to access system resources by users and application programs. <a class="reference external" href="https://github.com/torvalds/linux">Linux</a> is an open source OS developed by <a class="reference external" href="https://en.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a>.  Linux is based on <a class="reference external" href="https://en.wikipedia.org/wiki/Unix">Unix</a>, and therefore shares much of its functionality with other unix based operating systems (such as MacOS.) Linux is the most widely used OS in computational research groups and runs much of the internet because it is freely available.</p>
+<section id="lectures">
+<h2><span class="section-number">3.1. </span>Lectures<a class="headerlink" href="#lectures" title="Link to this heading">#</a></h2>
+<p>HPC.1 <a class="reference external" href="https://mediaspace.gatech.edu/media/VIP-BDQM-L02a-Intro_to_Linux_Computing/1_kb78m0hg">Introduction to Linux Computing</a>
+HPC.2 <a class="reference external" href="https://mediaspace.gatech.edu/media/VIP-BDQM-L02d-slurm_bash_scripting/1_hqyzso1y">Slurm/Bash Scripting</a></p>
+</section>
+<section id="the-linux-terminal">
+<h2><span class="section-number">3.2. </span>The Linux Terminal<a class="headerlink" href="#the-linux-terminal" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Please make sure you can <a class="reference external" href="https://github.com/medford-group/bdqm-vip/blob/master/files/installing_software.md">open a terminal</a></p></li>
+<li><p>You issue commands in the terminal</p></li>
+<li><p>more complicated than you’re used to, but much more powerful once mastered</p></li>
+<li><p>this lets you navigate file systems, edit files, and run code</p></li>
+<li><p>start by typing <code class="docutils literal notranslate"><span class="pre">ls</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span></code> lists files in your current directory</p></li>
+<li><p>most common command</p></li>
+</ul>
+<section id="moving-through-file-structures">
+<h3><span class="section-number">3.2.1. </span>Moving Through File Structures<a class="headerlink" href="#moving-through-file-structures" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>run <code class="docutils literal notranslate"><span class="pre">pwd</span></code></p></li>
+<li><p>This stands for “print working directory”</p></li>
+<li><p>shows you where you are</p></li>
+<li><p>you’re inside a file system in your “home directory”</p></li>
+</ul>
+<p><img alt="alt text" src="https://swcarpentry.github.io/shell-novice/fig/filesystem.svg" /></p>
+<ul class="simple">
+<li><p>There is the “root” directory which is “/” and a few beneath it</p></li>
+<li><p>“Users” is where user home directories are kept</p></li>
+</ul>
+<section id="the-ls-command">
+<h4><span class="section-number">3.2.1.1. </span>The ls Command<a class="headerlink" href="#the-ls-command" title="Link to this heading">#</a></h4>
+<p><img alt="alt text" src="https://swcarpentry.github.io/shell-novice/fig/home-directories.svg" /></p>
+<ul class="simple">
+<li><p>run <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span></code></p></li>
+<li><p>shows the slashes</p></li>
+<li><p>run <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span> <span class="pre">/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-f</span> <span class="pre">/tmp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">--help</span></code> for help</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">ls</span></code> give the manual (press “q” to exit this)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-j</span></code> doesn’t work</p></li>
+<li><p>what does <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> do?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span> <span class="pre">-a</span></code> to see hidden files</p></li>
+</ul>
+</section>
+<section id="the-cd-command">
+<h4><span class="section-number">3.2.1.2. </span>The cd Command<a class="headerlink" href="#the-cd-command" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code> lets you change directories</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/</span></code></p></li>
+<li><p>this takes us to the root directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code></p></li>
+<li><p>tidle is always your home directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code> is the current directory <code class="docutils literal notranslate"><span class="pre">..</span></code> is one directory up</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">.</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code></p></li>
+</ul>
+</section>
+<section id="quick-problem">
+<h4><span class="section-number">3.2.1.3. </span>Quick Problem<a class="headerlink" href="#quick-problem" title="Link to this heading">#</a></h4>
+<p><img alt="alt text" src="https://swcarpentry.github.io/shell-novice/fig/filesystem-challenge.svg" /></p>
+<p>if <code class="docutils literal notranslate"><span class="pre">pwd</span></code> shows <code class="docutils literal notranslate"><span class="pre">/Users/thing</span></code> what will <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span> <span class="pre">../backup</span></code> display</p>
+</section>
+<section id="making-files-and-directories">
+<h4><span class="section-number">3.2.1.4. </span>Making Files and Directories<a class="headerlink" href="#making-files-and-directories" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mkdir</span></code> makes directories</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">thesis</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">data</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">draft.txt</span></code></p></li>
+<li><p>write something</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">X</span></code> saves and quits</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code> is <code class="docutils literal notranslate"><span class="pre">ctrl</span></code></p></li>
+<li><p>editing files in terminal is important for research</p></li>
+<li><p>Questions</p></li>
+</ul>
+</section>
+<section id="removing-files">
+<h4><span class="section-number">3.2.1.5. </span>Removing Files<a class="headerlink" href="#removing-files" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>be extremely careful</p></li>
+<li><p>no recycle bin in linux</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">[filename]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code> for folders</p></li>
+</ul>
+</section>
+<section id="running-code">
+<h4><span class="section-number">3.2.1.6. </span>Running Code<a class="headerlink" href="#running-code" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>for our purposes we’ll use <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">[program</span> <span class="pre">name]</span></code></p></li>
+<li><p>make a python script</p></li>
+<li><p>run script</p></li>
+</ul>
+</section>
+</section>
+<section id="scripts-environments-and-aliases">
+<h3><span class="section-number">3.2.2. </span>Scripts, Environments, and Aliases<a class="headerlink" href="#scripts-environments-and-aliases" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>terminals are running a “shell” program. Most commonly, basic shell, or “bash” (other options: c shell, fish, etc.)</p></li>
+<li><p>shell commands can be strung together and combined with loops/conditions to form “scripts” (usually .sh files)</p></li>
+<li><p>by default, a “run commands” or “rc” script will be run when the shell starts (usually ~/.bashrc)</p></li>
+<li><p>shells can access “environment variables” which tell them where files live (e.g. <span class="math notranslate nohighlight">\(PATH, \)</span>PYTHONPATH)</p></li>
+<li><p>aliases can be used to create shortcuts and make new commands</p></li>
+</ul>
+</section>
+<section id="using-ssh-to-get-onto-the-supercomputer">
+<h3><span class="section-number">3.2.3. </span>Using ssh To Get Onto The Supercomputer<a class="headerlink" href="#using-ssh-to-get-onto-the-supercomputer" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>ssh is a secure remote linux terminal</p></li>
+<li><p>can be done through other programs on windows like <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">Putty</a></p></li>
+<li><p>It is important to note that, in order to access PACE, your internet connection must be through GT’s <a class="reference external" href="https://gatech.service-now.com/home?id=kb_article_view&amp;amp;sysparm_article=KB0026837">VPN</a>. This is true even when connected to campus wifi.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-X</span> <span class="pre">[username]&#64;login-ice.pace.gatech.edu</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-X</span></code> allows visual data to be sent to your computer</p></li>
+</ul>
+</section>
+</section>
+<section id="linux-cluster-supercomputers">
+<h2><span class="section-number">3.3. </span>Linux Cluster Supercomputers<a class="headerlink" href="#linux-cluster-supercomputers" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>pace is a <a class="reference external" href="https://en.wikipedia.org/wiki/Computer_cluster">Linux cluster supercomputer</a></p></li>
+<li><p>It is several computers all running linux connected together</p></li>
+<li><p>Supercomputers are not one big fast computer, it is many reasonably fast computers connected together
+<img alt="alt text" src="https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/monday/cluster_diagram.png" /></p></li>
+<li><p>If you want to learn more about PACE-ICE works, you can visit <a class="reference external" href="https://gatech.service-now.com/home?id=kb_article_view&amp;amp;sysparm_article=KB0042503">PACE-ICE Documentation</a>.</p></li>
+</ul>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Exercises_ASE_calcs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2.6. </span>Exercises - Calculators</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Exercises_linux.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3.4. </span>Exercises</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lectures">3.1. Lectures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linux-terminal">3.2. The Linux Terminal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-through-file-structures">3.2.1. Moving Through File Structures</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ls-command">3.2.1.1. The ls Command</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cd-command">3.2.1.2. The cd Command</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-problem">3.2.1.3. Quick Problem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#making-files-and-directories">3.2.1.4. Making Files and Directories</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-files">3.2.1.5. Removing Files</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#running-code">3.2.1.6. Running Code</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts-environments-and-aliases">3.2.2. Scripts, Environments, and Aliases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ssh-to-get-onto-the-supercomputer">3.2.3. Using ssh To Get Onto The Supercomputer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-cluster-supercomputers">3.3. Linux Cluster Supercomputers</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Medford Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

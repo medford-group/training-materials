@@ -1,0 +1,971 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2.3. Intro to Building Structures with ASE &#8212; Medford Group Graduate Training</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Intro_to_ASE_Building_Structures';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.4. Intro to ASE Calculators" href="Intro_to_ASE_Calculators.html" />
+    <link rel="prev" title="2. Introduction to Manipulating Atoms in Python" href="Manipulating_Atoms_in_Python.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Medford Group Graduate Training - Home"/>
+    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Medford Group Graduate Training - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Medford Group Graduate Training
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">VIP</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="VIP_Info.html">VIP Materials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="VIP_syllabus.html">VIP Course Syllabus</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="VIP_Overview.html">Big Data &amp; Quantum Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VIP_Ads_energy_project.html">DFT adsorption energy reproducibility project</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Training Materials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Basic_Python_Tools.html">1. Introduction to Basic Python Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_Python_programming.html">1.3. Introduction to Python programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_numpy.html">1.4. Numpy -  multidimensional data arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_scipy.html">1.5. SciPy - Library of scientific algorithms for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction_to_plotting_in_Python.html">1.6. matplotlib - Plotting in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_python.html">1.7. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Manipulating_Atoms_in_Python.html">2. Introduction to Manipulating Atoms in Python</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.3. Intro to Building Structures with ASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Intro_to_ASE_Calculators.html">2.4. Intro to ASE Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_intro.html">2.5. Exercises - Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ASE_calcs.html">2.6. Exercises - Calculators</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Linux_HPC.html">3. Introduction to Linux and High-Performance Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_linux.html">3.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_to_Density_Functional_Theory.html">4. Introduction to Density Functional Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Running_Density_Functional_Theory_on_PACE.html">5. Running Density Functional Theory on PACE</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Running_QE_on_PACE.html">5.3. Running QE on PACE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Running_SPARC_on_PACE.html">5.4. Running a simple DFT calculation on PACE Supercomputer Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_basics.html">5.5. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Applications_of_Density_Functional_Theory.html">6. Applications of Density Functional Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_QE.html">6.2. Adsorption energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Adsorption_energy_calculation_in_SPARC.html">6.3. Adsorption energy from DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_DFT_applications.html">6.4. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Regression_and_High_Dimensional_Data.html">7. Intro to Regression and High Dimensional Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_1_Non-parametric_Models.html">7.2. Non-Parametric Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_2_Complexity_Optimization.html">7.3. Complexity Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_3_High_Dimensional_Data.html">7.4. High Dimensional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_1_4_Dimensionality_Reduction.html">7.5. Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt1.html">7.6. Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Intro_to_Classification_and_Generative_Models.html">8. Intro to Classification and Generative Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_1_Classification_Basics.html">8.2. Classification Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_2_Generalized_Linear_Models.html">8.3. Generalized Linear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_3_Alternate_Classification_Models.html">8.4. Alternate classification methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_4_Clustering.html">8.5. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ML_2_5_Generative_Models.html">8.6. Generative Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exercises_ML_basics_Pt2.html">8.7. Exercises</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Appendix.html">Appendix</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Literature_Searches.html">Basics of Searching and Reading Scientific Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create_DFT_Environments.html">Create DFT Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gas_formation_energy_calculation_in_SPARC.html">Gas formation energy calculation using DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Referencing_Binding_Energies.html">Referencing Binding Energies</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/Intro_to_ASE_Building_Structures.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Intro to Building Structures with ASE</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-atoms-object">2.3.1. The Atoms Object</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-molecule">2.3.1.1. Building a molecule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-bulk-crystal">2.3.1.2. Building a bulk crystal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-surfaces">2.3.1.3. Building surfaces</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-constraints">2.3.1.4. Setting up constraints</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">2.3.2. Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="intro-to-building-structures-with-ase">
+<h1><span class="section-number">2.3. </span>Intro to Building Structures with ASE<a class="headerlink" href="#intro-to-building-structures-with-ase" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://wiki.fysik.dtu.dk/ase/index.html">The atomistic simulation environment</a> (ASE) is an extremely powerful set of tools and Python modules for generating atomic structures and performing density functional theory calculations (DFT.) It can be used for working with and analyzing atomistic simulations. To install ASE on your local machine, run the commands in the next code block:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>ase<span class="w"> </span>#install<span class="w"> </span>ASE<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>local/remote<span class="w"> </span>machine
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>nglview<span class="w"> </span>#this<span class="w"> </span>needs<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>install<span class="w"> </span>to<span class="w"> </span>visualize<span class="w"> </span>structures<span class="w"> </span>through<span class="w"> </span>jupyter<span class="w"> </span>notebook
+<span class="o">!</span>jupyter-nbextension<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nglview<span class="w"> </span>--py<span class="w"> </span>--sys-prefix<span class="w">  </span>#<span class="w"> </span>this<span class="w"> </span>might<span class="w"> </span>be<span class="w"> </span>needed
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ase in /opt/anaconda3/lib/python3.7/site-packages (3.20.1)
+Requirement already satisfied: numpy&gt;=1.11.3 in /opt/anaconda3/lib/python3.7/site-packages (from ase) (1.17.2)
+Requirement already satisfied: scipy&gt;=0.18.1 in /opt/anaconda3/lib/python3.7/site-packages (from ase) (1.3.1)
+Requirement already satisfied: matplotlib&gt;=2.0.0 in /opt/anaconda3/lib/python3.7/site-packages (from ase) (3.1.1)
+Requirement already satisfied: cycler&gt;=0.10 in /opt/anaconda3/lib/python3.7/site-packages (from matplotlib&gt;=2.0.0-&gt;ase) (0.10.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /opt/anaconda3/lib/python3.7/site-packages (from matplotlib&gt;=2.0.0-&gt;ase) (1.1.0)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.1 in /opt/anaconda3/lib/python3.7/site-packages (from matplotlib&gt;=2.0.0-&gt;ase) (2.4.2)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /opt/anaconda3/lib/python3.7/site-packages (from matplotlib&gt;=2.0.0-&gt;ase) (2.8.0)
+Requirement already satisfied: six in /opt/anaconda3/lib/python3.7/site-packages (from cycler&gt;=0.10-&gt;matplotlib&gt;=2.0.0-&gt;ase) (1.12.0)
+Requirement already satisfied: setuptools in /opt/anaconda3/lib/python3.7/site-packages (from kiwisolver&gt;=1.0.1-&gt;matplotlib&gt;=2.0.0-&gt;ase) (41.4.0)
+Requirement already satisfied: nglview in /opt/anaconda3/lib/python3.7/site-packages (2.7.1)
+Requirement already satisfied: numpy in /opt/anaconda3/lib/python3.7/site-packages (from nglview) (1.17.2)
+Requirement already satisfied: ipywidgets&gt;=7 in /opt/anaconda3/lib/python3.7/site-packages (from nglview) (7.5.1)
+Requirement already satisfied: nbformat&gt;=4.2.0 in /opt/anaconda3/lib/python3.7/site-packages (from ipywidgets&gt;=7-&gt;nglview) (4.4.0)
+Requirement already satisfied: ipykernel&gt;=4.5.1 in /opt/anaconda3/lib/python3.7/site-packages (from ipywidgets&gt;=7-&gt;nglview) (5.1.2)
+Requirement already satisfied: ipython&gt;=4.0.0; python_version &gt;= &quot;3.3&quot; in /opt/anaconda3/lib/python3.7/site-packages (from ipywidgets&gt;=7-&gt;nglview) (7.8.0)
+Requirement already satisfied: traitlets&gt;=4.3.1 in /opt/anaconda3/lib/python3.7/site-packages (from ipywidgets&gt;=7-&gt;nglview) (4.3.3)
+Requirement already satisfied: widgetsnbextension~=3.5.0 in /opt/anaconda3/lib/python3.7/site-packages (from ipywidgets&gt;=7-&gt;nglview) (3.5.1)
+Requirement already satisfied: jsonschema!=2.5.0,&gt;=2.4 in /opt/anaconda3/lib/python3.7/site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets&gt;=7-&gt;nglview) (3.0.2)
+Requirement already satisfied: ipython-genutils in /opt/anaconda3/lib/python3.7/site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.2.0)
+Requirement already satisfied: jupyter-core in /opt/anaconda3/lib/python3.7/site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets&gt;=7-&gt;nglview) (4.5.0)
+Requirement already satisfied: tornado&gt;=4.2 in /opt/anaconda3/lib/python3.7/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7-&gt;nglview) (6.0.3)
+Requirement already satisfied: jupyter-client in /opt/anaconda3/lib/python3.7/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7-&gt;nglview) (5.3.3)
+Requirement already satisfied: pexpect; sys_platform != &quot;win32&quot; in /opt/anaconda3/lib/python3.7/site-packages (from ipython&gt;=4.0.0; python_version &gt;= &quot;3.3&quot;-&gt;ipywidgets&gt;=7-&gt;nglview) (4.7.0)
+Requirement already satisfied: jedi&gt;=0.10 in /opt/anaconda3/lib/python3.7/site-packages (from ipython&gt;=4.0.0; python_version &gt;= &quot;3.3&quot;-&gt;ipywidgets&gt;=7-&gt;nglview) (0.15.1)
+Requirement already satisfied: decorator in /opt/anaconda3/lib/python3.7/site-packages (from ipython&gt;=4.0.0; python_version &gt;= &quot;3.3&quot;-&gt;ipywidgets&gt;=7-&gt;nglview) (4.4.0)
+Requirement already satisfied: setuptools&gt;=18.5 in /opt/anaconda3/lib/python3.7/site-packages (from ipython&gt;=4.0.0; python_version &gt;= &quot;3.3&quot;-&gt;ipywidgets&gt;=7-&gt;nglview) (41.4.0)
+Requirement already satisfied: pygments in /opt/anaconda3/lib/python3.7/site-packages (from ipython&gt;=4.0.0; python_version &gt;= &quot;3.3&quot;-&gt;ipywidgets&gt;=7-&gt;nglview) (2.4.2)
+Requirement already satisfied: backcall in /opt/anaconda3/lib/python3.7/site-packages (from ipython&gt;=4.0.0; python_version &gt;= &quot;3.3&quot;-&gt;ipywidgets&gt;=7-&gt;nglview) (0.1.0)
+Requirement already satisfied: appnope; sys_platform == &quot;darwin&quot; in /opt/anaconda3/lib/python3.7/site-packages (from ipython&gt;=4.0.0; python_version &gt;= &quot;3.3&quot;-&gt;ipywidgets&gt;=7-&gt;nglview) (0.1.0)
+Requirement already satisfied: prompt-toolkit&lt;2.1.0,&gt;=2.0.0 in /opt/anaconda3/lib/python3.7/site-packages (from ipython&gt;=4.0.0; python_version &gt;= &quot;3.3&quot;-&gt;ipywidgets&gt;=7-&gt;nglview) (2.0.10)
+Requirement already satisfied: pickleshare in /opt/anaconda3/lib/python3.7/site-packages (from ipython&gt;=4.0.0; python_version &gt;= &quot;3.3&quot;-&gt;ipywidgets&gt;=7-&gt;nglview) (0.7.5)
+Requirement already satisfied: six in /opt/anaconda3/lib/python3.7/site-packages (from traitlets&gt;=4.3.1-&gt;ipywidgets&gt;=7-&gt;nglview) (1.12.0)
+Requirement already satisfied: notebook&gt;=4.4.1 in /opt/anaconda3/lib/python3.7/site-packages (from widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (6.0.1)
+Requirement already satisfied: pyrsistent&gt;=0.14.0 in /opt/anaconda3/lib/python3.7/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.15.4)
+Requirement already satisfied: attrs&gt;=17.4.0 in /opt/anaconda3/lib/python3.7/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets&gt;=7-&gt;nglview) (19.2.0)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /opt/anaconda3/lib/python3.7/site-packages (from jupyter-client-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7-&gt;nglview) (2.8.0)
+Requirement already satisfied: pyzmq&gt;=13 in /opt/anaconda3/lib/python3.7/site-packages (from jupyter-client-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7-&gt;nglview) (18.1.0)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /opt/anaconda3/lib/python3.7/site-packages (from pexpect; sys_platform != &quot;win32&quot;-&gt;ipython&gt;=4.0.0; python_version &gt;= &quot;3.3&quot;-&gt;ipywidgets&gt;=7-&gt;nglview) (0.6.0)
+Requirement already satisfied: parso&gt;=0.5.0 in /opt/anaconda3/lib/python3.7/site-packages (from jedi&gt;=0.10-&gt;ipython&gt;=4.0.0; python_version &gt;= &quot;3.3&quot;-&gt;ipywidgets&gt;=7-&gt;nglview) (0.5.1)
+Requirement already satisfied: wcwidth in /opt/anaconda3/lib/python3.7/site-packages (from prompt-toolkit&lt;2.1.0,&gt;=2.0.0-&gt;ipython&gt;=4.0.0; python_version &gt;= &quot;3.3&quot;-&gt;ipywidgets&gt;=7-&gt;nglview) (0.1.7)
+Requirement already satisfied: terminado&gt;=0.8.1 in /opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.8.2)
+Requirement already satisfied: Send2Trash in /opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (1.5.0)
+Requirement already satisfied: prometheus-client in /opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.7.1)
+Requirement already satisfied: nbconvert in /opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (5.6.0)
+Requirement already satisfied: jinja2 in /opt/anaconda3/lib/python3.7/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (2.10.3)
+Requirement already satisfied: testpath in /opt/anaconda3/lib/python3.7/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.4.2)
+Requirement already satisfied: bleach in /opt/anaconda3/lib/python3.7/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (3.1.0)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /opt/anaconda3/lib/python3.7/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (1.4.2)
+Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /opt/anaconda3/lib/python3.7/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.8.4)
+Requirement already satisfied: entrypoints&gt;=0.2.2 in /opt/anaconda3/lib/python3.7/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.3)
+Requirement already satisfied: defusedxml in /opt/anaconda3/lib/python3.7/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.6.0)
+Requirement already satisfied: MarkupSafe&gt;=0.23 in /opt/anaconda3/lib/python3.7/site-packages (from jinja2-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (1.1.1)
+Requirement already satisfied: webencodings in /opt/anaconda3/lib/python3.7/site-packages (from bleach-&gt;nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets&gt;=7-&gt;nglview) (0.5.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enabling notebook extension nglview-js-widgets/extension...
+      - Validating: <span class=" -Color -Color-Green">OK</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this lesson, we will learn how to use the ASE Atoms object, building different chemical systems like molecule, bulk and surfaces and setting up constraints.</p>
+<section id="the-atoms-object">
+<h2><span class="section-number">2.3.1. </span>The Atoms Object<a class="headerlink" href="#the-atoms-object" title="Link to this heading">#</a></h2>
+<p>ASE allows you to manipulate atomic structures in a programitic way using the <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/atoms.html">ASE atoms object</a>. This is a <code class="docutils literal notranslate"><span class="pre">class</span></code> in python that can store the positions and identities of atoms in a structure and manipulate them in useful ways. This is pretty abstract, so here is an example of generating an atoms object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.atoms</span><span class="w"> </span><span class="kn">import</span> <span class="n">Atoms</span> <span class="c1"># import the Atoms class from ASE</span>
+
+<span class="n">H2</span> <span class="o">=</span> <span class="n">Atoms</span><span class="p">(</span><span class="n">symbols</span><span class="o">=</span><span class="s1">&#39;HH&#39;</span><span class="p">,</span> <span class="n">positions</span><span class="o">=</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.75</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;H2&#39;, pbc=False)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The code above just generates an H<span class="math notranslate nohighlight">\(_2\)</span> molecule, one hydrogen at the origin and one 0.75 angstroms up in the z direction. We can now manipulate it in interesting ways. Let’s say we want to add a second H<span class="math notranslate nohighlight">\(_2\)</span> molecule 2 angstroms away. We can do this by simply adding atoms objects to the one we already have</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H2</span> <span class="o">=</span> <span class="n">H2</span> <span class="o">+</span> <span class="n">Atoms</span><span class="p">(</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span> <span class="n">positions</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.75</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H2</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;H4&#39;, pbc=False)
+[[0.   0.   0.  ]
+ [0.   0.   0.75]
+ [2.   0.   0.  ]
+ [2.   0.   0.75]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>So now we have have two H<span class="math notranslate nohighlight">\(_2\)</span> molecules, we can shift all the atoms by simply adding an array to their positions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H2</span><span class="o">.</span><span class="n">positions</span> <span class="o">=</span> <span class="n">H2</span><span class="o">.</span><span class="n">positions</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H2</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.   0.   1.  ]
+ [0.   0.   1.75]
+ [2.   0.   1.  ]
+ [2.   0.   1.75]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>What does this look like though? We can visualize any structure using ASE’s built in visualization tools</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.visualize</span><span class="w"> </span><span class="kn">import</span> <span class="n">view</span>
+
+<span class="n">view</span><span class="p">(</span><span class="n">H2</span><span class="p">,</span> <span class="n">viewer</span><span class="o">=</span><span class="s1">&#39;ngl&#39;</span><span class="p">)</span> <span class="c1"># removing viewer=&#39;ngl&#39; makes a pop-up window</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8d6e04982b764f28ae452f1776b554dc", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>Instead of visualizing the atoms object by using ASE visualizer or nglview, we can also use <strong>plot_atoms</strong> method in ASE which uses matplotlib as backend. It is useful to generate simple projections in jupyter notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.visualize.plot</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_atoms</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">H2</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;10x,20y,2z&#39;</span><span class="p">)</span>
+<span class="c1">#plt.savefig(&#39;cell_example.svg&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f8796493690&gt;
+</pre></div>
+</div>
+<img alt="../_images/58ba2054c54892944c6a0f352912b27e5bc3550b4237e06d7cb15440eb6df64b.png" src="../_images/58ba2054c54892944c6a0f352912b27e5bc3550b4237e06d7cb15440eb6df64b.png" />
+</div>
+</div>
+<p>Atoms objects are also able to be indexed like lists. Each individual atom has an index and can be accessed in this way. When you call an index of an atoms object, you get an <code class="docutils literal notranslate"><span class="pre">Atom</span></code> object. This is just an object that represents a single atom. <code class="docutils literal notranslate"><span class="pre">Atoms</span></code> objects are simply a collection of <code class="docutils literal notranslate"><span class="pre">Atom</span></code> objects</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">H2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1">#prints the atom at index 0 of list H2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">position</span><span class="p">)</span> <span class="c1">#prints the position of atom at index 0 of list H2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">symbol</span><span class="p">)</span> <span class="c1">#prints the symbol of atom at index 0 of list H2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atom(&#39;H&#39;, [0.0, 0.0, 1.0], index=0)
+[0. 0. 1.]
+H
+</pre></div>
+</div>
+</div>
+</div>
+<p>For our DFT calculations involving metals and metal oxides, we will be doing periodic calculations. For these periodic calculations, we would want to put these atoms into a unit cell (a simulation box) to do this we want to use the <code class="docutils literal notranslate"><span class="pre">set_cell</span></code> method. Let’s use a 10 angstrom box. We will also need to write this to a file. ASE atoms objects have a <code class="docutils literal notranslate"><span class="pre">write</span></code> method that allows you to write to <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/io/io.html">almost any file type you can imagine</a> (including .png images).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H2</span><span class="o">.</span><span class="n">set_cell</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">H2</span><span class="o">.</span><span class="n">center</span><span class="p">()</span> <span class="c1"># this centers it in the unit cell</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H2</span><span class="o">.</span><span class="n">cell</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cell([10.0, 10.0, 10.0])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">H2</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;10x,20y,2z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f8796542550&gt;
+</pre></div>
+</div>
+<img alt="../_images/fea1132491d83557bec815ce8fe3f163ac6998250702b1cc3299e8dda1c6864e.png" src="../_images/fea1132491d83557bec815ce8fe3f163ac6998250702b1cc3299e8dda1c6864e.png" />
+</div>
+</div>
+<p>We can also write and read files using ASE. For this we will need to import <code class="docutils literal notranslate"><span class="pre">read</span></code> and <code class="docutils literal notranslate"><span class="pre">write</span></code> method from <a class="reference external" href="http://ase.io">ase.io</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H2</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;2_hydrogens.xyz&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span> <span class="c1"># for reading files</span>
+
+<span class="n">H2_2</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;2_hydrogens.xyz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are lots of useful things you can do to manipulate atoms, they are all documentated in the <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/atoms.html">ASE atoms object documentation</a>.</p>
+<p>But having to have all the positions for the atoms in an atoms object is quite onerous. Luckily, there are <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/build/build.html">tools to build structures in ASE</a>. There are methods like <code class="docutils literal notranslate"><span class="pre">molecule</span></code>, <code class="docutils literal notranslate"><span class="pre">'bulk</span></code>, <code class="docutils literal notranslate"><span class="pre">surfaces</span></code> etc that can be used to build structures using ASE’s database if the positions and unit cell information is not known. For example, the <code class="docutils literal notranslate"><span class="pre">ase.lattice</span></code> module has functions that can create common crystal structures if the use specifies miller indices. There is a <code class="docutils literal notranslate"><span class="pre">molecule</span> </code>function that holds the positions of lots of common molecules. Similarly, the <code class="docutils literal notranslate"><span class="pre">bulk</span></code> function contains tons of bulk structures for metals. We’ll use this to generate surfaces a little later on. Let’s see how the <code class="docutils literal notranslate"><span class="pre">molecule</span></code> and <code class="docutils literal notranslate"><span class="pre">bulk</span></code> methods work:</p>
+<section id="building-a-molecule">
+<h3><span class="section-number">2.3.1.1. </span>Building a molecule<a class="headerlink" href="#building-a-molecule" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.build</span><span class="w"> </span><span class="kn">import</span> <span class="n">molecule</span><span class="p">,</span> <span class="n">bulk</span>
+<span class="c1">#from ase.data.pubchem import pubchem_atoms_search</span>
+
+<span class="n">water</span> <span class="o">=</span> <span class="n">molecule</span><span class="p">(</span><span class="s1">&#39;H2O&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">water</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">water</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span>
+<span class="c1">#view(water, viewer=&#39;ngl&#39;)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">water</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;10x,20y,2z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;OH2&#39;, pbc=False)
+[[ 0.        0.        0.119262]
+ [ 0.        0.763239 -0.477047]
+ [ 0.       -0.763239 -0.477047]]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f8796cb5450&gt;
+</pre></div>
+</div>
+<img alt="../_images/9bc9967eeed6771eeec2f23f1a38acc64518aed3d489d92dafe395293ba54b22.png" src="../_images/9bc9967eeed6771eeec2f23f1a38acc64518aed3d489d92dafe395293ba54b22.png" />
+</div>
+</div>
+<p>ASE has the G2-database of common molecules. To see the list of available molecules in this database, run the following code block:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">g2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">g2</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;PH3&#39;, &#39;P2&#39;, &#39;CH3CHO&#39;, &#39;H2COH&#39;, &#39;CS&#39;, &#39;OCHCHO&#39;, &#39;C3H9C&#39;, &#39;CH3COF&#39;, &#39;CH3CH2OCH3&#39;, &#39;HCOOH&#39;, &#39;HCCl3&#39;, &#39;HOCl&#39;, &#39;H2&#39;, &#39;SH2&#39;, &#39;C2H2&#39;, &#39;C4H4NH&#39;, &#39;CH3SCH3&#39;, &#39;SiH2_s3B1d&#39;, &#39;CH3SH&#39;, &#39;CH3CO&#39;, &#39;CO&#39;, &#39;ClF3&#39;, &#39;SiH4&#39;, &#39;C2H6CHOH&#39;, &#39;CH2NHCH2&#39;, &#39;isobutene&#39;, &#39;HCO&#39;, &#39;bicyclobutane&#39;, &#39;LiF&#39;, &#39;Si&#39;, &#39;C2H6&#39;, &#39;CN&#39;, &#39;ClNO&#39;, &#39;S&#39;, &#39;SiF4&#39;, &#39;H3CNH2&#39;, &#39;methylenecyclopropane&#39;, &#39;CH3CH2OH&#39;, &#39;F&#39;, &#39;NaCl&#39;, &#39;CH3Cl&#39;, &#39;CH3SiH3&#39;, &#39;AlF3&#39;, &#39;C2H3&#39;, &#39;ClF&#39;, &#39;PF3&#39;, &#39;PH2&#39;, &#39;CH3CN&#39;, &#39;cyclobutene&#39;, &#39;CH3ONO&#39;, &#39;SiH3&#39;, &#39;C3H6_D3h&#39;, &#39;CO2&#39;, &#39;NO&#39;, &#39;trans-butane&#39;, &#39;H2CCHCl&#39;, &#39;LiH&#39;, &#39;NH2&#39;, &#39;CH&#39;, &#39;CH2OCH2&#39;, &#39;C6H6&#39;, &#39;CH3CONH2&#39;, &#39;cyclobutane&#39;, &#39;H2CCHCN&#39;, &#39;butadiene&#39;, &#39;C&#39;, &#39;H2CO&#39;, &#39;CH3COOH&#39;, &#39;HCF3&#39;, &#39;CH3S&#39;, &#39;CS2&#39;, &#39;SiH2_s1A1d&#39;, &#39;C4H4S&#39;, &#39;N2H4&#39;, &#39;OH&#39;, &#39;CH3OCH3&#39;, &#39;C5H5N&#39;, &#39;H2O&#39;, &#39;HCl&#39;, &#39;CH2_s1A1d&#39;, &#39;CH3CH2SH&#39;, &#39;CH3NO2&#39;, &#39;Cl&#39;, &#39;Be&#39;, &#39;BCl3&#39;, &#39;C4H4O&#39;, &#39;Al&#39;, &#39;CH3O&#39;, &#39;CH3OH&#39;, &#39;C3H7Cl&#39;, &#39;isobutane&#39;, &#39;Na&#39;, &#39;CCl4&#39;, &#39;CH3CH2O&#39;, &#39;H2CCHF&#39;, &#39;C3H7&#39;, &#39;CH3&#39;, &#39;O3&#39;, &#39;P&#39;, &#39;C2H4&#39;, &#39;NCCN&#39;, &#39;S2&#39;, &#39;AlCl3&#39;, &#39;SiCl4&#39;, &#39;SiO&#39;, &#39;C3H4_D2d&#39;, &#39;H&#39;, &#39;COF2&#39;, &#39;2-butyne&#39;, &#39;C2H5&#39;, &#39;BF3&#39;, &#39;N2O&#39;, &#39;F2O&#39;, &#39;SO2&#39;, &#39;H2CCl2&#39;, &#39;CF3CN&#39;, &#39;HCN&#39;, &#39;C2H6NH&#39;, &#39;OCS&#39;, &#39;B&#39;, &#39;ClO&#39;, &#39;C3H8&#39;, &#39;HF&#39;, &#39;O2&#39;, &#39;SO&#39;, &#39;NH&#39;, &#39;C2F4&#39;, &#39;NF3&#39;, &#39;CH2_s3B1d&#39;, &#39;CH3CH2Cl&#39;, &#39;CH3COCl&#39;, &#39;NH3&#39;, &#39;C3H9N&#39;, &#39;CF4&#39;, &#39;C3H6_Cs&#39;, &#39;Si2H6&#39;, &#39;HCOOCH3&#39;, &#39;O&#39;, &#39;CCH&#39;, &#39;N&#39;, &#39;Si2&#39;, &#39;C2H6SO&#39;, &#39;C5H8&#39;, &#39;H2CF2&#39;, &#39;Li2&#39;, &#39;CH2SCH2&#39;, &#39;C2Cl4&#39;, &#39;C3H4_C3v&#39;, &#39;CH3COCH3&#39;, &#39;F2&#39;, &#39;CH4&#39;, &#39;SH&#39;, &#39;H2CCO&#39;, &#39;CH3CH2NH2&#39;, &#39;Li&#39;, &#39;N2&#39;, &#39;Cl2&#39;, &#39;H2O2&#39;, &#39;Na2&#39;, &#39;BeH&#39;, &#39;C3H4_C2v&#39;, &#39;NO2&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-bulk-crystal">
+<h3><span class="section-number">2.3.1.2. </span>Building a bulk crystal<a class="headerlink" href="#building-a-bulk-crystal" title="Link to this heading">#</a></h3>
+<p>For building a bulk crystal, different inputs like type of crystal structure, lattice constants, type of cell (<code class="docutils literal notranslate"><span class="pre">orthorhombic</span></code> and <code class="docutils literal notranslate"><span class="pre">cubic</span></code>) can be provided to the <code class="docutils literal notranslate"><span class="pre">bulk</span></code> method of ASE. If any of the inputs are not provided, then they will be guessed by ASE’s method. Let’s look at the following examples:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iron</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s1">&#39;Fe&#39;</span><span class="p">,</span> <span class="n">cubic</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iron</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iron</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Atoms(symbols=&#39;Fe2&#39;, pbc=True, cell=[2.87, 2.87, 2.87])
+[[0.    0.    0.   ]
+ [1.435 1.435 1.435]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#view(iron, viewer=&#39;ngl&#39;)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">iron</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;10x,20y,2z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f8796d676d0&gt;
+</pre></div>
+</div>
+<img alt="../_images/133035907ae66a459a330d2bd46e5d7b4d4b35f6d34d620cd52cb36227e46e59.png" src="../_images/133035907ae66a459a330d2bd46e5d7b4d4b35f6d34d620cd52cb36227e46e59.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Cu</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s1">&#39;Cu&#39;</span><span class="p">,</span> <span class="s1">&#39;fcc&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">3.6</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">Cu</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;10x,20y,2z&#39;</span><span class="p">)</span>
+<span class="c1">#view(Cu, viewer=&#39;nglview&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f8796ea14d0&gt;
+</pre></div>
+</div>
+<img alt="../_images/866a20c2103bfbf923f6449a3e474bc5be93a73c2a553e1c97d884c79a5b392f.png" src="../_images/866a20c2103bfbf923f6449a3e474bc5be93a73c2a553e1c97d884c79a5b392f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Cu_orthorhombic</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s1">&#39;Cu&#39;</span><span class="p">,</span> <span class="s1">&#39;fcc&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">3.6</span><span class="p">,</span> <span class="n">orthorhombic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">Cu_orthorhombic</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;10x,20y,2z&#39;</span><span class="p">)</span>
+<span class="c1">#view(Cu_orthorhombic, viewer=&#39;nglview&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f8797230f50&gt;
+</pre></div>
+</div>
+<img alt="../_images/90ad0e5e0f6d0a0768efe3a16cf2bf9cb01ebf8a79dac2ac9356a77ab89b419d.png" src="../_images/90ad0e5e0f6d0a0768efe3a16cf2bf9cb01ebf8a79dac2ac9356a77ab89b419d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Cu_cubic</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s1">&#39;Cu&#39;</span><span class="p">,</span> <span class="s1">&#39;fcc&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">3.6</span><span class="p">,</span> <span class="n">cubic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">Cu_cubic</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;10x,20y,2z&#39;</span><span class="p">)</span>
+<span class="c1">#view(Cu_cubic, viewer=&#39;nglview&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f879736ea50&gt;
+</pre></div>
+</div>
+<img alt="../_images/40e0f1d99bed7008ca933f10a39ddeebee8942797aaa20d102ce5e7907266c36.png" src="../_images/40e0f1d99bed7008ca933f10a39ddeebee8942797aaa20d102ce5e7907266c36.png" />
+</div>
+</div>
+</section>
+<section id="building-surfaces">
+<h3><span class="section-number">2.3.1.3. </span>Building surfaces<a class="headerlink" href="#building-surfaces" title="Link to this heading">#</a></h3>
+<p>There are many functions in ASE to set up common surfaces, adding vacuum layers and adsorbates at specific locations on the surface. <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/lattice.html#general-crystal-section">General crystal structures and surfaces</a> can be used to set up these surfaces. There are also many utility functions that make this task easier. Let’s take a look at a few examples from ASE’s documentation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Setting up Al(111) surface slab with 10 Ang vacuum on either side </span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.build</span><span class="w"> </span><span class="kn">import</span> <span class="n">fcc111</span>
+<span class="n">slab</span> <span class="o">=</span> <span class="n">fcc111</span><span class="p">(</span><span class="s1">&#39;Al&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">vacuum</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">slab</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;10x,20y,1z&#39;</span><span class="p">)</span>
+<span class="c1">#view(slab, viewer=&#39;nglview&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f879984ee10&gt;
+</pre></div>
+</div>
+<img alt="../_images/31e46a8c4acff8ed14ad3fd9287462a8fb2cb78600bc0fa4878de14140e7e640.png" src="../_images/31e46a8c4acff8ed14ad3fd9287462a8fb2cb78600bc0fa4878de14140e7e640.png" />
+</div>
+</div>
+<p>The above code block sets up an Al(111) surface with a vacuum of 10 Angstrom on each side in the z-direction. The size of the slab is 2x2x3 which means that the minimum possible size is repeated in twice in x and y-directions and thrice in the z-direction. Now if we want to adsorb a hydrogen atom in an on-top position 2 Angstrom above the top layer, we can use the method <code class="docutils literal notranslate"><span class="pre">add_adsorbate</span></code> in ase.build:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.build</span><span class="w"> </span><span class="kn">import</span> <span class="n">add_adsorbate</span>
+<span class="n">slab</span> <span class="o">=</span> <span class="n">fcc111</span><span class="p">(</span><span class="s1">&#39;Al&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">add_adsorbate</span><span class="p">(</span><span class="n">slab</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s1">&#39;ontop&#39;</span><span class="p">)</span>
+<span class="n">slab</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">vacuum</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">slab</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;-90x,20y,2z&#39;</span><span class="p">)</span>
+<span class="c1">#view(slab, viewer=&#39;nglview&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f879aa51050&gt;
+</pre></div>
+</div>
+<img alt="../_images/0310b5fb20ea208eb6b348a5b75283538b878c971fc9708cb380e762fbac2a22.png" src="../_images/0310b5fb20ea208eb6b348a5b75283538b878c971fc9708cb380e762fbac2a22.png" />
+</div>
+</div>
+<p>Note: The vacuum should only be added after adding the adsorbate to the slab surface. ASE also sets tags to the layer number, for example adsorbates will have tag=0, first layer will have tag=1 and so on. To learn more about how to use ASE’s utility functions, go through <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/build/surface.html">Surfaces</a> where all the information has been summarised.</p>
+</section>
+<section id="setting-up-constraints">
+<h3><span class="section-number">2.3.1.4. </span>Setting up constraints<a class="headerlink" href="#setting-up-constraints" title="Link to this heading">#</a></h3>
+<p>When doing quantum mechanical calculations like geometry optimization or dynamics, we may have to fix some degrees of freedom in a system. ASE has constraint object(s) that can be attached directly to atoms object. When we set constraints to atoms object, it will freeze the corresponding atom positions. This can be done by using <strong>atoms_obj.set_constraint()</strong> where <strong>atoms_obj</strong> is an ase atoms object. An example of this is shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.constraints</span><span class="w"> </span><span class="kn">import</span> <span class="n">FixAtoms</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">FixAtoms</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="p">[</span><span class="n">atom</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s1">&#39;Cu&#39;</span> <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">Cu_cubic</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">Cu_cubic</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;10x,20y,2z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/40e0f1d99bed7008ca933f10a39ddeebee8942797aaa20d102ce5e7907266c36.png" src="../_images/40e0f1d99bed7008ca933f10a39ddeebee8942797aaa20d102ce5e7907266c36.png" />
+</div>
+</div>
+<p>The constraints won’t show up if we plot the atoms using <strong>plot_atoms()</strong>. You can use <strong>view(Cu_cubic)</strong> to verify if the constraints have been put on the atoms. There are different classes of constraints in ASE similar to FixAtoms for example: FixBongLengths, FixedLine, FixedPlane etc. To learn more about ASE constraints, go through <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/constraints.html">Constraints</a>. This information will come handy while performing geometry optimization of slabs with adsorbed species. In these calculations, we fix the bottom two layers of slab and relax the top layers and adsorbate while doing a DFT calculation.</p>
+</section>
+</section>
+<section id="summary">
+<h2><span class="section-number">2.3.2. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>ASE is an excellent tool which can be used to build structures and set up atomistic total energy calculations and molecular dynamics simulations. It can be used via graphical user interface, command line and python. Covering all the different utility functions in the ASE package is beyond the scope of this lesson. For more information or help with the utility functions, read through the <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/ase.html">ASE documentation</a>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Manipulating_Atoms_in_Python.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Introduction to Manipulating Atoms in Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Intro_to_ASE_Calculators.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.4. </span>Intro to ASE Calculators</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-atoms-object">2.3.1. The Atoms Object</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-molecule">2.3.1.1. Building a molecule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-bulk-crystal">2.3.1.2. Building a bulk crystal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-surfaces">2.3.1.3. Building surfaces</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-constraints">2.3.1.4. Setting up constraints</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">2.3.2. Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Medford Group
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
