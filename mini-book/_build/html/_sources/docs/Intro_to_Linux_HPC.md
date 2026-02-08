@@ -4,8 +4,8 @@
 An OS is a resource manager that is used to access system resources by users and application programs. [Linux](https://github.com/torvalds/linux) is an open source OS developed by [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds).  Linux is based on [Unix](https://en.wikipedia.org/wiki/Unix), and therefore shares much of its functionality with other unix based operating systems (such as MacOS.) Linux is the most widely used OS in computational research groups and runs much of the internet because it is freely available.
 
 ## Lectures
-1. [Introduction to Linux Computing](https://mediaspace.gatech.edu/media/VIP-BDQM-L02a-Intro_to_Linux_Computing/1_kb78m0hg)
-2. [Slurm/Bash Scripting](https://mediaspace.gatech.edu/media/VIP-BDQM-L02d-slurm_bash_scripting/1_hqyzso1y)
+HPC.1 [Introduction to Linux Computing](https://mediaspace.gatech.edu/media/VIP-BDQM-L02a-Intro_to_Linux_Computing/1_kb78m0hg)
+HPC.2 [Slurm/Bash Scripting](https://mediaspace.gatech.edu/media/VIP-BDQM-L02d-slurm_bash_scripting/1_hqyzso1y)
 
 ## The Linux Terminal
 
@@ -96,7 +96,8 @@ if `pwd` shows `/Users/thing` what will `ls -F ../backup` display
 ### Using ssh To Get Onto The Supercomputer
 * ssh is a secure remote linux terminal
 * can be done through other programs on windows like [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
-* `ssh -X [username]@pace-ice.pace.gatech.edu`
+* It is important to note that, in order to access PACE, your internet connection must be through GT's [VPN](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0026837). This is true even when connected to campus wifi.
+* `ssh -X [username]@login-ice.pace.gatech.edu`
 * `-X` allows visual data to be sent to your computer
 
 ## Linux Cluster Supercomputers
@@ -104,5 +105,5 @@ if `pwd` shows `/Users/thing` what will `ls -F ../backup` display
 * It is several computers all running linux connected together
 * Supercomputers are not one big fast computer, it is many reasonably fast computers connected together
 ![alt text](https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/monday/cluster_diagram.png "Cluster Supercomputer Structure")
-* If you want to learn more about PACE-ICE works, you can visit [PACE-ICE]{https://pace.gatech.edu/pace-ice-instructional-cluster-environment-education}. 
+* If you want to learn more about PACE-ICE works, you can visit [PACE-ICE Documentation](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042503). 
 

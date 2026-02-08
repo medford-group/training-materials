@@ -3,21 +3,23 @@ VIP Course Syllabus
 
 Instructor: A. J. Medford
 
-TAs: Sayan Bhowmik, Logan Brabson, Lucas Timmerman, Neung-Kyung Yu
+TAs: Todd Whittaker, Sayan Bhowmik, Neung-Kyung Yu, Seongeun Yun, Charlotte Shih
 
 Email: [ajm@gatech.edu](mailto:ajm@gatech.edu)
 
+[twhittaker32@gatech.edu](mailto:twhittaker32@gatech.edu)
+
 [sbhowmik9@gatech.edu](mailto:sbhowmik9@gatech.edu)
-
-[lbrabson3@gatech.edu](mailto:lbrabson3@gatech.edu)
-
-[ltimmerman3@gatech.edu](mailto:ltimmerman3@gatech.edu)
        
 [nyu49@gatech.edu](mailto:nyu49@gatech.edu)
+
+[syun314@gatech.edu](mailto:syun314@gatech.edu)
+
+[sshih9@gatech.edu](mailto:sshih9@gatech.edu)
        
 Office Hours: By Appointment (via email or Slack)
 
-Class Hours: W 11:00-11:50 am
+Class Hours: W 2:00-2:50 pm ET
 
 Class Room: Zoom (see Canvas App)
 
@@ -134,14 +136,16 @@ Documentation
 -------------
 
 The documentation grade will be assessed based on bi-weekly updates submitted via Canvas.
-The weekly update should include the following components:
+The bi-weekly update should include the following components:
 
 - Tasks completed in the prior week
 - Discussion of any key challenges or results
 - Tasks to be completed in future weeks
 - Documentation needed to repeat analysis and access results
-- A literature review of at least one paper that you read or used during the weeks (see [literature review lecture](lit-search))
-
+- A literature review (see [literature review lecture](lit-search)) of:
+    - The title of one paper that you read only the title for, including the reason why you chose to stop at the title
+    - The title of one paper that you read the title and abstract for, including the reason why you chose to read the abstract (after reading the title) and the reason you chose not to read the entire paper
+    - A brief summary of a paper that you decided to read entirely, including: 1. In your own words, what is the most important claim of the paper? 2. A screenshot of the most important figure to the claim and 3. In your own words, what methodology did the authors use to collect the data in the figure to make the claim?
 
 Documentation for the bi-weekly updates should be provided as a text file or Word document.
 Bi-weekly updates will be peer graded on a scale of 0-5 based on the following criteria (decimal scores are allowed):
@@ -241,39 +245,42 @@ The main lecture will take place virtually, but sub-teams can meet in person and
 Training Schedule
 ========
 
-Week 1 (8/20): Introduction to VIP and projects (Medford/Brabson)
+Week 1 (1/14): Introduction to VIP, syllabus overview, and project/subteam assignment (Whittaker/Medford)
 
-Week 2 (8/27): DFT reproduction and subteam assignments (Medford)
+Week 2 (1/21): Overview of DFT calculations and Literature searches (Whittaker/Medford)
 
-Week 3 (9/3): Literature searches (Medford) - Bi-weekly Update 1
+Week 3 (1/28): Intro to HPC and basic Python tools (videos HPC.1-2 and PY.1-2) - Bi-weekly Update 1
 
-Week 4 (9/10): Intro to Python and HPC (Brabson)
+Week 4 (2/4): Intro to Atomic Simulation Environment (ASE) (videos ASE.1-2)
 
-Week 5 (9/17): Intro to ASE (Brabson) - Bi-weekly Update 2 (Ex. 1.6.1-1.6.5)
+Week 5 (2/11): Installing DFT software on PACE (videos PACE.1-3) - Bi-weekly Update 2 (Ex. HPC.1-4, PY.1-5 and ASE.1-3)
 > Software installation check during class
 
-Week 6 (9/24): Intro to Density Functional Theory I (Bhowmik)
+Week 6 (2/18): Running DFT calculations on PACE (videos PACE.4-6)
 
-Week 7 (10/1): Intro to Density Functional Theory II (Bhowmik) - Bi-weekly Update 3 (Ex. 2.4.1, 2.5.1, & 3.3.1-3.3.4)
-> Midterm Achievements document and Midterm Presentation due to Canvas at 11:59p ET on 10/3/25
+Week 7 (2/25): Calculating an Adsorption Energy using DFT (no videos, but notebook pages) - Bi-weekly Update 3 (Ex. PACE.1-3)
 
-Week 8 (10/8): Midterm Updates (pre-recorded presentations, virtual synchronous Q&A)
+Week 8 (3/4): DFT project discussion
+> Midterm Achievements document and Midterm Presentation due to Canvas at 11:59p ET on 3/6/25
 
-Week 9 (10/15): DFT Calculations I (Bhowmik/Brabson) - Bi-weekly Update 4
+Week 9 (3/11): Midterm Updates (pre-recorded presentations, virtual synchronous Q&A) - Bi-weekly Update 4 (Ex. ADS.1-3)
+> Presentation content should be a brief summary of the paper(s) you chose to try and reproduce, how you found it, why you selected it and which calculations you aim to reproduce
 
-Week 10 (10/22): DFT Calculations II and DFT project assignment (Bhowmik/Brabson)
+Week 10 (3/18): Intro to theory of DFT calculations (videos DFT.1-14) and Understanding and Optimizing DFT Calculations (no videos, but notebook pages)
 
-Week 11 (10/29): DFT project discussion - Bi-weekly Update 5 (Ex. 6.4.1-6.4.2)
+Week 11 (3/25): No class: Spring Break
 
-Week 12 (11/5): Projects (Timmerman/Yu/Tian/Brabson/Bhowmik)
+Week 12 (4/1): DFT project check-in I - Bi-weekly Update 5 (Ex. CONV.1-3)
 
-Week 13 (11/12): Projects (Timmerman/Yu/Tian/Brabson/Bhowmik) - Bi-weekly Update 6 (DFT Project DUE)
-> Final Achievements document and Final Presentation due to Canvas at 11:59p ET on 11/14/25
+Week 13 (4/8): DFT project check-in II
 
-Week 14 (11/19): Final Updates (pre-recorded presentations, virtual synchronous Q&A)
+Week 14 (4/15):  DFT project check-in III - Bi-weekly Update 6 (No Ex. summarize progress on DFT project)
+> Final Achievements document and Final Presentation due to Canvas at 11:59p ET on 4/17/25
 
-Week 15 (11/26): Thanksgiving Break (No Class)
+Week 15 (4/22): Final Updates (pre-recorded presentations, virtual synchronous Q&A)
+> Presentation content should be a brief summary of the calculation(s) you chose to try and reproduce, your parameter convergence results, how your calculation compares to the literature including a discussion of any sources of deviation. Each student should ask a question during the Q&A session - this will be considered during grading...
 
+Note for 1st time training students - there are notebook sections and accompanying exercises covering machine-learning approaches. These are included for your benefit but the expectation is that you will focus on learning the DFT section of the course first, and then apply these machine-learning approaches in subsequent semesters (should you choose to continue with VIP).
 
 Changes to Syllabus
 ===================
