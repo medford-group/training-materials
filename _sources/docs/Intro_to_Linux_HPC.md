@@ -105,5 +105,5 @@ if `pwd` shows `/Users/thing` what will `ls -F ../backup` display
 * It is several computers all running linux connected together
 * Supercomputers are not one big fast computer, it is many reasonably fast computers connected together
 ![alt text](https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/monday/cluster_diagram.png "Cluster Supercomputer Structure")
-* If you want to learn more about PACE-ICE works, you can visit [PACE-ICE Documentation](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042503). 
+* If you want to learn more about PACE-ICE works, you can visit [PACE-ICE Documentation](https://gatech.service-now.com/technology?id=kb_article_view&sysparm_article=KB0042503). 
 
