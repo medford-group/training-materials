@@ -442,6 +442,10 @@ document.write(`
 <span class="c1">#SBATCH -A gts-amedford6 </span>
 <span class="c1">#SBATCH -J optimizer</span>
 <span class="c1">#SBATCH -o Report-%j.out -e Report_err-%j.err</span>
+<span class="c1">#### if on rh9 and pace-ice (using intel-oneapi modules to compile SPARC)</span>
+<span class="c1">#SBATCH -C &quot;rhel9&amp;intel&quot;</span>
+<span class="c1">#### if on rh7 and pace-ice (using intel and mvapich2 modules to compile SPARC)</span>
+<span class="c1">#SBATCH -C &quot;rhel7&amp;intel&quot;</span>
 
 <span class="n">cd</span> <span class="err">$</span><span class="n">SLURM_SUBMIT_DIR</span>
 
