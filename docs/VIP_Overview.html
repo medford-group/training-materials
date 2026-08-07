@@ -16,41 +16,44 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -58,40 +61,37 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/VIP_Overview';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="DFT adsorption energy reproducibility project" href="VIP_Ads_energy_project.html" />
+    <link rel="next" title="VIP Sub-Teams (Fall 2026)" href="VIP_subteams.html" />
     <link rel="prev" title="VIP Course Syllabus" href="VIP_syllabus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +99,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,15 +106,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -124,7 +167,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +198,17 @@
     
     
     <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Medford Group Graduate Training - Home"/>
-    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Medford Group Graduate Training - Home"/>`);</script>
+    <img src="../_static/MedfordLogo.png" class="logo__image only-dark pst-js-only" alt="Medford Group Graduate Training - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -190,7 +230,7 @@
 
 
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Big Data &amp; Quantum Mechanics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VIP_Ads_energy_project.html">DFT adsorption energy reproducibility project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VIP_subteams.html">VIP Sub-Teams (Fall 2026)</a></li>
 </ul>
 </details></li>
 </ul>
@@ -268,9 +308,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -353,7 +398,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -367,25 +412,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -407,7 +444,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-medford-group-research">Overview of Medford Group research</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-prof-aj-medford">About Prof. AJ Medford</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introductions">Introductions</a></li>
@@ -415,9 +452,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-vip-graded">How is VIP graded?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vip-is-not-like-a-regular-course">VIP is not like a regular course</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-communication">Group Communication:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overarching-project-chatdft-development">Overarching Project: ChatDFT development</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-structure-new-students">Team Structure : New Students</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-structure-returning-students-omscs-students-post-training-new-students">Team Structure: Returning Students, OMSCS Students, post Training New Students</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-structure-returning-students-omscs-students-post-training-new-students">Team Structure: Returning Students, OMSCS Students, post-Training New Students</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-meeting-format">Standard meeting format</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-schedule-and-syllabus">Lecture schedule and syllabus</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-assignment">Week 1 Assignment</a></li>
@@ -469,7 +505,7 @@ document.write(`
 <p>You will receive a grade for the course based on three criteria:</p>
 <ul class="simple">
 <li><p>Documentation (33.3%): Based on biweekly updates of progress on tasks.</p></li>
-<li><p>Personal Accomplishments (33.3%): Based on how well you achieve your research goals. <em>This is discussed below for the DFT reproduction project.</em></p></li>
+<li><p>Personal Accomplishments (33.4%): Based on how well you achieve your research goals. Goals are set with your sub-team mentor.</p></li>
 <li><p>Teamwork and Participation (33.3%): Peer evaluations will be used to establish how well you work on a team.</p></li>
 </ul>
 <p>Grading process:</p>
@@ -502,7 +538,7 @@ document.write(`
 <section id="group-communication">
 <h2>Group Communication:<a class="headerlink" href="#group-communication" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Slack group used for all communication, join using <a class="reference external" href="https://slack.com/get-started#/find">this link</a>. Use your GT credentials to login and search for “Big Data &amp; Quantum Mechanics (VIP)”</p>
+<li><p>Slack is used for all communication. There is no invite link: first create an account through GT’s enterprise Slack at <a class="reference external" href="https://gatech.enterprise.slack.com">gatech.enterprise.slack.com</a> (use your GT credentials), then find the team at <a class="reference external" href="https://bigdataquantu-ii59559.slack.com">bigdataquantu-ii59559.slack.com</a>.</p>
 <ul>
 <li><p>training: discussion related to training project.</p></li>
 <li><p>general: channel for general discussions with the whole group.</p></li>
@@ -510,26 +546,25 @@ document.write(`
 </li>
 </ul>
 </section>
-<section id="overarching-project-chatdft-development">
-<h2>Overarching Project: ChatDFT development<a class="headerlink" href="#overarching-project-chatdft-development" title="Link to this heading">#</a></h2>
-<p>As returning students will know, we have been working on seeing how large-language models (LLMs) can help students learn to use DFT simulations. We had developed some tools specifically for this, but unfortunately due to technical difficulties they are not available this semester. Instead, we will use this semester as a “control group”, where you can use any openly-available LLMs to help you run the DFT simulations you will work on.</p>
-<p>All subteams will also work with the SPARC DFT code, a recent DFT package developed by Prof. Suryanarayana at Georgia Tech, designed for massively parallel calculations. This code is very powerful, but relatively new, and thus not as familiar for LLM tools. We hope that through this project we can help tailor an LLM interface that allows new users to quickly learn to use SPARC to perform reliable calculations.</p>
-</section>
 <section id="team-structure-new-students">
 <h2>Team Structure : New Students<a class="headerlink" href="#team-structure-new-students" title="Link to this heading">#</a></h2>
 <p>All new undergraduate students will automatically join the training subteam:</p>
 <ul class="simple">
-<li><p><strong>Training (led by Todd Whittaker and Seongun Yun)</strong> - All new undergraduate students must complete a training program that involves the basics of high-performance computing, common quantum-mechanical techniques such as Density Function Theory (DFT), and the development and use of machine learning techniques such as neural networks. DFT software packages are well-established, but require the use of supercomputing resources and must be converged with respect to several numerical parameters. The training will cover approximately 10 weeks and is highly represnetative of training programs for new graduate students in this field.</p></li>
+<li><p><strong>Training (led by Todd Whittaker and Nick Matteucci)</strong> - All new undergraduate students must complete a training program that involves the basics of high-performance computing, common quantum-mechanical techniques such as Density Function Theory (DFT), and the development and use of machine learning techniques such as neural networks. DFT software packages are well-established, but require the use of supercomputing resources and must be converged with respect to several numerical parameters. The training will cover approximately 10 weeks and is highly represnetative of training programs for new graduate students in this field.</p></li>
 </ul>
 </section>
 <section id="team-structure-returning-students-omscs-students-post-training-new-students">
-<h2>Team Structure: Returning Students, OMSCS Students, post Training New Students<a class="headerlink" href="#team-structure-returning-students-omscs-students-post-training-new-students" title="Link to this heading">#</a></h2>
-<p>Returning students will work on the DFT reproduction assignment described <a class="reference internal" href="VIP_Ads_energy_project.html"><span class="std std-doc">here</span></a> under the guidance of an assigned graduate student mentor (Sayan Bhowmik, Neung-Kyung Yu or AJ Medford), and OMSCS students can decide whether to complete the training exercises or join a sub-team (or both).</p>
+<h2>Team Structure: Returning Students, OMSCS Students, post-Training New Students<a class="headerlink" href="#team-structure-returning-students-omscs-students-post-training-new-students" title="Link to this heading">#</a></h2>
+<p>Returning students and OMS students join one of the three research sub-teams under the guidance of the sub-team leads (see the <a class="reference internal" href="VIP_subteams.html"><span class="std std-doc">sub-teams page</span></a> for details):</p>
+<ul class="simple">
+<li><p><strong>Surface Calculations</strong> - Sayan Bhowmik and Neung-Kyung Yu</p></li>
+<li><p><strong>Single-Atom Orbital-Free</strong> - Seongeun Yun</p></li>
+<li><p><strong>Machine-Learned Exchange-Correlation</strong> - AJ Medford and Charlotte Shih</p></li>
+</ul>
+<p>OMSCS students can decide whether to complete the training exercises or join a sub-team (or both).</p>
 <ul class="simple">
 <li><p>Each student should work independently on their “Achievements”, but should discuss regularly with other students and instructors during meetings.</p></li>
-<li><p>Students should regularly communicate with their sub-team to (1) coordinate progress on individual tasks to work toward the larger goal of the team, (2) ask for and provide assistance to other sub-team members, and (3) seek advice from and provide updates to the sub-team graduate mentor.</p></li>
-<li><p>It is fully expected that the goals of research tasks change throughout the semester. The goals document can be updated at any time up to 2 weeks prior to the end of the semester. Students should revise goals as needed to ensure they are achievable.</p></li>
-<li><p>Note that the achievements grade is determined by your sub-team advisor. Different advisors may have different expectations and organizational standards. You should be sure to clearly communicate with your subteam advisor to be sure that you are meeting their expectations.</p></li>
+<li><p>Students should regularly communicate with their sub-team mentor about goals, progress, and challenges.</p></li>
 </ul>
 </section>
 <section id="standard-meeting-format">
@@ -549,7 +584,7 @@ document.write(`
 <section id="week-1-assignment">
 <h2>Week 1 Assignment<a class="headerlink" href="#week-1-assignment" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Join the <a class="reference external" href="https://join.slack.com/t/slack-ymv5720/shared_invite/zt-21v1xmbap-5FQMR2rgE0B5krwMZPFyBQ">Slack channel</a></p></li>
+<li><p>Join Slack: create an account at <a class="reference external" href="https://gatech.enterprise.slack.com">gatech.enterprise.slack.com</a>, then join the team at <a class="reference external" href="https://bigdataquantu-ii59559.slack.com">bigdataquantu-ii59559.slack.com</a></p></li>
 <li><p>Start discussion for selecting your group or sub-team project</p></li>
 <li><p>Install necessary software following instructions below.</p></li>
 </ul>
@@ -616,11 +651,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="VIP_Ads_energy_project.html"
+       href="VIP_subteams.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">DFT adsorption energy reproducibility project</p>
+        <p class="prev-next-title">VIP Sub-Teams (Fall 2026)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -631,15 +666,17 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-medford-group-research">Overview of Medford Group research</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-prof-aj-medford">About Prof. AJ Medford</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introductions">Introductions</a></li>
@@ -647,9 +684,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-vip-graded">How is VIP graded?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vip-is-not-like-a-regular-course">VIP is not like a regular course</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-communication">Group Communication:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overarching-project-chatdft-development">Overarching Project: ChatDFT development</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-structure-new-students">Team Structure : New Students</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-structure-returning-students-omscs-students-post-training-new-students">Team Structure: Returning Students, OMSCS Students, post Training New Students</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-structure-returning-students-omscs-students-post-training-new-students">Team Structure: Returning Students, OMSCS Students, post-Training New Students</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-meeting-format">Standard meeting format</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecture-schedule-and-syllabus">Lecture schedule and syllabus</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-assignment">Week 1 Assignment</a></li>
@@ -710,8 +746,8 @@ By Medford Group
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>
