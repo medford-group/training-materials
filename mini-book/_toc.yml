@@ -7,7 +7,7 @@ parts:
       sections:
       - file: docs/VIP_syllabus
       - file: docs/VIP_Overview
-      - file: docs/VIP_Ads_energy_project
+      - file: docs/VIP_subteams
   - caption: Training Materials
     #numbered: true
     chapters:

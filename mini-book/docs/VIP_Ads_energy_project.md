@@ -1,5 +1,11 @@
 # DFT adsorption energy reproducibility project
 
+> **Deprecated (Fall 2026).** This stand-alone project has been absorbed
+> into the [Surface Calculations sub-team](VIP_subteams.md) — reproducing
+> literature adsorption energies is now an entry task there rather than a
+> separate assignment. This page is retained for reference; the rubrics
+> below no longer apply directly.
+
 This project will explore a crucial, but often neglected, aspect of DFT research: reproducibility of results. There are a few papers on this topic (e.g.  [https://www.science.org/doi/10.1126/science.aad3000](https://www.science.org/doi/10.1126/science.aad3000)) but none that focus specifically on adsorption energies. Since adsorption energies are “derived quantities” – that is, they are not direct outputs of a single DFT calculation – they can be more challenging to reproduce. Our hypothesis is that by combining large-language models with natural language instructions, we can identify how to more robustly communicate instructions about how to reproduce DFT calculations, and provide specific insight into which “prompt engineering” strategies and LLM structures that are most effective for the task. Your project will help test this hypothesis by using LLMs to reproduce at least 3 adsorption energies found in the literature.
 
 ## Grading:
