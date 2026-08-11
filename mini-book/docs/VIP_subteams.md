@@ -12,10 +12,6 @@ developed at Georgia Tech; the Single-Atom Orbital-Free sub-team is the
 exception, and works instead with a stand-alone radial solver and
 pre-computed Kohn-Sham reference data.
 
-<!-- TODO(F26): each research sub-team stub below to be expanded by its
-     leads: project background, semester goals, example personal goals,
-     expected skills, and key references. -->
-
 Training
 --------
 
