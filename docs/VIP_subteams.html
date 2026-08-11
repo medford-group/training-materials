@@ -16,40 +16,37 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -60,38 +57,43 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/VIP_subteams';</script>
-    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introduction to Linux and High-Performance Computing" href="Intro_to_Linux_HPC.html" />
     <link rel="prev" title="Big Data &amp; Quantum Mechanics" href="VIP_Overview.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
-  
-    
-    <script src="../_static/searchtools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../searchindex.js"></script>
-  
   </head>
-  <body data-default-mode="">
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  
-  <dialog id="pst-search-dialog">
-    
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,6 +101,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -106,59 +109,15 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
-          
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-        </div>
-      
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -167,8 +126,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -198,17 +156,21 @@
     
     
     <img src="../_static/MedfordLogo.png" class="logo__image only-light" alt="Medford Group Graduate Training - Home"/>
-    <img src="../_static/MedfordLogo.png" class="logo__image only-dark pst-js-only" alt="Medford Group Graduate Training - Home"/>
+    <script>document.write(`<img src="../_static/MedfordLogo.png" class="logo__image only-dark" alt="Medford Group Graduate Training - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -308,14 +270,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -398,7 +355,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  class="btn btn-sm btn-fullscreen-button"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -412,17 +369,25 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -444,7 +409,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="pst-show_toc_level nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training">Training</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-calculations">Surface Calculations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-atom-orbital-free">Single-Atom Orbital-Free</a></li>
@@ -467,11 +432,10 @@ start on the <strong>Training</strong> sub-team (roughly the first 10 weeks) and
 transition into one of the research sub-teams. Returning students and online
 MS students join a research sub-team directly (or may elect to complete the
 training exercises first — discuss with your mentor).</p>
-<p>All sub-teams use the <a class="reference external" href="https://github.com/SPARC-X/SPARC">SPARC</a> DFT code
-developed at Georgia Tech.</p>
-<!-- TODO(F26): each research sub-team stub below to be expanded by its
-     leads: project background, semester goals, example personal goals,
-     expected skills, and key references. -->
+<p>Most sub-teams use the <a class="reference external" href="https://github.com/SPARC-X/SPARC">SPARC</a> DFT code
+developed at Georgia Tech; the Single-Atom Orbital-Free sub-team is the
+exception, and works instead with a stand-alone radial solver and
+pre-computed Kohn-Sham reference data.</p>
 <section id="training">
 <h2>Training<a class="headerlink" href="#training" title="Link to this heading">#</a></h2>
 <p><strong>Leads: Todd Whittaker and Nick Matteucci</strong></p>
@@ -487,28 +451,184 @@ achievable based on prior experience.</p>
 <section id="surface-calculations">
 <h2>Surface Calculations<a class="headerlink" href="#surface-calculations" title="Link to this heading">#</a></h2>
 <p><strong>Leads: Sayan Bhowmik and Neung-Kyung Yu</strong></p>
-<p>This sub-team explores surface and adsorption-energy calculations using the
-new method described in <a class="reference external" href="https://arxiv.org/abs/2607.07894">arXiv:2607.07894</a>.
-It absorbs the former stand-alone
-<a class="reference internal" href="VIP_Ads_energy_project.html"><span class="std std-doc">DFT reproducibility project</span></a>: reproducing
-adsorption energies from the published literature remains a natural entry
-task, now in service of benchmarking and applying the new method.</p>
-<p><em>More details forthcoming from the sub-team leads.</em></p>
+<a class="reference internal image-reference" href="../_images/VIP_bulk_BC_subteam.png"><img alt="The bulk boundary-condition method (one surface, truly semi-infinite domain) compared against the conventional slab approximation (two surfaces, plus a fictitious image system in periodic codes)." src="../_images/VIP_bulk_BC_subteam.png" style="width: 100%;" />
+</a>
+<p>Nearly every DFT study of a catalyst surface uses the <strong>slab approximation</strong>:
+a few atomic layers of material, padded with vacuum, repeated periodically.
+It is a convenient model, but it is not the physical system. A real surface
+is the boundary of a semi-infinite solid, whereas a slab has <em>two</em> surfaces
+that can interact through the material, and in a periodic code it is also
+surrounded by a fictitious stack of image slabs separated by vacuum. Making
+those artifacts small enough to ignore is what forces the usual convergence
+work of thickening slabs and padding vacuum. This sub-team works on an
+alternative: applying a <strong>bulk boundary condition</strong> beneath the surface, so
+the calculation contains only one surface and the solid extends
+semi-infinitely below it — the approach described in
+<a class="reference external" href="https://arxiv.org/abs/2607.07894">arXiv:2607.07894</a> and implemented in
+<a class="reference external" href="https://github.com/SPARC-X/SPARC">SPARC</a>.</p>
+<p>The semester is organized as a head-to-head comparison of the two methods on
+the same chemistry. Early on you will settle on <strong>two adsorption energies</strong>
+(at most three) to carry through the whole semester, chosen together with the
+sub-team leads — start simple, since the point is the method comparison
+rather than the difficulty of the system. Through the Week 8 class (10/14),
+each meeting has two parts: a progress check on your slab-approximation
+calculations in SPARC, and a group discussion working through the bulk
+boundary-condition paper and the details of the method. The target for the
+midterm (deliverables due 10/16) is to have at least two adsorption energies
+completed in the slab approximation; that is the benchmark for an A-level
+midterm grade, which is advisory only. In the second half of the semester you
+repeat those same calculations with the bulk boundary condition, and your
+final report presents the comparison — both the numbers and what you learned
+about the two methods. Successfully reproducing <strong>one</strong> calculation under the
+bulk boundary condition is the A-level benchmark for the final; that bar may
+be relaxed if the method turns out to be harder to apply than expected.
+Reproducing published adsorption energies from the literature is a natural
+entry task here, and this sub-team absorbs the former stand-alone
+<a class="reference internal" href="VIP_Ads_energy_project.html"><span class="std std-doc">DFT reproducibility project</span></a>.</p>
+<p>One practical warning about what this work will feel like. The bulk
+boundary condition is a <strong>new feature and is not yet supported through the
+Python interface</strong>, so for that half of the project you will be stepping
+outside of ASE and the Python environments used in training, and driving
+SPARC directly. Expect to build a real understanding of the geometry of your
+calculation rather than letting a Python API assemble it for you, and expect
+to do some unglamorous work: editing input files by hand, keeping the slab
+and bulk-BC setups consistent with each other, and writing your own bash
+submit scripts on PACE. That is a genuine part of the project, and it is
+worth flagging up front — this sub-team suits students who are willing to get
+their hands dirty at the level of input files and job scripts.</p>
 </section>
 <section id="single-atom-orbital-free">
-<h2>Single-Atom Orbital-Free<a class="headerlink" href="#single-atom-orbital-free" title="Link to this heading">#</a></h2>
+<span id="id1"></span><h2>Single-Atom Orbital-Free<a class="headerlink" href="#single-atom-orbital-free" title="Link to this heading">#</a></h2>
 <p><strong>Lead: Seongeun Yun</strong></p>
-<p>This sub-team works on orbital-free DFT (OFDFT) using a single-atom solver —
-developing and testing kinetic-energy functionals in a setting where the
-numerics are tractable and results are easy to validate.</p>
-<p><em>More details forthcoming from the sub-team lead.</em></p>
+<p>Kohn-Sham DFT scales cubically with system size, which is what ultimately
+limits how large a system you can treat. Orbital-free DFT (OFDFT) scales
+<em>linearly</em> instead, because it drops the orbitals entirely and writes the
+energy as a functional of the electron density alone. The catch is the
+kinetic energy. In Kohn-Sham DFT the non-interacting kinetic energy
+<span class="math notranslate nohighlight">\(T_s[n]\)</span> is computed from the orbitals; in OFDFT it has to be an explicit
+functional of the density, and no such functional is known that works well
+in general. This is <em>the</em> central open problem in OFDFT. The standard move
+is to split off the part we do know exactly — the von Weizsäcker term
+<span class="math notranslate nohighlight">\(T_{vW}[n]\)</span>, which is exact for one-orbital systems — and lump the rest into
+a <strong>Pauli</strong> term:</p>
+<div class="math notranslate nohighlight">
+\[T_s[n] = T_{vW}[n] + T_\theta[n]\]</div>
+<p><span class="math notranslate nohighlight">\(T_\theta[n]\)</span>, and its functional derivative the <strong>Pauli potential</strong>
+<span class="math notranslate nohighlight">\(v_\theta\)</span>, is the unknown piece. This sub-team’s goal is to model it as a
+function of density-dependent features — given <span class="math notranslate nohighlight">\(n(\mathbf{r})\)</span> and
+quantities derived from it (gradients, Laplacians), predict <span class="math notranslate nohighlight">\(v_\theta\)</span> or
+<span class="math notranslate nohighlight">\(T_\theta\)</span>.</p>
+<p>The reason for working on <strong>single atoms</strong> is that they make the problem
+tractable without making it fake. An isolated atom can be solved essentially
+exactly with Kohn-Sham DFT, which means reliable reference data is available
+to fit and test against, and in a spherically symmetric system the whole
+problem reduces to one radial dimension. The missing kinetic energy term can
+therefore be studied in isolation, rather than tangled up with everything
+else that is hard about a real material. You will work from pre-computed
+Kohn-Sham reference data — per-point densities and derived features, with
+the corresponding potentials and kinetic energies — organized by atomic
+number, and the practical work is building features from that data, fitting
+models, and checking them. Unlike the other sub-teams, there is no fixed set
+of milestones here: the specific target you take on is negotiated with the
+sub-team lead early in the semester and recorded in your Personal Goals
+document, since the useful next step depends a great deal on where the
+sub-team’s work stands when you join.</p>
+<p>What makes this project distinctive is that you are not just minimizing a
+fit error. A model of <span class="math notranslate nohighlight">\(v_\theta\)</span> has to respect properties that are known
+exactly — the kinetic energy scales quadratically under density scaling;
+<span class="math notranslate nohighlight">\(T_\theta\)</span> is non-negative and vanishes identically for one- and
+two-electron atoms; the Pauli potential is positive everywhere; and it
+decays to zero far from the nucleus with a known centrifugal-like tail.
+Those are your real validation targets, and a model that fits well but
+violates them is not a good model. Expect this to be the most theory-forward
+of the sub-teams: you should be ready to work through the derivations and
+read the references below rather than treating the data as a black-box
+regression problem. Expect it to be the most Python- and ML-heavy as well —
+feature engineering and model fitting rather than HPC job scripts. And
+expect to need real numerical care. Both the potential and its derived
+features become unstable in the very high- and very low-density limits, and
+Laplacian-based features are noisy, so a large part of the work is knowing
+when a number is physics and when it is an artifact.</p>
+<p><strong>Key references</strong></p>
+<ol class="arabic simple">
+<li><p>Mi, W., Luo, K., Trickey, S. B., &amp; Pavanello, M. (2023). Orbital-free
+density functional theory: An attractive electronic structure method for
+large-scale first-principles simulations. <em>Chemical Reviews</em>, 123(21),
+12039–12104. <em>(Start here — a recent, broad review.)</em></p></li>
+<li><p>Lignères, V. L., &amp; Carter, E. A. (2005). An introduction to orbital-free
+density functional theory. In <em>Handbook of Materials Modeling: Methods</em>
+(pp. 137–148). Springer Netherlands.</p></li>
+<li><p>Levy, M., &amp; Ou-Yang, H. (1988). Exact properties of the Pauli potential
+for the square root of the electron density and the kinetic energy
+functional. <em>Physical Review A</em>, 38(2), 625.</p></li>
+<li><p>Lehtomäki, J., Makkonen, I., Caro, M. A., Harju, A., &amp; Lopez-Acevedo, O.
+(2014). Orbital-free density functional theory implementation with the
+projector augmented-wave method. <em>J. Chem. Phys.</em>, 141, 234102.</p></li>
+</ol>
+<p>The reference dataset is distributed through Canvas — ask the sub-team lead
+if you do not have access.</p>
 </section>
 <section id="machine-learned-exchange-correlation">
 <h2>Machine-Learned Exchange-Correlation<a class="headerlink" href="#machine-learned-exchange-correlation" title="Link to this heading">#</a></h2>
 <p><strong>Leads: A. J. Medford and Charlotte Shih</strong></p>
-<p>Continued from prior semesters: developing and testing machine-learned
-exchange-correlation functionals.</p>
-<p><em>More details forthcoming from the sub-team leads.</em></p>
+<p>Kohn-Sham DFT is exact in principle, and in practice everything hinges on a
+single term. Of the pieces that make up the total energy — the kinetic
+energy, the external potential, and the classical Coulomb repulsion — only
+the exchange-correlation (XC) energy <span class="math notranslate nohighlight">\(E_{XC}[n]\)</span> has no known exact form.
+Every functional you will use in this course (LDA, GGA, hybrids) is a
+different approximation to it, and the accuracy of essentially every DFT
+number you produce traces back to that one choice. This sub-team asks
+whether a machine-learned functional can do better: train a model to predict
+XC quantities from the electron density and features derived from it,
+instead of writing down a fixed analytic form by hand. It is a natural
+counterpart to the <a class="reference internal" href="#single-atom-orbital-free"><span class="std std-ref">Single-Atom Orbital-Free</span></a>
+sub-team — that team models the kinetic term, this one models the
+exchange-correlation term, and the two are the places where Kohn-Sham DFT
+and orbital-free DFT respectively have to approximate something.</p>
+<p>The project spans two settings, and the recommended path runs through both.
+Single-atom systems come first: they are cheap, they reduce to one radial
+dimension, and near-exact reference data is available, so a new idea can be
+tested there quickly and diagnosed when it fails. A method that works on
+single-atom XC is then translated to full 3D systems, which is where it has
+to survive contact with reality. That translation is the interesting part
+of the project rather than a formality — a model can look excellent on
+radial atomic data and still break down in three dimensions. As with the
+orbital-free sub-team, there is no fixed set of milestones: this is
+continuing work from prior semesters, and what constitutes a useful
+contribution depends on where the effort stands when you join, so you will
+define your own targets with the leads early in the semester and record them
+in your Personal Goals document.</p>
+<p>The two references below are the group’s own prior work on this problem and
+are the best place to start. The first introduces the core idea: build a
+feature space from <em>convolutions</em> of the electron density, using rotationally
+invariant kernels, and learn the functional on top of it. The second carries
+that approach into exactly the translation described above — a
+self-consistent convolutional functional, applied not just to small molecules
+but to bulk metals and adsorption at metal surfaces.</p>
+<p>Practically, expect this to be a Python- and ML-heavy project: constructing
+features from densities, fitting models, and — critically — evaluating them
+honestly. The hardest habit to build is skepticism about your own results.
+A functional is not judged by its regression error against reference data;
+it is judged by whether it produces good physics when it is actually used,
+and a model with an excellent fit can still fail in that setting. Building
+the case that a model works is a substantial part of the work here, and
+students who enjoy the theory side will find plenty of it, since the useful
+constraints on <span class="math notranslate nohighlight">\(E_{XC}\)</span> come from knowing what the exact functional must
+satisfy.</p>
+<p><strong>Key references</strong></p>
+<ol class="arabic simple">
+<li><p>Lei, X., &amp; Medford, A. J. (2019). Design and analysis of machine learning
+exchange-correlation functionals via rotationally invariant convolutional
+descriptors. <em>Physical Review Materials</em>, 3(6), 063801.
+<a class="reference external" href="https://doi.org/10.1103/PhysRevMaterials.3.063801">doi:10.1103/PhysRevMaterials.3.063801</a>
+· <a class="reference external" href="https://arxiv.org/abs/1901.10822">arXiv:1901.10822</a></p></li>
+<li><p>Sahoo, S. J., Xu, Q., Lei, X., Staros, D., Iyer, G. R., Rubenstein, B.,
+Suryanarayana, P., &amp; Medford, A. J. (2024). Self-consistent convolutional
+density functional approximations: Application to adsorption at metal
+surfaces. <em>ChemPhysChem</em>, 25(10), e202300688.
+<a class="reference external" href="https://doi.org/10.1002/cphc.202300688">doi:10.1002/cphc.202300688</a>
+· <a class="reference external" href="https://arxiv.org/abs/2308.05310">arXiv:2308.05310</a></p></li>
+</ol>
 </section>
 </section>
 
@@ -567,17 +687,15 @@ exchange-correlation functionals.</p>
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item"><div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="pst-show_toc_level nav section-nav flex-column">
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training">Training</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-calculations">Surface Calculations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-atom-orbital-free">Single-Atom Orbital-Free</a></li>
@@ -630,8 +748,8 @@ By Medford Group
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
