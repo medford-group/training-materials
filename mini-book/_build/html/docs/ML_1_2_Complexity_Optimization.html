@@ -441,8 +441,7 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="complexity-optimization">
 <h1>Complexity Optimization<a class="headerlink" href="#complexity-optimization" title="Link to this heading">#</a></h1>
 <p>The key to machine learning is creating models that generalize to new examples. This means we are looking for models with enough complexity to describe the behavior, but not so much complexity that it just reproduces the data points.</p>
-<a class="reference internal image-reference" href="../_images/underfitting_overfitting.png"><img alt="../_images/underfitting_overfitting.png" class="align-center" src="../_images/underfitting_overfitting.png" style="width: 800px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/underfitting_overfitting.png"><img alt="../_images/underfitting_overfitting.png" class="align-center" src="../_images/underfitting_overfitting.png" style="width: 800px;" /></a>
 <ul class="simple">
 <li><p>Underfitting: The model is just “guessing” at the data, and will be equally bad at the data it has been trained on and the data that it is tested on.</p></li>
 <li><p>Overfitting: The model has memorized all of the training data, and will be perfect on training data and terrible on testing data.</p></li>
@@ -760,8 +759,7 @@ The largest coefficient is 10.984.
 <p>This can be compared to the loss function for ridge regression:</p>
 <p><span class="math notranslate nohighlight">\(L_{ridge} = \sum_i \epsilon_i^2 + \alpha ||\vec{w}||_2\)</span></p>
 <p>We will not go through the derivation of <em>why</em> the L1 norm causes parameters to go to zero, but the following schematic, borrowed from <a class="reference external" href="https://niallmartin.wordpress.com/2016/05/12/shrinkage-methods-ridge-and-lasso-regression/">this website</a> may be useful (note that <span class="math notranslate nohighlight">\(\vec{\beta}\)</span> is equivalent to <span class="math notranslate nohighlight">\(\vec{w}\)</span>:</p>
-<a class="reference internal image-reference" href="../_images/lasso_vs_ridge_regression.png"><img alt="../_images/lasso_vs_ridge_regression.png" class="align-center" src="../_images/lasso_vs_ridge_regression.png" style="width: 600px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/lasso_vs_ridge_regression.png"><img alt="../_images/lasso_vs_ridge_regression.png" class="align-center" src="../_images/lasso_vs_ridge_regression.png" style="width: 600px;" /></a>
 <p>We can also test it using <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>. Unfortunately, we need to create our own feature (basis) matrix, <span class="math notranslate nohighlight">\(X_{ij}\)</span>, similar to linear regression, so we will need a function to evaluate the <code class="docutils literal notranslate"><span class="pre">rbf</span></code>. Instead of using our own, we can use the one from <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

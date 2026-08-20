@@ -12,7 +12,7 @@ Neung-Kyung Yu, Seongeun Yun, Charlotte Shih
 
 [twhittaker32@gatech.edu](mailto:twhittaker32@gatech.edu)
 
-<!-- TODO(F26): add Nick Matteucci's GT email -->
+[nmatteucci6@gatech.edu](mailto:nmatteucci6@gatech.edu)
 
 [sbhowmik9@gatech.edu](mailto:sbhowmik9@gatech.edu)
 
