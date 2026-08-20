@@ -663,8 +663,7 @@ document.write(`
 <section id="the-perceptron-as-a-neural-network">
 <h3>The perceptron as a neural network<a class="headerlink" href="#the-perceptron-as-a-neural-network" title="Link to this heading">#</a></h3>
 <p>It turns out that the “perceptron”, invented by Frank Rosenblatt in 1958, was the original neural network. The structure of the perceptron is similar to a biological neuron which “fires” if the sum of its inputs exceed some threshold:</p>
-<a class="reference internal image-reference" href="../_images/perceptron_NN.png"><img alt="../_images/perceptron_NN.png" class="align-center" src="../_images/perceptron_NN.png" style="width: 400px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/perceptron_NN.png"><img alt="../_images/perceptron_NN.png" class="align-center" src="../_images/perceptron_NN.png" style="width: 400px;" /></a>
 <p>The “perceptron” is equivalent to a “single layer” neural network with a step activation function. In fact, all the generalized linear models for classification are single layer neural networks, but with slightly different types of activation functions.</p>
 </section>
 </section>
@@ -802,8 +801,7 @@ Logistic regression loss function: 53.939495485292476
 </ol>
 <p>Logistic regression uses a smooth approximation of the maximum to ensure differentiability, and the “trivial solution” goes away as a side effect.</p>
 <p>An alternative approach is to directly eliminate the trivial solution by introducing a “margin” cost function, where we recognize that there will be some “buffer zone” between the classes:</p>
-<a class="reference internal image-reference" href="../_images/margin_cost.png"><img alt="../_images/margin_cost.png" src="../_images/margin_cost.png" style="width: 500px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/margin_cost.png"><img alt="../_images/margin_cost.png" class="align-center" src="../_images/margin_cost.png" style="width: 500px;" /></a>
 <p>We can write this mathematically as:</p>
 <p><span class="math notranslate nohighlight">\(\bar{\bar{X}}\vec{w} \geq 1\)</span> if <span class="math notranslate nohighlight">\(y_i=1\)</span> (class 1)</p>
 <p><span class="math notranslate nohighlight">\(\bar{\bar{X}}\vec{w} \leq -1\)</span> if <span class="math notranslate nohighlight">\(y_i=-1\)</span> (class 2)</p>
@@ -926,11 +924,9 @@ Logistic regression loss function: 53.939495485292476
 <p>and sum over all points to get the loss function:</p>
 <p><span class="math notranslate nohighlight">\(g_{margin}(\vec{w}) = \sum_i max(0, 1-y_i \bar{\bar{X}}\vec{w})\)</span></p>
 <p>We can visualize this geometrically as:</p>
-<a class="reference internal image-reference" href="../_images/margin_cost.png"><img alt="../_images/margin_cost.png" class="align-center" src="../_images/margin_cost.png" style="width: 500px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/margin_cost.png"><img alt="../_images/margin_cost.png" class="align-center" src="../_images/margin_cost.png" style="width: 500px;" /></a>
 <p>The distance between the discrimination line and the closest points is called the “margin” of the model, and the points that define the margin are called the “support vectors”. It can be shown with geometric arguments that the width of the margins is inversely proportional to the size of the weight vector (without the intercept term):</p>
-<a class="reference internal image-reference" href="../_images/margin_size.png"><img alt="../_images/margin_size.png" class="align-center" src="../_images/margin_size.png" style="width: 500px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/margin_size.png"><img alt="../_images/margin_size.png" class="align-center" src="../_images/margin_size.png" style="width: 500px;" /></a>
 <p>For support vector machines, the goal is to maximize the margins between the “support vectors”. This is achieved by minimizing the value of the weights, <span class="math notranslate nohighlight">\(\vec{w}\)</span>. This can be done by “regularization”, as we discussed in the regression lectures. Specifically, support vector machines use <span class="math notranslate nohighlight">\(L_2\)</span> regularization:</p>
 <p><span class="math notranslate nohighlight">\(g_{SVM}(\vec{w}) = \sum_i max(0, 1-y_i \bar{\bar{X}}\vec{w}) + \alpha ||\vec{\tilde{w}}||_2 \)</span></p>
 <p>where <span class="math notranslate nohighlight">\(\vec{\tilde{w}}\)</span> are the weights with the intercept omitted.</p>
@@ -1082,8 +1078,7 @@ Logistic regression loss function: 53.939495485292476
 </div>
 </div>
 <p>Now the model is able to correctly classify the non-linearly separable dataset! The kernel has created a new, higher-dimensional transformed space:</p>
-<a class="reference internal image-reference" href="../_images/kernel_schematic.png"><img alt="../_images/kernel_schematic.png" class="align-center" src="../_images/kernel_schematic.png" style="width: 400px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/kernel_schematic.png"><img alt="../_images/kernel_schematic.png" class="align-center" src="../_images/kernel_schematic.png" style="width: 400px;" /></a>
 <p>Let’s see how it works for the “moons” dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
