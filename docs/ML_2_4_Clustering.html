@@ -942,8 +942,7 @@ Wall time: 20.5 s
 <li><p><span class="math notranslate nohighlight">\(\sigma_k = \frac{\sum_{i=1}^N \gamma_{ik} (x_i - \mu_k)^2}{\sum_{i=1}^N \gamma_{ik}} \)</span></p></li>
 </ul>
 <p>These parameters are derived by maximizing <span class="math notranslate nohighlight">\(P(\vec{x})\)</span> with respect to each parameter. The formulas for multi-dimensional Gaussians are derived in the same way but are more complex.</p>
-<a class="reference internal image-reference" href="../_images/GMM.gif"><img alt="../_images/GMM.gif" src="../_images/GMM.gif" style="width: 500px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/GMM.gif"><img alt="../_images/GMM.gif" src="../_images/GMM.gif" style="width: 500px;" /></a>
 <p>Gaussian mixture models are much more flexible than k-means models because they have different variances and covariances between clusters. Let’s see how GMM’s perform for some of the earlier datasets:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1443,8 +1442,7 @@ Wall time: 11 s
 <li><p><strong>min_samples</strong>: the minimum number of samples within a radius of <span class="math notranslate nohighlight">\(\epsilon\)</span> such that a point is not considered noise.</p></li>
 </ul>
 <p>The following animation illustrates how the DBSCAN algorithm works:</p>
-<a class="reference internal image-reference" href="../_images/DBSCAN.gif"><img alt="../_images/DBSCAN.gif" src="../_images/DBSCAN.gif" style="width: 500px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/DBSCAN.gif"><img alt="../_images/DBSCAN.gif" src="../_images/DBSCAN.gif" style="width: 500px;" /></a>
 <p>The main advantage of DBSCAN is that it can find clusters defined by highly non-linear boundaries, unlike k-means, mean shift, or even GMM’s. Let’s see how the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> implementation works:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1475,8 +1473,7 @@ Wall time: 11 s
 <section id="dendrograms">
 <h3>Dendrograms<a class="headerlink" href="#dendrograms" title="Link to this heading">#</a></h3>
 <p>A “dendrogram” is a graphical representation of the distances between different points in some high-dimensional space. One intuitive but qualitative example of a dendrogram are the <a class="reference external" href="https://www.instituteofcaninebiology.org/how-to-read-a-dendrogram.html">species trees</a> commonly used in biology:</p>
-<a class="reference internal image-reference" href="../_images/bio_dendrogram.png"><img alt="../_images/bio_dendrogram.png" src="../_images/bio_dendrogram.png" style="width: 500px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/bio_dendrogram.png"><img alt="../_images/bio_dendrogram.png" src="../_images/bio_dendrogram.png" style="width: 500px;" /></a>
 <p>We can see that it is possible to create different “clusters” of species based on different defining characteristics. By choosing more or less specific “cutoffs” we could create a few large clusters or many small clusters. The idea is similar for data sets. Let’s see how it looks for some of our examples.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1610,8 +1607,7 @@ cophenetic coefficient of ward: 0.8212908347506772
 <h3>Agglomerative hierarchical clustering<a class="headerlink" href="#agglomerative-hierarchical-clustering" title="Link to this heading">#</a></h3>
 <p>Agglomerative clustering is easy to understand once the “linkage” structure makes sense. The number of clusters can be defined either explicitly (move up the tree until there are ‘k’ clusters) or implicitly (provide a linkage distance that defines separate clusters).</p>
 <p>The following animations illustrates this nicely:</p>
-<a class="reference internal image-reference" href="../_images/agglomerative.gif"><img alt="../_images/agglomerative.gif" src="../_images/agglomerative.gif" style="width: 700px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/agglomerative.gif"><img alt="../_images/agglomerative.gif" src="../_images/agglomerative.gif" style="width: 700px;" /></a>
 <p>The mechanics of doing this can be a little tricky, but luckily there are built-in functions to help:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
