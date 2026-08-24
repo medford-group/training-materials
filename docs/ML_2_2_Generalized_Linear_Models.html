@@ -30,9 +30,9 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -663,7 +663,8 @@ document.write(`
 <section id="the-perceptron-as-a-neural-network">
 <h3>The perceptron as a neural network<a class="headerlink" href="#the-perceptron-as-a-neural-network" title="Link to this heading">#</a></h3>
 <p>It turns out that the “perceptron”, invented by Frank Rosenblatt in 1958, was the original neural network. The structure of the perceptron is similar to a biological neuron which “fires” if the sum of its inputs exceed some threshold:</p>
-<a class="reference internal image-reference" href="../_images/perceptron_NN.png"><img alt="../_images/perceptron_NN.png" class="align-center" src="../_images/perceptron_NN.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/perceptron_NN.png"><img alt="../_images/perceptron_NN.png" class="align-center" src="../_images/perceptron_NN.png" style="width: 400px;" />
+</a>
 <p>The “perceptron” is equivalent to a “single layer” neural network with a step activation function. In fact, all the generalized linear models for classification are single layer neural networks, but with slightly different types of activation functions.</p>
 </section>
 </section>
@@ -801,7 +802,8 @@ Logistic regression loss function: 53.939495485292476
 </ol>
 <p>Logistic regression uses a smooth approximation of the maximum to ensure differentiability, and the “trivial solution” goes away as a side effect.</p>
 <p>An alternative approach is to directly eliminate the trivial solution by introducing a “margin” cost function, where we recognize that there will be some “buffer zone” between the classes:</p>
-<a class="reference internal image-reference" href="../_images/margin_cost.png"><img alt="../_images/margin_cost.png" class="align-center" src="../_images/margin_cost.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/margin_cost.png"><img alt="../_images/margin_cost.png" class="align-center" src="../_images/margin_cost.png" style="width: 500px;" />
+</a>
 <p>We can write this mathematically as:</p>
 <p><span class="math notranslate nohighlight">\(\bar{\bar{X}}\vec{w} \geq 1\)</span> if <span class="math notranslate nohighlight">\(y_i=1\)</span> (class 1)</p>
 <p><span class="math notranslate nohighlight">\(\bar{\bar{X}}\vec{w} \leq -1\)</span> if <span class="math notranslate nohighlight">\(y_i=-1\)</span> (class 2)</p>
@@ -924,9 +926,11 @@ Logistic regression loss function: 53.939495485292476
 <p>and sum over all points to get the loss function:</p>
 <p><span class="math notranslate nohighlight">\(g_{margin}(\vec{w}) = \sum_i max(0, 1-y_i \bar{\bar{X}}\vec{w})\)</span></p>
 <p>We can visualize this geometrically as:</p>
-<a class="reference internal image-reference" href="../_images/margin_cost.png"><img alt="../_images/margin_cost.png" class="align-center" src="../_images/margin_cost.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/margin_cost.png"><img alt="../_images/margin_cost.png" class="align-center" src="../_images/margin_cost.png" style="width: 500px;" />
+</a>
 <p>The distance between the discrimination line and the closest points is called the “margin” of the model, and the points that define the margin are called the “support vectors”. It can be shown with geometric arguments that the width of the margins is inversely proportional to the size of the weight vector (without the intercept term):</p>
-<a class="reference internal image-reference" href="../_images/margin_size.png"><img alt="../_images/margin_size.png" class="align-center" src="../_images/margin_size.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/margin_size.png"><img alt="../_images/margin_size.png" class="align-center" src="../_images/margin_size.png" style="width: 500px;" />
+</a>
 <p>For support vector machines, the goal is to maximize the margins between the “support vectors”. This is achieved by minimizing the value of the weights, <span class="math notranslate nohighlight">\(\vec{w}\)</span>. This can be done by “regularization”, as we discussed in the regression lectures. Specifically, support vector machines use <span class="math notranslate nohighlight">\(L_2\)</span> regularization:</p>
 <p><span class="math notranslate nohighlight">\(g_{SVM}(\vec{w}) = \sum_i max(0, 1-y_i \bar{\bar{X}}\vec{w}) + \alpha ||\vec{\tilde{w}}||_2 \)</span></p>
 <p>where <span class="math notranslate nohighlight">\(\vec{\tilde{w}}\)</span> are the weights with the intercept omitted.</p>
@@ -1078,7 +1082,8 @@ Logistic regression loss function: 53.939495485292476
 </div>
 </div>
 <p>Now the model is able to correctly classify the non-linearly separable dataset! The kernel has created a new, higher-dimensional transformed space:</p>
-<a class="reference internal image-reference" href="../_images/kernel_schematic.png"><img alt="../_images/kernel_schematic.png" class="align-center" src="../_images/kernel_schematic.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/kernel_schematic.png"><img alt="../_images/kernel_schematic.png" class="align-center" src="../_images/kernel_schematic.png" style="width: 400px;" />
+</a>
 <p>Let’s see how it works for the “moons” dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

@@ -3,6 +3,9 @@
 Welcome to the VIP portion of the Medford group training materials. Here, you will find a brief enumeration of the lectures and exercises that you will be expected to complete as part of the training sub-team. You are more than welcome to explore the additional content, and you may find it helpful to return here after you've joined a sub-team for additional instruction. Keep in mind that you *must* complete the exercises enumerated here. 
 
 ## Lectures
+
+Recordings of the lectures below are posted to the [VIP MediaSpace channel](https://mediaspace.gatech.edu/channel/VIP%3A+Big+Data+%26+Quantum+Mechanics/416121972) (GT login required).
+
 - HPC: [Introduction to Linux and High-Performance Computing](linux-hpc)
 - PY: [Introduction to Basic Python Tools](basic-python)
 - ASE: [Introduction to Manipulating Atoms in Python](manipulating-atoms)

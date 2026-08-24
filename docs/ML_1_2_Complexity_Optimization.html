@@ -30,9 +30,9 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -441,7 +441,8 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="complexity-optimization">
 <h1>Complexity Optimization<a class="headerlink" href="#complexity-optimization" title="Link to this heading">#</a></h1>
 <p>The key to machine learning is creating models that generalize to new examples. This means we are looking for models with enough complexity to describe the behavior, but not so much complexity that it just reproduces the data points.</p>
-<a class="reference internal image-reference" href="../_images/underfitting_overfitting.png"><img alt="../_images/underfitting_overfitting.png" class="align-center" src="../_images/underfitting_overfitting.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../_images/underfitting_overfitting.png"><img alt="../_images/underfitting_overfitting.png" class="align-center" src="../_images/underfitting_overfitting.png" style="width: 800px;" />
+</a>
 <ul class="simple">
 <li><p>Underfitting: The model is just “guessing” at the data, and will be equally bad at the data it has been trained on and the data that it is tested on.</p></li>
 <li><p>Overfitting: The model has memorized all of the training data, and will be perfect on training data and terrible on testing data.</p></li>
@@ -759,7 +760,8 @@ The largest coefficient is 10.984.
 <p>This can be compared to the loss function for ridge regression:</p>
 <p><span class="math notranslate nohighlight">\(L_{ridge} = \sum_i \epsilon_i^2 + \alpha ||\vec{w}||_2\)</span></p>
 <p>We will not go through the derivation of <em>why</em> the L1 norm causes parameters to go to zero, but the following schematic, borrowed from <a class="reference external" href="https://niallmartin.wordpress.com/2016/05/12/shrinkage-methods-ridge-and-lasso-regression/">this website</a> may be useful (note that <span class="math notranslate nohighlight">\(\vec{\beta}\)</span> is equivalent to <span class="math notranslate nohighlight">\(\vec{w}\)</span>:</p>
-<a class="reference internal image-reference" href="../_images/lasso_vs_ridge_regression.png"><img alt="../_images/lasso_vs_ridge_regression.png" class="align-center" src="../_images/lasso_vs_ridge_regression.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/lasso_vs_ridge_regression.png"><img alt="../_images/lasso_vs_ridge_regression.png" class="align-center" src="../_images/lasso_vs_ridge_regression.png" style="width: 600px;" />
+</a>
 <p>We can also test it using <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>. Unfortunately, we need to create our own feature (basis) matrix, <span class="math notranslate nohighlight">\(X_{ij}\)</span>, similar to linear regression, so we will need a function to evaluate the <code class="docutils literal notranslate"><span class="pre">rbf</span></code>. Instead of using our own, we can use the one from <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
