@@ -30,6 +30,8 @@ Class Room: Zoom (see Canvas App)
 
 Training Materials: [Jupyter Book](https://medford-group.github.io/training-materials/)
 
+Lecture Recordings: [MediaSpace channel](https://mediaspace.gatech.edu/channel/VIP%3A+Big+Data+%26+Quantum+Mechanics/416121972) (GT login required)
+
 Course Description
 ==================
 
@@ -248,7 +250,7 @@ Course Format
 -------------
 
 The course will by offered in a primarily virtual format. We have multiple online MS students who work in the course, so it is important to provide a mechanism for remote participation. 
-The main lecture will take place virtually, but sub-teams can meet in person and/or use hybrid meetings. For the training group, lectures will pre-recorded and posted to Canvas, and the course time time will serve as an opportunity for questions or help with assignments (a "flipped" classroom). The project groups will use the course time to meet and discuss progress on projects.
+The main lecture will take place virtually, but sub-teams can meet in person and/or use hybrid meetings. For the training group, lectures are pre-recorded and posted to the [VIP MediaSpace channel](https://mediaspace.gatech.edu/channel/VIP%3A+Big+Data+%26+Quantum+Mechanics/416121972) (GT login required), and the course time will serve as an opportunity for questions or help with assignments (a "flipped" classroom). The project groups will use the course time to meet and discuss progress on projects.
 
 
 Training Schedule
